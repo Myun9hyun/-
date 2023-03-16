@@ -21,20 +21,20 @@ with tab1:
     tab1.write()
     '''
     ---
-    ### 차트임
-    * 차트임
+    ### 차트제목
+    * 차트설
     ---
     '''
     tab1.subheader("A tab with a chart")
     tab1.line_chart(data)
 with tab2:
+    tab2.write()
+    '''
+    ---
+    ### 데이터제목
+    * 데이터설명
+    ---
+    '''
     tab2.subheader("A tab with the data")
     tab2.write(data)
-   
-    '''
-    ---
-    ### 데이터임
-    * 데이터임
-    ---
-    '''
 
