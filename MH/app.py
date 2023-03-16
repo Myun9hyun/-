@@ -1,5 +1,5 @@
 import streamlit as st
-import matplotlib.pyplot as plt
+echo "backend: TkAgg" >> ~/.matplotlib/matplotlibrc
 import numpy as np
 
 arr = np.random.normal(1, 1, size=100)
