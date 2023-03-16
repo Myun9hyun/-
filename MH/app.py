@@ -43,7 +43,7 @@ with tab2:
     * 데이터설명
     ---
     '''
-     option = st.selectbox(
+    option = st.selectbox(
     '원하는 데이터를 골라주세요',
     ('Data1', 'Data2', 'Data3'))
     st.write('고르신 데이터를 출력하겠습니다:', option)
