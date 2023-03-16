@@ -6,7 +6,10 @@ data = np.random.randn(10, 1)
 
 tab0.subheader("2030의 소비트렌드 분석")
 '''
-# 우리 조의 과제는 이러합니다
+* ~홈페이지~
+[![보노보노](https://bit.ly/3lkuIre)]
+
+
 '''
 tab1.subheader("A tab with a chart")
 tab1.line_chart(data)
