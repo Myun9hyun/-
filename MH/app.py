@@ -32,6 +32,7 @@ with tab0:
 
     '''
 with tab1:
+    tab1.subheader("Chart Tab")
     tab1.write()
     
     '''
@@ -51,6 +52,7 @@ with tab1:
     elif option == 'Chart3':
         st.write("차트3입니다")    
 with tab2:
+    tab2.subheader("Data Tab")
     tab2.write()
     
     '''
@@ -72,6 +74,7 @@ with tab2:
     
     tab2.write(data)
 with tab3:
+    tab3.subheader("Link Tab")
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
     st.write()
     '''
