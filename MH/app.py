@@ -13,11 +13,15 @@ with tab0:
 
      #### Team 
 
-    | 이름 | Column 2 | Column 3 |
+    | 이름 | Role | Column 3 |
     | --- | --- | --- |
-    | 서상원 | B1 | C1 |
-    | 김명현 | B2 | C2 |
-    | 배진우 | B3 | C3 |
+    | 서상원 | 각년도의 남녀종목건수에 대한 비율 
+        시간/나이/성별에 대한 plot
+        ex) 19년도 패션 비율 = (2019년 패션 거래량/2019년 총 거래량)*100 | C1 |
+    | 김명현 | 년도, 성별(나이포함)에 대한 구매 품목 상위 5개 변화추이 그래프  Streamlit 시각화| C2 |
+    | 배진우 | countplot으로 평일/휴일의 상품판매량 대한 그래프 (x축 weekday, y축 Tag)
+        countplot으로 age에 대한 그래프 (x축 age, y축 Tag)
+        countplot으로 time에 대한 그래프 (x축 time, y축 Tag) | C3 |
     ---
     * 보여줄수 있는 자료 입니다.
     > * 차트1
