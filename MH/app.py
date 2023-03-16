@@ -26,13 +26,13 @@ with tab1:
     ---
     '''
     option = st.selectbox(
-    '원하는 차트를 골라주세요',
-    ('Chart1', 'Chart2', 'Chart3'))
+    '원하는 차트유형을 골라주세요',
+    ('Bar', 'Pie', 'Chart3'))
     st.write('고르신 차트를 출력하겠습니다:', option)
-    if option == 'Chart1':
-        st.write("차트1입니다")
-    elif option == 'Chart2':
-        st.write("차트2입니다")
+    if option == 'Bar':
+        st.write("Bar차트 유형입니다")
+    elif option == 'Pie':
+        st.write("Pie차트 유형입니다")
     elif option == 'Chart3':
         st.write("차트3입니다")    
 with tab2:
@@ -43,6 +43,16 @@ with tab2:
     * 데이터설명
     ---
     '''
+     option = st.selectbox(
+    '원하는 데이터를 골라주세요',
+    ('Data1', 'Data2', 'Data3'))
+    st.write('고르신 데이터를 출력하겠습니다:', option)
+    if option == 'Data1':
+        st.write("데이터1입니다")
+    elif option == 'Data2':
+        st.write("데이터2입니다")
+    elif option == 'Data3':
+        st.write("데이터3입니다")
     tab2.subheader("A tab with the data")
     tab2.write(data)
 
