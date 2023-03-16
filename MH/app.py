@@ -1,30 +1,51 @@
 import streamlit as st
-from streamlit import hashing
-from streamlit.hashing import _CodeHasher
-import SessionState
-# SessionState class
-class _SessionState:
-    def __init__(self, **kwargs):
-        self.__dict__.update(kwargs)
-# function to create session state object
-def get_session(key, **kwargs):
-    state = _SessionState(**kwargs)
-    if hasattr(st.session, key):
-        old_state = getattr(st.session, key)
-        if old_state:
-            state.__dict__.update(old_state.__dict__)
-    setattr(st.session, key, state)
-    return state
-# define session state key
-session_state = get_session(key='session_state', button_tab=1)
-# button to switch to tab 1
-if st.button('Go to Tab 1'):
-    session_state.button_tab = 1
-# button to switch to tab 2
-if st.button('Go to Tab 2'):
-    session_state.button_tab = 2
-# check which tab to display
-if session_state.button_tab == 1:
-    st.write('This is Tab 1')
-else:
-    st.write('This is Tab 2')
+import numpy as np
+
+tab0, tab1, tab2 = st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data"])
+data = np.random.randn(10, 1)
+
+with tab0:
+    tab0.subheader("💸2030의 소비트렌드 분석💸")
+    st.write("위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다.")
+    st.image("https://cdn.pixabay.com/photo/2018/01/07/20/56/graph-3068300_960_720.jpg", width=500)
+    '''
+    * 보여줄수 있는 자료 입니다.
+    > * 차트1
+    > * 차트2
+    > * 그래프1
+    > * 그래프2
+
+    '''
+with tab1:
+    
+    tab1.write()
+    '''
+    ---
+    ### 차트제목
+    * 차트설
+    ---
+    '''
+    option = st.selectbox(
+    '원하는 차트를 골라주세요',
+    ('Chart1', 'Chart2', 'Chart3'))
+
+st.write('고르신 차트를 출력하겠습니다:', option)
+if option == 'Chart1':
+    tab1.line_chart(data)
+elif option == 'Chart2':
+    st.write("차트2입니다")
+elif option == 'Chart3':
+    st.write("차트3입니다")    
+    tab1.subheader("A tab with a chart")
+    tab1.line_chart(data)
+with tab2:
+    tab2.write()
+    '''
+    ---
+    ### 데이터제목
+    * 데이터설명
+    ---
+    '''
+    tab2.subheader("A tab with the data")
+    tab2.write(data)
+
