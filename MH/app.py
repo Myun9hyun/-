@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 echo "backend: TkAgg" >> ~/.matplotlib/matplotlibrc
 import numpy as np
 
