@@ -28,8 +28,7 @@ with tab1:
     option = st.selectbox(
     '원하는 차트를 골라주세요',
     ('Chart1', 'Chart2', 'Chart3'))
-
-st.write('고르신 차트를 출력하겠습니다:', option)
+    st.write('고르신 차트를 출력하겠습니다:', option)
 if option == 'Chart1':
     st.write("차트1입니다")
 elif option == 'Chart2':
