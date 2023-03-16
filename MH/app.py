@@ -55,8 +55,7 @@ with tab1:
             chart_data = pd.DataFrame(
             np.random.randn(20, 3),
             columns=["a", "b", "c"])
-
-st.bar_chart(chart_data)
+            st.bar_chart(chart_data)
         elif option == 'Bar2':
             st.write("차트2입니다")
         elif option == 'Bar3':
