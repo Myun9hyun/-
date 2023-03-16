@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit import hashing
 from streamlit.hashing import _CodeHasher
 import SessionState
 # SessionState class
@@ -27,4 +28,3 @@ if session_state.button_tab == 1:
     st.write('This is Tab 1')
 else:
     st.write('This is Tab 2')
-    
