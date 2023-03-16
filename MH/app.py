@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-!pip install openpyxl
+pip install openpyxl
 
 # 엑셀 파일 업로드
+
 uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
 
 # 업로드한 파일을 데이터프레임으로 변환
