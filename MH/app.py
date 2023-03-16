@@ -5,7 +5,6 @@ tab0, tab1, tab2 = st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data"])
 data = np.random.randn(10, 1)
 
 tab0.subheader("2030의 소비트렌드 분석")
-st.write
 '''
 # 우리 조의 과제는 이러합니다
 '''
