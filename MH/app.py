@@ -9,8 +9,9 @@ with tab0:
     st.write("위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다.")
     st.image("https://cdn.pixabay.com/photo/2018/01/07/20/56/graph-3068300_960_720.jpg", width=500)
     '''
-    * ~홈페이지~
-    * 안뇽
+    * 보여줄수 있는 자료 입니다.
+    > * 차트 이름
+    > * 그래프 이름
 
     '''
 with tab1:
