@@ -3,6 +3,15 @@ import numpy as np
 
 tab0, tab1, tab2 = st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data"])
 data = np.random.randn(10, 1)
+elected_tab = st.sidebar.radio('Select Tab', tabs)
+
+# 버튼 생성
+if selected_tab == 'Home':
+    if st.button('Go to About Tab'):
+        selected_tab = 'About'
+elif selected_tab == 'About':
+    if st.button('Go to Home Tab'):
+        selected_tab = 'Home'
 with tab0:
     tab0.subheader("💸2030의 소비트렌드 분석💸")
     st.write("위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다.")
@@ -19,19 +28,3 @@ with tab2:
     tab2.subheader("A tab with the data")
     tab2.write(data)
 
-# 버튼 클릭 시 실행할 함수 정의
-def open_link(url):
-    js = f"window.open('{url}')"  # 새 탭에서 링크 열기
-    html = '<img src onerror="{}">'.format(js)  # 이미지 태그에 js 코드 삽입
-    return html
-def push_button():
-
-    if st.button('push_button'):
-        st.write('Why hello there')
-    else:
-        st.write('Goodbye')
-
-# 버튼 생성 및 클릭 시 실행할 함수 매개변수 전달
-if st.button('Open Link'):
-    link = 'https://www.google.com'  # 연결할 링크
-    st.write(open_link(link), unsafe_allow_html=True)  # 위젯에 HTML 삽입
