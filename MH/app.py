@@ -5,7 +5,7 @@ tab0, tab1, tab2 = st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data"])
 data = np.random.randn(10, 1)
 with tab0:
     tab0.subheader("2030의 소비트렌드 분석")
-    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+    tab0.st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
     '''
     * ~홈페이지~
     * 안뇽
