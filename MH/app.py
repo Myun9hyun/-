@@ -31,13 +31,11 @@ with tab1:
 
 st.write('고르신 차트를 출력하겠습니다:', option)
 if option == 'Chart1':
-    tab1.line_chart(data)
+    st.write("차트1입니다")
 elif option == 'Chart2':
     st.write("차트2입니다")
 elif option == 'Chart3':
     st.write("차트3입니다")    
-    tab1.subheader("A tab with a chart")
-    tab1.line_chart(data)
 with tab2:
     tab2.write()
     '''
