@@ -6,7 +6,8 @@ data = {'name': ['Alice', 'Bob', 'Charlie', 'David'],
         'age': [25, 30, 35, 40]}
 df = pd.DataFrame(data)
 
-
+# 웹페이지에 데이터프레임 출력
+st.write(df)
 
 option = st.selectbox(
     'Which option do you like best?',
@@ -25,5 +26,3 @@ elif option == 'Option 2':
 else:
     st.write('You selected Option 3')
     st.plotly_chart(fig)
-# 웹페이지에 데이터프레임 출력
-st.write(df)
