@@ -17,7 +17,9 @@ with tab0:
 
     '''
 with tab1:
-     '''
+    
+    tab1.write()
+    '''
     ---
     ### 차트임
     * 차트임
@@ -25,17 +27,14 @@ with tab1:
     '''
     tab1.subheader("A tab with a chart")
     tab1.line_chart(data)
-   
-   
 with tab2:
+    tab2.subheader("A tab with the data")
+    tab2.write(data)
+   
     '''
     ---
     ### 데이터임
     * 데이터임
     ---
     '''
-    tab2.subheader("A tab with the data")
-    tab2.write(data)
-   
-    
 
