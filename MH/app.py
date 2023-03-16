@@ -77,7 +77,7 @@ with tab3:
 
     st.write()
     '''
-    [![링크](https://cdn.pixabay.com/photo/2014/04/02/14/08/mouse-306274_960_720.png)](https://www.google.com/)
+    [![링크](https://img.icons8.com/stickers/256/external-link-squared.png)](https://www.google.com/)
     ('[![링크](https://cdn.pixabay.com/photo/2014/04/02/14/08/mouse-306274_960_720.png)](https://www.google.com/){: width=200px}')
 
     [데이터 링크 2](https://www.google.com/) 
