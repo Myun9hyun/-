@@ -28,7 +28,8 @@ with tab1:
 with tab2:
     tab2.subheader("A tab with the data")
     tab2.write(data)
-    st.write'''
+    st.write
+    '''
     ---
     ### 데이터임
     ---
