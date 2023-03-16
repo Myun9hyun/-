@@ -53,7 +53,7 @@ with tab1:
         st.write("차트3입니다")    
 with tab2:
     tab2.write()
-    tab2.subheader("데이터 Tab입니다.")
+    tab2.subheader("데이터 Tab")
     '''
     ---
     ### 데이터제목
@@ -73,7 +73,7 @@ with tab2:
     
     tab2.write(data)
 with tab3:
-    tab3.subheader("Link Tab입니다")
+    tab3.subheader("Link Tab")
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다")
     st.write()
     '''
