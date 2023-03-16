@@ -19,7 +19,7 @@ with tab0:
 with tab1:
     tab1.subheader("A tab with a chart")
     tab1.line_chart(data)
-    st.write
+   
     '''
     ---
     ### 차트임
@@ -29,7 +29,7 @@ with tab1:
 with tab2:
     tab2.subheader("A tab with the data")
     tab2.write(data)
-    st.write
+   
     '''
     ---
     ### 데이터임
