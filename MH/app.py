@@ -47,6 +47,15 @@ with tab1:
     st.write('고르신 차트를 출력하겠습니다:', option)
     if option == 'Bar':
         st.write("Bar차트 유형입니다")
+        option = st.selectbox(
+        '원하는 차트를 골라주세요',
+        ('Bar1', 'Bar2', 'Bar3'))'
+        if option == 'Bar1':
+            st.write("차트1입니다")
+        elif option == 'Bar2':
+            st.write("차트2입니다")
+        elif option == 'Bar3':
+            st.write("차트3입니다")
     elif option == 'Pie':
         st.write("Pie차트 유형입니다")
     elif option == 'Chart3':
