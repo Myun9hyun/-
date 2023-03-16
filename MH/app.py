@@ -10,14 +10,27 @@ with tab0:
     st.image("https://cdn.pixabay.com/photo/2018/01/07/20/56/graph-3068300_960_720.jpg", width=500)
     '''
     * 보여줄수 있는 자료 입니다.
-    > * 차트 이름
-    > * 그래프 이름
+    > * 차트1
+    > * 차트2
+    > * 그래프1
+    > * 그래프2
 
     '''
 with tab1:
     tab1.subheader("A tab with a chart")
     tab1.line_chart(data)
+    st.write
+    '''
+    ---
+    ### 차트임
+    ---
+    '''
 with tab2:
     tab2.subheader("A tab with the data")
     tab2.write(data)
+    st.write'''
+    ---
+    ### 데이터임
+    ---
+    '''
 
