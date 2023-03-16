@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 tab0, tab1, tab2, tab3= st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data", "🖇️ Link"])
 data = np.random.randn(10, 1)
@@ -76,6 +77,9 @@ with tab1:
         ('Pie1', 'Pie2', 'Pie3'))
         if option == 'Pie1':
             st.write("파이 차트 1입니다")
+            df2.plot.pie(autopct="%.2f%%") # 포맷설정
+            plt.axis('equal') # x축과 y축의 비율 일치
+            plt.show()
         elif option == 'Pie2':
             st.write("파이 차트 2입니다")
         elif option == 'Pir3':
