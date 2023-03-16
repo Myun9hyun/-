@@ -28,7 +28,7 @@ with tab1:
     option = st.selectbox(
     '원하는 차트 유형을 골라주세요',
     ('Bar', 'Pie', 'Chart3'))
-st.write('고르신 차트를 출력하겠습니다:\n', option)
+    st.write('고르신 차트를 출력하겠습니다:', option)
     if option == 'Bar':
         st.write()
         '''
