@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 
 tab0, tab1, tab2, tab3= st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data", "🖇️ Link"])
 data = np.random.randn(10, 1)
@@ -51,7 +52,11 @@ with tab1:
         '원하는 차트를 골라주세요',
         ('Bar1', 'Bar2', 'Bar3'))
         if option == 'Bar1':
-            st.write("차트1입니다")
+            chart_data = pd.DataFrame(
+            np.random.randn(20, 3),
+            columns=["a", "b", "c"])
+
+st.bar_chart(chart_data)
         elif option == 'Bar2':
             st.write("차트2입니다")
         elif option == 'Bar3':
