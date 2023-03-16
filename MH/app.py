@@ -75,9 +75,9 @@ with tab3:
     st.write()
     '''
     * colab링크1
-    [![링크](https://img.icons8.com/ios-filled/256/link.png)](https://www.google.com/)
-  
-    [데이터 링크 2](https://www.google.com/) 
+    > [데이터 링크 2](https://www.google.com/)
+    * colab링크2
+    > [데이터 링크 2](https://www.google.com/) 
     '''
 
 
