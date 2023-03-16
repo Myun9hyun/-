@@ -6,16 +6,16 @@ data = np.random.randn(10, 1)
 elected_tab = st.sidebar.radio('Select Tab', tabs)
 
 # 버튼 생성
-if selected_tab == '🏠 Homepage':
+if selected_tab == 'Homepage':
     if st.button('Go to Chart Tab'):
-        selected_tab = '📈 Chart'
+        selected_tab = 'Chart'
     elif st.button('Go to Data Tab'):
-        selected_tab = '🗃 Data'
-elif selected_tab == '📈 Chart':
+        selected_tab = 'Data'
+elif selected_tab == 'Chart':
     if st.button('Go to Homepage Tab'):
-        selected_tab = '🏠 Homepage'
+        selected_tab = 'Homepage'
     elif st.button('Go to Data Tab'):
-        selected_tab = '🗃 Data' 
+        selected_tab = 'Data' 
 with tab0:
     tab0.subheader("💸2030의 소비트렌드 분석💸")
     st.write("위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다.")
