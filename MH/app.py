@@ -29,12 +29,12 @@ with tab1:
     '원하는 차트를 골라주세요',
     ('Chart1', 'Chart2', 'Chart3'))
     st.write('고르신 차트를 출력하겠습니다:', option)
-if option == 'Chart1':
-    st.write("차트1입니다")
-elif option == 'Chart2':
-    st.write("차트2입니다")
-elif option == 'Chart3':
-    st.write("차트3입니다")    
+    if option == 'Chart1':
+        st.write("차트1입니다")
+    elif option == 'Chart2':
+        st.write("차트2입니다")
+    elif option == 'Chart3':
+        st.write("차트3입니다")    
 with tab2:
     tab2.write()
     '''
