@@ -1,9 +1,11 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
-tab0, tab1, tab2, tab3= st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data", "🖇️ Link"])
+
+
+tab0, tab1, tab2, tab3, tab4= st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data", "🖇️ Link","dd"])
 data = np.random.randn(10, 1)
 
 with tab0:
@@ -127,5 +129,10 @@ with tab3:
     * colab링크2[제목]
     > [데이터 링크 2](https://www.google.com/) 
     '''
+with tab4:
+    arr = np.random.normal(1, 1, size=100)
+    fig, ax = plt.subplots()
+    ax.hist(arr, bins=20)
 
+    st.pyplot(fig)
 
