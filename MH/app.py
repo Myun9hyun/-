@@ -74,7 +74,7 @@ with tab3:
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다.")
     st.write()
     '''
-    [![링크](https://cdn.pixabay.com/photo/2014/04/02/14/08/mouse-306274_960_720.png)](https://www.google.com/)
+    [![링크](https://cdn.pixabay.com/photo/2014/04/02/14/08/mouse-306274_960_720.png)](https://www.google.com/),width=400
 
 
     [데이터 링크 2](https://www.google.com/) 
