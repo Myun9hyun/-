@@ -24,6 +24,11 @@ def open_link(url):
     js = f"window.open('{url}')"  # 새 탭에서 링크 열기
     html = '<img src onerror="{}">'.format(js)  # 이미지 태그에 js 코드 삽입
     return html
+def push_button=True:
+    if st.button('push_button'):
+        st.write('Why hello there')
+    else:
+        st.write('Goodbye')
 
 # 버튼 생성 및 클릭 시 실행할 함수 매개변수 전달
 if st.button('Open Link'):
