@@ -34,10 +34,11 @@ with tab0:
 with tab1:
     
     tab1.write()
+    tab1.subheader("차트 Tab입니다.")
     '''
     ---
     ### 차트제목
-    * 차트설
+    * 차트설명
     ---
     '''
     option = st.selectbox(
@@ -52,6 +53,7 @@ with tab1:
         st.write("차트3입니다")    
 with tab2:
     tab2.write()
+    tab2.subheader("데이터 Tab입니다.")
     '''
     ---
     ### 데이터제목
@@ -68,9 +70,10 @@ with tab2:
         st.write("데이터2입니다")
     elif option == 'Data3':
         st.write("데이터3입니다")
-    tab2.subheader("A tab with the data")
+    
     tab2.write(data)
 with tab3:
+    tab3.subheader("Link Tab입니다.")
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다.")
     st.write()
     '''
