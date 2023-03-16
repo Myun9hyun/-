@@ -52,14 +52,23 @@ with tab1:
         '원하는 차트를 골라주세요',
         ('Bar1', 'Bar2', 'Bar3'))
         if option == 'Bar1':
+            st.write("차트1입니다")
             chart_data = pd.DataFrame(
-            np.random.randn(20, 3),
+            np.random.randn(10, 3),
             columns=["a", "b", "c"])
             st.bar_chart(chart_data)
         elif option == 'Bar2':
             st.write("차트2입니다")
+            chart_data = pd.DataFrame(
+            np.random.randn(20, 3),
+            columns=["a", "b", "c"])
+            st.bar_chart(chart_data)
         elif option == 'Bar3':
             st.write("차트3입니다")
+            chart_data = pd.DataFrame(
+            np.random.randn(30, 3),
+            columns=["a", "b", "c"])
+            st.bar_chart(chart_data)
     elif option == 'Pie':
         st.write("Pie차트 유형입니다")
         option = st.selectbox(
