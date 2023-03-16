@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 
-df = pd.DataFrame({
-    'Option': ['Option 1', 'Option 2', 'Option 3'],
-    'Value': [50, 30, 20]
-})
+# 데이터프레임 생성
+data = {'name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'age': [25, 30, 35, 40]}
+df = pd.DataFrame(data)
 
+# 웹페이지에 데이터프레임 출력
+st.write(df)
