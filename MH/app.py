@@ -1,11 +1,14 @@
 import streamlit as st
-import numpy as np
 
-tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
-data = np.random.randn(10, 1)
+# Using object notation
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
 
-tab1.subheader("A tab with a chart")
-tab1.line_chart(data)
-
-tab2.subheader("A tab with the data")
-tab2.write(data)
+# Using "with" notation
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
