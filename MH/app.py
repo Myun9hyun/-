@@ -3,7 +3,6 @@ import numpy as np
 
 tab0, tab1, tab2 = st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data"])
 data = np.random.randn(10, 1)
-elected_tab = st.sidebar.radio('Select Tab', tabs)
 
 with tab0:
     tab0.subheader("💸2030의 소비트렌드 분석💸")
@@ -12,7 +11,7 @@ with tab0:
     '''
     * ~홈페이지~
     * 안뇽
-ㅇ
+
     '''
 with tab1:
     tab1.subheader("A tab with a chart")
