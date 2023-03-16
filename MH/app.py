@@ -6,8 +6,8 @@ data = np.random.randn(10, 1)
 
 tab0.subheader("2030의 소비트렌드 분석")
 '''
-* ~홈페이지~
-[![보노보노](https://bit.ly/3lkuIre)]
+* 홈페이지!!
+st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
 
 '''
