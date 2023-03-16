@@ -15,7 +15,7 @@ if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
     st.write(df)
 
-)
+
 # https://pixabay.com/ko
 st.image(
     "https://cdn.pixabay.com/photo/2020/01/26/21/57/computer-4796017_960_720.jpg"
