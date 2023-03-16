@@ -1,14 +1,26 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
-# 엑셀 파일 업로드
+df = pd.DataFrame({
+    'Option': ['Option 1', 'Option 2', 'Option 3'],
+    'Value': [50, 30, 20]
+})
 
+option = st.selectbox(
+    'Which option do you like best?',
+    df['Option'])
 
-uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
+st.write('You selected:', option)
 
-# 업로드한 파일을 데이터프레임으로 변환
-if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)
+fig = px.pie(df, values='Value', names='Option')
 
-    # 데이터프레임 출력
-    st.write(pd.DataFrame(df))
+if option == 'Option 1':
+    st.write('You selected Option 1')
+    st.plotly_chart(fig)
+elif option == 'Option 2':
+    st.write('You selected Option 2')
+    st.plotly_chart(fig)
+else:
+    st.write('You selected Option 3')
+    st.plotly_chart(fig)
