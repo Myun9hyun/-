@@ -12,6 +12,10 @@ if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
     st.write(df)
 
+#st.write 내부만 고치기!
+st.write(
+    """
+   
 # streamlit에 pie chart 업로드
 st.pyplot(fig)
 
