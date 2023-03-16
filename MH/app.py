@@ -61,8 +61,8 @@ with tab3:
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다.")
     st.write()
     '''
-    [데이터 링크 1](https://www.google.com/)
-    [데이터 링크 2](https://www.google.com/)
+    > [데이터 링크 1](https://www.google.com/)
+    > [데이터 링크 2](https://www.google.com/)
     '''
 
 
