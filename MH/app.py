@@ -9,4 +9,4 @@ if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
 
     # 데이터프레임 출력
-    st.write(df)
+    st.write(pd.DataFrame(df))
