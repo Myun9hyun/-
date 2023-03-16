@@ -49,7 +49,7 @@ with tab1:
         st.write("Bar차트 유형입니다")
         option = st.selectbox(
         '원하는 차트를 골라주세요',
-        ('Bar1', 'Bar2', 'Bar3'))'
+        ('Bar1', 'Bar2', 'Bar3'))
         if option == 'Bar1':
             st.write("차트1입니다")
         elif option == 'Bar2':
