@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 pip install openpyxl
 
-# 엑셀 파일 업로드
+# 엑셀 파일 업로드ㅇ
 
 uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
 
