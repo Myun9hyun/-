@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
-from google.colab import files
 
-df = pd.read_excel('KDX2021_SSC_ONLINE_DATA.xlsx')
-df2 = df.copy()
-df2
-# 데이터프레임 생성
+# 엑셀 파일 업로드
+uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
 
+# 업로드한 파일을 데이터프레임으로 변환
+if uploaded_file is not None:
+    df = pd.read_excel(uploaded_file)
 
-# 웹페이지에 데이터프레임 출력
-st.dataframe(df, width=500, height=500)
+    # 데이터프레임 출력
+    st.write(df)
