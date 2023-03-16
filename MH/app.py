@@ -8,13 +8,13 @@ with tab0:
     tab0.subheader("💸2030의 소비트렌드 분석💸")
     st.write()
     '''
-    **위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다.**
+    **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
     '''
     st.image("https://cdn.pixabay.com/photo/2018/01/07/20/56/graph-3068300_960_720.jpg", width=400)
     '''
     ---
 
-     #### Team 
+     #### Team 💪
 
     | 이름 | 자료 수집 및 추출 | 데이터 시각화 |
     | :---: | :---: | :---: |
@@ -74,7 +74,8 @@ with tab3:
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다.")
     st.write()
     '''
-    [데이터 링크 1](https://www.google.com/) 
+    [![링크](https://cdn.pixabay.com/photo/2014/04/02/14/08/mouse-306274_960_720.png)](https://www.google.com/)
+
 
     [데이터 링크 2](https://www.google.com/) 
     '''
