@@ -78,9 +78,9 @@ with tab3:
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
     st.write()
     '''
-    * colab링크1
+    * colab링크1[제목]
     > [데이터 링크 2](https://www.google.com/)
-    * colab링크2
+    * colab링크2[제목]
     > [데이터 링크 2](https://www.google.com/) 
     '''
 
