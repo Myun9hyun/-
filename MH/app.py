@@ -9,7 +9,7 @@ option = st.selectbox(
 
 st.write('You selected:', option)
 {
-    print('hello')
+    # 안녕
 }
 
 
