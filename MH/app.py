@@ -1,16 +1,26 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
-
+df = pd.DataFrame({
+    'Option': ['Option 1', 'Option 2', 'Option 3'],
+    'Value': [50, 30, 20]
+})
 
 option = st.selectbox(
-    'How would you like to be contacted?',
-    ('연령대별 구매 카테고리', 'Home phone', 'Mobile phone'))
+    'Which option do you like best?',
+    df['Option'])
 
 st.write('You selected:', option)
-{
-    안녕
-}
 
+fig = px.pie(df, values='Value', names='Option')
 
-
+if option == 'Option 1':
+    st.write('You selected Option 1')
+    st.plotly_chart(fig)
+elif option == 'Option 2':
+    st.write('You selected Option 2')
+    st.plotly_chart(fig)
+else:
+    st.write('You selected Option 3')
+    st.plotly_chart(fig)
