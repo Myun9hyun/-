@@ -72,9 +72,6 @@ with tab2:
     tab2.write(data)
 with tab3:
     tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다.")
-
-    st.markdown('[![링크](https://cdn.pixabay.com/photo/2014/04/02/14/08/mouse-306274_960_720.png)](https://www.google.com/){: width=200px}')
-
     st.write()
     '''
     [![링크](https://img.icons8.com/stickers/256/external-link-squared.png)](https://www.google.com/)
