@@ -10,15 +10,12 @@ import streamlit as st
 # selected_option = st.sidebar.selectbox("Select an option", options)
 
 # 사이드바에 메뉴 만들기
-menu = ["Home", "About", "Contact"]
+menu = ["Home", "Event_reward", "Contact"]
 choice = st.sidebar.selectbox("Select an option", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "Home":
     st.write("아기자기 길드컨텐츠 관리 페이지")
-    
-    
-    
 elif choice == "Event_reward":
     st.write("Welcome to the About page")
     tab1, tab2, tab3 = st.tabs(["🏠Homepage", "Cozem", "Novel"])
