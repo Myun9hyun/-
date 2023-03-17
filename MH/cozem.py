@@ -13,7 +13,6 @@ st.write("You selected:", selected_option)
 
 
 tab1, tab2, tab3 = st.tabs(["🏠Homepage", "Cozem", "Novel"])
-st.sidebar.[element_name]
 with tab1:
    st.header("HomePage")
    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
