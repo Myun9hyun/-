@@ -59,8 +59,8 @@ elif choice == "Event_reward":
             name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
             if name:
                 weekly_mission = st.number_input("주간 입력 : ")
-                f_input = st.number_input("플래그 점수를 입력해주세요")
-                s_input = st.number_input("수로 점수를 입력해주세요")
+                f = st.number_input("플래그 점수를 입력해주세요")
+                s = st.number_input("수로 점수를 입력해주세요")
             if st.button("계산하기"):
                 result_suro = suro(s_input)
                 
