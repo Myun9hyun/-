@@ -56,7 +56,7 @@ elif choice == "Event_reward":
 
        
         while True:
-            name = st.text_input("이름을 입력하세요 (종료는 엔터): ")
+            name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
             if name:
                 weekly_mission = st.number_input("주간 입력 : ")
             if st.button("계산하기"):
