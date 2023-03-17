@@ -3,6 +3,15 @@ import numpy as np
 import streamlit as st
 
 
+
+options = ["Option 1", "Option 2", "Option 3"]
+
+# 사이드바 위젯을 생성합니다.
+selected_option = st.sidebar.selectbox("Select an option", options)
+
+# 선택된 옵션을 출력합니다.
+st.write("You selected:", selected_option)
+
 tab1, tab2, tab3 = st.tabs(["🏠Homepage", "Cozem", "Novel"])
 st.sidebar.[element_name]
 with tab1:
