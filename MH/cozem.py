@@ -11,20 +11,6 @@ flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
 
-# names.append(name)
-# weekly_missions.append(weekly_mission)
-# suros_cozem.append(suro(s))
-# suros.append(s)
-# flags_cozem.append(flag_cozem(f))
-# flags.append(f)
-
-# novels.append(novel())
-# options = ["tab1", "tab2", "Option 3"]
-
-# # 사이드바 위젯을 생성합니다.
-
-# selected_option = st.sidebar.selectbox("Select an option", options)
-
 # 사이드바에 메뉴 만들기
 menu = ["Home", "Event_reward", "Contact"]
 choice = st.sidebar.selectbox("Select an option", menu)
@@ -68,19 +54,17 @@ elif choice == "Event_reward":
             answer = suro(s) + flag_cozem(f_input)
             return int(answer)
 
-        # def cozem_sum(): # 플래그 점수와 수로 점수에 따라 계산된 코젬 갯수 합산
-        #     total_cozem = 0
-        #     total_cozem = suro(s) + flag_cozem(f)
-        #     return total_cozem
-        # if st.button("계산하기"):
-        #     result_suro = suro(s_input)
-        #     cozem_sums.append(cozem_sum())
-        #     st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sums}개 입니다.")
         if st.button("계산하기"):
             result_suro = suro(s_input)
             cozem_sums.append(cozem_sum(s_input))
             st.write(f"플래그 점수 {f_input}점, 수로 점수 {s_input}에 따른 코젬은 {int(cozem_sums[-1])}개 입니다.")
-
+        while True:
+            name = st.text_input("이름을 입력하세요 (종료는 엔터): ")
+            if name:
+                weekly_mission = st.number_input("주간 입력 : ")
+                
+        cozem_sums.append(result)
+        st.write(f"{name}님의 코젬은 {int(result)}개 입니다.")
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
