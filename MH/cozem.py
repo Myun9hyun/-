@@ -43,7 +43,7 @@ elif choice == "Event_reward":
 
         if st.button("Submit"):
             result = flag_cozem(f_input)
-            St.write(f"The result is {result}")
+            st.write(f"The result is {result}")
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
