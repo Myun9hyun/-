@@ -53,7 +53,7 @@ elif choice == "Event_reward":
             return answer
         if st.button("계산하기"):
             result_suro = suro(s_input)
-            st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sum()}개 입니다.")
+            st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {answer}개 입니다.")
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
