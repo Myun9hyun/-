@@ -11,7 +11,7 @@ with tab1:
 
 with tab2:
    st.header("코젬")
-   st.image("https://upload3.inven.co.kr/upload/2021/02/07/bbs/i13327956984.jpg?MW=800", width=200)
+   st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=200)
 
 with tab3:
    st.header("An owl")
