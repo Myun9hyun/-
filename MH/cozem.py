@@ -3,11 +3,24 @@ import numpy as np
 import streamlit as st
 
 
-options = ["tab1", "tab2", "Option 3"]
+# options = ["tab1", "tab2", "Option 3"]
 
-# 사이드바 위젯을 생성합니다.
+# # 사이드바 위젯을 생성합니다.
 
-selected_option = st.sidebar.selectbox("Select an option", options)
+# selected_option = st.sidebar.selectbox("Select an option", options)
+
+# 사이드바에 메뉴 만들기
+menu = ["Home", "About", "Contact"]
+choice = st.sidebar.selectbox("Select an option", menu)
+
+# 선택된 메뉴에 따라 다른 탭 출력
+if choice == "Home":
+    st.write("Welcome to the Home page")
+elif choice == "About":
+    st.write("Welcome to the About page")
+else:
+    st.write("Welcome to the Contact page")
+
 
 tab1, tab2, tab3 = st.tabs(["🏠Homepage", "Cozem", "Novel"])
 with tab1:
