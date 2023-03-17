@@ -41,8 +41,8 @@ elif choice == "Event_reward":
                 return i
         f_input = st.number_input("플래그 점수를 입력해주세요")
         if st.button("계산하기"):
-            result = flag_cozem(f_input)
-            st.write(f"플래그 점수 {f}점에 따른 코젬은 {result}개 입니다.")
+            result_flag = flag_cozem(f_input)
+            st.write(f"플래그 점수 {f}점에 따른 코젬은 {result_flag}개 입니다.")
         def suro(s):
             if s < 500 and s >= 0:
                 return 0
@@ -51,8 +51,8 @@ elif choice == "Event_reward":
                 return i
         s_input = st.number_input("수로 점수를 입력해주세요")
         if st.button("계산하기"):
-            result = suro(s_input)
-            st.write(f"수로 점수 {s}점에 따른 코젬은 {result}개 입니다.")
+            result_suro = suro(s_input)
+            st.write(f"수로 점수 {s}점에 따른 코젬은 {result_suro}개 입니다.")
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
