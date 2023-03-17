@@ -5,4 +5,4 @@ import streamlit as st
 
 # "with" notation
 with st.sidebar:
-    st.[element_name]
+    st.['안녕']
