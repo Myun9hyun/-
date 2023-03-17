@@ -2,7 +2,23 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
+names = [] # 길드원 닉네임 입력 리스트
+weekly_missions = [] # 주간미션 점수 입력 리스트
+suros_cozem = [] # 수로 점수에 따른 코젬 갯수 입력 리스트
+suros = []  # 수로 점수 리스트
+flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
+flags = []  # 플래그 점수 리스트
+cozem_sums = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
+novels = [] # 노블 사용 여부 리스트
 
+    names.append(name)
+    weekly_missions.append(weekly_mission)
+    suros_cozem.append(suro(s))
+    suros.append(s)
+    flags_cozem.append(flag_cozem(f))
+    flags.append(f)
+    cozem_sums.append(cozem_sum())
+    novels.append(novel())
 # options = ["tab1", "tab2", "Option 3"]
 
 # # 사이드바 위젯을 생성합니다.
@@ -53,7 +69,7 @@ elif choice == "Event_reward":
             return answer
         if st.button("계산하기"):
             result_suro = suro(s_input)
-            st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {answer}개 입니다.")
+            st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sums}개 입니다.")
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
