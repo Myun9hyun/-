@@ -20,7 +20,7 @@ if choice == "Home":
 
     tab1, tab2, tab3 = st.tabs(["🏠Homepage", "Cozem", "Novel"])
     with tab1:
-    st.header("HomePage")
+    # st.header("HomePage")
     st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
     with tab2:
