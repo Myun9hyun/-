@@ -47,7 +47,7 @@ elif choice == "Event_reward":
             if s < 500 and s >= 0:
                 return 0
             elif s >= 500:
-            i = (s // 500)
+                i = (s // 500)
                 return i
         s_input = st.number_input("수로 점수를 입력해주세요")
         if st.button("계산하기"):
