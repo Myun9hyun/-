@@ -41,14 +41,14 @@ elif choice == "Event_reward":
             elif f == 1000:
                 i = 3
                 return i
-        f_input = st.number_input("플래그 점수를 입력해주세요")
+        
         def suro(s):
             if s < 500 and s >= 0:
                 return 0
             elif s >= 500:
                 i = (s // 500)
                 return i
-        s_input = st.number_input("수로 점수를 입력해주세요")
+        
         def cozem_sum(s):
             answer = 0
             answer = suro(s) + flag_cozem(f_input)
@@ -59,6 +59,8 @@ elif choice == "Event_reward":
             name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
             if name:
                 weekly_mission = st.number_input("주간 입력 : ")
+                f_input = st.number_input("플래그 점수를 입력해주세요")
+                s_input = st.number_input("수로 점수를 입력해주세요")
             if st.button("계산하기"):
                 result_suro = suro(s_input)
                 cozem_sums.append(cozem_sum(s_input))
