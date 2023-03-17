@@ -11,14 +11,14 @@ flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
 
-    names.append(name)
-    weekly_missions.append(weekly_mission)
-    suros_cozem.append(suro(s))
-    suros.append(s)
-    flags_cozem.append(flag_cozem(f))
-    flags.append(f)
-    cozem_sums.append(cozem_sum())
-    novels.append(novel())
+names.append(name)
+weekly_missions.append(weekly_mission)
+suros_cozem.append(suro(s))
+suros.append(s)
+flags_cozem.append(flag_cozem(f))
+flags.append(f)
+cozem_sums.append(cozem_sum())
+novels.append(novel())
 # options = ["tab1", "tab2", "Option 3"]
 
 # # 사이드바 위젯을 생성합니다.
