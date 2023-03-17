@@ -39,11 +39,11 @@ elif choice == "Event_reward":
             elif f == 1000:
                 i = 3
                 return i
-        f_input = st.number_input("Enter a value for f")
+        i_input = st.number_input("Enter a value for f")
 
         if st.button("Submit"):
-            result = flag_cozem(f_input)
-            st.write(f"The result is {result}")
+            result = flag_cozem(i_input)
+            st.write(f"The result is {result} 개")
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
