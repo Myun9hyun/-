@@ -66,7 +66,7 @@ elif choice == "Event_reward":
         def cozem_sum(s):
             answer = 0
             answer = suro(s) + flag_cozem(f_input)
-            return answer
+            return int(answer)
 
         # def cozem_sum(): # 플래그 점수와 수로 점수에 따라 계산된 코젬 갯수 합산
         #     total_cozem = 0
@@ -79,7 +79,7 @@ elif choice == "Event_reward":
         if st.button("계산하기"):
             result_suro = suro(s_input)
             cozem_sums.append(cozem_sum(s_input))
-            st.write(f"플래그 점수 {f_input}점, 수로 점수 {s_input}에 따른 코젬은 {cozem_sums}개 입니다.")
+            st.write(f"플래그 점수 {f_input}점, 수로 점수 {s_input}에 따른 코젬은 {int(cozem_sums[-1])}개 입니다.")
 
     with tab3:
         st.header("An owl")
