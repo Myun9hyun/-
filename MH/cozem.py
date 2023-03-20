@@ -89,6 +89,9 @@ elif choice == "Event_reward":
             st.write(f"{name}님의 이번주 길드컨텐츠 코젬 갯수입니다.")
             st.write(f"플래그 점수 {int(f)}점, 수로 점수 {int(s)}점으로 총 {int(cozem_sum)}개 입니다.")
 
+            
+            
+        if st.button("계산 종료"):
             names.append(name)
             weekly_missions.append(weekly_mission)
             suros_cozem.append(suro(s))
@@ -98,14 +101,12 @@ elif choice == "Event_reward":
             cozem_sums.append(cozem_sum)
             novels.append(novel())
 
-            
-        if st.button("계산 종료"):
             weekly_total = sum(cozem_sums)
             st.write()
             st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
            
     with tab3:
-        st.header("An owl")
+        st.header("길드컨텐츠 이행여부 차트")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
          # 데이터프레임 생성
         df = pd.DataFrame({
