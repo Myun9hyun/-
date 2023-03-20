@@ -97,15 +97,17 @@ elif choice == "Event_reward":
             flags.append(f)
             cozem_sums.append(cozem_sum)
             novels.append(novel())
+
             
-            weekly_total = sum(cozem_sums)
-            st.write()
-            st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
         if st.button("계산 종료"):
             weekly_total = sum(cozem_sums)
             st.write()
             st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
-            # 데이터프레임 생성
+           
+    with tab3:
+        st.header("An owl")
+        st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+         # 데이터프레임 생성
             df = pd.DataFrame({
                 'Name': names,
                 'Weekly_Mission' : weekly_missions,
@@ -118,8 +120,5 @@ elif choice == "Event_reward":
             }
             )
             st.DataFrame(df)
-    with tab3:
-        st.header("An owl")
-        st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
 else:
     st.write("Welcome to the Contact page")
