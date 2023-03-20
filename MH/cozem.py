@@ -97,7 +97,7 @@ elif choice == "Event_reward":
             cozem_sums.append(int(cozem_sum))
             novels.append(novel())
             st.write(f"길드컨텐츠 참여자 입니다. {names}")
-            st.write(f"끝")
+            st.write(df[df['Novel'] == 'X'])
 
             weekly_total = sum(cozem_sums)
             st.write()
