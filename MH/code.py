@@ -1,3 +1,18 @@
+import streamlit as st
+import pandas as pd
+
+# 초기 데이터프레임 생성
+df = pd.DataFrame({
+    '이름': ['Alice', 'Bob', 'Charlie'],
+    '나이': [25, 30, 35],
+    '성별': ['여성', '남성', '남성']
+})
+
+# 데이터프레임 출력
+st.write(df)
+
+# 입력 폼 생성
+st.header('새로운 데이터 추가')
 while True:
     name = st.text_input('이름')
     age = st.number_input('나이')
