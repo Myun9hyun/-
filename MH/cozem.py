@@ -99,7 +99,7 @@ elif choice == "Event_reward":
             
             
         if st.button("계산 종료"):
-            names.append(name)
+            names.append(name) 
             weekly_missions.append(weekly_mission)
             suros_cozem.append(suro(s))
             suros.append(s)
