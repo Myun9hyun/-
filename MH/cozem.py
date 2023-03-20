@@ -53,19 +53,32 @@ elif choice == "Event_reward":
         #     answer = 0
         #     answer = suro(s) + flag_cozem(f)
         #     return int(answer)
-        while True:
-            name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
-            weekly_mission = int(st.number_input("주간 입력 : "))
-            f = int(st.number_input("플래그 점수를 입력해주세요"))
-            s = int(st.number_input("수로 점수를 입력해주세요"))
+        
+        name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
+        weekly_mission = int(st.number_input("주간 입력 : "))
+        f = int(st.number_input("플래그 점수를 입력해주세요"))
+        s = int(st.number_input("수로 점수를 입력해주세요"))
 
-            if st.button("계산하기"):
-                result_suro = suro(s)
-                cozem_sum = suro(s) + flag_cozem(f)
-                st.write(f"{name}님의 이번주 길드컨텐츠 코젬 갯수입니다.")
-                st.write(f"플래그 점수 {int(f)}점, 수로 점수 {int(s)}점으로 총 {int(cozem_sum)}개 입니다.")
-            if st.button("계산 종료"):
-                break
+        if st.button("계산하기"):
+            result_suro = suro(s)
+            cozem_sum = suro(s) + flag_cozem(f)
+            st.write(f"{name}님의 이번주 길드컨텐츠 코젬 갯수입니다.")
+            st.write(f"플래그 점수 {int(f)}점, 수로 점수 {int(s)}점으로 총 {int(cozem_sum)}개 입니다.")
+
+            names.append(name)
+            weekly_missions.append(weekly_mission)
+            suros_cozem.append(suro(s))
+            suros.append(s)
+            flags_cozem.append(flag_cozem(f))
+            flags.append(f)
+            cozem_sums.append(cozem_sum)
+            novels.append(novel())
+
+        if st.button("계산 종료"):
+
+        weekly_total = sum(cozem_sums)
+        st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
+
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
