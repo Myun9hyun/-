@@ -61,7 +61,7 @@ elif choice == "Event_reward":
 
         if st.button("계산하기"):
             result_suro = suro(s)
-            st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {int(cozem_sums[-1])}개 입니다.")
+            cozem_sum()
             # st.write(cozem_sums[-1])
          
 
