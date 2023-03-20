@@ -49,10 +49,10 @@ elif choice == "Event_reward":
                 i = (s // 500)
                 return i
         
-        def cozem_sum(s):
-            answer = 0
-            answer = suro(s) + flag_cozem(f)
-            return int(answer)
+        # def cozem_sum(s):
+        #     answer = 0
+        #     answer = suro(s) + flag_cozem(f)
+        #     return int(answer)
 
         name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
         weekly_mission = st.number_input("주간 입력 : ")
@@ -61,7 +61,7 @@ elif choice == "Event_reward":
 
         if st.button("계산하기"):
             result_suro = suro(s)
-            st.write(answer)
+            st.write(suro(s) + flag_cozem(f))
       
     with tab3:
         st.header("An owl")
