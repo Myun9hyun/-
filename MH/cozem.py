@@ -105,7 +105,7 @@ elif choice == "Event_reward":
             suros.append(s)
             flags_cozem.append(flag_cozem(f))
             flags.append(f)
-            cozem_sums.append(cozem_sum)
+            # cozem_sums.append(cozem_sum)
             novels.append(novel())
             st.write(names)
 
