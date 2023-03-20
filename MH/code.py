@@ -4,7 +4,7 @@ import pandas as pd
 # 초기 데이터프레임 생성
 df = pd.DataFrame({
     '이름': [],
-    '나이': [], 
+    '나이': [],
     '성별': []
 })
 
