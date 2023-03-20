@@ -1,31 +1,27 @@
 import streamlit as st
 import pandas as pd
 
-# 초기 데이터프레임 생성
-df = pd.DataFrame({
-    '이름': ['Alice', 'Bob', 'Charlie'],
-    '나이': [25, 30, 35],
-    '성별': ['여성', '남성', '남성']
-})
+# 빈 리스트 생성
+name_list = []
+score_list = []
 
-# 데이터프레임 출력
-st.write(df)
+# 이름과 점수를 입력받는 함수
+def input_name_score():
+    name = st.text_input("이름을 입력하세요:")
+    score = st.number_input("점수를 입력하세요:", min_value=0, max_value=100, step=1)
+    return name, score
 
-# 입력 폼 생성
-st.header('새로운 데이터 추가')
-name = st.text_input('이름', key='new_name')
-age = st.number_input('나이', key='new_age')
-gender = st.selectbox('성별', ['여성', '남성'], key='new_gender')
+# Streamlit 앱 생성
+st.title("이름과 점수 입력하기")
 
-# "Add Row" 버튼 클릭시 새로운 행 추가
-if st.button('Add Row'):
-    new_row = {'이름': name, '나이': age, '성별': gender}
-    df = df.append(new_row, ignore_index=True)
-    st.write('새로운 데이터가 추가되었습니다.')
+# 이름과 점수 입력 받기
+while st.button("입력"):
+    name, score = input_name_score()
+    if name and score:
+        name_list.append(name)
+        score_list.append(score)
+
+# '표 만들기' 버튼을 누르면 데이터프레임으로 표시
+if st.button("표 만들기"):
+    df = pd.DataFrame({"이름": name_list, "점수": score_list})
     st.write(df)
-
-# "Add More" 버튼 클릭시 새로운 입력 폼 생성
-if st.button('Add More'):
-    st.text_input('이름', key=f'new_name{len(df)+1}')
-    st.number_input('나이', key=f'new_age{len(df)+1}')
-    st.selectbox('성별', ['여성', '남성'], key=f'new_gender{len(df)+1}')
