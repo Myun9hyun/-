@@ -119,6 +119,6 @@ elif choice == "Event_reward":
             'Novel' : novels,
             }
             )
-        st.DataFrame(df)
+        st.dataframe(df)
 else:
     st.write("Welcome to the Contact page")
