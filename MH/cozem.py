@@ -20,12 +20,12 @@ if choice == "Home":
     st.write("아기자기 길드컨텐츠 관리 페이지")
 elif choice == "Event_reward":
     st.write("Welcome to the About page")
-    tab1, tab2, tab3 = st.tabs(["🏠Homepage", "Cozem", "Novel"])
+    tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "Novel"])
     with tab1:
-        st.header("HomePage")
+        st.header("🏠HomePage")
         st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
     with tab2:
-        st.header("Core Gemstone💎")
+        st.header("💎코어젬스톤💎")
         st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=400)
         def flag_cozem(f):
             # input(f"f입력 : {n}   ")
@@ -63,7 +63,7 @@ elif choice == "Event_reward":
                 s = st.number_input("수로 점수를 입력해주세요")
             if st.button("계산하기"):
                 result_suro = suro(s)
-                st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {int(cozem_sums[-1])}개 입니다.")
+                st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sums}개 입니다.")
 
             if st.button("계산 종료하기"):
                 break
