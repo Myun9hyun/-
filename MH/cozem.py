@@ -82,3 +82,8 @@ else:
     st.write("Welcome to the Contact page")
 
 
+if st.button('Add More'):
+    new_row = {'이름': name, '나이': age, '성별': gender}
+    df = df.append(new_row, ignore_index=True)
+    st.write('새로운 데이터가 추가되었습니다.')
+    st.write(df)
