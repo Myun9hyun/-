@@ -20,7 +20,7 @@ while True:
     if not name or not score:
         break
     name_list.append(name)
-    score_list.append(score) 
+    score_list.append(score)
 
 # '표 만들기' 버튼을 누르면 데이터프레임으로 표시
 if st.button("표 만들기"):
