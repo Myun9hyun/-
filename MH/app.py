@@ -122,7 +122,6 @@ with tab2:
         st.write("데이터2입니다")
     elif option == 'Data3':
         st.write("데이터3입니다")
-    
     tab2.write(data)
 with tab3:
     tab3.subheader("🖇️ Link Tab")
