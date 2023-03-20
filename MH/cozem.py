@@ -61,35 +61,8 @@ elif choice == "Event_reward":
 
         if st.button("계산하기"):
             result_suro = suro(s)
-            cozem_sums[-1]
-            # st.write(cozem_sums[-1])
-         
-
-        # while True:
-        #     name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
-        #     if name:
-        #         weekly_mission = st.number_input("주간 입력 : ")
-        #         f = st.number_input("플래그 점수를 입력해주세요")
-        #         s = st.number_input("수로 점수를 입력해주세요")
-        #     if st.button("계산하기"):
-        #         result_suro = suro(s)
-        #         # st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {answer}개 입니다.")
-        #         st.write(cozem_sums[-1])
-
-
-        #     if st.button("계산 종료하기"):
-        #         st.dataframe(df)
-        #         break
-            # st.write(f"플래그 점수 {f_input}점, 수로 점수 {s_input}에 따른 코젬은 {int(cozem_sums[-1])}개 입니다.")
-            # st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sums}개 입니다.")
-            
-        
-
-        # cozem_sums.append(result)
-        # st.write(f"{name}님의 코젬은 {int(result)}개 입니다.")
-        # cozem_sums.append(cozem_sum(s))
-            # if not st.button('더 추가하기'):
-            #     st.write('데이터 추가를 종료합니다.')
+            st.write(answer)
+      
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
