@@ -28,7 +28,9 @@ if st.button('Add More'):
     name = ''
     age = 0
     gender = ''
-
+else:
+    pass
+    
     # 루프 탈출 조건
     if not st.button('더 추가하기'):
         st.write('데이터 추가를 종료합니다.')
