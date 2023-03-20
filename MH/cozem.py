@@ -63,7 +63,8 @@ elif choice == "Event_reward":
                 s = st.number_input("수로 점수를 입력해주세요")
             if st.button("계산하기"):
                 result_suro = suro(s)
-                st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sums}개 입니다.")
+                st.write(f"플래그 점수 {f}점, 수로 점수 {s}에 따른 코젬은 {cozem_sums[-1]}개 입니다.")
+                
 
             if st.button("계산 종료하기"):
                 break
