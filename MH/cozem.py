@@ -99,6 +99,7 @@ elif choice == "Event_reward":
             
             
         if st.button("계산 종료"):
+            cozem_sum = suro(s) + flag_cozem(f)
             names.append(name) 
             weekly_missions.append(weekly_mission)
             suros_cozem.append(suro(s))
