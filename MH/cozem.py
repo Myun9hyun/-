@@ -78,7 +78,7 @@ elif choice == "Event_reward":
         #     answer = suro(s) + flag_cozem(f)
         #     return int(answer)
         
-        name = st.text_input("이름을 입력하세요 (종료는 엔터): ", key="name_input")
+        name = st.text_input("이름을 입력하세요 : ", key="name_input")
         weekly_mission = int(st.number_input("주간 입력 : "))
         f = int(st.number_input("플래그 점수를 입력해주세요"))
         s = int(st.number_input("수로 점수를 입력해주세요"))
