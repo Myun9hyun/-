@@ -32,4 +32,4 @@ if st.button('Add More'):
     # 루프 탈출 조건
     if not st.button('더 추가하기'):
         st.write('데이터 추가를 종료합니다.')
-    break
+        break
