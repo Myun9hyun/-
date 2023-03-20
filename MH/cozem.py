@@ -48,6 +48,7 @@ elif choice == "Event_reward":
             elif s >= 500:
                 i = (s // 500)
                 return i
+
         def novel(): # 길드 컨텐츠 조건에 따른 노블 사용 가능 여부 출력
             if (weekly_mission >= 3) and (s > 0) and (f > 0):
                 return 'O'
@@ -57,6 +58,20 @@ elif choice == "Event_reward":
                 return 'O'
             else:
                 return 'X'
+
+        def divide_cozem(weekly_total):
+            cozem = weekly_total // 4  # 몫
+            cozem_else = weekly_total % 4  # 나머지
+            if weekly_total < 3:  # 입력값이 3 미만인 경우
+                return [weekly_total] + [0] * (3 - weekly_total)
+            if cozem_else == 0:  # 4로 나누어 떨어지는 경우
+                return [cozem] * 4
+            elif cozem_else == 1:  # 4로 나누었을 때 나머지가 1인 경우
+                return [cozem_else, cozem_else, cozem_else, cozem_else + 1]
+            elif cozem_else == 2:  # 4으로 나누었을 때 나머지가 2인 경우
+                return [cozem_else, cozem_else, cozem_else + 1, cozem_else + 1]
+            elif cozem_else == 3:  # 4으로 나누었을 때 나머지가 3인 경우
+                return [cozem_else, cozem_else + 1, cozem_else + 1, cozem_else + 1]
         
         # def cozem_sum(s):
         #     answer = 0
@@ -84,10 +99,21 @@ elif choice == "Event_reward":
             novels.append(novel())
 
         if st.button("계산 종료"):
-
             weekly_total = sum(cozem_sums)
+            st.write()
             st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
-
+            # 데이터프레임 생성
+            df = pd.DataFrame({
+                'Name': names,
+                'Weekly_Mission' : weekly_missions,
+                'Suro' : suros,
+                'Suro_Cozem' : suros_cozem, 
+                'Flag' : flags,
+                'Flag_Cozem' : flags_cozem,
+                'Cozem_Total' : cozem_sums,
+                'Novel' : novels,
+            }
+            )
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
