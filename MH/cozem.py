@@ -48,6 +48,15 @@ elif choice == "Event_reward":
             elif s >= 500:
                 i = (s // 500)
                 return i
+        def novel(): # 길드 컨텐츠 조건에 따른 노블 사용 가능 여부 출력
+            if (weekly_mission >= 3) and (s > 0) and (f > 0):
+                return 'O'
+            elif weekly_mission == 5 and s >= 1500:
+                return 'O'
+            elif weekly_mission == 5 and f >= 650:
+                return 'O'
+            else:
+                return 'X'
         
         # def cozem_sum(s):
         #     answer = 0
