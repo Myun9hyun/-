@@ -8,7 +8,7 @@ suros_cozem = [] # 수로 점수에 따른 코젬 갯수 입력 리스트
 suros = []  # 수로 점수 리스트
 flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 flags = []  # 플래그 점수 리스트
-cozem_sums = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
+cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
 
 # 사이드바에 메뉴 만들기
@@ -105,7 +105,7 @@ elif choice == "Event_reward":
             suros.append(s)
             flags_cozem.append(flag_cozem(f))
             flags.append(f)
-            cozem_sums.append(cozem_sum)
+            cozem_sums.append(int(cozem_sum))
             novels.append(novel())
             st.write(f"길드컨텐츠 참여자 입니다. {names}")
             st.write(f"끝")
