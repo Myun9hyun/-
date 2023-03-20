@@ -62,7 +62,8 @@ elif choice == "Event_reward":
         if st.button("계산하기"):
             result_suro = suro(s)
             cozem_sum = suro(s) + flag_cozem(f)
-            st.write(f"이번주 코젬의 합은 {cozem_sum}개 입니다.")
+            st.write(f"{name}님의 이번주 길드컨텐츠 코젬 갯수입니다.")
+            st.write(f"플래그 점수 {f}점, 수로 점수{s}로 총 {cozem_sum}개 입니다.")
       
     with tab3:
         st.header("An owl")
