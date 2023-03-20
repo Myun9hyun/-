@@ -108,17 +108,17 @@ elif choice == "Event_reward":
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
          # 데이터프레임 생성
-            df = pd.DataFrame({
-                'Name': names,
-                'Weekly_Mission' : weekly_missions,
-                'Suro' : suros,
-                'Suro_Cozem' : suros_cozem, 
-                'Flag' : flags,
-                'Flag_Cozem' : flags_cozem,
-                'Cozem_Total' : cozem_sums,
-                'Novel' : novels,
+        df = pd.DataFrame({
+            'Name': names,
+            'Weekly_Mission' : weekly_missions,
+            'Suro' : suros,
+            'Suro_Cozem' : suros_cozem, 
+            'Flag' : flags,
+            'Flag_Cozem' : flags_cozem,
+            'Cozem_Total' : cozem_sums,
+            'Novel' : novels,
             }
             )
-            st.DataFrame(df)
+        st.DataFrame(df)
 else:
     st.write("Welcome to the Contact page")
