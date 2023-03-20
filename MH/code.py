@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 
 def input_name_score():
-    name = st.text_input("이름을 입력하세요:", key="name_input_2")
-
+    name = st.text_input("이름을 입력하세요:", key="name_input")
     score = st.text_input("점수를 입력하세요:", key="score_input")
     return name, score
+
 
 st.title("학생 점수 입력")
 
