@@ -114,6 +114,7 @@ elif choice == "Event_reward":
                 'Novel' : novels,
             }
             )
+            st.DataFrame(df)
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
