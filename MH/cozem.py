@@ -99,6 +99,14 @@ elif choice == "Event_reward":
             
             
         if st.button("계산 종료"):
+            names.append(name)
+            weekly_missions.append(weekly_mission)
+            suros_cozem.append(suro(s))
+            suros.append(s)
+            flags_cozem.append(flag_cozem(f))
+            flags.append(f)
+            cozem_sums.append(cozem_sum)
+            novels.append(novel())
             st.write(names)
 
             weekly_total = sum(cozem_sums)
