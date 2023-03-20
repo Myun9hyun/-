@@ -136,13 +136,13 @@ elif choice == "Event_reward":
             }
             )
         st.dataframe(df)
-        xlsx = convert_df(df)
+        csv = convert_df(df)
 
         st.download_button(
             label="다운",
-            data=xlsx,
+            data=csv,
             file_name= st.text_input("파일 이름을 입력해주세요 : ")
-            mime='text/xlsx',
+            mime='text/csv',
         )
 else:
     st.write("Welcome to the Contact page")
