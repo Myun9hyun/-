@@ -97,7 +97,10 @@ elif choice == "Event_reward":
             flags.append(f)
             cozem_sums.append(cozem_sum)
             novels.append(novel())
-
+            
+            weekly_total = sum(cozem_sums)
+            st.write()
+            st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
         if st.button("계산 종료"):
             weekly_total = sum(cozem_sums)
             st.write()
