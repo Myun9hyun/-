@@ -33,3 +33,7 @@ if st.button('Add More'):
     if not st.button('더 추가하기'):
         st.write('데이터 추가를 종료합니다.')
         break
+    else :
+        pass    
+
+    
