@@ -73,6 +73,8 @@ elif choice == "Event_reward":
         # cozem_sums.append(result)
         # st.write(f"{name}님의 코젬은 {int(result)}개 입니다.")
         cozem_sums.append(cozem_sum(s))
+            if not st.button('더 추가하기'):
+                st.write('데이터 추가를 종료합니다.')
     with tab3:
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
