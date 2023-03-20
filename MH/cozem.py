@@ -136,5 +136,7 @@ elif choice == "Event_reward":
             }
             )
         st.dataframe(df)
+        filename = st.write("저장할 파일명을 입력하세요: ")
+        st.download_button('Download some text',filename)
 else:
     st.write("Welcome to the Contact page")
