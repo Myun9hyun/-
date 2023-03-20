@@ -61,7 +61,7 @@ elif choice == "Event_reward":
 
         if st.button("계산하기"):
             result_suro = suro(s)
-            cozem_sum()
+            cozem_sums[-1]
             # st.write(cozem_sums[-1])
          
 
