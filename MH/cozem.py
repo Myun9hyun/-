@@ -94,7 +94,7 @@ elif choice == "Event_reward":
             suros.append(s)
             flags_cozem.append(flag_cozem(f))
             flags.append(f)
-            cozem_sums.append(cozem_sum)
+            cozem_sums.append(int(cozem_sum))
             novels.append(novel())
             
             
@@ -109,6 +109,7 @@ elif choice == "Event_reward":
             novels.append(novel())
             st.write(f"길드컨텐츠 참여자 입니다. {names}")
             st.write(f"끝")
+
             weekly_total = sum(cozem_sums)
             st.write()
             st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
