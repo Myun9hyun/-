@@ -142,7 +142,7 @@ elif choice == "Event_reward":
             label="다운",
             data=csv,
             file_name= st.text_input("파일 이름을 입력해주세요 : ")
-            mime='text/csv',
+            df='text/csv',
         )
 else:
     st.write("Welcome to the Contact page")
