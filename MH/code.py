@@ -10,9 +10,9 @@ name = st.text_input('이름')
 score = st.number_input('점수')
 
 # '추가' 버튼을 누르면 입력받은 값을 리스트에 추가합니다.
-# if st.button('추가'):
-    # name_list.append(name)
-    # score_list.append(score)
+if st.button('추가'):
+    name_list.append(name)
+    score_list.append(score)
 st.write('이름: {}, 점수: {}'.format(name, score))
     
     # 추가한 값을 리스트에 출력합니다.
