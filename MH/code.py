@@ -25,6 +25,30 @@
 #     score_list.append(score)
 #     st.write('이름 리스트: {}'.format(name_list))
 #     st.write('점수 리스트: {}'.format(score_list))
+# import streamlit as st
+
+# # 이름과 점수를 담을 리스트
+# name_list = []
+# score_list = []
+
+# # 사용자로부터 이름과 점수 값을 입력받음
+# while True:
+#     name = st.text_input('이름을 입력하세요:', key='name_input')
+#     score = st.number_input('점수를 입력하세요:', key='score_input')
+
+#     if st.button('추가'):
+#         name_list.append(name)
+#         score_list.append(score)
+#         st.success('입력되었습니다.')
+#     elif st.button('종료'):
+#         st.write('입력이 종료되었습니다.')
+#         break
+
+# # 입력된 전체 값을 출력
+# st.write('이름\t점수')
+# st.write('----\t----')
+# for i in range(len(name_list)):
+#     st.write('{}\t{}'.format(name_list[i], score_list[i]))
 import streamlit as st
 
 # 이름과 점수를 담을 리스트
