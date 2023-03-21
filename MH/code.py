@@ -1,21 +1,21 @@
 import streamlit as st
-import pandas as pd
 
-def input_name_score():
-    name = st.text_input("이름을 입력하세요:", key="name_input")
-    score = st.text_input("점수를 입력하세요:", key="score_input")
-    return name, score
+# 이름과 점수를 저장할 리스트를 생성합니다.
+name_list = []
+score_list = []
 
+# 입력 폼을 생성합니다.
+st.write('이름과 점수를 입력하세요.')
+name = st.text_input('이름')
+score = st.number_input('점수')
 
-st.title("학생 점수 입력")
+# '추가' 버튼을 누르면 입력받은 값을 리스트에 추가합니다.
+if st.button('추가'):
+    name_list.append(name)
+    score_list.append(score)
+    st.write('이름: {}, 점수: {}'.format(name, score))
 
-students = []
-while True:
-    name, score = input_name_score()
-    if st.button("입력"):
-        students.append({"name": name, "score": score})
-    if st.button("멈춤"):
-        break
-
-df = pd.DataFrame(students)
-st.dataframe(df)
+# '종료' 버튼을 누르면 리스트를 출력합니다.
+if st.button('종료'):
+    st.write('이름 리스트: {}'.format(name_list))
+    st.write('점수 리스트: {}'.format(score_list))
