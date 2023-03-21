@@ -15,6 +15,9 @@ if st.button('추가'):
     score_list.append(score)
     st.write('이름: {}, 점수: {}'.format(name, score))
     
+    # 추가한 값을 리스트에 출력합니다.
+    st.write('이름 리스트: {}'.format(name_list))
+    st.write('점수 리스트: {}'.format(score_list))
 
 # '종료' 버튼을 누르면 리스트를 출력합니다.
 if st.button('종료'):
