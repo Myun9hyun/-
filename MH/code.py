@@ -33,8 +33,8 @@ score_list = []
 
 # 사용자로부터 이름과 점수 값을 입력받음
 while True:
-    name = st.text_input('이름을 입력하세요:')
-    score = st.number_input('점수를 입력하세요:')
+    name = st.text_input('이름을 입력하세요:', key='name_input')
+    score = st.number_input('점수를 입력하세요:', key='score_input')
 
     if st.button('추가'):
         name_list.append(name)
