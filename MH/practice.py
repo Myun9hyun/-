@@ -62,6 +62,8 @@ if choice == "메인페이지":
         except pd.errors.EmptyDataError:
             st.error("CSV 파일을 찾을 수 없습니다.")
             st.stop()
+        # DataFrame 출력
+        st.write(df)
         tab2.write()
         '''
         ##### csv파일의 일부입니다.
@@ -80,8 +82,7 @@ if choice == "메인페이지":
         
         
 
-        # DataFrame 출력
-        st.write(df)
+        
 
 
     with tab3:
