@@ -24,10 +24,10 @@ if choice == "메인페이지":
 
         | 이름 | 팀장/팀원  | 역할 분담 | 그 외 역할 | 개인GitHub링크 |
         | :---: | :---: | :---: | :---: | :---: |
-        | 이규린 | 팀장👑 | 데이터 전처리✏️ | PPT발표💻 |ㅇㅇ|
-        | 강성욱 | 팀원🐜  | 데이터 시각화👓 | PPT발표💻 |ㅇㅇ|
-        | 김명현 | 팀원🐜 | 데이터 시각화👓 | 발표자료제작📝 |ㅇㅇ|
-        | 김지영 | 팀원🐜  | 데이터 전처리✏️ | 발표자료제작📝 |ㅇㅇ|
+        | 이규린 | 팀장👑 | 데이터 전처리✏️ | PPT발표💻 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/whataLIN)|
+        | 강성욱 | 팀원🐜  | 데이터 시각화👓 | PPT발표💻 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/qus0in/streamlit_example/tree/main/01_linear_regression)|
+        | 김명현 | 팀원🐜 | 데이터 시각화👓 | 발표자료제작📝 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/Myun9hyun)|
+        | 김지영 | 팀원🐜  | 데이터 전처리✏️ | 발표자료제작📝 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/jyeongvv)|
         ---
         ### Chart & Data List 📝
         > * 막대 차트
