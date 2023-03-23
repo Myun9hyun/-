@@ -28,10 +28,10 @@ if choice == "메인페이지":
 
     | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 |
     | :---: | :---: | :---: | :---: |
-    | 길마👑 | 뱌닢 | 나이트로드 | [![GitHub](https://img.icons8.com/material-rounded/256/phone--v1.png)](https://open.kakao.com/o/spPPOAhc) |
-    | 부마 | 릎샴  | 아크 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sxIoGj0c) |
-    | 부마 | 둥둥향 | 캐논슈터 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sl6WBJUc) |
-    | 부마 | 돌체라페  | 메르세데스 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sEmQw9Ye) |
+    | 길마👑 | 뱌닢 | 나이트로드 | [![GitHub](https://badgen.net/badge/color/yellow/yellow)](https://open.kakao.com/o/spPPOAhc) |
+    | 부마 | 릎샴  | 아크 | [![GitHub](https://badgen.net/badge/color/yellow/yellow)](https://open.kakao.com/o/sxIoGj0c) |
+    | 부마 | 둥둥향 | 캐논슈터 | ![GitHub](https://badgen.net/badge/color/yellow/yellow)](https://open.kakao.com/o/sl6WBJUc) |
+    | 부마 | 돌체라페  | 메르세데스 | ![GitHub](https://badgen.net/badge/color/yellow/yellow)](https://open.kakao.com/o/sEmQw9Ye) |
 
     [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/spPPOAhc)
 
