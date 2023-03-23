@@ -18,7 +18,7 @@ choice = st.sidebar.selectbox("Select an option", menu)
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
     st.header("❤아기자기 길드컨텐츠 관리 페이지❤")
-    st.write
+    st.write()
     '''
     ---
     ### 아기자기 길드 페이지에 오신것을 환영합니다😊
