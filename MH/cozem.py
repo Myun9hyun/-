@@ -22,7 +22,10 @@ if choice == "메인페이지":
     '''
     ---
     ### 아기자기 길드 페이지에 오신것을 환영합니다😊
-
+    '''
+    st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=200)
+    st.write()
+    '''
     ---
     ### 길드 간부진 💪
 
@@ -32,8 +35,6 @@ if choice == "메인페이지":
     | 부마 | 릎샴  | 아크 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sxIoGj0c) |
     | 부마 | 둥둥향 | 캐논슈터 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sl6WBJUc) |
     | 부마 | 돌체라페  | 메르세데스 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sEmQw9Ye) |
-
-    [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/spPPOAhc)
 
     :subject/:status/
     https://badgen.net/badge/icon/discord?icon=discord&label
