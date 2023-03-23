@@ -4,11 +4,11 @@ import pandas as pd
 
 
 
-tab0, tab1, tab2, tab3 = st.tabs(["🏠 Homepage", "📈 Chart", "🗃 Data", "🖇️ Link"])
+tab0, tab1, tab2, tab3 = st.tabs(["🏠 Mainpage", "📈 Chart", "🗃 Data", "🖇️ Link"])
 data = np.random.randn(10, 1)
 
 with tab0:
-    tab0.subheader("💸시간대 별 2030 광고 노출 추천리스트💸")
+    tab0.subheader("🏀스포츠 Too Too🏀")
     st.write()
     '''
     **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
@@ -21,10 +21,10 @@ with tab0:
 
     | 이름 | 팀장/팀원  | 역할 분담 | 그 외 역할 |
     | :---: | :---: | :---: | :---: |
-    | 이규린 | 팀장 | 데이터 전처리 | PPT발표 |
-    | 강성욱 | 팀원  | 데이터 시각화 | PPT발표 |
-    | 김명현 | 팀원 | 데이터 시각화 | 발표자료제작 |
-    | 김지영 | 팀원  | 데이터 전처 | 발표자료제작 |
+    | 이규린 | 팀장👑 | 데이터 전처리✏️ | PPT발표💻 |
+    | 강성욱 | 팀원🐜  | 데이터 시각화👓 | PPT발표💻 |
+    | 김명현 | 팀원🐜 | 데이터 시각화👓 | 발표자료제작📝 |
+    | 김지영 | 팀원🐜  | 데이터 전처리✏️ | 발표자료제작📝 |
     ---
     ### Chart & Data List 📝
     > * 막대 차트
