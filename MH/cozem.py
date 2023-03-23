@@ -34,7 +34,7 @@ elif choice == "길드페이지":
     tab1, tab2, tab3 = st.tabs(["😎Manager", "💎Cozem", "🎨Poster"])
     with tab1:
         st.header("😎Manager")
-         st.write()
+        st.write()
         '''
         ---
         ### 길드 간부진 💪
