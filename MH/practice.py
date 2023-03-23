@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-menu = ["메인페이지", "길드페이지", "기타"]
+menu = ["메인페이지", "데이터페이지", "기타"]
 choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 if choice == "메인페이지":
@@ -138,4 +138,4 @@ if choice == "메인페이지":
         > [데이터 링크 2](https://www.google.com/) 
         '''
 
-
+if choice == "데이터페이지":
