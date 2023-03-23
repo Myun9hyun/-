@@ -27,27 +27,25 @@ if choice == "메인페이지":
     > * 연합길드 '초초' 보유
     '''
     st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)
-    st.write()
-    '''
     ---
-    ### 길드 간부진 💪
-
-    | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 |
-    | :---: | :---: | :---: | :---: |
-    | 길마👑 | 뱌닢 | 나이트로드 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/spPPOAhc) |
-    | 부마 | 릎샴  | 아크 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sxIoGj0c) |
-    | 부마 | 둥둥향 | 캐논슈터 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sl6WBJUc) |
-    | 부마 | 돌체라페  | 메르세데스 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sEmQw9Ye) |
-
-    ---
-    '''
+    
 
 elif choice == "길드페이지":
-    tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "🎨Poster"])
+    tab1, tab2, tab3 = st.tabs(["😎Manager", "💎Cozem", "🎨Poster"])
     with tab1:
-        st.header("🏠HomePage")
-        st.write("넣을게 없음..")
-        st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+        st.header("😎Manager")
+         st.write()
+        '''
+        ---
+        ### 길드 간부진 💪
+
+        | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 |
+        | :---: | :---: | :---: | :---: |
+        | 길마👑 | 뱌닢 | 나이트로드 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/spPPOAhc) |
+        | 부마 | 릎샴  | 아크 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sxIoGj0c) |
+        | 부마 | 둥둥향 | 캐논슈터 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sl6WBJUc) |
+        | 부마 | 돌체라페  | 메르세데스 | [![GitHub](https://badgen.net/badge/icon/kakaotalk?icon=discord&/color/yellow/yellow)](https://open.kakao.com/o/sEmQw9Ye) |
+        '''
     with tab2:
         st.header("💎코어젬스톤💎")
         st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=400)
