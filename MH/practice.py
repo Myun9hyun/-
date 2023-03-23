@@ -53,6 +53,15 @@ if choice == "메인페이지":
         '''
     with tab2:
         tab2.subheader("🗃 Data Tab")
+        # GitHub URL
+        url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
+
+        # CSV 파일 읽기
+        try:
+            df = pd.read_csv(url)
+        except pd.errors.EmptyDataError:
+            st.error("CSV 파일을 찾을 수 없습니다.")
+            st.stop()
         tab2.write()
         '''
         ##### csv파일의 일부입니다.
@@ -69,15 +78,7 @@ if choice == "메인페이지":
         > * TOR : 턴오버 비율
         '''
         
-        # GitHub URL
-        url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
-
-        # CSV 파일 읽기
-        try:
-            df = pd.read_csv(url)
-        except pd.errors.EmptyDataError:
-            st.error("CSV 파일을 찾을 수 없습니다.")
-            st.stop()
+        
 
         # DataFrame 출력
         st.write(df)
