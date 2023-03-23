@@ -12,7 +12,7 @@ cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리
 novels = [] # 노블 사용 여부 리스트
 
 # 사이드바에 메뉴 만들기
-menu = ["Home", "Event_reward", "Contact"]
+menu = ["메인페이지", "길드페이지", "기타"]
 choice = st.sidebar.selectbox("Select an option", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
