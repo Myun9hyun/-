@@ -139,3 +139,4 @@ if choice == "메인페이지":
         '''
 
 elif choice == "데이터페이지":
+    st.write("안녕")
