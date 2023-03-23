@@ -54,14 +54,18 @@ if choice == "메인페이지":
     with tab2:
         tab2.subheader("🗃 Data Tab")
         tab2.write()
-        
-        '''
-        ---
-        ### 데이터제목
-        * 데이터설명
-        * 데이터출처 : KDX 한국데이터거래소
-        ---
-        '''
+       
+        # 파일 업로드
+        uploaded_file = st.file_uploader("cbb.csv", type="csv")
+
+        if uploaded_file is not None:
+            # 업로드된 파일을 DataFrame으로 변환
+            df = pd.read_csv(uploaded_file)
+
+            # DataFrame 출력
+            st.write(df)
+      
+
     with tab3:
         tab3.subheader("🖇️ Link Tab")
         tab3.write("추가적인 자료는 아래의 링크에서 확인 하시면 됩니다.")
