@@ -138,4 +138,4 @@ if choice == "메인페이지":
         > [데이터 링크 2](https://www.google.com/) 
         '''
 
-if choice == "데이터페이지":
+elif choice == "데이터페이지":
