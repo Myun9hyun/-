@@ -64,13 +64,17 @@ if choice == "메인페이지":
         '''
     with tab3:
         tab3.subheader("🖇️ Link Tab")
-        tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
+        tab3.write()
+        '''
+        #### 추가적인 자료는 아래의 링크에서 확인 하시면 됩니다.
+        '''
         st.write()
         '''
-        * Kaggle 데이터 링크[College Basketball Dataset]
+        * Kaggle 데이터 출처
+        * College Basketball Dataset
         > [![GitHub](https://img.icons8.com/bubbles/256/kaggle.png)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
         * colab링크2[제목]
-        > [데이터 링크 2](https://www.google.com/) 
+        > [데이터 링크 2(추가, 기본값 구글홈페이지로 해둠)](https://www.google.com/) 
         '''
 
 elif choice == "데이터페이지":
