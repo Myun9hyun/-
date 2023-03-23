@@ -29,14 +29,7 @@ if choice == "메인페이지":
         | 김명현 | 팀원🐜 | 데이터 시각화👓 | 발표자료제작📝 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/Myun9hyun)|
         | 김지영 | 팀원🐜  | 데이터 전처리✏️ | 발표자료제작📝 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/jyeongvv)|
         ---
-        ### Chart & Data List 📝
-        > * 막대 차트
-        >> * 차트1
-        >> * 차트2
-        > * 파이 차트
-        >> * 차트1
-        >> * 차트2
-        ---
+        
         
     
 
@@ -45,6 +38,14 @@ if choice == "메인페이지":
         tab1.subheader("🔎Explain")
         tab1.write()
         '''
+        ---
+        ### Chart & Data List 📝
+        > * 막대 차트
+        >> * 차트1
+        >> * 차트2
+        > * 파이 차트
+        >> * 차트1
+        >> * 차트2
         ---
         ### 자료 설명
         > * '13~'21년 동안의 미국 대학 농구 데이터를 사용하여 각 팀마다의 승률을 계산하고 예측하는 모듈을 만든다.  
