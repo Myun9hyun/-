@@ -54,7 +54,9 @@ if choice == "메인페이지":
     with tab2:
         tab2.subheader("🗃 Data Tab")
         tab2.write()
-       
+        '''
+        ##### csv파일의 일부입니다.
+        '''
         
         # GitHub URL
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
