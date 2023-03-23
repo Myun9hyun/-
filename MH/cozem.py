@@ -148,7 +148,7 @@ elif choice == "길드페이지":
         st.write("길드홍보 포스터 저장소입니다")
         option = st.selectbox(
         '원하는 포스터를 골라주세요',
-        ('초기포스터', '주황', '빨강'))
+        ('초기포스터', '주황', '빨강', '파랑', '오디움', '회색', '봄'))
         if option == '초기포스터':
             st.write("초기 포스터입니다")
             st.image("https://media.licdn.com/dms/image/C5622AQHPwfyHde85sQ/feedshare-shrink_800/0/1679574735456?e=1682553600&v=beta&t=Ytn7R_Z91rmAmepLWj48OFjKC_lZKyrPIU64Fb42U8M", width=500)
