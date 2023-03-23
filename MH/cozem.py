@@ -17,7 +17,7 @@ choice = st.sidebar.selectbox("Select an option", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
-    st.header("❤아기자기 길드컨텐츠 관리 페이지❤")
+    st.header("❤아기자기 길드 페이지❤")
     st.write()
     '''
     ---
@@ -44,6 +44,7 @@ elif choice == "길드페이지":
     tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "Novel"])
     with tab1:
         st.header("🏠HomePage")
+        st.write("넣을게 없음..")
         st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
     with tab2:
         st.header("💎코어젬스톤💎")
@@ -159,4 +160,7 @@ elif choice == "길드페이지":
       
         
 else:
-    st.write("Welcome to the Contact page")
+    st.write()
+    '''
+    ###여기도 몰 넣지..
+    '''
