@@ -8,7 +8,7 @@ choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 if choice == "메인페이지":
 
     tab0, tab1, tab2, tab3 = st.tabs(["🏠 Mainpage", "🔎Explain", "🗃 Data", "🖇️ Link"])
-    data = np.random.randn(10, 1)
+   
 
     with tab0:
         tab0.subheader("🏀스포츠 Too Too🏀")
@@ -80,6 +80,7 @@ if choice == "메인페이지":
 
 elif choice == "데이터페이지":
     tab0, tab1, tab2, tab3 = st.tabs(["🗃 Data", "📈 Chart", "🏠 Mainpage", "🖇️ Link"])
+    data = np.random.randn(10, 1)
     with tab0:
         tab0.subheader("🗃 Data Tab")
     with tab1:
