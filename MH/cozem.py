@@ -27,7 +27,7 @@ if choice == "메인페이지":
     > * 연합길드 '초초' 보유
     '''
     st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)
-    ---
+    
     
 
 elif choice == "길드페이지":
