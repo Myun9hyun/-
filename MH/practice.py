@@ -55,16 +55,20 @@ if choice == "메인페이지":
         tab2.subheader("🗃 Data Tab")
         tab2.write()
        
-        # 파일 업로드
-        uploaded_file = st.file_uploader("cbb_head.csv", type="csv")
+        
+        # GitHub URL
+        url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
 
-        if uploaded_file is not None:
-            # 업로드된 파일을 DataFrame으로 변환
-            df = pd.read_csv(uploaded_file)
+        # CSV 파일 읽기
+        try:
+            df = pd.read_csv(url)
+        except pd.errors.EmptyDataError:
+            st.error("CSV 파일을 찾을 수 없습니다.")
+            st.stop()
 
-            # DataFrame 출력
-            st.write(df)
-      
+        # DataFrame 출력
+        st.write(df)
+
 
     with tab3:
         tab3.subheader("🖇️ Link Tab")
