@@ -53,6 +53,7 @@ if choice == "메인페이지":
         '''
     with tab2:
         tab2.subheader("🗃 Data Tab")
+        st.write("다음은 CSV 데이터의 일부입니다.")
         # GitHub URL
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
 
@@ -66,7 +67,6 @@ if choice == "메인페이지":
         st.write(df)
         tab2.write()
         '''
-        ##### csv파일의 일부입니다.
         ###### 각 Columns의 설명입니다.
         > * TEAM : 디비전 1 대학 농구
         > * CONF : 참여하는 학교의 이름
