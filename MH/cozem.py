@@ -16,10 +16,10 @@ menu = ["Home", "Event_reward", "Contact"]
 choice = st.sidebar.selectbox("Select an option", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
-if choice == "Home":
+if choice == "메인페이지":
     st.header("❤아기자기 길드컨텐츠 관리 페이지❤")
-    
-elif choice == "Event_reward":
+
+elif choice == "길드페이지":
     st.write("Welcome to the About page")
     tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "Novel"])
     with tab1:
