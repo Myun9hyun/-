@@ -18,6 +18,11 @@ choice = st.sidebar.selectbox("Select an option", menu)
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
     st.header("❤아기자기 길드컨텐츠 관리 페이지❤")
+    st.write
+    '''
+    ---
+    ### 아기자기 길드 페이지에 오신것을 환영합니다😊
+    '''
 
 elif choice == "길드페이지":
     st.write("Welcome to the About page")
@@ -114,7 +119,7 @@ elif choice == "길드페이지":
             cozem_sums.append(int(cozem_sum))
             novels.append(novel())
             st.write(f"길드컨텐츠 참여자 입니다. {names}")
-            st.write(f"끝")
+            st.write(f"저장이 안돼서 이건 실패..")
 
             weekly_total = sum(cozem_sums)
             st.write()
