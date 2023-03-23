@@ -33,7 +33,7 @@ if choice == "메인페이지":
     | 부마 | 둥둥향 | 캐논슈터 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sl6WBJUc) |
     | 부마 | 돌체라페  | 메르세데스 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sEmQw9Ye) |
 
-    [![GitHub](https://badgen.net/badge/icon/apple?icon=apple&label)](https://open.kakao.com/o/spPPOAhc)
+    [![GitHub](https://img.icons8.com/color/256/kakaotalk.png)](https://open.kakao.com/o/spPPOAhc)
     ---
     '''
 
