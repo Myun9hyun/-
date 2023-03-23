@@ -40,7 +40,6 @@ if choice == "메인페이지":
     '''
 
 elif choice == "길드페이지":
-    st.write("Welcome to the About page")
     tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "Novel"])
     with tab1:
         st.header("🏠HomePage")
@@ -142,21 +141,20 @@ elif choice == "길드페이지":
             st.write(f"이번주 위클리 코젬 갯수 총합 : {weekly_total}개")
            
     with tab3:
-        st.header("길드컨텐츠 이행여부 차트")
-        st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
-         # 데이터프레임 생성
-        df = pd.DataFrame({
-            'Name': names,
-            'Weekly_Mission' : weekly_missions,
-            'Suro' : suros,
-            'Suro_Cozem' : suros_cozem, 
-            'Flag' : flags,
-            'Flag_Cozem' : flags_cozem,
-            'Cozem_Total' : cozem_sums,
-            'Novel' : novels,
-            }
-            )
-        st.dataframe(df)
+        st.header("길드포스터 아카이브🎨")
+        st.write("길드홍보 포스터 저장소입니다")
+        option = st.selectbox(
+        '원하는 포스터를 골라주세요',
+        ('초기포스터', '주황', '빨강'))
+        if option == '초기포스터':
+            st.write("초기 포스터입니다")
+            st.image("https://media.licdn.com/dms/image/C5622AQHPwfyHde85sQ/feedshare-shrink_800/0/1679574735456?e=1682553600&v=beta&t=Ytn7R_Z91rmAmepLWj48OFjKC_lZKyrPIU64Fb42U8M", width=500)
+        elif option == '주황':
+            st.write("주황색 컨셉 포스터입니다")
+            st.image("https://media.licdn.com/dms/image/C5622AQGnvm84OE9XOQ/feedshare-shrink_2048_1536/0/1679574742562?e=1682553600&v=beta&t=Q20T7_h7lySXZjCr2h2WW0P8H7I1KZ3Udv3LPxxTonw", width=500)
+        elif option == '빨강':
+            st.write("빨간색 컨셉 포스터입니다")
+            st.image("https://media.licdn.com/dms/image/D5622AQHnVCtQebUnkg/feedshare-shrink_2048_1536/0/1679574752576?e=1682553600&v=beta&t=UEFF6vu0CO9MJ-eov77W5LShxNIm9kY4Qysep0ZiUHI", width=500)
       
         
 else:
