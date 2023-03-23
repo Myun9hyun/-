@@ -28,7 +28,7 @@ if choice == "메인페이지":
 
     | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 |
     | :---: | :---: | :---: | :---: |
-    | 길마👑 | 뱌닢 | 나이트로드 | [![GitHub](https://cdn-icons-png.flaticon.com/512/3059/3059502.png)](https://open.kakao.com/o/spPPOAhc) |
+    | 길마👑 | 뱌닢 | 나이트로드 | [![GitHub](https://icons8.com/icon/85164/phone)](https://open.kakao.com/o/spPPOAhc) |
     | 부마 | 릎샴  | 아크 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sxIoGj0c) |
     | 부마 | 둥둥향 | 캐논슈터 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sl6WBJUc) |
     | 부마 | 돌체라페  | 메르세데스 | [https://img.icons8.com/color/256/kakaotalk.png](https://open.kakao.com/o/sEmQw9Ye) |
