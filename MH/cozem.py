@@ -40,7 +40,7 @@ if choice == "메인페이지":
     '''
 
 elif choice == "길드페이지":
-    tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "Novel"])
+    tab1, tab2, tab3 = st.tabs(["🏠Homepage", "💎Cozem", "🎨Poster"])
     with tab1:
         st.header("🏠HomePage")
         st.write("넣을게 없음..")
