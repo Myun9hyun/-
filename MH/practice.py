@@ -7,7 +7,7 @@ choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 if choice == "메인페이지":
 
-    tab0, tab1, tab2, tab3 = st.tabs(["🏠 Mainpage", "📈 Chart", "🗃 Data", "🖇️ Link"])
+    tab0, tab1, tab2, tab3 = st.tabs(["🏠 Mainpage", "🔎Explain", "🗃 Data", "🖇️ Link"])
     data = np.random.randn(10, 1)
 
     with tab0:
@@ -37,12 +37,46 @@ if choice == "메인페이지":
         >> * 차트1
         >> * 차트2
         ---
-        #### 자료 설명
-        > * '13~'21년 동안의 NBA 농구 데이터를 사용하여 각 팀마다의 승률을 계산하고 예측하는 모듈을 만든다.  
-        > * 추가적으로 각 팀의 세부 스탯이 승률에 어떤 영향을 미치는 지도 알아본다.
+        
     
 
         '''
+    with tab1:
+        tab1.subheader("🔎Explain")
+        tab1.write()
+        '''
+        ---
+        ### 자료 설명
+        > * '13~'21년 동안의 NBA 농구 데이터를 사용하여 각 팀마다의 승률을 계산하고 예측하는 모듈을 만든다.  
+        > * 추가적으로 각 팀의 세부 스탯이 승률에 어떤 영향을 미치는 지도 알아본다.
+        ---
+        '''
+    with tab2:
+        tab2.subheader("🗃 Data Tab")
+        tab2.write()
+        
+        '''
+        ---
+        ### 데이터제목
+        * 데이터설명
+        * 데이터출처 : KDX 한국데이터거래소
+        ---
+        '''
+    with tab3:
+        tab3.subheader("🖇️ Link Tab")
+        tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
+        st.write()
+        '''
+        * Kaggle 데이터 링크[College Basketball Dataset]
+        > [![GitHub](https://img.icons8.com/bubbles/256/kaggle.png)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
+        * colab링크2[제목]
+        > [데이터 링크 2](https://www.google.com/) 
+        '''
+
+elif choice == "데이터페이지":
+    tab0, tab1, tab2, tab3 = st.tabs(["🗃 Data", "📈 Chart", "🏠 Mainpage", "🖇️ Link"])
+    with tab0:
+        tab0.subheader("🗃 Data Tab")
     with tab1:
         tab1.subheader("📈 Chart Tab")
         tab1.write()
@@ -137,8 +171,3 @@ if choice == "메인페이지":
         * colab링크2[제목]
         > [데이터 링크 2](https://www.google.com/) 
         '''
-
-elif choice == "데이터페이지":
-    tab0, tab1, tab2, tab3 = st.tabs(["🗃 Data", "📈 Chart", "🏠 Mainpage", "🖇️ Link"])
-    with tab0:
-        tab0.subheader("🗃 Data Tab")
