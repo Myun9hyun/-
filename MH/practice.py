@@ -141,4 +141,4 @@ if choice == "메인페이지":
 elif choice == "데이터페이지":
     tab0, tab1, tab2, tab3 = st.tabs(["🗃 Data", "📈 Chart", "🏠 Mainpage", "🖇️ Link"])
     with tab0:
-
+        tab0.subheader("🗃 Data Tab")
