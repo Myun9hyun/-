@@ -56,7 +56,7 @@ if choice == "메인페이지":
         tab2.write()
        
         # 파일 업로드
-        uploaded_file = st.file_uploader("cbb.csv", type="csv")
+        uploaded_file = st.file_uploader("cbb_head.csv", type="csv")
 
         if uploaded_file is not None:
             # 업로드된 파일을 DataFrame으로 변환
