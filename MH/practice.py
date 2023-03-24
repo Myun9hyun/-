@@ -156,6 +156,7 @@ elif choice == "데이터페이지":
                     filtered_df = df[(df[column_names] == c_index)]
                 # 검색 결과 출력하기
                     if not filtered_df.empty:
+                        st.write(f"입력하신 {column_names} 열에 있는 index{c_index} 입니다.")
                         st.write(filtered_df)
                     else:
                         st.write('검색된 Index가 없습니다.')
