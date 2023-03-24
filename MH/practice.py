@@ -149,20 +149,23 @@ elif choice == "데이터페이지":
                 # 데이터 프레임 만들기
                 df2 = pd.DataFrame({
                     'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
-                    'DRB': [30, 23.7, 24.9, 28.7],
+                    # 'DRB': [30, 23.7, 24.9, 28.7],
                     '2P_O': [53.9, 54.8, 54.7, 52.8],
-                    '3P_O': [32.7, 36.5, 35.2, 36.5]
+                    '2P_D': [44.6, 44.7, 46.8, 41.9],
+                    '3P_O': [32.7, 36.5, 35.2, 36.5],
+                    '3P_D': [36.2, 37.5, 33.2, 29.7],
+
                 })
 
                 # Plotly의 Radar Chart를 만들기
                 fig = go.Figure()
 
-                colors = ['Red', 'Green', 'Blue', 'Orange']
+                colors = ['Red', 'Green', 'Blue', 'Orange', 'Coral']
 
                 for i, row in df2.iterrows():
                     fig.add_trace(go.Scatterpolar(
-                        r=[row['DRB'], row['2P_O'], row['3P_O']],
-                        theta=['DRB', '2P_O', '3P_O'],
+                        r=[row['2P_O'], row['2P_D'], row['3P_O'], row['3P_D']],
+                        theta=['2P_O', '2P_D', '3P_O', '3P_D'],
                         fill='toself',
                         name=row['TEAM'],
                         line=dict(color=colors[i], width=5),
