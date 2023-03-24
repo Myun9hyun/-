@@ -194,7 +194,7 @@ elif choice == "데이터페이지":
                     'science': [90, 60, 70, 80],
                     'math': [80, 70, 60, 90],
                     'history': [60, 80, 70, 90]
-                })
+                },columns=['name', 'science', 'math', 'science'])
 
                 # Plotly의 Radar Chart를 만들기
                 fig = go.Figure()
@@ -207,7 +207,7 @@ elif choice == "데이터페이지":
                         line=dict(color='red', width=2),
                         fill='none',
                         name=row['name'],
-                        line_shape='spline'
+                        
                     ))
 
                 fig.update_layout(
