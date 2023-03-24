@@ -141,11 +141,33 @@ elif choice == "데이터페이지":
             '원하는 차트를 골라주세요',
             ('Bar1', 'Bar2', 'Bar3'))
             if option == 'Bar1':
-                st.write("차트1입니다")
-                chart_data = pd.DataFrame(
-                np.random.randn(10, 3),
-                columns=["a", "b", "c"])
-                st.bar_chart(chart_data)
+                categories = ['processing cost','mechanical properties','chemical stability', 'thermal stability', 'device integration']
+
+                fig = go.Figure()
+
+                fig.add_trace(go.Scatterpolar(
+                        r=[1, 5, 2, 2, 3],
+                        theta=categories,
+                        fill='toself',
+                        name='Product A'
+                    ))
+                fig.add_trace(go.Scatterpolar(
+                        r=[4, 3, 2.5, 1, 2],
+                        theta=categories,
+                        fill='toself',
+                        name='Product B'
+                    ))
+
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(
+                        visible=True,
+                        range=[0, 5]
+                        )),
+                    showlegend=False
+                    )
+
+                fig.show()
             elif option == 'Bar2':
                 st.write("차트2입니다")
                 chart_data = pd.DataFrame(
