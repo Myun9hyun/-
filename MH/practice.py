@@ -156,8 +156,8 @@ elif choice == "데이터페이지":
                     'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
                     # 'DRB': [30, 23.7, 24.9, 28.7],
                     '2P_O': [53.9, 54.8, 54.7, 52.8],
-                    '2P_D': [44.6, 44.7, 46.8, 41.9],
                     '3P_O': [32.7, 36.5, 35.2, 36.5],
+                    '2P_D': [44.6, 44.7, 46.8, 41.9],
                     '3P_D': [36.2, 37.5, 33.2, 29.7],
 
                 })
@@ -169,8 +169,8 @@ elif choice == "데이터페이지":
 
                 for i, row in df2.iterrows():
                     fig.add_trace(go.Scatterpolar(
-                        r=[row['2P_O'], row['2P_D'], row['3P_O'], row['3P_D']],
-                        theta=['2점 슛 성공률', '2점 슛 허용률', '3점 슛 성공률', '3점 슛 허용률'],
+                        r=[row['2P_O'], row['3P_O'], row['2P_D'], row['3P_D']],
+                        theta=['2점 슛 성공률', '3점 슛 성공률', '2점 슛 허용률', '3점 슛 허용률'],
                         fill='toself',
                         name=row['TEAM'],
                         line=dict(color=colors[i], width=5),
