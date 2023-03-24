@@ -149,20 +149,18 @@ elif choice == "데이터페이지":
             column_names = st.text_input('검색하고 싶은 Columns를 입력하세요')
             # 입력한 컬럼명이 존재하는 경우
             if column_names in df.columns:
-                # 점수 입력 받기
-                score = st.text_input('그 Columns내에 있는 검색하고 싶은 Index를 입력하세요 ')
+                c_index = st.text_input('그 Columns내에 있는 검색하고 싶은 Index를 입력하세요 ')
                 # 입력한 점수와 일치하는 행 찾기
-                if score.isdigit():
-                    score = int(score)
-                    filtered_df = df[(df[column_names] == score)]
-                
+                if c_index.isdigit():
+                    c_index = int(c_index)
+                    filtered_df = df[(df[column_names] == c_index)]
                 # 검색 결과 출력하기
                     if not filtered_df.empty:
                         st.write(filtered_df)
                     else:
                         st.write('No rows found.')
                 else:
-                    filtered_df = df[(df[column_names] == score)]
+                    filtered_df = df[(df[column_names] == c_index)]
                     st.write(filtered_df)
             else:
                 st.write('Column not found')
