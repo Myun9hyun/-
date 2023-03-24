@@ -121,6 +121,7 @@ elif choice == "데이터페이지":
     data = np.random.randn(10, 1)
     with tab0:
         tab0.subheader("🗃 Data Tab")
+        st.write("사용된 전체 csv파일")
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
         df = pd.read_csv(url)
         st.write(df)
