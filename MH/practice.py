@@ -187,6 +187,8 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("차트2입니다")
+
+                # 데이터 프레임 만들기
                 df = pd.DataFrame({
                     'name': ['Alice', 'Bob', 'Charlie', 'David'],
                     'science': [90, 60, 70, 80],
@@ -199,13 +201,13 @@ elif choice == "데이터페이지":
 
                 for index, row in df.iterrows():
                     fig.add_trace(go.Scatter(
-                        r=[row['math'], row['science'], row['history']],
-                        theta=['Math', 'Science', 'History'],
-                        fill='none',
-                        mode='lines',
-                        line=dict(color='red', width=2, shape='spline', smoothing=1.3),
+                        x=['Math', 'Science', 'History'],
+                        y=[row['math'], row['science'], row['history']],
+                        mode='lines+markers',
+                        line=dict(color='red', width=2),
                         name=row['name'],
-                        line_close=True
+                        fill='none',
+                        fillcolor='rgba(0, 0, 0, 0)'
                     ))
 
                 fig.update_layout(
