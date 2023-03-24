@@ -187,9 +187,7 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("차트2입니다")
-import streamlit as st
-import plotly.graph_objects as go
-import pandas as pd
+
 
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
