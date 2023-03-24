@@ -170,13 +170,39 @@ elif choice == "데이터페이지":
                 fig.show()
             elif option == 'Bar2':
                 st.write("차트2입니다")
-                df = pd.DataFrame(dict(
-                    r=[1, 5, 2, 2, 3],
-                    theta=['processing cost','mechanical properties','chemical stability','thermal stability', 'device integration'])
-                    )
-                            
-                fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-                fig.show()
+
+                # 데이터 프레임 만들기
+                df = pd.DataFrame({
+                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
+                    'math': [80, 70, 60, 90],
+                    'science': [90, 60, 70, 80],
+                    'history': [60, 80, 70, 90]
+                })
+
+                # Plotly의 Radar Chart를 만들기
+                fig = go.Figure()
+
+                for index, row in df.iterrows():
+                    fig.add_trace(go.Scatterpolar(
+                        r=[row['math'], row['science'], row['history']],
+                        theta=['Math', 'Science', 'History'],
+                        fill='toself',
+                        name=row['name']
+                    ))
+
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(
+                            visible=True,
+                            range=[0, 100]
+                        ),
+                    ),
+                    showlegend=True
+                )
+
+                # Streamlit에서 Radar Chart 표시하기
+                st.plotly_chart(fig)
+
             elif option == 'Bar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
