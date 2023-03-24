@@ -126,13 +126,27 @@ elif choice == "데이터페이지":
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
         df = pd.read_csv(url)
         st.write(df)
-        df_data = st.text_input('검색하고 싶은 index를 입력해 주세요 : ')
-        # data = {'Team': ['A', 'B', 'C', 'A', 'B', 'C'], 'Score': [10, 20, 30, 40, 50, 60]}
-        # team_name = st.text_input('Enter a team name')
-        # filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
+        # df_data = st.text_input('검색하고 싶은 index를 입력해 주세요 : ')
+        # filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=0)]
+        # filtered_df = df[df[df_data] == search_val]
         # st.write(filtered_df)
-        filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=0)]
-        st.write(filtered_df)
+
+
+        # 검색할 column 입력 받기
+        search_col = st.text_input('Enter column name to search:')
+
+        # 검색할 column이 데이터프레임에 있는 경우
+        if search_col in df.columns:
+            # 검색할 값 입력 받기
+            search_val = st.text_input('Enter value to search for:')
+            # 검색 결과 출력
+            search_result = df[df[search_col] == search_val]
+            st.write(search_result)
+        # 검색할 column이 데이터프레임에 없는 경우
+        else:
+            st.write('Column not found')
+
+     
     with tab1:
         tab1.subheader("📈 Chart Tab")
         tab1.write()
