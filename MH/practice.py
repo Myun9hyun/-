@@ -142,11 +142,11 @@ elif choice == "데이터페이지":
         st.write(f'고르신 {option} 차트를 출력하겠습니다: ')
 
         if option == 'Radar':
-            st.write("Bar차트 유형입니다")
+            st.write("Radar 차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('Bar1', 'Bar2', 'Bar3', 'Bar4'))
-            if option == 'Bar1':
+            ('Radar1', 'Radar2', 'Radar3', 'Radar4'))
+            if option == 'Radar1':
                 # 데이터 프레임 만들기
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
@@ -190,7 +190,7 @@ elif choice == "데이터페이지":
 
                 # Streamlit에서 Radar Chart 표시하기
                 # st.plotly_chart(fig)
-            elif option == 'Bar2':
+            elif option == 'Radar2':
                 st.write("차트2입니다")
 
                 # 데이터 프레임 만들기
@@ -232,14 +232,14 @@ elif choice == "데이터페이지":
 
                                 
 
-            elif option == 'Bar3':
+            elif option == 'Radar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
                 np.random.randn(30, 3),
                 columns=["a", "b", "c"])
                 st.bar_chart(chart_data)
 
-            elif option == 'Bar4':
+            elif option == 'Radar4':
 
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
