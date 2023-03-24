@@ -151,6 +151,7 @@ elif choice == "데이터페이지":
                 st.dataframe(df)
                 win_rate = ((df['W'] / df['G']) * 100)
                 win_rate = win_rate.round(2)
+                win_rate.columns = ['TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech']]
                 win_rate_t = win_rate.T
                 st.dataframe(win_rate_t)
                 fig = px.bar(win_rate_t)
