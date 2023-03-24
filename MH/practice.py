@@ -129,7 +129,7 @@ elif choice == "데이터페이지":
 
         options = st.selectbox(
                 '검색하고 싶은 데이터를 골라주세요',
-                ('Index', 'Columns'))
+                ('Index', 'Columns', 'Mix'))
         if options == 'Index':
             index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
             # filtered_df = df[df['TEAM'] == df_data]
@@ -147,6 +147,22 @@ elif choice == "데이터페이지":
             else:
                 st.write('Column이 입력되지 않았습니다.')
 
+        
+        elif options == 'Mix':
+            column_names = st.text_input('검색하고 싶은 Columns를 입력하세요')
+            # 입력한 컬럼명이 존재하는 경우
+            if column_names in df.columns:
+                # 점수 입력 받기
+                score = st.text_input('그 Columns내에 있는 검색하고 싶은 Index를 입력하세요 ')
+                # 입력한 점수와 일치하는 행 찾기
+                filtered_df = df[(df[column_name] == score)]
+                # 검색 결과 출력하기
+                if not filtered_df.empty:
+                    st.write(filtered_df)
+                else:
+                    st.write('No rows found.')
+            else:
+                st.write('Column not found')
      
     with tab1:
         tab1.subheader("📈 Chart Tab")
