@@ -167,7 +167,7 @@ elif choice == "데이터페이지":
 
                 # y축 범위 수정
                 fig.update_yaxes(
-                    range=[70, 100]
+                    range=[70, 95]
                 )
                 
 
