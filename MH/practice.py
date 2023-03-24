@@ -220,7 +220,7 @@ elif choice == "데이터페이지":
                             range=[0, 100]
                         ),
                     ),
-                    showlegend=True
+                    showlegend=False
                 )
 
                 # Streamlit에서 Radar Chart 표시하기
