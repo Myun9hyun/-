@@ -127,7 +127,7 @@ elif choice == "데이터페이지":
         df = pd.read_csv(url)
         st.write(df)
         df_data = st.text_input('검색하고 싶은 index를 입력해 주세요 : ')
-        filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=0)]
+        # filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=0)]
         # filtered_df = df[df[df_data] == search_val]
         # st.write(filtered_df)
         # team_name = st.text_input('Enter a team name')
