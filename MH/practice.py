@@ -235,8 +235,8 @@ elif choice == "데이터페이지":
                 # Theta 값 설정
                 theta = ['math', 'science', 'history']
 
-
-                # Theta 값이 문fig = go.Figure()
+                # Radar Chart 생성
+                fig = go.Figure()
 
                 for index, row in df.iterrows():
                     r = [row['math'], row['science'], row['history']]
