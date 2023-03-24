@@ -137,7 +137,7 @@ elif choice == "데이터페이지":
             st.write(filtered_df)
         
             column_name = st.text_input('검색하고 싶은 columns를 입력해 주세요')
-        elif option == 'Columns:'
+        elif option == 'Columns':
             if column_name in df.columns:
                 filtered_df = df[[column_name]]
                 st.write(filtered_df)
