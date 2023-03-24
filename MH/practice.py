@@ -117,7 +117,7 @@ if choice == "메인페이지":
         '''
 
 elif choice == "데이터페이지":
-    tab0, tab1, tab2, tab3 = st.tabs(["🗃 Data", "📈 Chart", "🏠 Mainpage", "🖇️ Link"])
+    tab0, tab1, tab2 = st.tabs(["🗃 Data", "📈 Chart", "🖇️ Link"])
     data = np.random.randn(10, 1)
     with tab0:
         tab0.subheader("🗃 Data Tab")
@@ -231,29 +231,8 @@ elif choice == "데이터페이지":
                 st.write("히트맵2입니다")
             elif option == 'Heat3':
                 st.write("히트맵3입니다") 
+   
     with tab2:
-        tab2.subheader("🗃 Data Tab")
-        tab2.write()
-        
-        '''
-        ---
-        ### 데이터제목
-        * 데이터설명
-        * 데이터출처 : KDX 한국데이터거래소
-        ---
-        '''
-        option = st.selectbox(
-        '원하는 데이터를 골라주세요',
-        ('Data1', 'Data2', 'Data3'))
-        st.write('고르신 데이터를 출력하겠습니다:', option)
-        if option == 'Data1':
-            st.write("데이터1입니다")
-        elif option == 'Data2':
-            st.write("데이터2입니다")
-        elif option == 'Data3':
-            st.write("데이터3입니다")
-        tab2.write(data)
-    with tab3:
         tab3.subheader("🖇️ Link Tab")
         tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
         st.write()
