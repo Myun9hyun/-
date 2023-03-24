@@ -129,7 +129,7 @@ elif choice == "데이터페이지":
 
         options = st.selectbox(
                 '검색하고 싶은 데이터를 골라주세요',
-                ('Index', 'Columns', 'Mix'))
+                ('Index', 'Columns', 'Index_in_Column'))
         if options == 'Index':
             index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
             filtered_df = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
@@ -145,7 +145,7 @@ elif choice == "데이터페이지":
                 st.write('Column이 입력되지 않았습니다.')
 
         
-        elif options == 'Mix':
+        elif options == 'Index_in_Column':
             column_names = st.text_input('검색하고 싶은 Columns를 입력하세요')
             # 입력한 컬럼명이 존재하는 경우
             if column_names in df.columns:
@@ -158,12 +158,12 @@ elif choice == "데이터페이지":
                     if not filtered_df.empty:
                         st.write(filtered_df)
                     else:
-                        st.write('No rows found.')
+                        st.write('검색된 Index가 없습니다.')
                 else:
                     filtered_df = df[(df[column_names] == c_index)]
                     st.write(filtered_df)
             else:
-                st.write('Column not found')
+                st.write('검색된 Columns가 없습니다.')
      
     with tab1:
         tab1.subheader("📈 Chart Tab")
