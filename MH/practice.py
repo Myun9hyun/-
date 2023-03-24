@@ -155,7 +155,7 @@ elif choice == "데이터페이지":
                 # 점수 입력 받기
                 score = st.text_input('그 Columns내에 있는 검색하고 싶은 Index를 입력하세요 ')
                 # 입력한 점수와 일치하는 행 찾기
-                filtered_df = df[(df[column_name] == score)]
+                filtered_df = df[(df[column_names] == score)]
                 # 검색 결과 출력하기
                 if not filtered_df.empty:
                     st.write(filtered_df)
