@@ -153,6 +153,7 @@ elif choice == "데이터페이지":
                 pd.options.display.float_format = '{:,.2f}'.format
                 win_rate = win_rate.round(2)
                 st.write(win_rate)
+                fig = px.bar(win_rate)
                 fig.update_layout(
                     width=600,
                     height=400,
@@ -162,7 +163,7 @@ elif choice == "데이터페이지":
                 fig.update_yaxes(
                     range=[60, 100]
                 )
-                fig = px.bar(win_rate)
+                
 
                 # 차트 출력
                 st.plotly_chart(fig)
