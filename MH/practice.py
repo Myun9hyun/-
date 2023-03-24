@@ -222,7 +222,12 @@ elif choice == "데이터페이지":
                 st.bar_chart(chart_data)
 
             elif option == 'Bar4':
-
+                df = pd.DataFrame({
+                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
+                    'math': [80, 70, 60, 90],
+                    'science': [90, 60, 70, 80],
+                    'history': [60, 80, 70, 90]
+                })
 
                 # Theta 값이 문자열인 경우, 문자열을 정수형으로 바꾸어준다.
                 theta = np.array(['Math', 'Science', 'History'])
