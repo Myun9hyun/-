@@ -233,8 +233,8 @@ elif choice == "데이터페이지":
                 st.write("히트맵3입니다") 
    
     with tab2:
-        tab3.subheader("🖇️ Link Tab")
-        tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
+        tab2.subheader("🖇️ Link Tab")
+        tab2.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
         st.write()
         '''
         * colab링크1[제목]
