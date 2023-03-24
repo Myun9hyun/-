@@ -150,11 +150,13 @@ elif choice == "데이터페이지":
                 df = pd.read_csv(url)
                 st.write(df)
                 win_rate = ((df['W'] / df['G']) * 100)
-                pd.options.display.float_format = '{:,.2f}'.format
                 win_rate = win_rate.round(2)
                 st.write(win_rate)
                 fig = px.bar(win_rate)
                 
+                fig.update_xaxes(title='TEAM')
+                fig.update_yaxes(title='Win')
+
                 fig.update_layout(
                     width=600,
                     height=400,
