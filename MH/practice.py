@@ -171,9 +171,9 @@ elif choice == "데이터페이지":
             elif option == 'Bar2':
                 st.write("차트2입니다")
                 df = pd.DataFrame(dict(
-                r=[1, 5, 2, 2, 3],
-                theta=['processing cost','mechanical properties','chemical stability',
-                'thermal stability', 'device integration']))
+                    r=[1, 5, 2, 2, 3],
+                    theta=['processing cost','mechanical properties','chemical stability',
+                            'thermal stability', 'device integration']))
                 fig = px.line_polar(df, r='r', theta='theta', line_close=True)
                 fig.show()
             elif option == 'Bar3':
