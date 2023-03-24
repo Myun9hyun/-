@@ -152,7 +152,7 @@ elif choice == "데이터페이지":
                 win_rate = ((df['W'] / df['G']) * 100)
                 win_rate = win_rate.round(2)
                 win_rate = win_rate.rename(index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'}) 
-                win_rate = win_rate.rename(columns={0 : 'win_rate'}) 
+                win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
                 win_rate_t = win_rate.T
                 st.dataframe(win_rate_t)
                 fig = px.bar(win_rate_t)
