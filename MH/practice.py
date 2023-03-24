@@ -236,39 +236,39 @@ elif choice == "데이터페이지":
 
             elif option == 'Bar4':
 
-            # 데이터 프레임 만들기
-            df = pd.DataFrame({
-                'name': ['Alice', 'Bob', 'Charlie', 'David'],
-                'science': [90, 60, 70, 80],
-                'math': [80, 70, 60, 90],
-                'history': [60, 80, 70, 90]
-            })
+                # 데이터 프레임 만들기
+                df = pd.DataFrame({
+                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
+                    'science': [90, 60, 70, 80],
+                    'math': [80, 70, 60, 90],
+                    'history': [60, 80, 70, 90]
+                })
 
-            # Theta 순서 변경하기
-            df = df[['name', 'math', 'science', 'history']]  # Theta 순서를 [math, science, history]로 변경
+                # Theta 순서 변경하기
+                df = df[['name', 'math', 'science', 'history']]  # Theta 순서를 [math, science, history]로 변경
 
-            # Plotly의 Radar Chart를 만들기
-            fig = go.Figure()
+                # Plotly의 Radar Chart를 만들기
+                fig = go.Figure()
 
-            for index, row in df.iterrows():
-                fig.add_trace(go.Scatterpolar(
-                    r=[row['math'], row['science'], row['history']],
-                    theta=['Math', 'Science', 'History'],  # Theta 순서도 변경
-                    fill='none',
-                    mode='lines',
-                    name=row['name'],
-                    line=dict(color='red', width=2)
-                ))
+                for index, row in df.iterrows():
+                    fig.add_trace(go.Scatterpolar(
+                        r=[row['math'], row['science'], row['history']],
+                        theta=['Math', 'Science', 'History'],  # Theta 순서도 변경
+                        fill='none',
+                        mode='lines',
+                        name=row['name'],
+                        line=dict(color='red', width=2)
+                    ))
 
-            fig.update_layout(
-                polar=dict(
-                    radialaxis=dict(
-                        visible=True,
-                        range=[0, 100]
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(
+                            visible=True,
+                            range=[0, 100]
+                        ),
                     ),
-                ),
-                showlegend=True
-            )
+                    showlegend=True
+                )
 
             # Streamlit에서 Radar Chart 표시하기
             st.plotly_chart(fig)
