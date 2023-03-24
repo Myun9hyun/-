@@ -207,7 +207,7 @@ elif choice == "데이터페이지":
                         line=dict(color='red', width=2),
                         fill='none',
                         name=row['name'],
-                        line_close=True
+                        line_shape='spline'
                     ))
 
                 fig.update_layout(
