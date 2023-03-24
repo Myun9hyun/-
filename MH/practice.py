@@ -134,7 +134,7 @@ elif choice == "데이터페이지":
         filtered_df = df[df['TEAM'] == df_data]
         st.write(filtered_df)
        
-        filtered_df = df[df.apply(lambda row: search_term.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
+        filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
 
         # # 검색할 column 입력 받기
         # search_col = st.text_input('Enter column name to search:')
