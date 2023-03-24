@@ -126,18 +126,23 @@ elif choice == "데이터페이지":
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
         df = pd.read_csv(url)
         st.write(df)
-        df_data = st.text_input('검색하고 싶은 index를 입력해 주세요 : ')
-        # filtered_df = df[df['TEAM'] == df_data]
-        filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
-        st.write(filtered_df)
-       
-        column_name = st.text_input('Enter a column name')
 
-        if column_name in df.columns:
-            filtered_df = df[[column_name]]
+        option = st.selectbox(
+                '검색하고 싶은 데이터를 골라주세요',
+                ('Index', 'Columns'))
+        if option == 'Index':
+            df_data = st.text_input('검색하고 싶은 index를 입력해 주세요')
+            # filtered_df = df[df['TEAM'] == df_data]
+            filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
             st.write(filtered_df)
-        else:
-            st.write('Column not found')
+        
+            column_name = st.text_input('검색하고 싶은 columns를 입력해 주세요')
+        elif option == 'Columns:'
+            if column_name in df.columns:
+                filtered_df = df[[column_name]]
+                st.write(filtered_df)
+            else:
+                st.write('Column이 입력되지 않았습니다.')
 
      
     with tab1:
