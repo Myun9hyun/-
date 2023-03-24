@@ -139,7 +139,7 @@ elif choice == "데이터페이지":
             st.write("Bar차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('Bar1', 'Bar2', 'Bar3'))
+            ('Bar1', 'Bar2', 'Bar3', 'Bar4'))
             if option == 'Bar1':
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
@@ -220,6 +220,43 @@ elif choice == "데이터페이지":
                 np.random.randn(30, 3),
                 columns=["a", "b", "c"])
                 st.bar_chart(chart_data)
+
+            elif option == 'Bar4':
+        
+                # 데이터 프레임 만들기
+                df = pd.DataFrame({
+                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
+                    'math': [80, 70, 60, 90],
+                    'science': [90, 60, 70, 80],
+                    'history': [60, 80, 70, 90]
+                })
+
+                # Plotly의 Radar Chart를 만들기
+                fig = go.Figure()
+
+                for index, row in df.iterrows():
+                    fig.add_trace(go.Scatterpolar(
+                        r=[row['math'], row['science'], row['history']],
+                        theta=['Math', 'Science', 'History'],
+                        fill='none',
+                        mode='lines',
+                        name=row['name'],
+                        line=dict(color='red', width=2)
+                    ))
+
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(
+                            visible=True,
+                            range=[0, 100]
+                        ),
+                    ),
+                    showlegend=True
+                )
+
+                # Streamlit에서 Radar Chart 표시하기
+                st.plotly_chart(fig)
+
         elif option == 'Pie':
             st.write("Pie차트 유형입니다")
             option = st.selectbox(
