@@ -205,7 +205,7 @@ elif choice == "데이터페이지":
                         theta=['Math', 'Science', 'History'],
                         mode='lines+markers',
                         line=dict(color='red', width=2),
-                        fill='toself',
+                        fill='none',
                         name=row['name']
                     ))
 
