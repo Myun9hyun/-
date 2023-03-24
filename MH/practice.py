@@ -170,7 +170,7 @@ elif choice == "데이터페이지":
                         name=row['TEAM'],
                         line=dict(color=colors[i], width=5),
                         fillcolor=colors[i],
-                        opacity=0.1
+                        opacity=0.25
                     ))
 
                 fig.update_layout(
