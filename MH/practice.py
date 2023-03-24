@@ -208,7 +208,7 @@ elif choice == "데이터페이지":
                         fill='toself',
                         name=row['name'],
                         line=dict(color=colors[i], width=5),
-                        line_close=True
+                        line_close=True,
                         fillcolor=colors[i],
                         opacity=0.2
                     ))
