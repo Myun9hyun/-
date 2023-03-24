@@ -199,7 +199,7 @@ elif choice == "데이터페이지":
                 win_rate = win_rate.round(2)
                 win_rate = win_rate.rename(
                     index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'},
-                    columns={0 : 'Win_rate'}) 
+                    # columns={0 : 'Win_rate'}) 
                 
                 # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
                 win_rate_t = win_rate.T
