@@ -135,6 +135,7 @@ elif choice == "데이터페이지":
         '원하는 차트유형을 골라주세요',
         ('Radar', 'Pie', 'Heatmap'))
         st.write('고르신 차트를 출력하겠습니다:', option)
+
         if option == 'Radar':
             st.write("Bar차트 유형입니다")
             option = st.selectbox(
@@ -142,12 +143,7 @@ elif choice == "데이터페이지":
             ('Bar1', 'Bar2', 'Bar3', 'Bar4'))
             if option == 'Bar1':
                 # 데이터 프레임 만들기
-                df = pd.DataFrame({
-                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
-                    'math': [80, 70, 60, 90],
-                    'science': [90, 60, 70, 80],
-                    'history': [60, 80, 70, 90]
-                })
+                df = pd.read_csv(url)
 
                 # Plotly의 Radar Chart를 만들기
                 fig = go.Figure()
@@ -193,7 +189,7 @@ elif choice == "데이터페이지":
                     fig.add_trace(go.Scatterpolar(
                         r=[row['math'], row['science'], row['history']],
                         theta=['Math', 'Science', 'History'],
-                        fill='none',
+                        fill='toself',
                         name=row['name'],
                         line=dict(color=colors[i], width=5),
                         fillcolor=colors[i],
