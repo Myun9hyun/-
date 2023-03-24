@@ -127,17 +127,17 @@ elif choice == "데이터페이지":
         df = pd.read_csv(url)
         st.write(df)
 
-        option = st.selectbox(
+        options = st.selectbox(
                 '검색하고 싶은 데이터를 골라주세요',
                 ('Index', 'Columns'))
-        if option == 'Index':
+        if options == 'Index':
             df_data = st.text_input('검색하고 싶은 index를 입력해 주세요')
             # filtered_df = df[df['TEAM'] == df_data]
             filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
             st.write(filtered_df)
         
             column_name = st.text_input('검색하고 싶은 columns를 입력해 주세요')
-        elif option == 'Columns':
+        elif options == 'Columns':
             if column_name in df.columns:
                 filtered_df = df[[column_name]]
                 st.write(filtered_df)
