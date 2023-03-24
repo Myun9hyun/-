@@ -134,8 +134,8 @@ elif choice == "데이터페이지":
             if not filtered_df.empty:
                 index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
                 filtered_df = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
-                st.write(filtered_df)
-            else :
+            st.write(filtered_df)
+            else:
                 st.write('Column이 입력되지 않았습니다.')
 
         elif options == 'Columns':
