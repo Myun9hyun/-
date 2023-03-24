@@ -156,7 +156,8 @@ elif choice == "데이터페이지":
                     fig.add_trace(go.Scatterpolar(
                         r=[row['math'], row['science'], row['history']],
                         theta=['Math', 'Science', 'History'],
-                        fill='none',
+                        fill='toself',
+                        
                         name=row['name']
                     ))
 
