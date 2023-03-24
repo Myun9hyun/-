@@ -146,26 +146,26 @@ elif choice == "데이터페이지":
                 fig = go.Figure()
 
                 fig.add_trace(go.Scatterpolar(
-                        r=[1, 5, 2, 2, 3],
-                        theta=categories,
-                        fill='toself',
-                        name='Product A'
-                    ))
+                    r=[1, 5, 2, 2, 3],
+                    theta=categories,
+                    fill='toself',
+                    name='Product A'
+                ))
                 fig.add_trace(go.Scatterpolar(
-                        r=[4, 3, 2.5, 1, 2],
-                        theta=categories,
-                        fill='toself',
-                        name='Product B'
-                    ))
+                    r=[4, 3, 2.5, 1, 2],
+                    theta=categories,
+                    fill='toself',
+                    name='Product B'
+                ))
 
                 fig.update_layout(
                     polar=dict(
-                        radialaxis=dict(
+                    radialaxis=dict(
                         visible=True,
                         range=[0, 5]
-                        )),
+                    )),
                     showlegend=False
-                    )
+                )
 
                 fig.show()
             elif option == 'Bar2':
