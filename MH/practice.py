@@ -131,7 +131,7 @@ elif choice == "데이터페이지":
         # team_name = st.text_input('Enter a team name')
         # filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
         # st.write(filtered_df)
-        filtered_df = df[df.apply(lambda row: df_data.lower() in row.astype(str).str.lower().values.tolist(), axis=0)]
+        filtered_df = df[df.apply(lambda columns: df_data.lower() in columns.astype(str).str.lower().values.tolist(), axis=0)]
         st.write(filtered_df)
     with tab1:
         tab1.subheader("📈 Chart Tab")
