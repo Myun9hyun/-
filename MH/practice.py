@@ -143,6 +143,7 @@ elif choice == "데이터페이지":
             ('Bar1', 'Bar2', 'Bar3', 'Bar4'))
             if option == 'Bar1':
                 # 데이터 프레임 만들기
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
 
                 # Plotly의 Radar Chart를 만들기
@@ -150,8 +151,8 @@ elif choice == "데이터페이지":
 
                 for index, row in df.iterrows():
                     fig.add_trace(go.Scatterpolar(
-                        r=[row['math'], row['science'], row['history']],
-                        theta=['Math', 'Science', 'History'],
+                        r=[row[df.columns]],
+                        theta=[r],
                         fill='toself',
 
                         name=row['name']
