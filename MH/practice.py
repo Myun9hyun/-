@@ -200,14 +200,13 @@ elif choice == "데이터페이지":
                 fig = go.Figure()
 
                 for index, row in df.iterrows():
-                    fig.add_trace(go.Scatter(
-                        x=['Math', 'Science', 'History'],
-                        y=[row['math'], row['science'], row['history']],
+                    fig.add_trace(go.Scatterpolar(
+                        r=[row['math'], row['science'], row['history']],
+                        theta=['Math', 'Science', 'History'],
                         mode='lines+markers',
                         line=dict(color='red', width=2),
-                        name=row['name'],
-                        fill='none',
-                        fillcolor='rgba(0, 0, 0, 0)'
+                        fill='toself',
+                        name=row['name']
                     ))
 
                 fig.update_layout(
@@ -222,6 +221,7 @@ elif choice == "데이터페이지":
 
                 # Streamlit에서 Radar Chart 표시하기
                 st.plotly_chart(fig)
+
 
 
                                 
