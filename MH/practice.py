@@ -136,7 +136,7 @@ elif choice == "데이터페이지":
         '''
         option = st.selectbox(
         '원하는 차트유형을 골라주세요',
-        ('Radar', 'Pie', 'Heatmap'))
+        ('Radar', 'Bar', 'Chart'))
         st.write(f'고르신 {option} 차트를 출력하겠습니다: ')
 
         if option == 'Radar':
@@ -192,33 +192,7 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Radar2':
                 st.write("차트2입니다")
-                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
-                df = pd.read_csv(url)
-                st.dataframe(df)
-                win_rate = ((df['W'] / df['G']) * 100)
-                win_rate = win_rate.round(2)
-                win_rate = win_rate.rename(
-                    index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'},
-                    # columns={0 : 'Win_rate'}) 
-                )
-                # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
-                win_rate_t = win_rate.T
-                st.dataframe(win_rate_t)
-                fig = px.bar(win_rate_t)
                 
-                fig.update_xaxes(title='TEAM')
-                fig.update_yaxes(title='Win')
-
-                fig.update_layout(
-                    width=600,
-                    height=400,
-                )
-
-                # y축 범위 수정
-                fig.update_yaxes(
-                    range=[70, 95]
-                )
-                st.plotly_chart(fig)
             elif option == 'Radar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
@@ -227,7 +201,7 @@ elif choice == "데이터페이지":
                 st.bar_chart(chart_data)
 
             elif option == 'Radar4':
-
+                st.write("차트 아무거나 넣었습니다")
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
                     'name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -271,24 +245,51 @@ elif choice == "데이터페이지":
             st.write("Pie차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('Pie1', 'Pie2', 'Pie3'))
-            if option == 'Pie1':
-                st.write("파이 차트 1입니다")
-            elif option == 'Pie2':
-                st.write("파이 차트 2입니다")
-            elif option == 'Pir3':
-                st.write("파이 차트 3입니다")
-        elif option == 'Heatmap':
+            ('Bar1', 'Bar2', 'Bar3'))
+            if option == 'Bar1':
+                st.write("승률 데이터 입니다")
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
+                df = pd.read_csv(url)
+                st.dataframe(df)
+                win_rate = ((df['W'] / df['G']) * 100)
+                win_rate = win_rate.round(2)
+                win_rate = win_rate.rename(
+                    index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'},
+                    # columns={0 : 'Win_rate'}) 
+                )
+                # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
+                win_rate_t = win_rate.T
+                st.dataframe(win_rate_t)
+                fig = px.bar(win_rate_t)
+                
+                fig.update_xaxes(title='TEAM')
+                fig.update_yaxes(title='Win')
+
+                fig.update_layout(
+                    width=600,
+                    height=400,
+                )
+
+                # y축 범위 수정
+                fig.update_yaxes(
+                    range=[70, 95]
+                )
+                st.plotly_chart(fig)
+            elif option == 'Bar2':
+                st.write("막대 차트 2입니다")
+            elif option == 'Bar3':
+                st.write("막대 차트 3입니다")
+        elif option == 'Chart':
             st.write("히트맵 차트입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('Heat1', 'Heat2', 'Heat3'))
-            if option == 'Heat1':
-                st.write("히트맵1입니다")
-            elif option == 'Heat2':
-                st.write("히트맵2입니다")
-            elif option == 'Heat3':
-                st.write("히트맵3입니다") 
+            ('Chart1', 'Chart2', 'Chart3'))
+            if option == 'Chart1':
+                st.write("차트1입니다")
+            elif option == 'Chart2':
+                st.write("차트2입니다")
+            elif option == 'Chart3':
+                st.write("차트3입니다") 
    
     with tab2:
         tab2.subheader("🖇️ Link Tab")
