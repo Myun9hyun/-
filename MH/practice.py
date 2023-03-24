@@ -131,13 +131,25 @@ elif choice == "데이터페이지":
                 '검색하고 싶은 데이터를 골라주세요',
                 ('Index', 'Columns', 'Mix'))
         if options == 'Index':
-            index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
-            # filtered_df = df[df['TEAM'] == df_data]
-            if index_name in df.index:
-                filtered_dfs = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
-                st.write(filtered_dfs)
-            else : 
-                st.write('Index가 입력되지 않았습니다.')
+            # index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
+            
+
+            index_value = st.number_input('Enter an index value')
+
+            # 입력받은 인덱스 값과 일치하는 행 찾기
+            filtered_df = df.loc[df.index == index_value]
+
+            # 검색 결과 출력하기
+            if not filtered_df.empty:
+                st.write(filtered_df)
+            else:
+                st.write('No rows found.')
+
+            # if index_name in df.index:
+            #     filtered_dfs = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
+            #     st.write(filtered_dfs)
+            # else : 
+            #     st.write('Index가 입력되지 않았습니다.')
             
         elif options == 'Columns':
             column_name = st.text_input('검색하고 싶은 columns를 입력해 주세요')
