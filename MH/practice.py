@@ -145,7 +145,7 @@ elif choice == "데이터페이지":
                 # 데이터 프레임 만들기
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
-                st,write(df)
+                st.write(df)
                 # # Plotly의 Radar Chart를 만들기
                 # fig = go.Figure()
 
