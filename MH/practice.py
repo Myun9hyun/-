@@ -226,7 +226,7 @@ elif choice == "데이터페이지":
                 )
 
                 # Streamlit에서 Radar Chart 표시하기
-                st.plotly_chart(fig)
+                # st.plotly_chart(fig)
 
 
 
@@ -276,7 +276,7 @@ elif choice == "데이터페이지":
                 )
 
             # Streamlit에서 Radar Chart 표시하기
-            st.plotly_chart(fig)
+            # st.plotly_chart(fig)
 
 
 
