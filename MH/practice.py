@@ -134,8 +134,8 @@ elif choice == "데이터페이지":
             index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
             # filtered_df = df[df['TEAM'] == df_data]
             if index_name in df.columns:
-                filtered_df = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
-                st.write(filtered_df)
+                filtered_dfs = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
+                st.write(filtered_dfs)
             else : 
                 st.write('Index가 입력되지 않았습니다.')
             
