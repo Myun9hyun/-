@@ -129,7 +129,7 @@ elif choice == "데이터페이지":
         df_data = st.text_input('검색하고 싶은 데이터를 입력해 주세요 : ')
         # data = {'Team': ['A', 'B', 'C', 'A', 'B', 'C'], 'Score': [10, 20, 30, 40, 50, 60]}
         # team_name = st.text_input('Enter a team name')
-        filtered_df = df[df.columns == df_data]
+        filtered_df = df[df.columns[] == df_data]
         st.write(filtered_df)
     with tab1:
         tab1.subheader("📈 Chart Tab")
