@@ -184,7 +184,7 @@ elif choice == "데이터페이지":
                 )
 
                 # Streamlit에서 Radar Chart 표시하기
-                st.plotly_chart(fig)
+                # st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("차트2입니다")
 
