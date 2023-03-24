@@ -192,10 +192,10 @@ elif choice == "데이터페이지":
                     fig.add_trace(go.Scatterpolar(
                         r=[row['math'], row['science'], row['history']],
                         theta=['Math', 'Science', 'History'],
-                        fill='toself',
+                        fill='none',
                         name=row['name'],
                         line=dict(color=colors[i], width=4),
-                        # fillcolor=colors[i],
+                        fillcolor=colors[i],
                         opacity=0.2
                     ))
 
