@@ -216,9 +216,6 @@ elif choice == "데이터페이지":
             ('Pie1', 'Pie2', 'Pie3'))
             if option == 'Pie1':
                 st.write("파이 차트 1입니다")
-                df2.plot.pie(autopct="%.2f%%") # 포맷설정
-                plt.axis('equal') # x축과 y축의 비율 일치
-                plt.show()
             elif option == 'Pie2':
                 st.write("파이 차트 2입니다")
             elif option == 'Pir3':
