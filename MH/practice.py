@@ -141,36 +141,6 @@ elif choice == "데이터페이지":
             '원하는 차트를 골라주세요',
             ('Bar1', 'Bar2', 'Bar3'))
             if option == 'Bar1':
-                categories = ['processing cost','mechanical properties','chemical stability', 'thermal stability', 'device integration']
-
-                fig = go.Figure()
-
-                fig.add_trace(go.Scatterpolar(
-                    r=[1, 5, 2, 2, 3],
-                    theta=categories,
-                    fill='toself',
-                    name='Product A'
-                ))
-                fig.add_trace(go.Scatterpolar(
-                    r=[4, 3, 2.5, 1, 2],
-                    theta=categories,
-                    fill='toself',
-                    name='Product B'
-                ))
-
-                fig.update_layout(
-                    polar=dict(
-                    radialaxis=dict(
-                        visible=True,
-                        range=[0, 5]
-                    )),
-                    showlegend=False
-                )
-                # st.pyplot(fig)
-                fig.show()
-            elif option == 'Bar2':
-                st.write("차트2입니다")
-
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
                     'name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -202,6 +172,10 @@ elif choice == "데이터페이지":
 
                 # Streamlit에서 Radar Chart 표시하기
                 st.plotly_chart(fig)
+            elif option == 'Bar2':
+                st.write("차트2입니다")
+
+                
 
             elif option == 'Bar3':
                 st.write("차트3입니다")
