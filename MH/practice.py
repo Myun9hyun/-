@@ -166,7 +166,7 @@ elif choice == "데이터페이지":
                     fig.add_trace(go.Scatterpolar(
                         r=[row['2P_O'], row['2P_D'], row['3P_O'], row['3P_D']],
                         theta=['2P_O', '2P_D', '3P_O', '3P_D'],
-                        fill='none',
+                        fill='toself',
                         name=row['TEAM'],
                         line=dict(color=colors[i], width=5),
                         fillcolor=colors[i],
