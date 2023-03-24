@@ -145,31 +145,31 @@ elif choice == "데이터페이지":
                 # 데이터 프레임 만들기
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
+                st,write(df)
+                # # Plotly의 Radar Chart를 만들기
+                # fig = go.Figure()
 
-                # Plotly의 Radar Chart를 만들기
-                fig = go.Figure()
+                # for index, row in df.iterrows():
+                #     fig.add_trace(go.Scatterpolar(
+                #         r=[row[df.columns]],
+                #         theta=[r],
+                #         fill='toself',
 
-                for index, row in df.iterrows():
-                    fig.add_trace(go.Scatterpolar(
-                        r=[row[df.columns]],
-                        theta=[r],
-                        fill='toself',
+                #         name=row['name']
+                #     ))
 
-                        name=row['name']
-                    ))
+                # fig.update_layout(
+                #     polar=dict(
+                #         radialaxis=dict(
+                #             visible=True,
+                #             range=[0, 100]
+                #         ),
+                #     ),
+                #     showlegend=True
+                # )
 
-                fig.update_layout(
-                    polar=dict(
-                        radialaxis=dict(
-                            visible=True,
-                            range=[0, 100]
-                        ),
-                    ),
-                    showlegend=True
-                )
-
-                # Streamlit에서 Radar Chart 표시하기
-                st.plotly_chart(fig)
+                # # Streamlit에서 Radar Chart 표시하기
+                # st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("차트2입니다")
 
