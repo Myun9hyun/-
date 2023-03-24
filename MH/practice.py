@@ -222,30 +222,44 @@ elif choice == "데이터페이지":
                 st.bar_chart(chart_data)
 
             elif option == 'Bar4':
-                df = pd.DataFrame({
-                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
-                    'math': [80, 70, 60, 90],
-                    'science': [90, 60, 70, 80],
-                    'history': [60, 80, 70, 90]
-                })
+              
 
-                # Theta 값이 문자열인 경우, 문자열을 정수형으로 바꾸어준다.
-                theta = np.array(['Math', 'Science', 'History'])
-                theta_sort = np.argsort(theta)
+                # 데이터프레임 생성
+                data = {'name': ['Alice', 'Bob', 'Charlie', 'Dave'],
+                        'math': [80, 60, 70, 90],
+                        'science': [70, 40, 90, 80],
+                        'history': [90, 80, 60, 70]}
 
-                # Plotly의 Radar Chart를 만들기
-                fig = go.Figure()
+                df = pd.DataFrame(data)
+
+                # Theta 값 설정
+                theta = ['math', 'science', 'history']
+
+
+                # Theta 값이 문fig = go.Figure()
 
                 for index, row in df.iterrows():
                     r = [row['math'], row['science'], row['history']]
                     fig.add_trace(go.Scatterpolar(
                         r=r,
-                        theta=theta_sort,  # Theta 값을 숫자로 변경한다.
+                        theta=theta,
                         fill='none',
                         mode='lines',
                         name=row['name'],
                         line=dict(color='red', width=2)
                     ))
+
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(
+                            visible=True,
+                            range=[0, 100]
+                        )),
+                    showlegend=True
+                )
+
+                st.plotly_chart(fig)
+
 
 
         elif option == 'Pie':
