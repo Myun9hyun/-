@@ -146,29 +146,7 @@ elif choice == "데이터페이지":
             ('Radar1', 'Radar2', 'Radar3', 'Radar4'))
             if option == 'Radar1':
                 # 데이터 프레임 만들기
-                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
-                df = pd.read_csv(url)
-                st.dataframe(df)
-                win_rate = ((df['W'] / df['G']) * 100)
-                win_rate = win_rate.round(2)
-                win_rate = win_rate.rename(index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'}) 
-                # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
-                win_rate_t = win_rate.T
-                st.dataframe(win_rate_t)
-                fig = px.bar(win_rate_t)
                 
-                fig.update_xaxes(title='TEAM')
-                fig.update_yaxes(title='Win')
-
-                fig.update_layout(
-                    width=600,
-                    height=400,
-                )
-
-                # y축 범위 수정
-                fig.update_yaxes(
-                    range=[70, 95]
-                )
                 
 
                 # 차트 출력
@@ -214,46 +192,29 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Radar2':
                 st.write("차트2입니다")
-
-                # 데이터 프레임 만들기
-                df = pd.DataFrame({
-                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
-                    'science': [90, 60, 70, 80],
-                    'math': [80, 70, 60, 90],
-                    'history': [60, 80, 70, 90]
-                },columns=['name', 'science', 'math', 'history'])
-
-                # Plotly의 Radar Chart를 만들기
-                fig = go.Figure()
-
-                for index, row in df.iterrows():
-                    fig.add_trace(go.Scatterpolar(
-                        r=[row['math'], row['science'], row['history']],
-                        theta=['Math', 'Science', 'History'],
-                        mode='lines+markers',
-                        line=dict(color='red', width=2),
-                        fill='none',
-                        name=row['name'],
-                        
-                    ))
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
+                df = pd.read_csv(url)
+                st.dataframe(df)
+                win_rate = ((df['W'] / df['G']) * 100)
+                win_rate = win_rate.round(2)
+                win_rate = win_rate.rename(index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'}) 
+                # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
+                win_rate_t = win_rate.T
+                st.dataframe(win_rate_t)
+                fig = px.bar(win_rate_t)
+                
+                fig.update_xaxes(title='TEAM')
+                fig.update_yaxes(title='Win')
 
                 fig.update_layout(
-                    polar=dict(
-                        radialaxis=dict(
-                            visible=True,
-                            range=[0, 100]
-                        ),
-                    ),
-                    showlegend=True
+                    width=600,
+                    height=400,
                 )
 
-                # Streamlit에서 Radar Chart 표시하기
-                st.plotly_chart(fig)
-
-
-
-                                
-
+                # y축 범위 수정
+                fig.update_yaxes(
+                    range=[70, 95]
+                )
             elif option == 'Radar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
