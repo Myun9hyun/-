@@ -196,7 +196,7 @@ elif choice == "데이터페이지":
                         name=row['name'],
                         line=dict(color=colors[i], width=4),
                         # fillcolor=colors[i],
-                        opacity=0.5
+                        opacity=0.2
                     ))
 
                 fig.update_layout(
