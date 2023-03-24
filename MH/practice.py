@@ -154,6 +154,8 @@ elif choice == "데이터페이지":
                 win_rate = win_rate.round(2)
                 st.write(win_rate)
                 fig = px.bar(win_rate)
+                x.labels = 'TEAM'
+                y.labels = 'Win_rate'
                 fig.update_layout(
                     width=600,
                     height=400,
