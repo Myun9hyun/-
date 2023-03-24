@@ -148,7 +148,7 @@ elif choice == "데이터페이지":
                 # 데이터 프레임 만들기
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
-                st.DataFrame(df)
+                st.dataframe(df)
                 win_rate = ((df['W'] / df['G']) * 100)
                 win_rate = win_rate.round(2)
                 win_rate_t = win_rate.T
