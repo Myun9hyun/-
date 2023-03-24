@@ -1,6 +1,10 @@
 import streamlit as st
-import numpy as np
+from PIL import Image
+import requests
 import pandas as pd
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
 
 menu = ["메인페이지", "데이터페이지", "기타"]
 choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
