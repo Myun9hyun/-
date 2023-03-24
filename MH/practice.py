@@ -241,8 +241,8 @@ elif choice == "데이터페이지":
 
 
 
-        elif option == 'Pie':
-            st.write("Pie차트 유형입니다")
+        elif option == 'Bar':
+            st.write("Bar차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
             ('Bar1', 'Bar2', 'Bar3'))
@@ -280,7 +280,7 @@ elif choice == "데이터페이지":
             elif option == 'Bar3':
                 st.write("막대 차트 3입니다")
         elif option == 'Chart':
-            st.write("히트맵 차트입니다")
+            st.write("차트입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
             ('Chart1', 'Chart2', 'Chart3'))
