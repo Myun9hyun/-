@@ -198,7 +198,7 @@ elif choice == "데이터페이지":
                 fig = go.Figure()
 
                 for index, row in df.iterrows():
-                    fig.add_trace(go.Scatterpolar(
+                    fig.add_trace(go.Scatter(
                         r=[row['math'], row['science'], row['history']],
                         theta=['Math', 'Science', 'History'],
                         fill='none',
