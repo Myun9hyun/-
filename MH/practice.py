@@ -145,25 +145,42 @@ elif choice == "데이터페이지":
                 # 데이터 프레임 만들기
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
-                st.write(df)
-                for col in df.columns:
-                    fig = go.Figure()
+                # 데이터 프레임 만들기
+                df2 = pd.DataFrame({
+                    'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
+                    'DRB': [30, 23.7, 24.9, 28.7],
+                    '2P_O': [53.9, 54.8, 54.7, 52.8],
+                    '3P_O': [32.7, 36.5, 35.2, 36.5]
+                })
+
+                # Plotly의 Radar Chart를 만들기
+                fig = go.Figure()
+
+                colors = ['Red', 'Green', 'Blue', 'Orange']
+
+                for i, row in df2.iterrows():
                     fig.add_trace(go.Scatterpolar(
-                        r=df[col].tolist(),
-                        theta=df.columns.tolist(),
+                        r=[row['DRB'], row['2P_O'], row['3P_O']],
+                        theta=['DRB', '2P_O', '3P_O'],
                         fill='toself',
-                        name=col
+                        name=row['TEAM'],
+                        line=dict(color=colors[i], width=5),
+                        fillcolor=colors[i],
+                        opacity=0.5
                     ))
-                    fig.update_layout(
-                        polar=dict(
-                            radialaxis=dict(
-                                visible=True,
-                                range=[0, df.max().max()]
-                            )
+
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(
+                            visible=True,
+                            range=[0, 100]
                         ),
-                        title=f'Radar Chart for {col}'
-                    )
-                    st.plotly_chart(fig)
+                    ),
+                    showlegend=True
+                )
+
+                # Streamlit에서 Radar Chart 표시하기
+                st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("차트2입니다")
 
