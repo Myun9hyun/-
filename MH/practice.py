@@ -131,8 +131,8 @@ elif choice == "데이터페이지":
                 '검색하고 싶은 데이터를 골라주세요',
                 ('Index', 'Columns', 'Mix'))
         if options == 'Index':
+            index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
             if not index_name.empty:
-                index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
                 filtered_df = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
                 st.write(filtered_df)
             else:
