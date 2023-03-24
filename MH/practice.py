@@ -153,7 +153,7 @@ elif choice == "데이터페이지":
                 pd.options.display.float_format = '{:,.2f}'.format
                 win_rate = win_rate.round(2)
                 st.write(win_rate)
-
+                win.rate.plot(kind='bar')
                 # 데이터 프레임 만들기
                 df2 = pd.DataFrame({
                     'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
