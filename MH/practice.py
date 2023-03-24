@@ -133,7 +133,7 @@ elif choice == "데이터페이지":
         if options == 'Index':
             index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
             # filtered_df = df[df['TEAM'] == df_data]
-            if index_name in df.columns:
+            if index_name in df.index:
                 filtered_dfs = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
                 st.write(filtered_dfs)
             else : 
