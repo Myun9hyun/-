@@ -133,9 +133,9 @@ elif choice == "데이터페이지":
         '''
         option = st.selectbox(
         '원하는 차트유형을 골라주세요',
-        ('Bar', 'Pie', 'Heatmap'))
+        ('Radar', 'Pie', 'Heatmap'))
         st.write('고르신 차트를 출력하겠습니다:', option)
-        if option == 'Bar':
+        if option == 'Radar':
             st.write("Bar차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
@@ -157,7 +157,7 @@ elif choice == "데이터페이지":
                         r=[row['math'], row['science'], row['history']],
                         theta=['Math', 'Science', 'History'],
                         fill='toself',
-                        
+
                         name=row['name']
                     ))
 
