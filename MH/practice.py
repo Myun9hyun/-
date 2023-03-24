@@ -127,7 +127,7 @@ elif choice == "데이터페이지":
         df = pd.read_csv(url)
         st.write(df)
         df_data = st.text_input('검색하고 싶은 데이터를 입력해 주세요 : ')
-        if text_input=True:
+        if text_input is not None:
             st.write('검색하신 데이터를 출력하겠습니다.')
             st.write(df[df_data])
     with tab1:
