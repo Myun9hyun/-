@@ -215,6 +215,7 @@ elif choice == "데이터페이지":
                 fig.update_yaxes(
                     range=[70, 95]
                 )
+                st.plotly_chart(fig)
             elif option == 'Radar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
