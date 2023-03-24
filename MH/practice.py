@@ -170,10 +170,12 @@ elif choice == "데이터페이지":
                 fig.show()
             elif option == 'Bar2':
                 st.write("차트2입니다")
-                chart_data = pd.DataFrame(
-                np.random.randn(20, 3),
-                columns=["a", "b", "c"])
-                st.bar_chart(chart_data)
+                df = pd.DataFrame(dict(
+                r=[1, 5, 2, 2, 3],
+                theta=['processing cost','mechanical properties','chemical stability',
+                'thermal stability', 'device integration']))
+                fig = px.line_polar(df, r='r', theta='theta', line_close=True)
+                fig.show()
             elif option == 'Bar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
