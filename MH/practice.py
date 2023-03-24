@@ -156,10 +156,10 @@ elif choice == "데이터페이지":
                 if score.isdigit():
                     score = int(score)
                 # 검색 결과 출력하기
-                if not filtered_df.empty:
-                    st.write(filtered_df)
-                else:
-                    st.write('No rows found.')
+                    if not filtered_df.empty:
+                        st.write(filtered_df)
+                    else:
+                        st.write('No rows found.')
             else:
                 st.write('Column not found')
      
