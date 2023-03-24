@@ -223,13 +223,17 @@ elif choice == "데이터페이지":
 
             elif option == 'Bar4':
         
+  
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
                     'name': ['Alice', 'Bob', 'Charlie', 'David'],
-                    'math': [80, 70, 60, 90],
                     'science': [90, 60, 70, 80],
+                    'math': [80, 70, 60, 90],
                     'history': [60, 80, 70, 90]
                 })
+
+                # Theta 순서 변경하기
+                df = df[['name', 'math', 'science', 'history']]
 
                 # Plotly의 Radar Chart를 만들기
                 fig = go.Figure()
@@ -256,6 +260,7 @@ elif choice == "데이터페이지":
 
                 # Streamlit에서 Radar Chart 표시하기
                 st.plotly_chart(fig)
+
 
         elif option == 'Pie':
             st.write("Pie차트 유형입니다")
