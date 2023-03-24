@@ -161,6 +161,9 @@ elif choice == "데이터페이지":
                         st.write(filtered_df)
                     else:
                         st.write('No rows found.')
+                else:
+                    filtered_df = df[(df[column_names] == score)]
+                    st.write(filtered_df)
             else:
                 st.write('Column not found')
      
