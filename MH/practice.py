@@ -173,7 +173,7 @@ elif choice == "데이터페이지":
                     polar=dict(
                         radialaxis=dict(
                             visible=True,
-                            range=[0, 100]
+                            range=[20, 60]
                         ),
                     ),
                     showlegend=True
