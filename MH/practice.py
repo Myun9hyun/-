@@ -165,7 +165,7 @@ elif choice == "데이터페이지":
                 for i, row in df2.iterrows():
                     fig.add_trace(go.Scatterpolar(
                         r=[row['2P_O'], row['2P_D'], row['3P_O'], row['3P_D']],
-                        theta=['2P_O', '2P_D', '3P_O', '3P_D'],
+                        theta=['2점 슛 성공률', '2점 슛 허용률', '3점 슛 성공률', '3점 슛 허용률'],
                         fill='toself',
                         name=row['TEAM'],
                         line=dict(color=colors[i], width=5),
