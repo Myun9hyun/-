@@ -118,7 +118,7 @@ if choice == "메인페이지":
         '''
 
 elif choice == "데이터페이지":
-    tab0, tab1, tab2 = st.tabs(["🗃 Data", "📈 Chart", "🖇️ Link"])
+    tab0, tab1, tab2 = st.tabs(["🗃 Data", "📈 Chart", "Streamlit 진행상태.."])
     data = np.random.randn(10, 1)
     with tab0:
         tab0.subheader("🗃 Data Tab")
@@ -332,5 +332,15 @@ elif choice == "데이터페이지":
                 st.write("차트3입니다") 
    
     with tab2:
-        tab2.subheader("🖇️ Link Tab")
-        
+        tab2.subheader("Streamlit 진행상태..")
+        st.write()
+        '''
+        ### 현재 진행상태
+        > * 메인페이지 구현완료.
+        > * 데이터 페이지 내 data tab 데이터 검색 기능 추가..
+        > * 
+
+        ### 추가해야 할 기능
+        > * ??
+
+        '''
