@@ -222,44 +222,25 @@ elif choice == "데이터페이지":
                 st.bar_chart(chart_data)
 
             elif option == 'Bar4':
-        
-  
-                # 데이터 프레임 만들기
-                df = pd.DataFrame({
-                    'name': ['Alice', 'Bob', 'Charlie', 'David'],
-                    'science': [90, 60, 70, 80],
-                    'math': [80, 70, 60, 90],
-                    'history': [60, 80, 70, 90]
-                })
 
-                # Theta 순서 변경하기
-                df = df[['name', 'math', 'science', 'history']]
+
+                # Theta 값이 문자열인 경우, 문자열을 정수형으로 바꾸어준다.
+                theta = np.array(['Math', 'Science', 'History'])
+                theta_sort = np.argsort(theta)
 
                 # Plotly의 Radar Chart를 만들기
                 fig = go.Figure()
 
                 for index, row in df.iterrows():
+                    r = [row['math'], row['science'], row['history']]
                     fig.add_trace(go.Scatterpolar(
-                        r=[row['math'], row['science'], row['history']],
-                        theta=['Math', 'Science', 'History'],
+                        r=r,
+                        theta=theta_sort,  # Theta 값을 숫자로 변경한다.
                         fill='none',
                         mode='lines',
                         name=row['name'],
                         line=dict(color='red', width=2)
                     ))
-
-                fig.update_layout(
-                    polar=dict(
-                        radialaxis=dict(
-                            visible=True,
-                            range=[0, 100]
-                        ),
-                    ),
-                    showlegend=True
-                )
-
-                # Streamlit에서 Radar Chart 표시하기
-                st.plotly_chart(fig)
 
 
         elif option == 'Pie':
