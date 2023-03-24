@@ -151,7 +151,7 @@ elif choice == "데이터페이지":
                 st.write(df)
                 win_rate = ((df['W'] / df['G']) * 100)
                 pd.options.display.float_format = '{:,.2f}'.format
-                st.write(win_rate)
+                st.write(win_rate).round(2)
 
                 # 데이터 프레임 만들기
                 df2 = pd.DataFrame({
