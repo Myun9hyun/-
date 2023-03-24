@@ -258,7 +258,7 @@ elif choice == "데이터페이지":
                     # columns={0 : 'Win_rate'}) 
                 )
                 # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
-                dataframe.win_rate.columns['Win_rate']
+                st.dataframe(win_rate).columns['Win_rate']
                 win_rate_t = win_rate.T
                 st.dataframe(win_rate_t)
                 fig = px.bar(win_rate_t)
