@@ -194,8 +194,8 @@ elif choice == "데이터페이지":
                         theta=['Math', 'Science', 'History'],
                         fill='toself',
                         name=row['name'],
-                        line=dict(color=colors[i], width=2),
-                        fillcolor=colors[i],
+                        line=dict(color=colors[i], width=4),
+                        # fillcolor=colors[i],
                         opacity=0.5
                     ))
 
