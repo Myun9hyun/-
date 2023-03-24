@@ -147,7 +147,7 @@ elif choice == "데이터페이지":
             if option == 'Radar1':
                 # 데이터 프레임 만들기
                 
-                
+                fig = go.Figure()
 
                 # 차트 출력
                 st.plotly_chart(fig)
