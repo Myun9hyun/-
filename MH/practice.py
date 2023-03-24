@@ -149,6 +149,9 @@ elif choice == "데이터페이지":
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
                 st.write(df)
+                win_rate = (df['W'] / df['G']) * 100
+                st.write(win_rate)
+
                 # 데이터 프레임 만들기
                 df2 = pd.DataFrame({
                     'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
