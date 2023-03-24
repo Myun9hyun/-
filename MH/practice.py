@@ -149,7 +149,7 @@ elif choice == "데이터페이지":
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
                 df = pd.read_csv(url)
                 st.write(df)
-                win_rate = ((df['W'] / df['G']) * 100)
+                win_rate(axis=0) = ((df['W'] / df['G']) * 100)
                 win_rate = win_rate.round(2)
                 st.write(win_rate)
                 fig = px.bar(win_rate)
