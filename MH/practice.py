@@ -130,7 +130,6 @@ elif choice == "데이터페이지":
         tab1.subheader("📈 Chart Tab")
         tab1.write()
         '''
-        ---
         ### Stat Info
         * 차트설명
         ---
