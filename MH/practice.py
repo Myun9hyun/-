@@ -114,7 +114,7 @@ if choice == "메인페이지":
         > [![GitHub](https://img.icons8.com/bubbles/256/kaggle.png)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
         > * 이미지 클릭 시 링크 이동🔗
         * colab링크2[제목]
-        > [데이터 링크 2(추가, 기본값 구글홈페이지로 해둠)](https://www.google.com/) 
+        > [![Colab](https://img.shields.io/badge/colab-linear%20regression-yellow)](https://colab.research.google.com/drive/1qTboYP4Pa73isvE4Lt3l5XYLaIhX9Tix?usp=sharing) 
         '''
 
 elif choice == "데이터페이지":
