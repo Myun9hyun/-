@@ -111,7 +111,7 @@ if choice == "메인페이지":
         '''
         * Kaggle 데이터 출처
         * College Basketball Dataset
-        > [![Colab](https://img.shields.io/badge/kaggle-kaggle%20Data-link-blue)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
+        > [![Colab](https://img.shields.io/badge/kaggle-College%20Basketball%20Dataset-skyblue)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
         > * 이미지 클릭 시 링크 이동🔗
         * colab링크2[제목]
         > [![Colab](https://img.shields.io/badge/colab-Data%20preprocessing-yellow)](https://colab.research.google.com/drive/1qTboYP4Pa73isvE4Lt3l5XYLaIhX9Tix?usp=sharing) 
