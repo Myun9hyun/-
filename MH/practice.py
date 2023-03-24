@@ -166,8 +166,8 @@ elif choice == "데이터페이지":
                     )),
                     showlegend=False
                 )
-
-                fig.show()
+                st.pyplot(fig)
+                # fig.show()
             elif option == 'Bar2':
                 st.write("차트2입니다")
                 df = pd.DataFrame(dict(
