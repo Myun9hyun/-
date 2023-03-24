@@ -166,7 +166,7 @@ elif choice == "데이터페이지":
                     )),
                     showlegend=False
                 )
-                st.pyplot(fig)
+                # st.pyplot(fig)
                 fig.show()
             elif option == 'Bar2':
                 st.write("차트2입니다")
@@ -175,8 +175,8 @@ elif choice == "데이터페이지":
                     theta=['processing cost','mechanical properties','chemical stability','thermal stability', 'device integration'])
                     )
                             
-                fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-                fig.show()
+                plt = px.line_polar(df, r='r', theta='theta', line_close=True)
+                plt.show()
             elif option == 'Bar3':
                 st.write("차트3입니다")
                 chart_data = pd.DataFrame(
