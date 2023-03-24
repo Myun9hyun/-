@@ -132,7 +132,7 @@ elif choice == "데이터페이지":
                 ('Index', 'Columns', 'Mix'))
         if options == 'Index':
             index_name = st.text_input('검색하고 싶은 index를 입력해 주세요')
-            if index_name in df.indexs:
+            if index_name in df:
                 filtered_df = df[df.apply(lambda row: index_name.lower() in row.astype(str).str.lower().values.tolist(), axis=1)]
                 st.write(filtered_df)
 
