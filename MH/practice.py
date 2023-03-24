@@ -147,23 +147,23 @@ elif choice == "데이터페이지":
                 df = pd.read_csv(url)
                 st.write(df)
                 for col in df.columns:
-                fig = go.Figure()
-                fig.add_trace(go.Scatterpolar(
-                    r=df[col].tolist(),
-                    theta=df.columns.tolist(),
-                    fill='toself',
-                    name=col
-                ))
-                fig.update_layout(
-                    polar=dict(
-                        radialaxis=dict(
-                            visible=True,
-                            range=[0, df.max().max()]
-                        )
-                    ),
-                    title=f'Radar Chart for {col}'
-                )
-                st.plotly_chart(fig)
+                    fig = go.Figure()
+                    fig.add_trace(go.Scatterpolar(
+                        r=df[col].tolist(),
+                        theta=df.columns.tolist(),
+                        fill='toself',
+                        name=col
+                    ))
+                    fig.update_layout(
+                        polar=dict(
+                            radialaxis=dict(
+                                visible=True,
+                                range=[0, df.max().max()]
+                            )
+                        ),
+                        title=f'Radar Chart for {col}'
+                    )
+                    st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("차트2입니다")
 
