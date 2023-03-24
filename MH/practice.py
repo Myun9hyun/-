@@ -126,7 +126,10 @@ elif choice == "데이터페이지":
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
         df = pd.read_csv(url)
         st.write(df)
-       
+        df_data = st.text_input('검색하고 싶은 데이터를 입력해 주세요 : ')
+        if input=True:
+            st.write('검색하신 데이터를 출력하겠습니다.')
+            st.write(df[df_data])
     with tab1:
         tab1.subheader("📈 Chart Tab")
         tab1.write()
