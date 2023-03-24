@@ -122,8 +122,8 @@ elif choice == "데이터페이지":
     with tab0:
         tab0.subheader("🗃 Data Tab")
         url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
-            df = pd.read_csv(url)
-            st.write(df)
+        df = pd.read_csv(url)
+        st.write(df)
        
     with tab1:
         tab1.subheader("📈 Chart Tab")
