@@ -26,7 +26,7 @@ if choice == "메인페이지":
 
         ### Team 💪
 
-        | 이름 | 팀장/팀원  | 역할 분담 | 그 외 역할 | 머신러닝모델링 | 개인GitHub링크 |
+        | 이름 | 팀장/팀원  | 역할 분담 | 그 외 역할 | 머신러닝모델링 | GitHub |
         | :---: | :---: | :---: | :---: | :---: | :---: |
         | 이규린 | 팀장👑 | 데이터 전처리✏️ | PPT발표💻 | 랜덤포레스트 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/whataLIN)|
         | 강성욱 | 팀원🐜  | 데이터 시각화👓 | PPT발표💻 | XG Boost |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/JoySoon)|
