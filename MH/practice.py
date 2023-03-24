@@ -206,7 +206,7 @@ elif choice == "데이터페이지":
                         mode='lines+markers',
                         line=dict(color='red', width=2),
                         fill='none',
-                        name=row['name']
+                        name=row['name'],
                         line_close=True
                     ))
 
