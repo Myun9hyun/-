@@ -34,9 +34,6 @@ if choice == "메인페이지":
         | 김지영 | 팀원🐜  | 데이터 전처리✏️ | 발표자료제작📝 | 결정트리 |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/jyeongvv)|
         ---
         
-        
-    
-
         '''
     with tab1:
         tab1.subheader("🔎Explain")
@@ -98,11 +95,6 @@ if choice == "메인페이지":
         > 1. SEED : NCAA 토너먼트에 참가하는 시드(등수)
         > 1. YEAR : 시즌
         '''
-        
-        
-
-        
-
 
     with tab3:
         tab3.subheader("🖇️ Link Tab")
