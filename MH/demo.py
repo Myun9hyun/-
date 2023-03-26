@@ -10,3 +10,4 @@ selected_cols = st.multiselect('Select columns', df.columns)
 # 선택한 열에 해당하는 인덱스를 추출합니다.
 df_selected = df.loc[:, selected_cols]
 selected_indices = df_selected.index.tolist()
+st.write(selected_indices)
