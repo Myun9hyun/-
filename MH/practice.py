@@ -343,8 +343,9 @@ elif choice == "데이터페이지":
                         result = pd.concat([sub_df_Team, df_winrate_round], axis=1)
                         df_result = result.rename(columns={0: 'win_rate'})
                         st.write(df_result)
-                        st.write(result)
                         fig = px.bar(df_winrate_round)
+                        df_data = df_result.iloc[:, 1:]
+                        st.write(df_data)
                         # fig.update_xaxes(title='TEAM')
                         # fig.update_yaxes(title='Win')
 
