@@ -311,6 +311,7 @@ elif choice == "데이터페이지":
                 st.write("막대 차트 2입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
                 df = pd.read_csv(url)
+                df = df.iloc[:, 1:]
                 unique_CONF = df['CONF'].unique()
                 
                 # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
