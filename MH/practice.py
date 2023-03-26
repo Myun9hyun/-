@@ -311,30 +311,41 @@ elif choice == "데이터페이지":
                 st.write("막대 차트 2입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
                 df = pd.read_csv(url)
-                unique_CONF = df['CONF'].unique()
+                
+                    unique_CONF = df['CONF'].unique()
 
-                # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
-                index_dict = {}
-                for CONF in unique_CONF:
-                    index_dict[CONF] = df[df['CONF'] == CONF].index.tolist()
-
-                # 사용자가 입력한 이름에 해당하는 모든 행 출력
-                user_name = input(f"Enter a name from {', '.join(unique_CONF)}: ")
-                if user_name in unique_CONF:
-                    indices = index_dict[user_name]
-                    sub_df = df.loc[indices]
-                    st.write(sub_df)
                     
-                    # 사용자가 입력한 나이에 해당하는 행 출력
-                    user_YEAR = input("Enter an YEAR: ")
-                    try:
-                        user_YEAR = int(user_YEAR)
-                        sub_df = sub_df[sub_df['YEAR'] == user_YEAR]
+                    # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
+                    index_dict = {}
+                    for CONF in unique_CONF:
+                        index_dict[CONF] = df[df['CONF'] == name].index.tolist()
+                    
+                    # 사용자로부터 이름과 나이 입력 받기
+                    user_name = st.sidebar.selectbox("Enter a name:", unique_CONF)
+                    user_YEAR = st.sidebar.number_input("Enter an age:")
+                    
+                    # 입력한 이름에 해당하는 모든 행 출력
+                    if user_name in unique_CONF:
+                        indices = index_dict[user_name]
+                        sub_df = df.loc[indices]
+                        st.write(f"### Rows with CONF '{user_name}'")
                         st.write(sub_df)
-                    except ValueError:
-                        st.write("Invalid input for age.")
-                else:
-                    st.write("Invalid input for name.")
+                        
+                        # 입력한 나이에 해당하는 행 출력
+                        if user_YEAR != "":
+                            try:
+                                user_YEAR = int(user_YEAR)
+                                sub_df = sub_df[sub_df['YEAR'] == user_YEAR]
+                                st.write(f"### Rows with name '{user_name}' and age {user_YEAR}")
+                                st.write(sub_df)
+                            except ValueError:
+                                st.warning("Invalid input for age.")
+                    else:
+                        st.warning("Invalid input for name.")
+
+                if __CONF__ == "__main__":
+                    main()
+
 
 
             elif option == 'Bar3':
