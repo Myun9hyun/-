@@ -29,14 +29,14 @@ if uploaded_file is not None:
     df_selected = df.loc[df['CONF'] == location].reset_index(drop=True)[['TEAM', 'YEAR'] + selected_stats]
 
     # 스탯 비교 레이더 차트 그리기
-    fig, ax = plt.subplots(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': 'polar'})
     categories = selected_stats
     N = len(categories)
     angles = [n / float(N) * 2 * math.pi for n in range(N)]
     angles += angles[:1]
-    ax.set_ylim(math.pi / 2)
-    ax.set_ylim(-1)
+    ax.set_ylim(0, df_selected[selected_stats].max().max())
     plt.xticks(angles[:-1], categories)
+    ax.set_theta_offset(math.pi / 2)
     ax.set_rlabel_position(0)
     for i in range(len(df_selected)):
         values = df_selected.loc[i, selected_stats].values.flatten().tolist()
