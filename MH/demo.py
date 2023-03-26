@@ -1,44 +1,28 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import math
+import plotly.express as px
+import plotly.graph_objects as go
 
-# csv 파일 업로드
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+df = pd.read_csv('your_data.csv')
 
-    # 지역 입력
-    location = st.text_input('Enter the location')
-    filtered_df = df[df['CONF'] == location]
+selected_stats = st.multiselect('Select stats', df.columns)
 
-    # 시즌 입력
-    season = st.text_input('Enter the season')
-    filtered_df = filtered_df[filtered_df['YEAR'] == season]
-
-    # 스탯 선택
-    selected_stats = st.multiselect('Select stats', ['ADJOE', 'ADJDE', 'BARTHAG', 'EFG_O', 'EFG_D', 'TOR', 'TORD', 'ORB', 'DRB', 'FTR', 'FTRD', '2P_O', '2P_D', '3P_O', '3P_D', 'ADJ_T', 'WAB'])
-
-    # 선택된 스탯만 포함하는 데이터프레임
-    df_selected = filtered_df[['TEAM', 'YEAR'] + selected_stats]
-
-    # 스탯 비교 레이더 차트 그리기
-    fig, ax = plt.subplots(figsize=(10, 8), subplot_kw=dict(projection='polar'))
-    categories = selected_stats
-    N = len(categories)
-    angles = [n / float(N) * 2 * math.pi for n in range(N)]
-    # angles += angles[:1]
-    angles_deg = np.rad2deg(angles[:-1])
-    ax.set_thetagrids(angles_deg, categories)       
-    ax.set_theta_offset(math.pi / 2)
-    ax.set_theta_direction(-1)
-    ax.set_thetagrids(angles[:-1] * 180 / math.pi, categories)
-    ax.set_rlabel_position(0)
-    for i in range(len(df_selected)):
-        values = df_selected.loc[i, selected_stats].values.flatten().tolist()
-        values += values[:1]
-        ax.plot(angles, values, linewidth=1, linestyle='solid', label=df_selected.loc[i, 'TEAM'])
-        ax.fill(angles, values, alpha=0.1)
-    ax.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
-    st.pyplot(fig)
+if selected_stats:
+    fig = go.Figure()
+    for stat in selected_stats:
+        fig.add_trace(go.Scatterpolar(
+            r=[df[stat].mean()],
+            theta=[stat],
+            fill='toself',
+            name=stat
+        ))
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[df[selected_stats].min().min(), df[selected_stats].max().max()]
+            )
+        ),
+        showlegend=True
+    )
+    st.plotly_chart(fig, use_container_width=True)
