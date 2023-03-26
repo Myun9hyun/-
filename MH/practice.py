@@ -291,7 +291,7 @@ elif choice == "데이터페이지":
                     index_dict[CONF] = df[df['CONF'] == CONF].index.tolist()
                 
                 # 사용자로부터 지역 입력 받기
-                user_CONF = st.selectbox("Select a CONF:", unique_CONF)
+                user_CONF = st.selectbox("원하시는 지역을 골라주세요:", unique_CONF)
                 
                 # 선택한 지역에 해당하는 모든 행 출력
                 if user_CONF in unique_CONF:
