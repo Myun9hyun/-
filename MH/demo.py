@@ -23,19 +23,19 @@ if uploaded_file is not None:
     df_selected = filtered_df[['TEAM', 'YEAR'] + selected_stats]
 
     # 스탯 비교 레이더 차트 그리기
-    fig, ax = plt.subplots(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(10, 8), subplot_kw=dict(projection='polar'))
     categories = selected_stats
     N = len(categories)
     angles = [n / float(N) * 2 * math.pi for n in range(N)]
     angles += angles[:1]
-    ax.set_ylim(math.pi / 2)
-    ax.set_theta_zero_location(-1)
-    plt.xticks(angles[:-1], categories)
+    ax.set_theta_offset(math.pi / 2)
+    ax.set_theta_direction(-1)
+    ax.set_thetagrids(angles[:-1] * 180 / math.pi, categories)
     ax.set_rlabel_position(0)
     for i in range(len(df_selected)):
         values = df_selected.loc[i, selected_stats].values.flatten().tolist()
         values += values[:1]
         ax.plot(angles, values, linewidth=1, linestyle='solid', label=df_selected.loc[i, 'TEAM'])
         ax.fill(angles, values, alpha=0.1)
-    plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
+    ax.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
     st.pyplot(fig)
