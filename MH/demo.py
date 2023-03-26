@@ -1,36 +1,41 @@
-import pandas as pd
+# Streamlit 패키지 불러오기
 import streamlit as st
-import plotly.express as px
-import numpy as np
-url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
+import pandas as pd
+import matplotlib.pyplot as plt
+from math import pi
 
-df = pd.read_csv("https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv", index_col=0)
+# CSV 파일 업로드
+uploaded_file = st.file_uploader("Choose a file")
 
-# csv 파일 읽어오기
-df = pd.read_csv("your_csv_file.csv")
-
-# 선택할 수 있는 옵션 리스트
-conf_list = df['CONF'].unique().tolist()
-conf_selected = st.sidebar.selectbox("Select Conference", conf_list)
-
-# 선택한 컨퍼런스에 해당하는 행들 추출
-filtered_df = df[df['CONF'] == conf_selected]
-
-# 선택할 수 있는 옵션 리스트
-columns = filtered_df.columns[3:].tolist()
-columns_selected = st.sidebar.multiselect("Select Columns", columns)
-
-# 선택한 컬럼들로 radar chart 그리기
-colors = Category10[10]
-p = figure(title="Radar Chart", plot_width=500, plot_height=500)
-
-for i, column in enumerate(columns_selected):
-    data = filtered_df[column].tolist()
-    angles = [n / float(len(columns_selected)) * 2 * pi for n in range(len(columns_selected))]
+# CSV 파일이 업로드된 경우
+if uploaded_file is not None:
+    # 업로드된 파일을 데이터프레임으로 변환
+    df = pd.read_csv(uploaded_file)
+    # CONF 열에서 유니크한 값 추출
+    confs = df['CONF'].unique().tolist()
+    # 사용자가 선택한 CONF 값
+    selected_conf = st.selectbox('Select a conference', confs)
+    # 선택된 CONF에 해당하는 행 추출
+    selected_rows = df[df['CONF'] == selected_conf]
+    # YEAR 열에서 유니크한 값 추출
+    years = selected_rows['YEAR'].unique().tolist()
+    # 사용자가 선택한 YEAR 값
+    selected_year = st.selectbox('Select a year', years)
+    # 선택된 YEAR에 해당하는 행 추출
+    selected_row = selected_rows[selected_rows['YEAR'] == selected_year]
+    # 사용자가 선택한 columns
+    columns = st.multiselect('Select columns', list(selected_row.columns))
+    # 선택된 columns에 해당하는 값 추출
+    values = selected_row.loc[:, columns].values.flatten().tolist()
+    # radar chart 그리기
+    angles = [n / float(len(columns)) * 2 * pi for n in range(len(columns))]
     angles += angles[:1]
-    data += data[:1]
-    p.annular_wedge(x=0, y=0, inner_radius=0.2, outer_radius=0.8, start_angle=angles[i], end_angle=angles[i+1], color=colors[i], alpha=0.5)
-    p.line(x=data, y=data, color=colors[i], alpha=0.5)
-    p.patch(x=data, y=data, color=colors[i], alpha=0.2)
-
-st.bokeh_chart(p, use_container_width=True)
+    ax = plt.subplot(111, polar=True)
+    ax.set_theta_offset(pi / 2)
+    ax.set_theta_direction(-1)
+    plt.xticks(angles[:-1], columns)
+    ax.set_rlabel_position(0)
+    plt.yticks([], [])
+    ax.plot(angles, values, linewidth=1, linestyle='solid')
+    ax.fill(angles, values, 'b', alpha=0.1)
+    st.pyplot()
