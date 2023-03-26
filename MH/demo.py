@@ -23,7 +23,7 @@ if uploaded_file is not None:
     df_selected = filtered_df[['TEAM', 'YEAR'] + selected_stats]
 
     # 스탯 비교 레이더 차트 그리기
-    fig, ax = plt.subplots(figsize=(10, 8)
+    fig, ax = plt.subplots(figsize=(10, 8))
     categories = selected_stats
     N = len(categories)
     angles = [n / float(N) * 2 * math.pi for n in range(N)]
