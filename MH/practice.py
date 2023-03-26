@@ -318,7 +318,7 @@ elif choice == "데이터페이지":
                         df_result.reset_index(drop=True, inplace=True)
                         # st.write(df_result)
                         df_long = pd.melt(df_result, id_vars=['TEAM'], value_vars=['win_rate'])
-                        fig = px.bar(df_long, x='TEAM', y='value', color=df['win_rate'] >= 70, color_discrete_sequence=['gray', 'blue'])
+                        fig = px.bar(df_long, x='TEAM', y='value', color=df_result['win_rate'] >= 70, color_discrete_sequence=['gray', 'blue'])
                         st.write(f"'{user_CONF}' 지역에 소속된 팀들의 {user_YEAR} 시즌의 승률 그래프입니다. ")
                         st.plotly_chart(fig)
                 else:
