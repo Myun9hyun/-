@@ -319,32 +319,44 @@ elif choice == "데이터페이지":
                 for CONF in unique_CONF:
                     index_dict[CONF] = df[df['CONF'] == CONF].index.tolist()
                 
-                # 사용자로부터 이름 입력 받기
+                # 사용자로부터 지역 입력 받기
                 user_CONF = st.selectbox("Select a CONF:", unique_CONF)
                 
-                # 선택한 이름에 해당하는 모든 행 출력
+                # 선택한 지역에 해당하는 모든 행 출력
                 if user_CONF in unique_CONF:
                     indices = index_dict[user_CONF]
                     sub_df = df.loc[indices]
                     st.write(f"### 해당 지역 '{user_CONF}'에 소속된 팀들의 데이터입니다. ")
                     st.write(sub_df)
                     
-                    # 사용자로부터 나이 입력 받기
+                    # 사용자로부터 시즌 입력 받기
                     user_YEAR = st.selectbox("원하시는 시즌을 골라주세요:", [''] + sub_df['YEAR'].unique().tolist())
                     
-                    # 선택한 나이에 해당하는 행 출력
+                    # 선택한 시즌에 해당하는 행 출력
                     if user_YEAR != "":
                         sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR)]
                         st.write(f"### 해당 '{user_CONF}' 지역에 소속된 팀 {user_YEAR} 시즌의 데이터입니다. ")
                         st.write(sub_df)
                         df_winrate = (sub_df['W'] / sub_df['G']) * 100
                         df_winrate_round = df_winrate.round(2)
-                        # df1에서 name 열 추출
                         sub_df_Team = sub_df[['TEAM']]
                         result = pd.concat([sub_df_Team, df_winrate_round], axis=1)
                         df_result = result.rename(columns={ 0: 'win_rate'})
-                        st.write(df_winrate_round)
                         st.write(df_result)
+                        fig = px.bar(df_result)
+                        fig.update_xaxes(title='TEAM')
+                        fig.update_yaxes(title='Win')
+
+                        fig.update_layout(
+                            width=600,
+                            height=400,
+                        )
+
+                        # y축 범위 수정
+                        fig.update_yaxes(
+                            range=[0, 100]
+                        )
+                        st.plotly_chart(fig)
 
                 else:
                     st.warning("다시 골라주세요.")
