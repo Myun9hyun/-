@@ -352,13 +352,13 @@ elif choice == "데이터페이지":
                     index_dict[CONF] = df[df['CONF'] == CONF].index.tolist()
                 
                 # 사용자로부터 이름 입력 받기
-                CONF = st.selectbox("Select a CONF:", unique_CONF)
+                user_CONF = st.selectbox("Select a CONF:", unique_CONF)
                 
                 # 선택한 이름에 해당하는 모든 행 출력
-                if user_name in unique_CONF:
-                    indices = index_dict[user_name]
+                if user_CONF in unique_CONF:
+                    indices = index_dict[user_CONF]
                     sub_df = df.loc[indices]
-                    st.write(f"### Rows with CONF '{user_name}'")
+                    st.write(f"### Rows with CONF '{user_CONF}'")
                     st.write(sub_df)
                     
                     # 사용자로부터 나이 입력 받기
@@ -367,7 +367,7 @@ elif choice == "데이터페이지":
                     # 선택한 나이에 해당하는 행 출력
                     if user_YEAR != "":
                         sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR)]
-                        st.write(f"### Rows with name '{user_name}' and YEAR {user_YEAR}")
+                        st.write(f"### Rows with name '{user_CONF}' and YEAR {user_YEAR}")
                         st.write(sub_df)
                 else:
                     st.warning("Invalid input for name.")
