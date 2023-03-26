@@ -313,12 +313,12 @@ elif choice == "데이터페이지":
                 df = pd.read_csv(url)
 
                 # 'year' 열에서 고유값 추출
-                unique_year = df['year'].unique().astype(str)
+                unique_year = df['YEAR'].unique().astype(str)
 
                 # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
                 index_dict = {}
-                for year in unique_year:
-                    index_dict[year] = df[df['year'] == int(year)].index.tolist()
+                for YEAR in unique_year:
+                    index_dict[YEAR] = df[df['YEAR'] == int(YEAR)].index.tolist()
 
                 # 사용자가 입력한 고유값에 해당하는 행 출력
                 user_input = st.text_input(f"Enter a year from {', '.join(unique_year)}:")
