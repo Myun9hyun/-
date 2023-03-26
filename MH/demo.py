@@ -1,24 +1,23 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
 import plotly.express as px
+url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
 
-# Load the data
-df = pd.read_csv('https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv', index_col=0)
+df = pd.read_csv("https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv", index_col=0)
 
-# Get user input
-conf_options = df['CONF'].unique()
-selected_conf = st.selectbox('Select CONF:', conf_options)
+conf_list = list(df["CONF"].unique())
+conf_choice = st.sidebar.selectbox("Select a conference", conf_list)
 
-year_options = df['YEAR'].unique()
-selected_year = st.selectbox('Select YEAR:', year_options)
+filtered_df = df[df["CONF"] == conf_choice]
 
-# Filter the dataframe based on user input
-filtered_df = df[(df['CONF'] == selected_conf) & (df['YEAR'] == selected_year)]
+year_list = list(filtered_df["YEAR"].unique())
+year_choice = st.sidebar.selectbox("Select a year", year_list)
 
-# Get column options from user
-column_options = list(filtered_df.columns[3:])  # Exclude the first three columns
-selected_columns = st.multiselect('Select columns:', column_options)
+selected_cols = st.multiselect("Select columns to display", list(filtered_df.columns))
 
-# Create the radar chart
-fig = px.line_polar(filtered_df, theta=selected_columns, r=filtered_df[selected_columns].iloc[0], line_close=True)
-st.plotly_chart(fig)
+display_df = filtered_df[filtered_df["YEAR"] == year_choice][selected_cols]
+
+if not display_df.empty:
+    st.plotly_chart(px.line_polar(display_df, theta=selected_cols, r=display_df.iloc[0].values))
+else:
+    st.warning("No data found for selected filters.")
