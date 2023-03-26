@@ -181,7 +181,7 @@ elif choice == "데이터페이지":
                 fig = go.Figure()
 
                 # 차트 출력
-                
+                st.write("연습 레이더차트입니다.")
                 # 데이터 프레임 만들기
                 df2 = pd.DataFrame({
                     'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
@@ -232,7 +232,7 @@ elif choice == "데이터페이지":
                 st.bar_chart(chart_data)
 
             elif option == 'Radar4':
-                st.write("차트 아무거나 넣었습니다")
+                st.write("차트 연습22")
                 # 데이터 프레임 만들기
                 df = pd.DataFrame({
                     'name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -276,9 +276,9 @@ elif choice == "데이터페이지":
             st.write("Bar차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('Bar1', 'Bar2', 'Bar3'))
+            ('승률데이터 그래프', 'Bar2', 'Bar3'))
   
-            if option == 'Bar1':
+            if option == '승률데이터 그래프':
                 st.write("승률 데이터 계산입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
                 df = pd.read_csv(url)
@@ -347,7 +347,8 @@ elif choice == "데이터페이지":
         ### 현재 진행상태
         > * 메인페이지 구현완료.
         > * 데이터 페이지 내 data tab 데이터 검색 기능 추가..
-        > * 
+        > * 데이터 페이지-Bar차트-지역/시즌에 따른 팀들의 승률 데이터 추가
+        > * ...
 
         ### 추가해야 할 기능
         > * 고민중
