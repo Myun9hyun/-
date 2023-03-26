@@ -309,7 +309,7 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("막대 차트 2입니다")
-                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
                 df = pd.read_csv(url)
 
                 # 'year' 열에서 고유값 추출
