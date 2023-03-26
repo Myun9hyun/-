@@ -1,11 +1,11 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import numpy as np
 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
 
 df = pd.read_csv("https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv", index_col=0)
 
-# 선택한 CONF 값에 해당하는 데이터프레임 출력
 conf = st.sidebar.selectbox("Select Conference", df["CONF"].unique())
 selected_df = df[df["CONF"] == conf]
 
