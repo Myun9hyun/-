@@ -339,8 +339,13 @@ elif choice == "데이터페이지":
                         st.write(sub_df)
                         df_winrate = (sub_df['W'] / sub_df['G']) * 100
                         df_winrate_round = df_winrate.round(2)
+                        # df1에서 name 열 추출
+                        sub_df_Team = sub_df[['TEAM']]
+                        result = pd.concat([sub_df_Team, df_winrate_round], axis=1)
+
                         st.write(df_winrate_round)
-                    
+                        st.write(result)
+
                 else:
                     st.warning("다시 골라주세요.")
 
