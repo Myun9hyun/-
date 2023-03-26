@@ -32,7 +32,8 @@ if uploaded_file is not None:
     angles = [n / float(N) * 2 * pi for n in range(N)]
     angles += angles[:1]
 
-    ax = plt.subplot(111, polar=True)
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+
     ax.set_theta_offset(pi / 2)
     ax.set_theta_direction(-1)
     plt.xticks(angles[:-1], categories)
@@ -49,4 +50,4 @@ if uploaded_file is not None:
 
     plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
 
-    st.pyplot()
+    st.pyplot(fig)
