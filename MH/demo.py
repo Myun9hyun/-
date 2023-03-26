@@ -55,25 +55,25 @@ fig.update_layout(
 )
 st.plotly_chart(fig, use_container_width=True)
 
-# radar chart 그리기
-if not selected_df.empty:
-    fig = go.Figure()
-    for col in selected_columns:
-        fig.add_trace(go.Scatterpolar(
-            r=[selected_df[col].mean()],
-            theta=[col],
-            fill='toself',
-            name=col
-        ))
-    fig.update_layout(
-        polar=dict(
-            radialaxis=dict(
-                visible=True,
-                range=[selected_df[selected_columns].min().min(), selected_df[selected_columns].max().max()]
-            )
-        ),
-        showlegend=True
-    )
-    st.plotly_chart(fig, use_container_width=True)
-else:
-    st.write("No data selected.")
+# # radar chart 그리기
+# if not selected_df.empty:
+#     fig = go.Figure()
+#     for col in selected_columns:
+#         fig.add_trace(go.Scatterpolar(
+#             r=[selected_df[col].mean()],
+#             theta=[col],
+#             fill='toself',
+#             name=col
+#         ))
+#     fig.update_layout(
+#         polar=dict(
+#             radialaxis=dict(
+#                 visible=True,
+#                 range=[selected_df[selected_columns].min().min(), selected_df[selected_columns].max().max()]
+#             )
+#         ),
+#         showlegend=True
+#     )
+#     st.plotly_chart(fig, use_container_width=True)
+# else:
+#     st.write("No data selected.")
