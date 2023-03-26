@@ -343,8 +343,8 @@ elif choice == "데이터페이지":
                 else:
                     st.warning("Invalid input for name.")
 
-                if __CONF__ == "__main__":
-                    main()
+                # if __CONF__ == "__main__":
+                #     main()
 
 
 
