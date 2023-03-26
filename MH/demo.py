@@ -17,7 +17,6 @@
 # st.write(selected_df)
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 
 # 데이터 불러오기
@@ -32,10 +31,8 @@ selected_index = df[df[selected_columns].notna().all(axis=1)].index
 # 선택한 index들을 출력할 데이터프레임 만들기
 selected_df = df.loc[selected_index, selected_columns]
 
-# 선택한 스탯에 해당하는 radar chart 그리기
-if selected_df.empty:
-    st.warning("No data to display.")
-else:
+# radar chart 그리기
+if not selected_df.empty:
     fig = go.Figure()
     for col in selected_columns:
         fig.add_trace(go.Scatterpolar(
@@ -54,3 +51,5 @@ else:
         showlegend=True
     )
     st.plotly_chart(fig, use_container_width=True)
+else:
+    st.write("No data selected.")
