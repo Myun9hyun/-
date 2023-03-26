@@ -323,18 +323,18 @@ elif choice == "데이터페이지":
                 if user_name in unique_CONF:
                     indices = index_dict[user_name]
                     sub_df = df.loc[indices]
-                    print(sub_df)
+                    st.write(sub_df)
                     
                     # 사용자가 입력한 나이에 해당하는 행 출력
                     user_YEAR = input("Enter an YEAR: ")
                     try:
                         user_YEAR = int(user_YEAR)
                         sub_df = sub_df[sub_df['YEAR'] == user_YEAR]
-                        print(sub_df)
+                        st.write(sub_df)
                     except ValueError:
-                        print("Invalid input for age.")
+                        st.write("Invalid input for age.")
                 else:
-                    print("Invalid input for name.")
+                    st.write("Invalid input for name.")
 
 
             elif option == 'Bar3':
