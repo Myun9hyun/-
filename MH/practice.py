@@ -311,10 +311,10 @@ elif choice == "데이터페이지":
                 st.write("막대 차트 2입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
                 df = pd.read_csv(url)
-                # options = st.selectbox(
-                # '검색하고 싶은 columns를 골라주세요',
-                # ('CONF', 'TEAM'))
-                # if option == 'CONF':
+                options = st.selectbox(
+                '검색하고 싶은 columns를 골라주세요',
+                ('CONF', 'TEAM'))
+                if option == 'CONF':
                     # 'year' 열에서 고유값 추출
                     unique_conf = df['CONF'].unique().astype(str)
 
