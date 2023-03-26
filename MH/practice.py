@@ -309,7 +309,7 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("막대 차트 2입니다")
-                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
                 df = pd.read_csv(url)
                 unique_CONF = df['CONF'].unique()
                 
