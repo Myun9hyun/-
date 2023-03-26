@@ -346,8 +346,10 @@ elif choice == "데이터페이지":
 
                         Winrate_list = df_result['win_rate'].tolist()
                         st.write(df_result)
-                        fig = px.bar(df_result)
-                        fig = px.bar(df_result, x='TEAM', y='win_rate')
+                        # fig = px.bar(df_result)
+                        # fig = px.bar(df_result, x='TEAM', y='win_rate')
+                        df_long = pd.melt(df_result, id_vars=['TEAM'], value_vars=['win_rate'])
+                        fig = px.bar(df_long, x='TEAM', y='value')
                         # df_data = df_result.iloc[:, 0:]
                         # st.write(df_data)
                         # fig.update_xaxes(title='TEAM')
