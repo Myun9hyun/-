@@ -316,6 +316,8 @@ elif choice == "데이터페이지":
                 ('CONF', 'TEAM'))
                 if option == 'CONF':
                     # 'year' 열에서 고유값 추출
+                     url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
+                    df = pd.read_csv(url)
                     unique_conf = df['CONF'].unique()
 
                     # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
