@@ -28,7 +28,9 @@ if uploaded_file is not None:
     categories = selected_stats
     N = len(categories)
     angles = [n / float(N) * 2 * math.pi for n in range(N)]
-    angles += angles[:1]
+    # angles += angles[:1]
+    angles_deg = np.rad2deg(angles[:-1])
+    ax.set_thetagrids(angles_deg, categories)       
     ax.set_theta_offset(math.pi / 2)
     ax.set_theta_direction(-1)
     ax.set_thetagrids(angles[:-1] * 180 / math.pi, categories)
