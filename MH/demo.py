@@ -34,7 +34,7 @@ if uploaded_file is not None:
     N = len(categories)
     angles = [n / float(N) * 2 * math.pi for n in range(N)]
     angles += angles[:1]
-    ax.set_theta_offset(math.pi / 2)
+    ax.set_rmax(mapi / 2)
     ax.set_theta_direction(-1)
     plt.xticks(angles[:-1], categories)
     ax.set_rlabel_position(0)
