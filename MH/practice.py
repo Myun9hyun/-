@@ -309,6 +309,26 @@ elif choice == "데이터페이지":
                 st.plotly_chart(fig)
             elif option == 'Bar2':
                 st.write("막대 차트 2입니다")
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
+                df = pd.read_csv(url)
+
+                # 'year' 열에서 고유값 추출
+                unique_year = df['year'].unique().astype(str)
+
+                # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
+                index_dict = {}
+                for year in unique_year:
+                    index_dict[year] = df[df['year'] == int(year)].index.tolist()
+
+                # 사용자가 입력한 고유값에 해당하는 행 출력
+                user_input = st.text_input(f"Enter a year from {', '.join(unique_year)}:")
+                if user_input in unique_year:
+                    indices = index_dict[user_input]
+                    sub_df = df.loc[indices]
+                    st.write(sub_df)
+                else:
+                    st.write("Invalid input.")
+
             elif option == 'Bar3':
                 st.write("막대 차트 3입니다")
         elif option == 'Chart':
