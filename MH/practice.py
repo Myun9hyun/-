@@ -346,7 +346,7 @@ elif choice == "데이터페이지":
                         df_result.reset_index(drop=True, inplace=True)
                         st.write(df_result)
                         # df_data = df_result.iloc[:, 0:]
-                        st.write(df_data)
+                        # st.write(df_data)
                         # fig.update_xaxes(title='TEAM')
                         # fig.update_yaxes(title='Win')
 
