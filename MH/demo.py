@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import math
 from math import pi
 
 # csv 파일 업로드
