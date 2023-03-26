@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Load data
-df = pd.read_csv("basketball_data.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv")
 
 # User input for CONF and YEAR
 conf = st.text_input('Enter a CONF value')
