@@ -334,7 +334,7 @@ elif choice == "데이터페이지":
                     # 입력한 나이에 해당하는 행 출력
                     if user_YEAR != "":
                         try:
-                            user_YEAR = int(user_YEAR)
+                            # user_YEAR = user_YEAR
                             sub_df = sub_df[sub_df['YEAR'] == user_YEAR]
                             st.write(f"### Rows with name '{user_name}' and age {user_YEAR}")
                             st.write(sub_df)
