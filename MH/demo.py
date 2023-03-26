@@ -23,7 +23,7 @@ if user_CONF in unique_CONF:
         # 선택한 스탯이 있는 경우 레이더 차트 그리기
         if selected_stats:
             # 선택한 팀과 스탯에 해당하는 데이터프레임 만들기
-            selected_df = df[df['TEAM'].isin(selected_teams)][selected_stats]
+            selected_df = df[df['TEAM'].isin(selected_teams)][selected_stats + ['TEAM']]
 
             # 팀 이름을 기준으로 그룹화하여 레이더 차트 그리기
             chart = (
