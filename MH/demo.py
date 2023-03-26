@@ -35,7 +35,7 @@ if uploaded_file is not None:
     angles = [n / float(N) * 2 * math.pi for n in range(N)]
     angles += angles[:1]
     ax.set_ylim(math.pi / 2)
-    ax.set_ylim_direction(-1)
+    ax.set_theta_direction(-1)
     plt.xticks(angles[:-1], categories)
     ax.set_rlabel_position(0)
     for i in range(len(df_selected)):
