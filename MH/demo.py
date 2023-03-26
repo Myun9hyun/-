@@ -1,48 +1,41 @@
 import streamlit as st
 import pandas as pd
-import altair as alt
+import matplotlib.pyplot as plt
+import math
 
-# 데이터프레임 로드
-url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
-df = pd.read_csv(url).iloc[:, 1:]
+# csv 파일 업로드
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
 
-# 지역 선택 위젯
-unique_CONF = df['CONF'].unique()
-user_CONF = st.selectbox("원하시는 지역을 골라주세요:", unique_CONF)
+    # 지역 입력
+    location = st.text_input('Enter the location')
+    filtered_df = df[df['CONF'] == location]
 
-# 선택한 지역에 해당하는 모든 TEAM 출력
-if user_CONF in unique_CONF:
-    teams = df[df['CONF'] == user_CONF]['TEAM'].unique()
-    selected_teams = st.multiselect("팀 선택", teams)
+    # 시즌 입력
+    season = st.text_input('Enter the season')
+    filtered_df = filtered_df[filtered_df['YEAR'] == season]
 
-    # 선택한 팀이 있는 경우
-    if selected_teams:
-        # 선택한 스탯 다중 선택 위젯
-        selected_stats = st.multiselect('스탯 선택', options=df.columns.tolist())
+    # 스탯 선택
+    selected_stats = st.multiselect('Select stats', ['ADJOE', 'ADJDE', 'BARTHAG', 'EFG_O', 'EFG_D', 'TOR', 'TORD', 'ORB', 'DRB', 'FTR', 'FTRD', '2P_O', '2P_D', '3P_O', '3P_D', 'ADJ_T', 'WAB'])
 
-        # 선택한 스탯이 있는 경우 레이더 차트 그리기
-        if selected_stats:
-            # 선택한 팀과 스탯에 해당하는 데이터프레임 만들기
-            selected_df = df[df['TEAM'].isin(selected_teams)][selected_stats + ['TEAM']]
+    # 선택된 스탯만 포함하는 데이터프레임
+    df_selected = filtered_df[['TEAM', 'YEAR'] + selected_stats]
 
-            # 팀 이름을 기준으로 그룹화하여 레이더 차트 그리기
-            chart = (
-                alt.Chart(selected_df)
-                .transform_fold(
-                    selected_stats,
-                    as_=['stat', 'value']
-                )
-                .mark_area(opacity=0.3)
-                .encode(
-                    alt.X('stat:N', axis=alt.Axis(title='')),
-                    alt.Y('value:Q', axis=alt.Axis(title='')),
-                    alt.Color('TEAM:N'),
-                    alt.Column('YEAR:O'),
-                    tooltip=['TEAM', 'YEAR', 'value']
-                )
-                .properties(width=200, height=200)
-                .facet(
-                    column=alt.Column('YEAR:O', sort='descending')
-                )
-            )
-            st.altair_chart(chart)
+    # 스탯 비교 레이더 차트 그리기
+    fig, ax = plt.subplots(figsize=(10, 8))
+    categories = selected_stats
+    N = len(categories)
+    angles = [n / float(N) * 2 * math.pi for n in range(N)]
+    angles += angles[:1]
+    ax.set_ylim(math.pi / 2)
+    ax.set_ylim_direction(-1)
+    plt.xticks(angles[:-1], categories)
+    ax.set_rlabel_position(0)
+    for i in range(len(df_selected)):
+        values = df_selected.loc[i, selected_stats].values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label=df_selected.loc[i, 'TEAM'])
+        ax.fill(angles, values, alpha=0.1)
+    plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
+    st.pyplot(fig)
