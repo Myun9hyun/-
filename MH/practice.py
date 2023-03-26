@@ -344,7 +344,7 @@ elif choice == "데이터페이지":
                         df_result = result.rename(columns={0: 'win_rate'})
                         st.write(df_result)
                         st.write(result)
-                        fig = px.bar(result)
+                        fig = px.bar(df_winrate_round)
                         # fig.update_xaxes(title='TEAM')
                         # fig.update_yaxes(title='Win')
 
