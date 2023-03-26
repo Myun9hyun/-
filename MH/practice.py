@@ -340,7 +340,13 @@ elif choice == "데이터페이지":
                         df_winrate = (sub_df['W'] / sub_df['G']) * 100
                         df_winrate_round = df_winrate.round(2)
                         st.write(df_winrate_round)
-                        # st.write(f"해당 팀의 승률은 '{user_YEAR}' and age {df_winrate_round}")
+                        win_rate = win_rate.rename(
+                            index={},
+                            # columns={0 : 'Win_rate'}) 
+                        )
+                        # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
+                        # win_rate.columns = ['Win_rate']
+                        df_winrate_round = df_winrate_round.rename_axis(index=df['TEAM']).drop('TEAM', axis=1)
                 else:
                     st.warning("다시 골라주세요.")
 
