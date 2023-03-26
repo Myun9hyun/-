@@ -305,7 +305,7 @@ elif choice == "데이터페이지":
                     
                     # 선택한 시즌에 해당하는 행 출력
                     if user_YEAR != "":
-                        sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR), ascending=True]
+                        sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR), ascending=False]
                         st.write(f"### 해당 '{user_CONF}' 지역에 소속된 팀 {user_YEAR} 시즌의 데이터입니다. ")
                         st.write(sub_df)
                         # 승률 계산
