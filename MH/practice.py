@@ -337,33 +337,17 @@ elif choice == "데이터페이지":
                         sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR)]
                         st.write(f"### 해당 '{user_CONF}' 지역에 소속된 팀 {user_YEAR} 시즌의 데이터입니다. ")
                         st.write(sub_df)
+                        # 승률 계산
                         df_winrate = (sub_df['W'] / sub_df['G']) * 100
+                        # 계산한 승률을 소수점 아래 2자리까지 표현
                         df_winrate_round = df_winrate.round(2)
                         sub_df_Team = sub_df[['TEAM']]
                         result = pd.concat([sub_df_Team, df_winrate_round], axis=1)
                         df_result = result.rename(columns={0: 'win_rate'})
                         df_result.reset_index(drop=True, inplace=True)
-
-                        Winrate_list = df_result['win_rate'].tolist()
                         st.write(df_result)
-                        # fig = px.bar(df_result)
-                        # fig = px.bar(df_result, x='TEAM', y='win_rate')
                         df_long = pd.melt(df_result, id_vars=['TEAM'], value_vars=['win_rate'])
                         fig = px.bar(df_long, x='TEAM', y='value')
-                        # df_data = df_result.iloc[:, 0:]
-                        # st.write(df_data)
-                        # fig.update_xaxes(title='TEAM')
-                        # fig.update_yaxes(title='Win')
-
-                        # fig.update_layout(
-                        #     width=600,
-                        #     height=400,
-                        # )
-
-                        # # y축 범위 수정
-                        # fig.update_yaxes(
-                        #     range=[0, 100]
-                        # )
                         st.plotly_chart(fig)
 
                 else:
