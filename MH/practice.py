@@ -316,14 +316,13 @@ elif choice == "데이터페이지":
                         result = pd.concat([sub_df_Team, df_winrate_round], axis=1)
                         df_result = result.rename(columns={0: 'win_rate'})
                         df_result.reset_index(drop=True, inplace=True)
-                        st.write(df_result)
+                        # st.write(df_result)
                         df_long = pd.melt(df_result, id_vars=['TEAM'], value_vars=['win_rate'])
                         fig = px.bar(df_long, x='TEAM', y='value')
+                        st.write(f"'{user_CONF}' 지역에 소속된 팀들의 {user_YEAR} 시즌의 승률 그래프입니다. ")
                         st.plotly_chart(fig)
-
                 else:
                     st.warning("다시 골라주세요.")
-
 
             elif option == 'Bar2':
                 st.write("막대 차트 2입니다")
