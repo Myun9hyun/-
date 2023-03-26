@@ -6,12 +6,6 @@ url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_proc
 
 df = pd.read_csv("https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv", index_col=0)
 
-import streamlit as st
-import pandas as pd
-from math import pi
-from bokeh.palettes import Category10
-from bokeh.plotting import figure
-
 # csv 파일 읽어오기
 df = pd.read_csv("your_csv_file.csv")
 
