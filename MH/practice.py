@@ -311,39 +311,6 @@ elif choice == "데이터페이지":
                 st.write("막대 차트 2입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
                 df = pd.read_csv(url)
-                
-                # unique_CONF = df['CONF'].unique()
-
-                
-                # # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
-                # index_dict = {}
-                # for CONF in unique_CONF:
-                #     index_dict[CONF] = df[df['CONF'] == CONF].index.tolist()
-                
-                # # 사용자로부터 이름과 나이 입력 받기
-                # user_name = st.selectbox("Select a name:", unique_names)
-                # user_YEAR = st.sidebar.number_input("Enter an age:")
-                
-                # # 입력한 이름에 해당하는 모든 행 출력
-                # if user_name in unique_CONF:
-                #     indices = index_dict[user_name]
-                #     sub_df = df.loc[indices]
-                #     st.write(f"### Rows with CONF '{user_name}'")
-                #     st.write(sub_df)
-                    
-                #     # 입력한 나이에 해당하는 행 출력
-                #     if user_YEAR != "":
-                #         try:
-                #             # user_YEAR = user_YEAR
-                #             sub_df = sub_df[sub_df['YEAR'] == user_YEAR]
-                #             st.write(f"### Rows with name '{user_name}' and age {user_YEAR}")
-                #             st.write(sub_df)
-                #         except ValueError:
-                #             st.warning("Invalid input for age.")
-                # else:
-                #     st.warning("Invalid input for name.")
-
-
                 unique_CONF = df['CONF'].unique()
                 
                 # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
@@ -358,20 +325,19 @@ elif choice == "데이터페이지":
                 if user_CONF in unique_CONF:
                     indices = index_dict[user_CONF]
                     sub_df = df.loc[indices]
-                    st.write(f"### Rows with CONF '{user_CONF}'")
+                    st.write(f"### 해당 지역에 소속된 팀들의 데이터입니다. '{user_CONF}'")
                     st.write(sub_df)
                     
                     # 사용자로부터 나이 입력 받기
-                    user_YEAR = st.selectbox("Select an YEAR:", [''] + sub_df['YEAR'].unique().tolist())
+                    user_YEAR = st.selectbox("원하시는 시즌을 골라주세요:", [''] + sub_df['YEAR'].unique().tolist())
                     
                     # 선택한 나이에 해당하는 행 출력
                     if user_YEAR != "":
                         sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR)]
-                        st.write(f"### Rows with name '{user_CONF}' and YEAR {user_YEAR}")
+                        st.write(f"### 해당지역에 소속된 팀들 '{user_CONF}' 시즌입니다. {user_YEAR}")
                         st.write(sub_df)
                 else:
-                    st.warning("Invalid input for name.")
-
+                    st.warning("다시 골라주세요.")
 
 
             elif option == 'Bar3':
