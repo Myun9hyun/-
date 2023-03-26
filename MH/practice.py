@@ -316,7 +316,7 @@ elif choice == "데이터페이지":
                 ('CONF', 'TEAM'))
                 if option == 'CONF':
                     # 'year' 열에서 고유값 추출
-                     url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
+                    url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
                     df = pd.read_csv(url)
                     unique_conf = df['CONF'].unique()
 
