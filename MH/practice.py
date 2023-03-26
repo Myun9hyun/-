@@ -342,7 +342,7 @@ elif choice == "데이터페이지":
                         # df1에서 name 열 추출
                         sub_df_Team = sub_df[['TEAM']]
                         result = pd.concat([sub_df_Team, df_winrate_round], axis=1)
-                        df_result = result.rename(columns={'0': 'win_rate'})
+                        df_result = result.rename(columns={ 0: 'win_rate'})
                         st.write(df_winrate_round)
                         st.write(df_result)
 
