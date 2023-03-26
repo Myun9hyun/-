@@ -338,7 +338,7 @@ elif choice == "데이터페이지":
                         st.write(sub_df)
                         df_winrate = sub_df['W'] / sub_df['G'] * 100
                         df_winrate = df_winrate.round(2)
-                        st.write(f"해당 팀의 승률은 '{sub_df}' and age {df_winrate}: {df_winrate:.2f}")
+                        st.write(f"해당 팀의 승률은 '{sub_df}' and age {df_winrate}")
                 else:
                     st.warning("다시 골라주세요.")
 
