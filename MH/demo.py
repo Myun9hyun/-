@@ -1,9 +1,7 @@
-import streamlit as st
 import pandas as pd
-from math import pi
-from bokeh.palettes import Category10
-from bokeh.plotting import figure
-
+import streamlit as st
+import plotly.express as px
+import numpy as np
 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
 
 df = pd.read_csv("https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv", index_col=0)
