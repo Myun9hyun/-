@@ -277,38 +277,9 @@ elif choice == "데이터페이지":
             option = st.selectbox(
             '원하는 차트를 골라주세요',
             ('Bar1', 'Bar2', 'Bar3'))
+
             if option == 'Bar1':
-                st.write("승률 데이터 입니다")
-                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb_head.csv"
-                df = pd.read_csv(url)
-                st.dataframe(df)
-                win_rate = ((df['W'] / df['G']) * 100)
-                win_rate = win_rate.round(2)
-                win_rate = win_rate.rename(
-                    index={0 : 'North Carolina', 1 :'Wisconsin', 2 : 'Michigan', 3 :'Texas Tech'},
-                    # columns={0 : 'Win_rate'}) 
-                )
-                # win_rate = win_rate.rename(columns={0 : 'Win_rate'}) 
-                win_rate.columns = ['Win_rate']
-                win_rate_t = win_rate.T
-                st.dataframe(win_rate_t)
-                fig = px.bar(win_rate_t)
-                
-                fig.update_xaxes(title='TEAM')
-                fig.update_yaxes(title='Win')
-
-                fig.update_layout(
-                    width=600,
-                    height=400,
-                )
-
-                # y축 범위 수정
-                fig.update_yaxes(
-                    range=[70, 95]
-                )
-                st.plotly_chart(fig)
-            elif option == 'Bar2':
-                st.write("막대 차트 2입니다")
+                st.write("승률 데이터 계산입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"
                 df = pd.read_csv(url)
                 df = df.iloc[:, 1:]
@@ -354,6 +325,8 @@ elif choice == "데이터페이지":
                     st.warning("다시 골라주세요.")
 
 
+            elif option == 'Bar2':
+                st.write("막대 차트 2입니다")
             elif option == 'Bar3':
                 st.write("막대 차트 3입니다")
         elif option == 'Chart':
