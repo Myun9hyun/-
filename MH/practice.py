@@ -345,6 +345,7 @@ elif choice == "데이터페이지":
                         df_result.reset_index(drop=True, inplace=True)
                         st.write(df_result)
                         fig = px.bar(df_result)
+                        fig = px.bar(df_result, x='TEAM', y='df_winrate_round')
                         # df_data = df_result.iloc[:, 0:]
                         # st.write(df_data)
                         # fig.update_xaxes(title='TEAM')
