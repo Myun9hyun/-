@@ -336,7 +336,7 @@ elif choice == "데이터페이지":
                         sub_df = sub_df[sub_df['YEAR'] == int(user_YEAR)]
                         st.write(f"### 해당 '{user_CONF}' 지역에 소속된 팀 {user_YEAR} 시즌의 데이터입니다. ")
                         st.write(sub_df)
-                        df_winrate = sub_df['W'] / sub_df['G'] * 100
+                        df_winrate = (sub_df['W'] / sub_df['G']) * 100
                         df_winrate_round = df_winrate.round(2)
                         st.write(df_winrate)
                         # st.write(f"해당 팀의 승률은 '{user_YEAR}' and age {df_winrate_round}")
