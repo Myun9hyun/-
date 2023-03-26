@@ -277,7 +277,7 @@ elif choice == "데이터페이지":
             option = st.selectbox(
             '원하는 차트를 골라주세요',
             ('Bar1', 'Bar2', 'Bar3'))
-
+  
             if option == 'Bar1':
                 st.write("승률 데이터 계산입니다")
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/Basketball_processing.csv"

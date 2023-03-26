@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from math import pi
 
-# CSV 파일 업로드
+# CSV 파일 업로드  
 uploaded_file = st.file_uploader("Choose a file")
 
 # CSV 파일이 업로드된 경우
