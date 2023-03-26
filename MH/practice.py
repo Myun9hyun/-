@@ -347,15 +347,15 @@ elif choice == "데이터페이지":
                         fig.update_xaxes(title='TEAM')
                         fig.update_yaxes(title='Win')
 
-                        fig.update_layout(
-                            width=600,
-                            height=400,
-                        )
+                        # fig.update_layout(
+                        #     width=600,
+                        #     height=400,
+                        # )
 
-                        # y축 범위 수정
-                        fig.update_yaxes(
-                            range=[0, 100]
-                        )
+                        # # y축 범위 수정
+                        # fig.update_yaxes(
+                        #     range=[0, 100]
+                        # )
                         st.plotly_chart(fig)
 
                 else:
