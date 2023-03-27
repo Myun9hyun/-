@@ -36,10 +36,13 @@ if st.button('Predict'):
     # st.write(data)
     data = data.values.reshape(1, -1)
     # 2
-    print("**2**")
-    st.write(data)
+    # print("**2**")
+    # st.write(data)
+    # 3
+    print("**3**")
     # # Make the prediction
     # prediction = model.predict(data)[0]
+    st.write(prediction)
     
     # # Display the prediction
     # if prediction == 0:
