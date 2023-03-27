@@ -11,8 +11,6 @@ import pickle
 st.write()
 '''
 ### Stat Info
-* 차트설명
----
 '''
 option = st.selectbox(
 '원하는 차트를 골라주세요',
