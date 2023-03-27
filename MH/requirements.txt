@@ -4,3 +4,4 @@ numpy
 statsmodels
 plotly
 matplotlib
+scikit-learn==0.24.2
