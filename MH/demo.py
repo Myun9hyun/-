@@ -1,5 +1,11 @@
 import streamlit as st
+from PIL import Image
+import requests
 import pandas as pd
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import pickle
 
 # 모델 불러오기
@@ -24,16 +30,17 @@ def app():
     
     # 사용자 입력 폼을 생성합니다.
     st.sidebar.title("입력 특성")
-    sepal_length = st.sidebar.slider("꽃받침 길이", 4.0, 8.0, 5.0)
-    sepal_width = st.sidebar.slider("꽃받침 너비", 2.0, 4.5, 3.0)
-    petal_length = st.sidebar.slider("꽃잎 길이", 1.0, 7.0, 4.0)
-    petal_width = st.sidebar.slider("꽃잎 너비", 0.1, 2.5, 1.0)
+    sepal_length = st.sidebar.slider("승리", 4.0, 8.0, 5.0)
+    sepal_width = st.sidebar.slider("게임", 2.0, 4.5, 3.0)
+    # petal_length = st.sidebar.slider("꽃잎 길이", 1.0, 7.0, 4.0)
+    # petal_width = st.sidebar.slider("꽃잎 너비", 0.1, 2.5, 1.0)
     
     # 사용자 입력을 데이터프레임으로 결합합니다.
-    input_data = {'sepal_length': sepal_length,
-                  'sepal_width': sepal_width,
-                  'petal_length': petal_length,
-                  'petal_width': petal_width}
+    input_data = {'W': sepal_length,
+                  'G': sepal_width,
+                #   'petal_length': petal_length,
+                #   'petal_width': petal_width
+                }
     input_df = pd.DataFrame([input_data])
     
     # 모델을 이용해 예측합니다.
