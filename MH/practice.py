@@ -281,8 +281,7 @@ elif choice == "데이터페이지":
                     variable1 = np.array([승리수, 경기수]*28)
                     model1 = joblib.load('MH/LRmodel.pkl')
                     pred1 = model1.predict([variable1])
-                    pred1 = (승리수/경기수) * 100
-                    # pred1 = pred1.round(2)
+                    pred1 = pred1.round(2)
                     st.metric("결과: ", pred1[0])
         elif option == 'Chart2':
 
