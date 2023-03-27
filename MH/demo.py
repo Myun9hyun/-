@@ -32,10 +32,12 @@ def main():
         win_rate = predict_win_rate(wins, games)
         st.write(f"예상 승률: {win_rate:.2%}")
         # X_test를 2차원 배열로 변환
-        X_test = np.array(X_test).reshape(1, -1)
+        # X_test = np.array(X_test).reshape(1, -1)
+        # # 모델 예측 수행
+        # y_pred = model.predict(X_test)
+        x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+        y = model.predict(x)
 
-        # 모델 예측 수행
-        y_pred = model.predict(X_test)
 
 
 
