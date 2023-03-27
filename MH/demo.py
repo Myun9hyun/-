@@ -1,7 +1,12 @@
 import streamlit as st
+from PIL import Image
+import requests
 import pandas as pd
-import joblib
-
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pickle
 # 저장된 모델 파일을 로드합니다.
 model_path = "MH/model.pkl"
 with open(model_path, 'rb') as f:
