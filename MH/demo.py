@@ -1,52 +1,21 @@
 import streamlit as st
-import pandas as pd
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+import pickle
 
-# CSV 파일 업로드
-uploaded_file = st.file_uploader("Choose a file")
+# 모델 불러오기
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-# CSV 파일이 업로드되었는지 확인
-if uploaded_file is not None:
-    # 업로드한 CSV 파일을 데이터프레임으로 변환
-    df = pd.read_csv(uploaded_file)
+# 예측 함수 정의
+def predict(data):
+    result = model.predict(data)
+    return result
 
-    # 선택한 컬럼명 받기
-    conf_col = st.selectbox("Select CONF column", options=df.columns)
-    year_col = st.selectbox("Select YEAR column", options=df.columns)
+# Streamlit 앱 구성
+def main():
+    st.title("머신러닝 모델 예측")
+    data = st.text_input("데이터를 입력하세요")
+    prediction = predict(data)
+    st.write("결과:", prediction)
 
-    # 선택한 컬럼명으로 데이터프레임 필터링
-    conf_val = st.selectbox("Select value in CONF column", options=df[conf_col].unique())
-    year_val = st.selectbox("Select value in YEAR column", options=df[year_col].unique())
-    filtered_df = df[(df[conf_col] == conf_val) & (df[year_col] == year_val)]
-
-    # 선택한 컬럼명으로 데이터프레임 필터링하여 multiselect로 출력할 컬럼 선택
-    select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
-
-    # 선택한 컬럼만 출력
-    st.write(filtered_df[select_cols])
-
-    # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
-    team_col = "TEAM"
-    team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
-    stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
-
-    # make_subplots로 1x1 subplot 만들기
-    fig = make_subplots(rows=1, cols=1, specs=[[{'type': 'polar'}]])
-
-    # 선택한 각 team별로 trace 추가하기
-    for team_val in team_vals:
-        team_df = filtered_df[filtered_df[team_col] == team_val]
-        theta = stats + [stats[0]]
-        fig.add_trace(go.Scatterpolar(
-            r=team_df[stats].values.tolist()[0] + [team_df[stats].values.tolist()[0][0]],
-            theta=theta,
-            fill='toself',
-            name=team_val
-        ), row=1, col=1)
-
-    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 70])))
-    st.plotly_chart(fig)
-
-else:
-    st.warning("Please upload a file.")
+if __name__ == '__main__':
+    main()
