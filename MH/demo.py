@@ -10,10 +10,10 @@ with open(model_path, 'rb') as f:
 
 # 사용자가 입력한 경기수와 승리경기수를 기반으로 승률을 예측합니다.
 def predict_win_rate(wins, games):
-    x = np.array([wins, games]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
-    y = model.predict(x)
-    win_rate = model.predict([[wins, games]])
-    return win_rate[0]
+    x = np.array([wins, games]).reshape(1, -1)
+    win_rate = model.predict(x)[0]
+    return win_rate
+
 
 # Streamlit 앱을 구성합니다.
 def main():
