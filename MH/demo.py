@@ -1,12 +1,8 @@
 import streamlit as st
-from PIL import Image
-import requests
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import pickle
+
 # 저장된 모델 파일을 로드합니다.
 model_path = "MH/model.pkl"
 with open(model_path, 'rb') as f:
@@ -29,19 +25,9 @@ def main():
 
     # 예측 결과를 표시합니다.
     if st.button("예측하기"):
-          
+        x = np.array([wins, games]).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
         win_rate = predict_win_rate(wins, games)
         st.write(f"예상 승률: {win_rate:.2%}")
-        # X_test를 2차원 배열로 변환
-        # X_test = np.array(X_test).reshape(1, -1)
-        # # 모델 예측 수행
-        # y_pred = model.predict(X_test)
-        x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
-        y = model.predict(x)  
-
-
-
-
 
 if __name__ == "__main__":
     main()
