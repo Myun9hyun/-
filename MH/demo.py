@@ -53,9 +53,10 @@
 #         st.warning('팀 이름을 입력하세요.')
 # load the model
 import pickle
-
-with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
+# 모델 불러오기
+model_path = "MH/model_RF.pkl"
+with open(model_path, 'rb') as f:
+    model = pickle.load(f)
 
 # check if the model is loaded correctly
 print(model)
