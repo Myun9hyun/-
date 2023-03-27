@@ -1,8 +1,10 @@
 import streamlit as st
 import pickle
+import os
 
 # 모델 불러오기
-with open('model.pkl', 'rb') as f:
+model_path = os.path.abspath('model.pkl')  # 모델 파일의 절대 경로
+with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
 # 예측 함수 정의
