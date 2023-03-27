@@ -30,6 +30,6 @@ if predict_button:
         variable1 = np.array([경기수, 승리수
         # , 전용면적별세대수1, 공가수1, 지하철1, 버스1, 단지내주차면수1, 공급유형_비율1, 지역_비율1
         ])
-        model1 = joblib.load('LRmodel.pkl')
+        model1 = joblib.load('MH/LRmodel.pkl')
         pred1 = model1.predict([variable1])
         st.metric("결과: ", pred1[0])
