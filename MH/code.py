@@ -6,7 +6,7 @@ import streamlit as st
 model_path = "MH/DecisionTree.pkl"
 # with open(model_path, 'rb') as f:
 #     model = pickle.load(f)
-model = joblib.load(f)
+model = joblib.load(model_path)
 
 # Streamlit 앱 설정
 st.title('결정트리 모델')
