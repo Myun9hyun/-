@@ -316,7 +316,7 @@ elif choice == "데이터페이지":
             elif option == 'Bar3':
                 st.write("막대 차트 3입니다")
         elif option == 'Chart':
-            elif option == 'Chart1':
+            if option == 'Chart1':
                 st.write("차트1")
             elif option == 'Chart2':
                 st.write("차트2입니다")
