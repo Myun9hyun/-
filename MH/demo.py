@@ -17,6 +17,7 @@ team_encoding = {
 
 # function to predict the outcome
 # function to predict the outcome
+# function to predict the outcome
 def predict_outcome(team1, team2):
     # create a DataFrame with the data for prediction
     X_test = pd.DataFrame({
@@ -24,10 +25,14 @@ def predict_outcome(team1, team2):
         'team2': [team_encoding[team2]]
     })
     
+    # reshape the input data to match the expected input shape of the model
+    X_test = X_test.values.reshape((1, 2))
+    
     # predict the outcome using the loaded model
     y_pred = model.predict(X_test)[0]
     
     return y_pred
+
 
 
 # set the app title
