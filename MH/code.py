@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 
 # 랜덤 포레스트 모델 불러오기
-model_path = "MH/model_RF.pkl"
+model_path = "MH/RFmodel.pkl"
 model = joblib.load(model_path)
 
 # Streamlit 앱 설정
