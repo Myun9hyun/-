@@ -226,10 +226,9 @@ elif choice == "데이터페이지":
                 
                 # 사용자로부터 시즌 입력 받기
                 # user_YEAR = st.selectbox("원하시는 시즌을 골라주세요:", [''] + sub_df['YEAR'].unique().tolist())
-                
-                user_YEAR = st.selectbox("원하시는 시즌을 골라주세요:", [''] + sorted_years)
                 unique_years = sub_df['YEAR'].unique().tolist()
                 sorted_years = sorted(unique_years, reverse=True)
+                user_YEAR = st.selectbox("원하시는 시즌을 골라주세요:", [''] + sorted_years)
 
                 # 선택한 시즌에 해당하는 행 출력
                 if user_YEAR != "":
