@@ -41,7 +41,7 @@ if st.button('Predict'):
     # 3
     print("**3**")
     # # Make the prediction
-    data = np.zeros(1, 77)
+    data = np.zeros((1, 77))
     prediction = model.predict(data)[0]
     st.write(prediction)
     
