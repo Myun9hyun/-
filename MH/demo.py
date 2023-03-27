@@ -32,10 +32,12 @@ if st.button('Predict'):
     # Create a DataFrame with the input data
     data = pd.DataFrame({'Team1_WinPercentage': [team1], 'Team2_WinPercentage': [team2]})
     # 1
-    print("**1**")
+    # print("**1**")
+    # st.write(data)
+    data = data.values.reshape(1, -1)
+    # 2
+    print("**2**")
     st.write(data)
-    # data = data.values.reshape(1, -1)
-
     # # Make the prediction
     # prediction = model.predict(data)[0]
     
