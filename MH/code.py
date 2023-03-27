@@ -17,7 +17,7 @@ x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
 
 # 모델을 사용하여 예측 수행
 x = np.array([x1, x2]).reshape(1, -1)
-y = model.predict(x)
+y = model(x)
 
 # 예측 결과 출력
 st.subheader('예측 결과')
