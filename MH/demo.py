@@ -2,28 +2,53 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# 데이터 업로드 및 데이터프레임 생성
-uploaded_file = st.file_uploader("CSV 파일 업로드", type="csv")
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+# 데이터프레임을 업로드하는 함수
+@st.cache
+def load_data(file):
+    df = pd.read_csv(file)
+    return df
 
-    # CONF 열 입력받아 해당하는 행 출력
-    conf_col = st.selectbox("CONF 열 선택", options=list(df.columns))
-    selected_conf = st.text_input("CONF 값을 입력하세요.")
-    conf_df = df.loc[df[conf_col] == selected_conf]
+# 필요한 columns들만 추출하는 함수
+def filter_dataframe(df, conf, year):
+    # CONF를 기반으로 데이터프레임 필터링
+    df = df[df['CONF'] == conf]
 
-    # YEAR 열 입력받아 해당하는 행 출력
-    year_col = st.selectbox("YEAR 열 선택", options=list(df.columns))
-    selected_year = st.text_input("YEAR 값을 입력하세요.")
-    year_df = conf_df.loc[conf_df[year_col] == selected_year]
+    # YEAR를 기반으로 데이터프레임 필터링
+    df = df[df['YEAR'] == year]
 
-    # 출력할 열 선택받아 출력
-    selected_cols = st.multiselect("출력할 열 선택", options=list(df.columns))
-    selected_df = year_df[selected_cols]
+    # 선택된 columns들만 추출
+    columns_to_show = st.multiselect('Select columns to show:', df.columns.tolist())
+    df = df[columns_to_show]
 
-    # TEAM 열을 기준으로 radar chart 출력
-    if 'TEAM' in selected_cols:
-        fig = px.line_polar(selected_df, r='VALUE', theta='TEAM', line_close=True)
-        st.plotly_chart(fig)
-    else:
-        st.write(selected_df)
+    return df
+
+# radar chart를 생성하는 함수
+def create_radar_chart(df, stats):
+    fig = px.line_polar(df, r=stats, theta='TEAM', line_close=True)
+    fig.update_traces(fill='toself')
+    st.plotly_chart(fig)
+
+# streamlit 앱 시작
+def main():
+    st.title("Radar Chart for NCAA Basketball Teams")
+
+    # 데이터프레임 업로드
+    file = st.file_uploader("Upload a CSV file", type=["csv"])
+    if file is not None:
+        df = load_data(file)
+
+        # CONF와 YEAR를 선택
+        conf = st.sidebar.selectbox('Select conference:', df['CONF'].unique())
+        year = st.sidebar.selectbox('Select year:', df['YEAR'].unique())
+
+        # 데이터프레임 필터링
+        filtered_df = filter_dataframe(df, conf, year)
+
+        # radar chart 생성
+        if 'TEAM' in filtered_df.columns:
+            stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
+            create_radar_chart(filtered_df, stats)
+
+# 앱 실행
+if __name__ == '__main__':
+    main()
