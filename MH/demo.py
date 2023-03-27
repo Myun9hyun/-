@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 # 저장된 모델 파일을 로드합니다.
-model_path = "MH/model.pkl"
+model_path = "MH/model_RF.pkl"
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
