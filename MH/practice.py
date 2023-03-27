@@ -6,7 +6,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
+import pickle
 
 menu = ["메인페이지", "데이터페이지", "기타"]
 choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
@@ -316,12 +316,36 @@ elif choice == "데이터페이지":
             elif option == 'Bar3':
                 st.write("막대 차트 3입니다")
         elif option == 'Chart':
-            st.write("차트입니다")
+            st.write("머신러닝 모델입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
             ('Chart1', 'Chart2', 'Chart3'))
             if option == 'Chart1':
-                st.write("차트1입니다")
+                # import streamlit as st
+                # import pickle
+                # import numpy as np
+
+                # 모델 불러오기
+                model_path = "MH/model.pkl"
+
+                with open(model_path, 'rb') as f:
+                    model = pickle.load(f)
+
+                st.title('Linear Regression Model')
+
+                # create sidebar with input parameters
+                # st.sidebar.header('Input Parameters')
+                st.write('Input Parameters')
+                # x = st.sidebar.slider('X', 0.0, 10.0, 5.0, 0.1)
+                x = st.slider('X', 0.0, 1.0, 0.5, 0.01)
+
+                # use model to make prediction
+                x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+                y = model.predict(x)
+
+                # show prediction result
+                st.subheader('Prediction Result')
+                st.write('Y:', y[0])
             elif option == 'Chart2':
                 st.write("차트2입니다")
             elif option == 'Chart3':
