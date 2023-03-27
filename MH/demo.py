@@ -1,36 +1,38 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import pickle
+import joblib
 
-# 저장된 모델 파일을 로드합니다.
-model_path = "MH/model_RF.pkl"
+# 모델 불러오기
+model_path = "MH/model.pkl"
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
-# 사용자가 입력한 경기수와 승리경기수를 기반으로 승률을 예측합니다.
-def predict_win_rate(wins, games):
-    x = np.tile(np.array([wins, games]), (77,1))  # 입력값을 반복하여 (77, 2) 형태로 만듭니다.
-    win_rate = model.predict(x)
-    return win_rate.mean()
-
-
-# Streamlit 앱을 구성합니다.
-def main():
-    st.title("NCAA 농구 승률 예측기")
-    st.write("이 앱은 NCAA 농구 팀의 승률을 예측합니다.")
-    st.write("사용자는 팀의 경기수와 승리경기수를 입력해야 합니다.")
+# function to predict the outcome
+def predict_outcome(team1, team2):
+    # create a DataFrame with the data for prediction
+    X_test = pd.DataFrame({
+        'team1': [team1],
+        'team2': [team2]
+    })
     
-    # 사용자 입력 폼을 구성합니다.
-    games = st.slider("경기수", 0, 40, 20)
-    wins = st.slider("승리경기수", 0, 40, 10)
+    # predict the outcome using the loaded model
+    y_pred = model.predict(X_test)[0]
+    
+    return y_pred
 
-    # 예측 결과를 표시합니다.
-    if st.button("예측하기"):
-        x = np.tile(np.array([wins, games]), (77, 1))
-        win_rate = predict_win_rate(x[:, 0], x[:, 1])  # (77, 2) 형태의 인수를 전달합니다.
-        st.write(f"예상 승률: {win_rate:.2%}")
+# set the app title
+st.title('NCAA 승률 예측기')
 
+# create input fields for team 1 and team 2
+team1 = st.text_input('팀 1')
+team2 = st.text_input('팀 2')
 
-if __name__ == "__main__":
-    main()
+# create a button to predict the outcome
+if st.button('예측하기'):
+    # check if both teams have been entered
+    if team1 and team2:
+        # call the predict_outcome function
+        outcome = predict_outcome(team1, team2)
+        st.write(f"{team1} vs {team2} 예측 승률: {outcome:.2f}")
+    else:
+        st.warning('팀 이름을 입력하세요.')
