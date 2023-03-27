@@ -44,9 +44,9 @@ st.sidebar.header('Input Parameters')
 x = st.sidebar.slider('X', 0.0, 10.0, 5.0, 0.1)
 
 # use model to make prediction
-x_input = np.array(x).reshape(1, -1)  # 입력값을 2차원 배열로 변환
-y_pred = model.predict(x_input)
+x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+y = model.predict(x)
 
 # show prediction result
 st.subheader('Prediction Result')
-st.write('Y:', y_pred[0])
+st.write('Y:', y[0])
