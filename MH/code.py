@@ -13,7 +13,10 @@ st.write('입력 변수')
 
 # 입력 변수를 위한 슬라이더 추가
 x = st.slider('X', 0.0, 1.0, 0.5, 0.01)
-
+x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+y = model.predict(x)
+y = y * 100
+y = y.round(2)
 # 모델을 사용하여 예측 수행
 x = np.array(x).reshape(1, -1)
 y = model.predict(x)
