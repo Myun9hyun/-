@@ -31,13 +31,16 @@ team2 = st.number_input('Team 2 Win Percentage', min_value=0.0, max_value=1.0, v
 if st.button('Predict'):
     # Create a DataFrame with the input data
     data = pd.DataFrame({'Team1_WinPercentage': [team1], 'Team2_WinPercentage': [team2]})
-    data = data.values.reshape(1, -1)
+    # 1
+    print("**1**")
+    st.write(data)
+    # data = data.values.reshape(1, -1)
 
-    # Make the prediction
-    prediction = model.predict(data)[0]
+    # # Make the prediction
+    # prediction = model.predict(data)[0]
     
-    # Display the prediction
-    if prediction == 0:
-        st.write('Team 1 Wins!')
-    else:
-        st.write('Team 2 Wins!')
+    # # Display the prediction
+    # if prediction == 0:
+    #     st.write('Team 1 Wins!')
+    # else:
+    #     st.write('Team 2 Wins!')
