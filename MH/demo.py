@@ -43,7 +43,7 @@ st.title('Linear Regression Model')
 # st.sidebar.header('Input Parameters')
 st.write('Input Parameters')
 # x = st.sidebar.slider('X', 0.0, 10.0, 5.0, 0.1)
-x = st.slider('X', 0.0, 1.0, 0.5, 0.1)
+x = st.slider('X', 0.0, 1.0, 0.5, 0.01)
 
 # use model to make prediction
 x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
