@@ -161,7 +161,7 @@ elif choice == "데이터페이지":
      
     with tab1:
         tab1.subheader("📈 Chart Tab")
-        tab1.write()
+        st.write()
         '''
         ### Stat Info
         * 차트설명
