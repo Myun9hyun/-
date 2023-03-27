@@ -1,11 +1,12 @@
-import pickle
+import joblib
 import numpy as np
 import streamlit as st
 
 # 결정트리 모델 불러오기
 model_path = "MH/DecisionTree.pkl"
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+# with open(model_path, 'rb') as f:
+#     model = pickle.load(f)
+model = joblib.load(f)
 
 # Streamlit 앱 설정
 st.title('결정트리 모델')
@@ -17,9 +18,9 @@ x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
 
 # 모델을 사용하여 예측 수행
 x = np.array([x1, x2]).reshape(1, -1)
-st.write('# model')
-st.write(model)
-# y = model.predict(x)[0]
+# st.write('# model')
+# st.write(model)
+y = model.predict(x)[0]
 
 # 예측 결과 출력
 st.subheader('예측 결과')
