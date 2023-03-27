@@ -192,7 +192,7 @@ elif choice == "데이터페이지":
                 filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
 
                 # 선택한 컬럼명으로 데이터프레임 필터링하여 multiselect로 출력할 컬럼 선택
-                select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
+                # select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
 
                 # 선택한 컬럼만 출력
                 # st.write(filtered_df[select_cols])
