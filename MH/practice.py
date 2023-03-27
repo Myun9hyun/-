@@ -177,8 +177,14 @@ elif choice == "데이터페이지":
 
             # 선택한 컬럼명으로 데이터프레임 필터링
             conf_val = st.selectbox("원하는 지역을 골라주세요", options=df['CONF'].unique())
-            year_val = st.selectbox("원하는 시즌을 골라주세요", options=df['YEAR'].unique())
+            
+            # year_val = st.selectbox("원하는 시즌을 골라주세요", options=df['YEAR'].unique())
+            # filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
+            year_list = df['YEAR'].unique().tolist()
+            year_list.sort(reverse=True)
+            year_val = st.selectbox("원하는 시즌을 골라주세요", options=year_list)
             filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
+
 
             # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
             team_col = "TEAM"
