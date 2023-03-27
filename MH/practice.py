@@ -176,51 +176,51 @@ elif choice == "데이터페이지":
             '원하는 차트를 골라주세요',
             ('Radar1', 'Radar2', 'Radar3', 'Radar4'))
             if option == 'Radar1':
-                # 데이터 프레임 만들기
-                
-                fig = go.Figure()
+                # CSV 파일이 업로드되었는지 확인
+        if uploaded_file is not None:
+            url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
+            df = pd.read_csv(url)
 
-                # 차트 출력
-                st.write("연습 레이더차트입니다.")
-                # 데이터 프레임 만들기
-                df2 = pd.DataFrame({
-                    'TEAM': ['North Carolina', 'Wisconsin', 'Michigan', 'Texas Tech'],
-                    # 'DRB': [30, 23.7, 24.9, 28.7],
-                    '2P_O': [53.9, 54.8, 54.7, 52.8],
-                    '3P_O': [32.7, 36.5, 35.2, 36.5],
-                    '2P_D': [44.6, 44.7, 46.8, 41.9],
-                    '3P_D': [36.2, 37.5, 33.2, 29.7],
+            # 선택한 컬럼명 받기
+            conf_col = st.selectbox("Select CONF column", options=df.columns)
+            year_col = st.selectbox("Select YEAR column", options=df.columns)
 
-                })
+            # 선택한 컬럼명으로 데이터프레임 필터링
+            conf_val = st.selectbox("Select value in CONF column", options=df[conf_col].unique())
+            year_val = st.selectbox("Select value in YEAR column", options=df[year_col].unique())
+            filtered_df = df[(df[conf_col] == conf_val) & (df[year_col] == year_val)]
 
-                # Plotly의 Radar Chart를 만들기
-                fig = go.Figure()
+            # 선택한 컬럼명으로 데이터프레임 필터링하여 multiselect로 출력할 컬럼 선택
+            select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
 
-                colors = ['Red', 'Green', 'Blue', 'Orange', 'Coral']
+            # 선택한 컬럼만 출력
+            st.write(filtered_df[select_cols])
 
-                for i, row in df2.iterrows():
-                    fig.add_trace(go.Scatterpolar(
-                        r=[row['2P_O'], row['3P_O'], row['2P_D'], row['3P_D']],
-                        theta=['2점 슛 성공률', '3점 슛 성공률', '2점 슛 허용률', '3점 슛 허용률'],
-                        fill='toself',
-                        name=row['TEAM'],
-                        line=dict(color=colors[i], width=5),
-                        fillcolor=colors[i],
-                        opacity=0.25
-                    ))
+            # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
+            team_col = "TEAM"
+            team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
+            stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
 
-                fig.update_layout(
-                    polar=dict(
-                        radialaxis=dict(
-                            visible=True,
-                            range=[23, 55]
-                        ),
-                    ),
-                    showlegend=True
-                )
+            # make_subplots로 1x1 subplot 만들기
+            fig = make_subplots(rows=1, cols=1, specs=[[{'type': 'polar'}]])
 
-                # Streamlit에서 Radar Chart 표시하기
-                st.plotly_chart(fig)
+            # 선택한 각 team별로 trace 추가하기
+            for team_val in team_vals:
+                team_df = filtered_df[filtered_df[team_col] == team_val]
+                theta = stats + [stats[0]]
+                fig.add_trace(go.Scatterpolar(
+                    r=team_df[stats].values.tolist()[0] + [team_df[stats].values.tolist()[0][0]],
+                    theta=theta,
+                    fill='toself',
+                    name=team_val
+                ), row=1, col=1)
+
+            fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 70])))
+            st.plotly_chart(fig)
+
+else:
+    st.warning("Please upload a file.")
+
             elif option == 'Radar2':
                 st.write("차트2입니다")
                 
