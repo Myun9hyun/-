@@ -26,9 +26,10 @@ if uploaded_file is not None:
         df = df[columns]
 
     # radar chart로 출력
-    if len(df) > 0:
+    numeric_columns = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
+    if len(numeric_columns) > 0:
         st.write(df)
         st.write("Radar Chart")
-        st.line_chart(df)
+        st.line_chart(df[numeric_columns])
     else:
-        st.write("No data available")
+        st.write("No numeric columns available for radar chart")
