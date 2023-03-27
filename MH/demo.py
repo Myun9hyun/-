@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 
 # 모델 불러오기
-model_path = "/MH/model.pkl"
+model_path = "MH/model.pkl"
 
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
