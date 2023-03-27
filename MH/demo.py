@@ -1,53 +1,31 @@
 import streamlit as st
-from PIL import Image
-import requests
 import pandas as pd
-import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import pickle
+import joblib
 
-# 모델 불러오기
-model_path = "MH/model_RF.pkl"
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+# 저장된 모델 파일을 로드합니다.
+model_path = "MH/model.pkl"
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
 
+# 사용자가 입력한 경기수와 승리경기수를 기반으로 승률을 예측합니다.
+def predict_win_rate(wins, games):
+    win_rate = model.predict([[wins, games]])
+    return win_rate[0]
 
-# 입력된 데이터를 이용해 타겟 변수를 예측하는 함수를 정의합니다.
-def predict(model, input_df):
-    predictions = model.predict(input_df)
-    return predictions
+# Streamlit 앱을 구성합니다.
+def main():
+    st.title("NCAA 농구 승률 예측기")
+    st.write("이 앱은 NCAA 농구 팀의 승률을 예측합니다.")
+    st.write("사용자는 팀의 경기수와 승리경기수를 입력해야 합니다.")
+    
+    # 사용자 입력 폼을 구성합니다.
+    games = st.slider("경기수", 0, 40, 20)
+    wins = st.slider("승리경기수", 0, 40, 10)
+    
+    # 예측 결과를 표시합니다.
+    if st.button("예측하기"):
+        win_rate = predict_win_rate(wins, games)
+        st.write(f"예상 승률: {win_rate:.2%}")
 
-# Streamlit 앱을 정의합니다.
-def app():
-    # 앱 제목을 설정합니다.
-    st.title("Random Forest 모델 예측")
-    
-    # 데이터 업로드를 위한 사이드바를 만듭니다.
-    st.sidebar.title("데이터 업로드")
-    uploaded_file = st.sidebar.file_uploader("CSV 파일 선택", type="csv")
-    
-    # 사용자 입력 폼을 생성합니다.
-    st.sidebar.title("입력 특성")
-    sepal_length = st.sidebar.slider("승리", 4.0, 8.0, 5.0)
-    sepal_width = st.sidebar.slider("게임", 2.0, 4.5, 3.0)
-    # petal_length = st.sidebar.slider("꽃잎 길이", 1.0, 7.0, 4.0)
-    # petal_width = st.sidebar.slider("꽃잎 너비", 0.1, 2.5, 1.0)
-    
-    # 사용자 입력을 데이터프레임으로 결합합니다.
-    input_data = {'W': sepal_length,
-                  'G': sepal_width,
-                #   'petal_length': petal_length,
-                #   'petal_width': petal_width
-                }
-    input_df = pd.DataFrame([input_data])
-    
-    # 모델을 이용해 예측합니다.
-    if st.sidebar.button("예측"):
-        predictions = predict(model, input_df)
-        st.write("예측된 타겟 변수 값은:", predictions[0])
-    
-# Streamlit 앱을 실행합니다.
-if __name__ == '__main__':
-    app()
+if __name__ == "__main__":
+    main()
