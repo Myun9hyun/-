@@ -30,27 +30,28 @@ if uploaded_file is not None:
     team_col = "TEAM"
     team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
     stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
-    theta = stats + [stats[0]]
 
-    fig = make_subplots(rows=len(team_vals), cols=1,
-                        subplot_titles=[team_val for team_val in team_vals],
-                        specs=[[{'type': 'polar'}] for _ in range(len(team_vals))])
+    fig = make_subplots(rows=1, cols=len(team_vals), subplot_titles=team_vals)
 
     for i, team_val in enumerate(team_vals):
         team_df = filtered_df[filtered_df[team_col] == team_val]
+        theta = stats + [stats[0]]
         fig.add_trace(go.Scatterpolar(
             r=team_df[stats].values.tolist()[0] + [team_df[stats].values.tolist()[0][0]],
             theta=theta,
-            fill='toself'
-        ), row=i+1, col=1)
+            fill='toself',
+            name=team_val
+        ), row=1, col=i+1)
 
-    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 70])),
-                      polar2=dict(radialaxis=dict(visible=True, range=[0, 70])),
-                      polar3=dict(radialaxis=dict(visible=True, range=[0, 70])),
-                      polar4=dict(radialaxis=dict(visible=True, range=[0, 70])),
-                      polar5=dict(radialaxis=dict(visible=True, range=[0, 70])))
+        fig.update_layout(
+            polar=dict(
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 40]
+                )
+            )
+        )
 
     st.plotly_chart(fig)
-
 else:
     st.warning("Please upload a file.")
