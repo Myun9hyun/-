@@ -39,14 +39,14 @@ if st.button('Predict'):
     # print("**2**")
     # st.write(data)
     # 3
-    print("**3**")
+    # print("**3**")
     # # Make the prediction
     data = np.zeros((1, 77))
     prediction = model.predict(data)[0]
     st.write(prediction)
     
     # Display the prediction
-    if prediction == 0:
+    if prediction > 0.5:
         st.write('Team 1 Wins!')
     else:
         st.write('Team 2 Wins!')
