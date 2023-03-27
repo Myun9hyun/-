@@ -280,7 +280,7 @@ elif choice == "데이터페이지":
                 # use model to make prediction
                 x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
                 y = model.predict(x)
-                y = y.round(2)
+                y = y.round(4)
                 y = y * 100
 
                 # show prediction result
