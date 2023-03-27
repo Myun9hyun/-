@@ -4,51 +4,30 @@ import pandas as pd
 import streamlit as st
 
 # 랜덤 포레스트 모델 불러오기
-model_path = "MH/RFmodel.pkl"
+model_path = "MH/LRmodel.pkl"
 model = joblib.load(model_path)
 
-# Streamlit 앱 설정
-st.title('Random Forest Model')
-st.write('입력 변수')
+st.write("LinearRegressor")
+# 첫번째 행
+r1_col1, r1_col2, r1_col3 = st.columns(3)
+총세대수1 = r1_col1.slider("총세대수", 26, 2568)
+전용면적1 = r1_col2.slider("전용면적", 14.1, 583.4)
+전용면적별세대수1 = r1_col3.slider("전용면적별세대수", 1, 1865)
+# 두번째 행
+r2_col1, r2_col2, r2_col3 = st.columns(3)
+공가수1 = r2_col1.slider("공가수",0,55)
+지하철_option1 = (0, 1, 2, 3)
+지하철1 = r2_col2.selectbox("지하철", 지하철_option1)
+버스1 = r2_col3.slider("버스", 0,20)
+# 세번째 행
+r3_col1, r3_col2, r3_col3 = st.columns(3)
+단지내주차면수1 = r3_col1.slider("단지내주차면수",13,1798)
+공급유형_비율1 = r3_col2.slider("공급유형_비율",0,60)
+지역_비율1 = r3_col3.slider("지역_비율",0,21)
+predict_button = st.button("예측")
 
-# 입력 변수를 위한 슬라이더 추가
-x1 = st.slider('X1', 0.0, 1.0, 0.5, 0.01)
-x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
-x3 = st.slider('X3', 0.0, 1.0, 0.5, 0.01)
-x4 = st.slider('X4', 0.0, 1.0, 0.5, 0.01)
-
-# 모델을 사용하여 예측 수행
-x = np.array([x1, x2, x3, x4] * 19 + [x4]).reshape(1, -1)
-
-y = model.predict(x)[0]
-
-# 예측 결과 출력
-st.subheader('예측 결과')
-st.write('Y:', y)
-
-# import joblib
-# import numpy as np
-# import streamlit as st
-
-# # 결정트리 모델 불러오기
-# model_path = "MH/DecisionTree.pkl"
-# model = joblib.load(model_path)
-
-# # Streamlit 앱 설정
-# st.title('결정트리 모델')
-# st.write('입력 변수')
-
-# # 입력 변수를 위한 슬라이더 추가
-# x1 = st.slider('X1', 0.0, 10.0, 0.5, 0.01)
-# x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
-
-# # 모델을 사용하여 예측 수행
-# # x = np.array([x1 * 77], [x2]).reshape(1, -1)
-# x = np.array([x1]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
-
-# y = model.predict(x)
-# y = y[0]
-
-# # 예측 결과 출력
-# st.subheader('예측 결과')
-# st.write('Y:', round(y, 2))
+if predict_button:
+        variable1 = np.array([총세대수1, 전용면적1, 전용면적별세대수1, 공가수1, 지하철1, 버스1, 단지내주차면수1, 공급유형_비율1, 지역_비율1])
+        model1 = joblib.load('LinearRegression.pkl')
+        pred1 = model1.predict([variable1])
+        st.metric("결과: ", pred1[0])
