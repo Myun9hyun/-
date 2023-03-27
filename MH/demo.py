@@ -53,8 +53,7 @@ with open(model_path, 'rb') as f:
 # import the required libraries
 
 # load the trained model
-with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
+
 
 # define a function to predict the outcome
 def predict_outcome(team1, team2):
