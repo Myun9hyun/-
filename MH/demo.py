@@ -19,8 +19,8 @@ team2 = st.number_input('Team 2 Win Percentage', min_value=0.0, max_value=1.0, v
 # Add a button to make predictions
 if st.button('Predict'):
     # Create a DataFrame with the input data
-    data = pd.DataFrame({'Team1_WinPercentage': [team1], 'Team2_WinPercentage': [team2]})
     data = data.values.reshape(1, -1)
+    data = pd.DataFrame({'Team1_WinPercentage': [team1], 'Team2_WinPercentage': [team2]})
 
     # Make the prediction
     prediction = model.predict(data)[0]
