@@ -265,27 +265,24 @@ elif choice == "데이터페이지":
         ('Chart1', 'Chart2', 'Chart3'))
         if option == 'Chart1':
             # 모델 불러오기
-            model_path = "MH/model.pkl"
-            with open(model_path, 'rb') as f:
-                model = joblib.load(f)
+           # 랜덤 포레스트 모델 불러오기
+            model_path = "MH/LRmodel.pkl"
+            model = joblib.load(model_path)
 
-                st.title('Linear Regression Model')
+            st.write("LinearRegressor")
+            # 첫번째 행
+            r1_col1, r1_col2 = st.columns(2)
+            경기수 = r1_col1.slider("경기수", 0, 40)
+            승리수 = r1_col2.slider("승리수", 0, 40)
 
-                # create sidebar with input parameters
-                # st.sidebar.header('Input Parameters')
-                st.write('Input Parameters')
-                # x = st.sidebar.slider('X', 0.0, 10.0, 5.0, 0.1)
-                x = st.slider('X', 0.0, 1.0, 0.5, 0.01)
+            predict_button = st.button("예측")
 
-                # use model to make prediction
-                x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
-                y = model.predict(x)
-                y = y * 100
-                y = y.round(2)
-
-                # show prediction result
-                st.subheader('Prediction Result')
-                st.write('Y:', y[0])
+            if predict_button:
+                    variable1 = np.array([경기수, 승리수]*28)
+                    model1 = joblib.load('MH/LRmodel.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(2)
+                    st.metric("결과: ", pred1[0])
         elif option == 'Chart2':
 
             # 랜덤 포레스트 모델 불러오기
