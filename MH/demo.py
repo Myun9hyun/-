@@ -42,6 +42,7 @@ if st.button('Predict'):
     print("**3**")
     # # Make the prediction
     # prediction = model.predict(data)[0]
+    prediction = np.ones(1, 77)
     st.write(prediction)
     
     # # Display the prediction
