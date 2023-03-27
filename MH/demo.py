@@ -1,11 +1,15 @@
 import streamlit as st
 import pickle
+import pickle
 
-# 모델 불러오기
-model_path = "MH/model.pkl"
-
-with open(model_path, 'rb') as f:
+with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
+
+# # 모델 불러오기
+# model_path = "MH/model.pkl"
+
+# with open(model_path, 'rb') as f:
+#     model = pickle.load(f)
 
 st.title('Linear Regression Model')
 
