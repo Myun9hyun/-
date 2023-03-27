@@ -45,8 +45,8 @@ if st.button('Predict'):
     prediction = model.predict(data)[0]
     st.write(prediction)
     
-    # # Display the prediction
-    # if prediction == 0:
-    #     st.write('Team 1 Wins!')
-    # else:
-    #     st.write('Team 2 Wins!')
+    # Display the prediction
+    if prediction == 0:
+        st.write('Team 1 Wins!')
+    else:
+        st.write('Team 2 Wins!')
