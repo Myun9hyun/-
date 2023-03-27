@@ -49,5 +49,5 @@ def app():
         st.write("예측된 타겟 변수 값은:", predictions[0])
     
 # Streamlit 앱을 실행합니다.
-if __name__ == '__main__':
-    app()
+# if __name__ == '__main__':
+#     app()
