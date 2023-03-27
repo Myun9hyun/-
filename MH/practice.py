@@ -183,13 +183,13 @@ elif choice == "데이터페이지":
                 df = pd.read_csv(url)
 
                 # 선택한 컬럼명 받기
-                conf_col = st.selectbox("Select CONF column", options=df.columns)
-                year_col = st.selectbox("Select YEAR column", options=df.columns)
+                # conf_col = st.selectbox("Select CONF column", options=df.columns)
+                # year_col = st.selectbox("Select YEAR column", options=df.columns)
 
                 # 선택한 컬럼명으로 데이터프레임 필터링
-                conf_val = st.selectbox("Select value in CONF column", options=df[conf_col].unique())
-                year_val = st.selectbox("Select value in YEAR column", options=df[year_col].unique())
-                filtered_df = df[(df[conf_col] == conf_val) & (df[year_col] == year_val)]
+                conf_val = st.selectbox("Select value in CONF column", options=df['CONF'].unique())
+                year_val = st.selectbox("Select value in YEAR column", options=df['YEAR'].unique())
+                filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
 
                 # 선택한 컬럼명으로 데이터프레임 필터링하여 multiselect로 출력할 컬럼 선택
                 select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
