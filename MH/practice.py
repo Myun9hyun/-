@@ -6,7 +6,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import pickle
+import joblib
 
 menu = ["메인페이지", "데이터페이지", "기타"]
 choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
@@ -267,7 +267,7 @@ elif choice == "데이터페이지":
             # 모델 불러오기
             model_path = "MH/model.pkl"
             with open(model_path, 'rb') as f:
-                model = pickle.load(f)
+                model = joblib.load(f)
 
                 st.title('Linear Regression Model')
 
@@ -291,7 +291,7 @@ elif choice == "데이터페이지":
             # 모델 불러오기
             model_path = "MH/model.pkl"
             with open(model_path, 'rb') as f:
-                model = pickle.load(f)
+                model = joblib.load(f)
 
             # 입력된 데이터를 이용해 타겟 변수를 예측하는 함수를 정의합니다.
             def predict(model, input_df):
@@ -329,6 +329,30 @@ elif choice == "데이터페이지":
             # Streamlit 앱을 실행합니다.
             # if __name__ == '__main__':
             #     app()
+        elif option == 'Chart3':
+
+            # 결정트리 모델 불러오기
+            model_path = "MH/DecisionTree.pkl"
+            model = joblib.load(model_path)
+
+            # Streamlit 앱 설정
+            st.title('결정트리 모델')
+            st.write('입력 변수')
+
+            # 입력 변수를 위한 슬라이더 추가
+            x1 = st.slider('X1', 0.0, 10.0, 0.5, 0.01)
+            x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
+
+            # 모델을 사용하여 예측 수행
+            # x = np.array([x1 * 77], [x2]).reshape(1, -1)
+            x = np.array([x1]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+
+            y = model.predict(x)
+            y = y[0]
+
+            # 예측 결과 출력
+            st.subheader('예측 결과')
+            st.write('Y:', round(y, 2))
 
     with tab3:
         tab3.subheader("Streamlit 진행상태..")
