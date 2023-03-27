@@ -195,7 +195,7 @@ elif choice == "데이터페이지":
                 select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
 
                 # 선택한 컬럼만 출력
-                st.write(filtered_df[select_cols])
+                # st.write(filtered_df[select_cols])
 
                 # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
                 team_col = "TEAM"
