@@ -345,7 +345,7 @@ elif choice == "데이터페이지":
 
             # 모델을 사용하여 예측 수행
             # x = np.array([x1 * 77], [x2]).reshape(1, -1)
-            x = np.array([x1, x2]*38) + [x1].reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+            x = np.array([x1, x2] *38 + [x1]).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
 
             y = model.predict(x)
             y = y[0]
