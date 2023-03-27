@@ -26,11 +26,11 @@ def main():
     # 사용자 입력 폼을 구성합니다.
     games = st.slider("경기수", 0, 40, 20)
     wins = st.slider("승리경기수", 0, 40, 10)
-    
+x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+y = model.predict(x)    
     # 예측 결과를 표시합니다.
     if st.button("예측하기"):
-        x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
-        y = model.predict(x)
+        
         win_rate = predict_win_rate(wins, games)
         st.write(f"예상 승률: {win_rate:.2%}")
         # X_test를 2차원 배열로 변환
