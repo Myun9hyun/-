@@ -107,8 +107,16 @@ if choice == "메인페이지":
         * College Basketball Dataset
         > [![Colab](https://img.shields.io/badge/kaggle-College%20Basketball%20Dataset-skyblue)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
         
-        * colab링크1[제목]
+        * colab 전처리 데이터 링크
         > [![Colab](https://img.shields.io/badge/colab-Data%20preprocessing-yellow)](https://colab.research.google.com/drive/1qTboYP4Pa73isvE4Lt3l5XYLaIhX9Tix?usp=sharing) 
+        * colab 선형 회귀 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-Line%20Regression-yellow)](https://colab.research.google.com/drive/1bK8x_1Cich78Mf_6hdFcPp1U01d4RjMv?usp=sharing) 
+        * colab 랜덤 포레스트 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-Random%20Forest-yellow)](https://colab.research.google.com/drive/1E5AzXyJoulVY-12rxmJjBphqOwf4kpNF?usp=sharing) 
+        * colab 결정트리 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-Decision%20Tree-yellow)](https://colab.research.google.com/drive/1l059OKEqqQkLu9N6RVd-KpjHDcHQI7eX?usp=sharing) 
+        * colab XG Boost 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-XG%20Boost-yellow)](https://colab.research.google.com/drive/1yF3dcXCYfcFHVDmOUq1RO-tDxqtajA22?usp=sharing) 
         '''
 
 elif choice == "데이터페이지":
