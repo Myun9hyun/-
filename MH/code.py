@@ -3,7 +3,7 @@ import numpy as np
 import streamlit as st
 
 # 선형회귀 모델 불러오기
-model_path = "MH/model_LR.pkl"
+model_path = "MH/model_RF.pkl"
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
