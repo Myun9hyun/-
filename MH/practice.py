@@ -289,7 +289,7 @@ elif choice == "데이터페이지":
         elif option == 'Chart2':
 
             # 모델 불러오기
-            model_path = "MH/model.pkl"
+            model_path = "MH/model_RF.pkl"
             with open(model_path, 'rb') as f:
                 model = joblib.load(f)
 
