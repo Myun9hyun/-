@@ -10,9 +10,9 @@ with open(model_path, 'rb') as f:
 
 # 사용자가 입력한 경기수와 승리경기수를 기반으로 승률을 예측합니다.
 def predict_win_rate(wins, games):
-    x = np.tile(np.array([wins, games]), (77,2))  # 입력값의 차원을 맞춰줍니다.
+    x = np.tile(np.array([wins, games]), (77, 1))  # 입력값의 차원을 맞춰줍니다.
     win_rate = model.predict(x)
-    return win_rate[0]
+    return win_rate
 
 # Streamlit 앱을 구성합니다.
 def main():
@@ -27,7 +27,7 @@ def main():
     # 예측 결과를 표시합니다.
     if st.button("예측하기"):
         win_rate = predict_win_rate(wins, games)
-        st.write(f"예상 승률: {win_rate[0]:.2%}")
+        st.write(f"예상 승률: {win_rate.mean():.2%}")
 
 if __name__ == "__main__":
     main()
