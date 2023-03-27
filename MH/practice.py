@@ -181,7 +181,7 @@ elif choice == "데이터페이지":
             # year_val = st.selectbox("원하는 시즌을 골라주세요", options=df['YEAR'].unique())
             # filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
             year_list = df['YEAR'].unique().tolist()
-            year_list.sort(reverse=True)
+            year_list.sort(reverse=False)
             year_val = st.selectbox("원하는 시즌을 골라주세요", options=year_list)
             filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
 
