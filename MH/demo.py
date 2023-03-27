@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 import numpy as np
 # 모델 불러오기
-model_path = "MH/model_RF.pkl"
+model_path = "MH/model.pkl"
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
@@ -51,9 +51,6 @@ with open(model_path, 'rb') as f:
 #     else:
 #         st.write('Team 2 Wins!')
 # import the required libraries
-
-# load the trained model
-
 
 # define a function to predict the outcome
 def predict_outcome(team1, team2):
