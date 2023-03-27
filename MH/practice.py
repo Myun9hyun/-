@@ -168,7 +168,7 @@ elif choice == "데이터페이지":
         option = st.selectbox(
         '원하는 차트를 골라주세요',
         ('스탯비교 그래프', '승률데이터 그래프', 'Chart'))
-        st.write(f'고르신 {option} 차트를 출력하겠습니다: ')
+        st.write(f'고르신 {option}를 출력하겠습니다: ')
 
         if option == '스탯비교 그래프':
             # CSV 파일이 업로드되었는지 확인
@@ -176,14 +176,14 @@ elif choice == "데이터페이지":
             df = pd.read_csv(url)
 
             # 선택한 컬럼명으로 데이터프레임 필터링
-            conf_val = st.selectbox("Select value in CONF column", options=df['CONF'].unique())
-            year_val = st.selectbox("Select value in YEAR column", options=df['YEAR'].unique())
+            conf_val = st.selectbox("원하는 지역을 골라주세요", options=df['CONF'].unique())
+            year_val = st.selectbox("원하는 시즌을 골라주세요", options=df['YEAR'].unique())
             filtered_df = df[(df['CONF'] == conf_val) & (df['YEAR'] == year_val)]
 
             # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
             team_col = "TEAM"
-            team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
-            stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
+            team_vals = st.multiselect("비교하고 싶은 Team을 골라주세요", options=filtered_df[team_col].unique())
+            stats = st.multiselect('Radar chart로 나타내고 싶은 스탯을 골라주세요:', filtered_df.columns.tolist())
 
             # make_subplots로 1x1 subplot 만들기
             fig = make_subplots(rows=1, cols=1, specs=[[{'type': 'polar'}]])
