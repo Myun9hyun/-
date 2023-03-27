@@ -27,8 +27,7 @@ def main():
 
     # 예측 결과를 표시합니다.
     if st.button("예측하기"):
-        x = np.tile(np.array([wins, games]), (77,1))
-  # 입력값의 차원을 맞춰줍니다.
+        x = np.array([wins, games]*77).reshape(77,2)  # 입력값의 차원을 맞춰줍니다.
         win_rate = model.predict(x)
         st.write(f"예상 승률: {win_rate.mean():.2%}")
 
