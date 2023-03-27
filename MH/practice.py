@@ -177,49 +177,46 @@ elif choice == "데이터페이지":
             ('Radar1', 'Radar2', 'Radar3', 'Radar4'))
             if option == 'Radar1':
                 # CSV 파일이 업로드되었는지 확인
-                if uploaded_file is not None:
-                    url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
-                    df = pd.read_csv(url)
+                url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
+                df = pd.read_csv(url)
 
-                    # 선택한 컬럼명 받기
-                    conf_col = st.selectbox("Select CONF column", options=df.columns)
-                    year_col = st.selectbox("Select YEAR column", options=df.columns)
+                # 선택한 컬럼명 받기
+                conf_col = st.selectbox("Select CONF column", options=df.columns)
+                year_col = st.selectbox("Select YEAR column", options=df.columns)
 
-                    # 선택한 컬럼명으로 데이터프레임 필터링
-                    conf_val = st.selectbox("Select value in CONF column", options=df[conf_col].unique())
-                    year_val = st.selectbox("Select value in YEAR column", options=df[year_col].unique())
-                    filtered_df = df[(df[conf_col] == conf_val) & (df[year_col] == year_val)]
+                # 선택한 컬럼명으로 데이터프레임 필터링
+                conf_val = st.selectbox("Select value in CONF column", options=df[conf_col].unique())
+                year_val = st.selectbox("Select value in YEAR column", options=df[year_col].unique())
+                filtered_df = df[(df[conf_col] == conf_val) & (df[year_col] == year_val)]
 
-                    # 선택한 컬럼명으로 데이터프레임 필터링하여 multiselect로 출력할 컬럼 선택
-                    select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
+                # 선택한 컬럼명으로 데이터프레임 필터링하여 multiselect로 출력할 컬럼 선택
+                select_cols = st.multiselect("Select columns to display", options=filtered_df.columns)
 
-                    # 선택한 컬럼만 출력
-                    st.write(filtered_df[select_cols])
+                # 선택한 컬럼만 출력
+                st.write(filtered_df[select_cols])
 
-                    # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
-                    team_col = "TEAM"
-                    team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
-                    stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
+                # TEAM의 컬럼명으로 데이터프레임 필터링하여 radar chart 출력
+                team_col = "TEAM"
+                team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
+                stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
 
-                    # make_subplots로 1x1 subplot 만들기
-                    fig = make_subplots(rows=1, cols=1, specs=[[{'type': 'polar'}]])
+                # make_subplots로 1x1 subplot 만들기
+                fig = make_subplots(rows=1, cols=1, specs=[[{'type': 'polar'}]])
 
-                    # 선택한 각 team별로 trace 추가하기
-                    for team_val in team_vals:
-                        team_df = filtered_df[filtered_df[team_col] == team_val]
-                        theta = stats + [stats[0]]
-                        fig.add_trace(go.Scatterpolar(
-                            r=team_df[stats].values.tolist()[0] + [team_df[stats].values.tolist()[0][0]],
-                            theta=theta,
-                            fill='toself',
-                            name=team_val
-                        ), row=1, col=1)
+                # 선택한 각 team별로 trace 추가하기
+                for team_val in team_vals:
+                    team_df = filtered_df[filtered_df[team_col] == team_val]
+                    theta = stats + [stats[0]]
+                    fig.add_trace(go.Scatterpolar(
+                        r=team_df[stats].values.tolist()[0] + [team_df[stats].values.tolist()[0][0]],
+                        theta=theta,
+                        fill='toself',
+                        name=team_val
+                    ), row=1, col=1)
 
-                    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 70])))
-                    st.plotly_chart(fig)
+                fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 70])))
+                st.plotly_chart(fig)
 
-else:
-    st.warning("Please upload a file.")
 
             elif option == 'Radar2':
                 st.write("차트2입니다")
