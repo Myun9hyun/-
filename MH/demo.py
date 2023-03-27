@@ -44,11 +44,11 @@ if uploaded_file is not None:
             fill='toself'
         ), row=i+1, col=1)
 
-    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 40])),
-                      polar2=dict(radialaxis=dict(visible=True, range=[0, 40])),
-                      polar3=dict(radialaxis=dict(visible=True, range=[0, 40])),
-                      polar4=dict(radialaxis=dict(visible=True, range=[0, 40])),
-                      polar5=dict(radialaxis=dict(visible=True, range=[0, 40])))
+    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 70])),
+                      polar2=dict(radialaxis=dict(visible=True, range=[0, 70])),
+                      polar3=dict(radialaxis=dict(visible=True, range=[0, 70])),
+                      polar4=dict(radialaxis=dict(visible=True, range=[0, 70])),
+                      polar5=dict(radialaxis=dict(visible=True, range=[0, 70])))
 
     st.plotly_chart(fig)
 
