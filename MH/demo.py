@@ -31,9 +31,11 @@ if uploaded_file is not None:
     team_vals = st.multiselect("Select values in TEAM column for radar chart", options=filtered_df[team_col].unique())
     stats = st.multiselect('Select statistics for radar chart:', filtered_df.columns.tolist())
 
-    fig = make_subplots(rows=1, cols=len(team_vals), subplot_titles=team_vals)
+    # make_subplots로 1x1 subplot 만들기
+    fig = make_subplots(rows=1, cols=1, specs=[[{'type': 'polar'}]])
 
-    for i, team_val in enumerate(team_vals):
+    # 선택한 각 team별로 trace 추가하기
+    for team_val in team_vals:
         team_df = filtered_df[filtered_df[team_col] == team_val]
         theta = stats + [stats[0]]
         fig.add_trace(go.Scatterpolar(
@@ -41,17 +43,10 @@ if uploaded_file is not None:
             theta=theta,
             fill='toself',
             name=team_val
-        ), row=1, col=i+1)
+        ), row=1, col=1)
 
-        fig.update_layout(
-            polar=dict(
-                radialaxis=dict(
-                    visible=True,
-                    range=[0, 40]
-                )
-            )
-        )
-
+    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 40])))
     st.plotly_chart(fig)
+
 else:
     st.warning("Please upload a file.")
