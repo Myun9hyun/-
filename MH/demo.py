@@ -1,35 +1,29 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
-# 파일 업로드
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-
+# 데이터 업로드 및 데이터프레임 생성
+uploaded_file = st.file_uploader("CSV 파일 업로드", type="csv")
 if uploaded_file is not None:
-    # csv 파일을 데이터프레임으로 변환
     df = pd.read_csv(uploaded_file)
 
-    # CONF 열 입력 받기
-    conf = st.text_input("Enter a value for CONF column")
-    if conf != "":
-        # 입력받은 CONF 값과 일치하는 모든 행 추출
-        df = df[df["CONF"] == conf]
+    # CONF 열 입력받아 해당하는 행 출력
+    conf_col = st.selectbox("CONF 열 선택", options=list(df.columns))
+    selected_conf = st.text_input("CONF 값을 입력하세요.")
+    conf_df = df.loc[df[conf_col] == selected_conf]
 
-    # YEAR 열 입력 받기
-    year = st.text_input("Enter a value for YEAR column")
-    if year != "":
-        # 입력받은 YEAR 값과 일치하는 모든 행 추출
-        df = df[df["YEAR"] == year]
+    # YEAR 열 입력받아 해당하는 행 출력
+    year_col = st.selectbox("YEAR 열 선택", options=list(df.columns))
+    selected_year = st.text_input("YEAR 값을 입력하세요.")
+    year_df = conf_df.loc[conf_df[year_col] == selected_year]
 
-    # 선택받은 columns 출력
-    columns = st.multiselect("Select columns", df.columns)
-    if len(columns) > 0:
-        df = df[columns]
+    # 출력할 열 선택받아 출력
+    selected_cols = st.multiselect("출력할 열 선택", options=list(df.columns))
+    selected_df = year_df[selected_cols]
 
-    # radar chart로 출력
-    numeric_columns = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
-    if len(numeric_columns) > 0:
-        st.write(df)
-        st.write("Radar Chart")
-        st.line_chart(df[numeric_columns])
+    # TEAM 열을 기준으로 radar chart 출력
+    if 'TEAM' in selected_cols:
+        fig = px.line_polar(selected_df, r='VALUE', theta='TEAM', line_close=True)
+        st.plotly_chart(fig)
     else:
-        st.write("No numeric columns available for radar chart")
+        st.write(selected_df)
