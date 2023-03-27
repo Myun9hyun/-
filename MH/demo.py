@@ -4,8 +4,8 @@ import joblib
 
 # 저장된 모델 파일을 로드합니다.
 model_path = "MH/model.pkl"
-    with open(model_path, 'rb') as f:
-        model = pickle.load(f)
+with open(model_path, 'rb') as f:
+    model = pickle.load(f)
 
 # 사용자가 입력한 경기수와 승리경기수를 기반으로 승률을 예측합니다.
 def predict_win_rate(wins, games):
