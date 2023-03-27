@@ -281,7 +281,7 @@ elif choice == "데이터페이지":
                 x = np.array([x]*77).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
                 y = model.predict(x)
                 y = y * 100
-                y = y.round(4)
+                y = y.round(2)
 
                 # show prediction result
                 st.subheader('Prediction Result')
