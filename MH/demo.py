@@ -31,6 +31,14 @@ def main():
     if st.button("예측하기"):
         win_rate = predict_win_rate(wins, games)
         st.write(f"예상 승률: {win_rate:.2%}")
+        # X_test를 2차원 배열로 변환
+        X_test = np.array(X_test).reshape(1, -1)
+
+        # 모델 예측 수행
+        y_pred = model.predict(X_test)
+
+
+
 
 if __name__ == "__main__":
     main()
