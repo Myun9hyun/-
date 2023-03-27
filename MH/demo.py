@@ -15,6 +15,7 @@ x = st.sidebar.slider('X', 0.0, 10.0, 5.0, 0.1)
 
 # use model to make prediction
 y = model.predict([[x]])
+prediction = model.predict(x)
 
 # show prediction result
 st.subheader('Prediction Result')
