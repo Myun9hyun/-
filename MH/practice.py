@@ -112,7 +112,7 @@ if choice == "메인페이지":
         '''
 
 elif choice == "데이터페이지":
-    tab0, tab1, tab2 = st.tabs(["🗃 Data", "📈 Chart", "Streamlit 진행상태.."])
+    tab0, tab1, tab2, tab3 = st.tabs(["🗃 Data", "📈 Chart", "🦾 Machine Learning" "Streamlit 진행상태.."])
     data = np.random.randn(10, 1)
     with tab0:
         tab0.subheader("🗃 Data Tab")
@@ -316,15 +316,19 @@ elif choice == "데이터페이지":
             elif option == 'Bar3':
                 st.write("막대 차트 3입니다")
         elif option == 'Chart':
-            st.write("머신러닝 모델입니다")
+            elif option == 'Chart1':
+                st.write("차트1")
+            elif option == 'Chart2':
+                st.write("차트2입니다")
+            elif option == 'Chart3':
+                st.write("차트3입니다") 
+    with tab2:
+        tab2.subheader("🦾 Machine Learning")
+        st.write("머신러닝 모델입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
             ('Chart1', 'Chart2', 'Chart3'))
             if option == 'Chart1':
-                # import streamlit as st
-                # import pickle
-                # import numpy as np
-
                 # 모델 불러오기
                 model_path = "MH/model.pkl"
 
@@ -346,13 +350,8 @@ elif choice == "데이터페이지":
                 # show prediction result
                 st.subheader('Prediction Result')
                 st.write('Y:', y[0])
-            elif option == 'Chart2':
-                st.write("차트2입니다")
-            elif option == 'Chart3':
-                st.write("차트3입니다") 
-   
-    with tab2:
-        tab2.subheader("Streamlit 진행상태..")
+    with tab3:
+        tab3.subheader("Streamlit 진행상태..")
         st.write()
         '''
         ### 현재 진행상태
