@@ -6,6 +6,14 @@ import pickle
 model_path = "MH/model.pkl"
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
+# dictionary for encoding team names
+team_encoding = {
+    'Duke': 0,
+    'North Carolina': 1,
+    'Kansas': 2,
+    'Kentucky': 3,
+    # add more teams as necessary
+}
 
 # function to predict the outcome
 def predict_outcome(team1, team2):
