@@ -328,9 +328,9 @@ elif choice == "데이터페이지":
     with tab2:
         tab2.subheader("🦾 Machine Learning")
         st.write("머신러닝 모델입니다")
-            option = st.selectbox(
-            '원하는 차트를 골라주세요',
-            ('Chart1', 'Chart2', 'Chart3'))
+        option = st.selectbox(
+        '원하는 차트를 골라주세요',
+        ('Chart1', 'Chart2', 'Chart3'))
             if option == 'Chart1':
                 # 모델 불러오기
                 model_path = "MH/model.pkl"
