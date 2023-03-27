@@ -176,8 +176,8 @@ elif choice == "데이터페이지":
             st.write("Radar 차트 유형입니다")
             option = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('Radar1', 'Radar2', 'Radar3', 'Radar4'))
-            if option == 'Radar1':
+            ('스탯비교 그래프', 'Radar2', 'Radar3', 'Radar4'))
+            if option == '스탯비교 그래프':
                 # CSV 파일이 업로드되었는지 확인
                 url = "https://raw.githubusercontent.com/Myun9hyun/trash/main/MH/cbb.csv"
                 df = pd.read_csv(url)
@@ -258,8 +258,6 @@ elif choice == "데이터페이지":
 
                 # Streamlit에서 Radar Chart 표시하기
                 st.plotly_chart(fig)
-
-
 
         elif option == 'Bar':
             st.write("Bar차트 유형입니다")
