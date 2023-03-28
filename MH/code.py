@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 
 # 모델 로드
-model_path = "MH/LRmodel"
+model_path = "MH/LRmodel.pkl"
 model = joblib.load(model_path)
 
 # 승리수, 경기수 입력 받기
