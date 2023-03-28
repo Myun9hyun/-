@@ -470,7 +470,7 @@ elif choice == "데이터페이지":
                     # variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
                     variable1 = pd.DataFrame([[G, W, ORB, FTR, two_O, three_O]], columns=['G', 'W', 'ORB', 'FTR', '2P_O', '3P_O'])
                     st.write(variable1)
-                    model1 = joblib.load('project/XGBoost5.pkl')
+                    model1 = joblib.load('MH/XGBoost5.pkl')
                     # pred1 = model1.predict([variable1])
                     pred1 = model1.predict(variable1)
                     pred1 = pred1.round(4)
