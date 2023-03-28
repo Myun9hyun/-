@@ -322,8 +322,8 @@ elif choice == "데이터페이지":
             model_path = "MH/RFmodel.pkl"
             model = joblib.load(model_path)
             df = pd.read_csv('MH/cbb_preprocess.csv')
-            X = df.drop('P_V', axis=1)
-            y = df['P_V']
+            X_D = df.drop('P_V', axis=1)
+            y_D = df['P_V']
             # Streamlit 앱 설정
             st.title('Random Forest Model')
             st.write('입력 변수')
