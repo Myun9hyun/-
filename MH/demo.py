@@ -321,7 +321,8 @@ elif choice == "데이터페이지":
             # 랜덤 포레스트 모델 불러오기
             model_path = "MH/RFmodel.pkl"
             model = joblib.load(model_path)
-
+            df = pd.read_csv('MH/cbb_preprocess.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
             # Streamlit 앱 설정
             st.title('Random Forest Model')
             st.write('입력 변수')
