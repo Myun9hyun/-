@@ -268,6 +268,24 @@ elif choice == "데이터페이지":
            # 랜덤 포레스트 모델 불러오기
             model_path = "MH/LRmodel.pkl"
             model = joblib.load(model_path)
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_preprocess.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+
+            # 모델 불러오기
+            with open('MH/LRmodel.pkl', 'rb') as f:
+                model = joblib.load(f)
+            st.write("구현한 선형회귀 모델 그래프입니다.")
+            # 예측값 계산
+            df['predicted'] = model.predict(X)
+            st.set_option('deprecation.showPyplotGlobalUse', False)
+            # 산점도 그리기
+            sns.set_style('darkgrid')
+            plt.figure(figsize=(8, 6))
+            plt.title('Linear Regression')
+
+            sns.scatterplot(x = 'P_V', y='predicted', data=df)
+            st.pyplot()
 
             st.write("LinearRegressor")
             # 첫번째 행
