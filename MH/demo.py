@@ -361,8 +361,8 @@ elif choice == "데이터페이지":
             # x = np.array([x1 * 77], [x2]).reshape(1, -1)
             x = np.array([x1, x2] *38 + [x1]).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
 
-            y = model.predict(x)
-            y = y[0]
+            y = model.predict(x)[0]
+            
 
             # 예측 결과 출력
             st.subheader('예측 결과')
