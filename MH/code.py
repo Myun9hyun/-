@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import joblib
+import numpy as np
 
 # # 모델 불러오기
 # with open('MH/LRmodel.pkl', 'rb') as f:
