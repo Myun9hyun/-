@@ -354,8 +354,8 @@ elif choice == "데이터페이지":
             # X_DT = df.drop('P_V', axis=1)
             # y_DT = df['P_V']
             # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('경기수', 0, 40.0, 20)
-            x2 = st.slider('승리수', 0, 40.0, 20)
+            x1 = st.slider('경기수', 0, 40, 20)
+            x2 = st.slider('승리수', 0, 40, 20)
 
             # 모델을 사용하여 예측 수행
             # x = np.array([x1 * 77], [x2]).reshape(1, -1)
