@@ -472,7 +472,7 @@ elif choice == "데이터페이지":
                     # st.write(variable1)
                     model1 = joblib.load('MH/XGBoost5.pkl')
                     # pred1 = model1.predict([variable1])
-                    pred1 = model1.predict(variable1)
+                    pred1 = model1.predict([variable1])
                     pred1 = pred1.round(4)
                     st.metric("승률 예측 결과: ", pred1[0]*100)
     with tab3:
