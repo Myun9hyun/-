@@ -8,7 +8,7 @@ import joblib
 df = pd.read_csv('MH/cbb_preprocess.csv')
 
 # 모델 불러오기
-with open('MH/LRmodel.pkl', 'rb') as f:
+with open('MH/DecisionTree.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 예측값 계산
