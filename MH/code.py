@@ -6,6 +6,7 @@ import joblib
 
 # 데이터 불러오기
 df = pd.read_csv('MH/cbb_preprocess.csv')
+st.write(df.isna())
 X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
 # y = df['P_V'] # 종속변수 (예측값, 라벨)
 
