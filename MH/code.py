@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 df = pd.read_csv('MH/cbb_preprocess.csv')
 
 # x, y 변수 선택
-x = df[['G']] # 독립변수 (관측값, 피쳐)
+x = df['G'] # 독립변수 (관측값, 피쳐)
 y = df['P_V']
 
 # 모델 훈련
