@@ -30,7 +30,7 @@ st.markdown(
 ##################################################################################
 with st.sidebar:
     choose = option_menu("Contents", ["메인페이지", "데이터페이지", "시뮬레이션"],
-                         icons=['house', 'kanban', 'bi bi-steam'],
+                         icons=['house', 'kanban', 'bi bi-robot'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "4!important", "background-color": "#fafafa"},
