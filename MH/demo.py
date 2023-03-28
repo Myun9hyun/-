@@ -329,86 +329,118 @@ elif choice == "데이터페이지":
 
         elif option == 'RandomForest':
 
-            # 랜덤 포레스트 모델 불러오기
-            model_path = "MH/RFmodel.pkl"
+            # 랜덤포레스트 모델 불러오기
+            model_path = "MH/RFmodel_drop.pkl"
             model = joblib.load(model_path)
-            df = pd.read_csv('MH/cbb_preprocess.csv')
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_drop.csv')
             X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
-            # Streamlit 앱 설정
-            st.title('Random Forest Model')
-            st.write('입력 변수')
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
 
-            # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('경기수', 0, 40, 20)
-            x2 = st.slider('승리수', 0, 40, 20)
-            # x3 = st.slider('X3', 0.0, 1.0, 0.5, 0.01)
-            # x4 = st.slider('X4', 0.0, 1.0, 0.5, 0.01)
 
-            # 모델을 사용하여 예측 수행
-            x = np.array([x1, x2] *38+[x1]).reshape(1, -1)
-            y = model.predict(x)[0]
+            # 모델 불러오기
+            with open('MH/RFmodel_drop.pkl', 'rb') as f:
+                model = joblib.load(f)
+            # 첫번째 행
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
+            
             predict_button = st.button("예측")
-            if predict_button:
-                    predicted = model.predict(X * (77/56))
-                    variable1 = np.array([x1, x2] * 38 + [x1])
-                    model1 = joblib.load('MH/RFmodel.pkl')
-                    pred1 = model1.predict([variable1])
-                    pred1 = pred1.round(2)
-                    st.metric("결과: ", pred1[0])
-            # # 예측 결과 출력
-            # st.subheader('예측 결과')
-            # st.write('Y:', y)
 
+            if predict_button:
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/RFmodel_drop.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(4)
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
 
         elif option == 'DecisionTree':
 
             # 결정트리 모델 불러오기
-            model_path = "MH/DecisionTree.pkl"
+            model_path = "MH/DecisionTree_drop.pkl"
             model = joblib.load(model_path)
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_drop.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
 
-            # Streamlit 앱 설정
-            st.title('결정트리 모델')
-            st.write('입력 변수')
-            # X_DT = df.drop('P_V', axis=1)
-            # y_DT = df['P_V']
-            # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('경기수', 0, 40, 20)
-            x2 = st.slider('승리수', 0, 40, 20)
 
-            # 모델을 사용하여 예측 수행
-            # x = np.array([x1 * 77], [x2]).reshape(1, -1)
-            x = np.array([x1, x2] *38 + [x1]).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
-
-            y = model.predict(x)[0]
+            # 모델 불러오기
+            with open('MH/DecisionTree_drop.pkl', 'rb') as f:
+                model = joblib.load(f)
+            # 첫번째 행
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
             
+            predict_button = st.button("예측")
 
-            # 예측 결과 출력
-            st.subheader('예측 결과')
-            st.write('Y:', round(y, 2))
+            if predict_button:
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/DecisionTree_drop.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(4)
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
 
 
         elif option == 'XGBoost':
 
-            model_path = "MH/XGBoost.pkl"
+            # xgboost 모델 불러오기
+            model_path = "MH/XGBoost_drop.pkl"
             model = joblib.load(model_path)
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_drop.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
 
-            st.title('XGBoost')
-            st.write("경기수에 따른 승리 게임")
 
-            # first line
-            r1_col1, r1_col2 = st.columns(2)
-            경기수 = r1_col1.slider("경기수", 0, 40)
-            승리수 = r1_col2.slider("승리수", 0, 40)
-
+            # 모델 불러오기
+            with open('MH/XGBoost_drop.pkl', 'rb') as f:
+                model = joblib.load(f)
+            # 첫번째 행
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
+            
             predict_button = st.button("예측")
 
             if predict_button:
-                input_data = np.array([승리수, 경기수]*38 + [경기수])
-                input_data = input_data.reshape(1, -1)
-                prediction = model.predict(input_data)[0]
-                prediction = round(prediction, 2)
-                st.write(f"예측한 승률: {prediction}")
-
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/XGBoost_drop.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(4)
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
     with tab3:
         tab3.subheader("Streamlit 진행상태..")
         st.write()
