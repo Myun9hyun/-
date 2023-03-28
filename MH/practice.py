@@ -401,7 +401,7 @@ elif choice == "데이터페이지":
 
             df = pd.read_csv("MH/cbb_drop.csv")
             y = df.pop("P_V")
-
+            
             feature_importances = pd.Series(model.feature_importances_, index=df.columns)
             st.set_option('deprecation.showPyplotGlobalUse', False)
             plt.figure(figsize=(12, 10))
