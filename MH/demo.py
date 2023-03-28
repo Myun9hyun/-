@@ -292,7 +292,7 @@ elif choice == "데이터페이지":
 
 
             # 모델 불러오기
-            with open('MH/LRmodel.pkl', 'rb') as f:
+            with open('MH/LRmodel_drop.pkl', 'rb') as f:
                 model = joblib.load(f)
             st.write("구현한 선형회귀 모델 그래프입니다.")
             # 예측값 계산
