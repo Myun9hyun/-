@@ -15,7 +15,7 @@ games = st.slider("경기수", 0, 82, 41)
 st.write("입력값:", {"승리수": wins, "경기수": games})
 
 # 모델 예측
-inputs = np.array([wins, games])
+inputs = np.array([wins, games] * 28)
 pred = model.predict(inputs.reshape(1, -1))[0]
 
 # 예측 결과 출력
