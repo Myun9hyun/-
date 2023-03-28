@@ -44,6 +44,6 @@ W = r1_col2.slider("승리수", 0, 40)
 predict_button = st.button("예측")
 if predict_button:
         variable1 = np.array([G, W])
-        model1 = joblib.load('MH/LR_model.pkl')
+        model1 = joblib.load('MH/LRmodel.pkl')
         pred1 = model1.predict([variable1])
         st.metric("결과: ", pred1[0])
