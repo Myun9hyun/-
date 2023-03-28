@@ -325,8 +325,8 @@ elif choice == "데이터페이지":
                     model1 = joblib.load('MH/LRmodel_drop.pkl')
                     pred1 = model1.predict([variable1])
                     pred1 = pred1.round(4)
-                    pred1 = (pred1[0] * 100)
-                    st.metric(f"승률 예측 결과: {pred1}% ")
+                   
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
 
         elif option == 'RandomForest':
 
