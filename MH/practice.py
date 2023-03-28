@@ -317,7 +317,7 @@ elif choice == "데이터페이지":
             sns.set_style('darkgrid')
             plt.figure(figsize=(8, 6))
             plt.title('Linear Regression')
-
+            plt.xlabel('승률')
             sns.scatterplot(x = 'P_V', y='predicted', data=df)
             st.pyplot()
             st.write("LinearRegressor")
