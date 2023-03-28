@@ -33,8 +33,8 @@ import joblib
 
 # 첫번째 행
 df = pd.read_csv('MH/cbb_preprocess.csv')
-df['G'] = G
-df['W'] = W
+G = df['G']
+W = df['W']
 r1_col1, r1_col2 = st.columns(2)
 G = r1_col1.slider("게임수", 0, 40)
 W = r1_col2.slider("승리수", 0, 40)
