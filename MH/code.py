@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import joblib
 
 # 모델 불러오기
-with open('MH/LRmodel_56dim.pkl', 'rb') as f:
+with open('MH/LRmodel.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 산점도 그리기
