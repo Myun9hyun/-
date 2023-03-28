@@ -334,12 +334,17 @@ elif choice == "데이터페이지":
 
             # 모델을 사용하여 예측 수행
             x = np.array([x1, x2] * 38 + [x2]).reshape(1, -1)
-
             y = model.predict(x)[0]
-
-            # 예측 결과 출력
-            st.subheader('예측 결과')
-            st.write('Y:', y)
+            if predict_button:
+                    predicted = model.predict(X)
+                    variable1 = np.array([x1, x2] * 38 + [x1])
+                    model1 = joblib.load('MH/RFmodel.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(2)
+                    st.metric("결과: ", pred1[0])
+            # # 예측 결과 출력
+            # st.subheader('예측 결과')
+            # st.write('Y:', y)
 
 
         elif option == 'DecisionTree':
