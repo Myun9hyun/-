@@ -12,7 +12,7 @@ with open('MH/LRmodel.pkl', 'rb') as f:
 sns.set_style('darkgrid')
 plt.figure(figsize=(8, 6))
 plt.xlabel('G')
-plt.ylabel('P_V')
+plt.ylabel('W')
 plt.title('Linear Regression')
 
 # 모델 예측 및 그래프 그리기
