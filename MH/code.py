@@ -32,6 +32,7 @@ import joblib
 # st.pyplot()
 
 # 첫번째 행
+df = pd.read_csv('MH/cbb_preprocess.csv')
 df['G'] = G
 df['W'] = W
 r1_col1, r1_col2 = st.columns(2)
