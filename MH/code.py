@@ -1,24 +1,3 @@
-# import streamlit as st
-# import pandas as pd
-# import seaborn as sns
-# import matplotlib.pyplot as plt
-# import joblib
-# import numpy as np
-
-# df = pd.read_csv('MH/cbb_preprocess.csv')
-# G = df['G']
-# W = df['W']
-# r1_col1, r1_col2 = st.columns(2)
-# G = r1_col1.slider("게임수", 0, 40)
-# W = r1_col2.slider("승리수", 0, 40)
-# # 전용면적별세대수1 = r1_col3.slider("전용면적별세대수", 1, 1865)
-
-# predict_button = st.button("예측")
-# if predict_button:
-#         variable1 = np.array([G, W]* 28)
-#         model1 = joblib.load('MH/LRmodel.pkl')
-#         pred1 = model1.predict([variable1])
-#         st.metric("결과: ", pred1[0])
 import streamlit as st
 import pandas as pd
 import seaborn as sns
@@ -40,16 +19,30 @@ plt.xlabel('G')
 plt.ylabel('P_V')
 plt.title('Linear Regression')
 
+# 입력값 받기
+G = st.slider('G', min_value=0, max_value=40, value=20)
+W = st.slider('W', min_value=0, max_value=40, value=20)
+
+# 입력값 변환
+input_values = np.zeros((1, 56))
+input_values[0, 0] = G
+input_values[0, 1] = W
+
 # 모델 예측 및 그래프 그리기
-x_min = df['G'].min()
-x_max = df['G'].max()
-x_new = st.slider('G', min_value=x_min, max_value=x_max)
-y_new = model.predict([[x_new]])[0]
+pred = model.predict(input_values)[0]
+st.metric('결과', pred)
 
-x = df['G']
-y = df['P_V']
+x_min = 0
+x_max = 40
+x_new = G
+y_new = pred
 
-plt.plot(x, model.predict(df.drop('P_V', axis=1)), c='blue')
+x = list(range(x_min, x_max+1))
+input_values = np.zeros((x_max+1, 56))
+input_values[:, 0] = x
+input_values[:, 1] = W
+y = model.predict(input_values)
+
+plt.plot(x, y)
 plt.scatter(x_new, y_new, c='red')
-
 st.pyplot()
