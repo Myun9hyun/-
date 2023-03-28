@@ -336,7 +336,7 @@ elif choice == "데이터페이지":
 
             # 모델을 사용하여 예측 수행
             x = np.array([X_RF, y_RF] * 38 + [y_RF]).reshape(1, -1)
-            y = model.predict(y)[0]
+            y = model.predict(y)[0].reshape(1, -1)
 
             # 예측 결과 출력
             st.subheader('예측 결과')
