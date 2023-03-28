@@ -17,13 +17,13 @@ model.fit(x.values.reshape(-1, 1), y)
 
 # 산점도 그리기
 sns.set_style('darkgrid')
-plt.figure(figsize=(8, 6))
-sns.scatterplot(x=x, y=y)
-sns.lineplot(x=x, y=model.predict(x.values.reshape(-1, 1)))
+fig, ax = plt.subplots(figsize=(8, 6))
+sns.scatterplot(x=x, y=y, ax=ax)
+sns.lineplot(x=x, y=model.predict(x.values.reshape(-1, 1)), ax=ax)
 plt.xlabel('G')
 plt.ylabel('W')
 plt.title('Linear Regression')
-st.pyplot()
+st.pyplot(fig)
 
 # 모델 예측
 x_new = st.slider('W', min_value=0, max_value=40)
