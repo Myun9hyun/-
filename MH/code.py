@@ -19,7 +19,6 @@
 #         model1 = joblib.load('MH/LRmodel.pkl')
 #         pred1 = model1.predict([variable1])
 #         st.metric("결과: ", pred1[0])
-
 import streamlit as st
 import pandas as pd
 import seaborn as sns
@@ -28,16 +27,11 @@ import joblib
 import numpy as np
 
 # 데이터 불러오기
-df = pd.read_csv('MH/cbb_preprocess.csv')
+df = pd.read_csv('cbb_preprocess.csv')
 
 # 모델 불러오기
-with open('MH/LRmodel.pkl', 'rb') as f:
+with open('LRmodel.pkl', 'rb') as f:
     model = joblib.load(f)
-
-# 모델 예측
-x = np.array(df['G'])
-y = np.array(df['P_V'])
-y_pred = model.predict(np.array([x,y]*28).T)
 
 # 산점도 그리기
 sns.set_style('darkgrid')
@@ -45,11 +39,17 @@ plt.figure(figsize=(8, 6))
 plt.xlabel('G')
 plt.ylabel('P_V')
 plt.title('Linear Regression')
-plt.scatter(x, y)
-plt.plot(x, y_pred, color='red')
 
-# streamlit에서 그래프 출력
+# 모델 예측 및 그래프 그리기
+x_min = df['G'].min()
+x_max = df['G'].max()
+x_new = st.slider('G', min_value=x_min, max_value=x_max)
+y_new = model.predict([[x_new]])[0]
+
+x = df['G']
+y = df['P_V']
+
+plt.plot(x, model.predict(df.drop('P_V', axis=1)), c='blue')
+plt.scatter(x_new, y_new, c='red')
+
 st.pyplot()
-
-
-
