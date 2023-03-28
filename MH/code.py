@@ -1,22 +1,31 @@
 import streamlit as st
-import numpy as np
-import joblib
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
 
-# 모델 로드
-model_path = "MH/LRmodel.pkl"
-model = joblib.load(model_path)
+# 데이터 로드
+df = pd.read_csv('MH/cbb.csv')
 
-# 승리수, 경기수 입력 받기
-st.write("승리수와 경기수를 입력하세요.")
-wins = st.slider("승리수", 0, 10, 5)
-games = st.slider("경기수", 0, 10, 5)
+# x, y 변수 선택
+x = df['x']
+y = df['y']
 
-# 입력값 확인
-st.write("입력값:", {"승리수": wins, "경기수": games})
+# 모델 훈련
+model = LinearRegression()
+model.fit(x.values.reshape(-1, 1), y)
+
+# 산점도 그리기
+sns.set_style('darkgrid')
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x=x, y=y)
+sns.lineplot(x=x, y=model.predict(x.values.reshape(-1, 1)))
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Linear Regression')
+st.pyplot()
 
 # 모델 예측
-inputs = np.array([wins, games] * 28)
-pred = model.predict(inputs.reshape(1, -1))[0]
-
-# 예측 결과 출력
-st.write(f"예측 승률: {pred:.2%}")
+x_new = st.slider('x', min_value=0, max_value=10)
+y_new = model.predict([[x_new]])[0]
+st.write(f'예측 결과: {y_new:.2f}')
