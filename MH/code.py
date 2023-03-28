@@ -6,7 +6,7 @@ import joblib
 
 model = joblib.load("MH/DecisionTree_drop.pkl")
 
-X = pd.read_csv("cbb_drop.csv")
+X = pd.read_csv("MH/cbb_drop.csv")
 y = X.pop("target")
 
 feature_importances = pd.Series(model.feature_importances_, index=X.columns)
