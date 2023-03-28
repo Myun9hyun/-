@@ -6,9 +6,14 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import matplotlib.pyplot as plt
 import joblib
+import xgboost as xgb
+import seaborn as sns
+from streamlit_option_menu import option_menu
 
-menu = ["메인페이지", "데이터페이지", "기타"]
+
+menu = ["메인페이지", "데이터페이지", "시뮬레이션"]
 choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 if choice == "메인페이지":
@@ -107,8 +112,16 @@ if choice == "메인페이지":
         * College Basketball Dataset
         > [![Colab](https://img.shields.io/badge/kaggle-College%20Basketball%20Dataset-skyblue)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
         
-        * colab링크1[제목]
+        * colab 전처리 데이터 링크
         > [![Colab](https://img.shields.io/badge/colab-Data%20preprocessing-yellow)](https://colab.research.google.com/drive/1qTboYP4Pa73isvE4Lt3l5XYLaIhX9Tix?usp=sharing) 
+        * colab 선형 회귀 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-Line%20Regression-yellow)](https://colab.research.google.com/drive/1bK8x_1Cich78Mf_6hdFcPp1U01d4RjMv?usp=sharing) 
+        * colab 랜덤 포레스트 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-Random%20Forest-yellow)](https://colab.research.google.com/drive/1E5AzXyJoulVY-12rxmJjBphqOwf4kpNF?usp=sharing) 
+        * colab 결정트리 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-Decision%20Tree-yellow)](https://colab.research.google.com/drive/1l059OKEqqQkLu9N6RVd-KpjHDcHQI7eX?usp=sharing) 
+        * colab XG Boost 모델링 데이터 링크
+        > [![Colab](https://img.shields.io/badge/colab-XG%20Boost-yellow)](https://colab.research.google.com/drive/1yF3dcXCYfcFHVDmOUq1RO-tDxqtajA22?usp=sharing) 
         '''
 
 elif choice == "데이터페이지":
@@ -259,21 +272,29 @@ elif choice == "데이터페이지":
             st.write("승률 데이터 계산입니다")
     with tab2:
         tab2.subheader("🦾 Machine Learning")
-        st.write("머신러닝 모델입니다")
+        st.write("머신러닝 모델링 예시입니다")
         option = st.selectbox(
         '원하는 차트를 골라주세요',
-        ('Chart1', 'Chart2', 'Chart3'))
-        if option == 'Chart1':
-            # 모델 불러오기
-           # 랜덤 포레스트 모델 불러오기
-            model_path = "MH/LRmodel.pkl"
+        ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XGBoost'))
+
+        if option == 'LinearRegressor':
+            
+            # 선형회귀 모델 불러오기
+            model_path = "MH/LRmodel_drop.pkl"
             model = joblib.load(model_path)
             # 데이터 불러오기
-            df = pd.read_csv('MH/cbb_preprocess.csv')
+            df = pd.read_csv('MH/cbb_drop.csv')
             X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
+
 
             # 모델 불러오기
-            with open('MH/LRmodel.pkl', 'rb') as f:
+            with open('MH/LRmodel_drop.pkl', 'rb') as f:
                 model = joblib.load(f)
             st.write("구현한 선형회귀 모델 그래프입니다.")
             # 예측값 계산
@@ -286,71 +307,143 @@ elif choice == "데이터페이지":
 
             sns.scatterplot(x = 'P_V', y='predicted', data=df)
             st.pyplot()
-
             st.write("LinearRegressor")
             # 첫번째 행
-            r1_col1, r1_col2 = st.columns(2)
-            경기수 = r1_col1.slider("경기수", 0, 40)
-            승리수 = r1_col2.slider("승리수", 0, 40)
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
+            
+
 
             predict_button = st.button("예측")
 
             if predict_button:
-                    variable1 = np.array([승리수, 경기수])
-                    model1 = joblib.load('MH/LRmodel.pkl')
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/LRmodel_drop.pkl')
                     pred1 = model1.predict([variable1])
-                    pred1 = pred1.round(2)
-                    st.metric("결과: ", pred1[0])
-        elif option == 'Chart2':
+                    pred1 = pred1.round(4)
+                   
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
 
-            # 랜덤 포레스트 모델 불러오기
-            model_path = "MH/RFmodel.pkl"
+        elif option == 'RandomForest':
+
+            # 랜덤포레스트 모델 불러오기
+            model_path = "MH/RFmodel_drop.pkl"
             model = joblib.load(model_path)
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_drop.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
 
-            # Streamlit 앱 설정
-            st.title('Random Forest Model')
-            st.write('입력 변수')
 
-            # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('X1', 0.0, 1.0, 0.5, 0.01)
-            x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
-            x3 = st.slider('X3', 0.0, 1.0, 0.5, 0.01)
-            x4 = st.slider('X4', 0.0, 1.0, 0.5, 0.01)
+            # 모델 불러오기
+            with open('MH/RFmodel_drop.pkl', 'rb') as f:
+                model = joblib.load(f)
+            # 첫번째 행
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
+            
+            predict_button = st.button("예측")
 
-            # 모델을 사용하여 예측 수행
-            x = np.array([x1, x2, x3, x4] * 19 + [x4]).reshape(1, -1)
+            if predict_button:
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/RFmodel_drop.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(4)
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
 
-            y = model.predict(x)[0]
-
-            # 예측 결과 출력
-            st.subheader('예측 결과')
-            st.write('Y:', y)
-
-        elif option == 'Chart3':
+        elif option == 'DecisionTree':
 
             # 결정트리 모델 불러오기
-            model_path = "MH/DecisionTree.pkl"
+            model_path = "MH/DecisionTree_drop.pkl"
             model = joblib.load(model_path)
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_drop.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
 
-            # Streamlit 앱 설정
-            st.title('결정트리 모델')
-            st.write('입력 변수')
 
-            # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('X1', 0.0, 10.0, 0.5, 0.01)
-            x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
+            # 모델 불러오기
+            with open('MH/DecisionTree_drop.pkl', 'rb') as f:
+                model = joblib.load(f)
+            # 첫번째 행
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
+            
+            predict_button = st.button("예측")
 
-            # 모델을 사용하여 예측 수행
-            # x = np.array([x1 * 77], [x2]).reshape(1, -1)
-            x = np.array([x1, x2] *38 + [x1]).reshape(1, -1)  # 입력값의 차원을 맞춰줍니다.
+            if predict_button:
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/DecisionTree_drop.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(4)
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
 
-            y = model.predict(x)
-            y = y[0]
 
-            # 예측 결과 출력
-            st.subheader('예측 결과')
-            st.write('Y:', round(y, 2))
+        elif option == 'XGBoost':
 
+            # xgboost 모델 불러오기
+            model_path = "MH/XGBoost_3.pkl"
+            model = joblib.load(model_path)
+            # 데이터 불러오기
+            df = pd.read_csv('MH/cbb_drop.csv')
+            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
+            ORB = df['ORB']
+            FTR = df['FTR']
+            two_O = df['2P_O']
+            three_O = df['3P_O']
+
+
+            # 모델 불러오기
+            with open('MH/XGBoost_3.pkl', 'rb') as f:
+                model = joblib.load(f)
+            # 첫번째 행
+            col1, col2, col3, col4, col5, col6  = st.columns(6)
+            G = col1.slider("경기수", 0, 40)
+            W = col2.slider("승리수", 0, 40)
+            ORB = col3.slider("리바운드 수치", 0, 50)
+            FTR = col4.slider("자유투 수치", 0, 50)
+            two_O = col5.slider("2점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
+            
+            predict_button = st.button("예측")
+
+            if predict_button:
+                    predicted = model.predict(X)
+                    variable1 = np.array([G, W, ORB, FTR, two_O, three_O])
+                    model1 = joblib.load('MH/XGBoost_3.pkl')
+                    pred1 = model1.predict([variable1])
+                    pred1 = pred1.round(4)
+                    st.metric("승률 예측 결과: ", pred1[0]*100)
     with tab3:
         tab3.subheader("Streamlit 진행상태..")
         st.write()
@@ -366,3 +459,79 @@ elif choice == "데이터페이지":
         > * 팀들의 스탯 별 레이더차트 비교
 
         '''
+
+elif choice == "시뮬레이션":
+
+    # tab0, tab1, tab2, tab3 = st.tabs(["첫 번째 선수", "첫 번째 선수", "첫 번째 선수", "첫 번째 선수"])
+    # players = []
+    
+    # with tab1:
+    #     tab1.subheader("첫 번째 선수")
+    
+    # i=1
+
+    # while False:
+    #     player={}
+    #     player["Shooting"] = st.slider("슈팅", min_value=1, max_value=10, value=1, key=f"shooting_1")
+    #     player["Dribbling"] = st.slider("드리블", min_value=1, max_value=10, value=1, key=f"Dribbling_1")
+    #     player["Passing"] = st.slider("패스", min_value=1, max_value=10, value=1, key=f"Passing_1")
+    #     player["Rebounding"] = st.slider("리바운드", min_value=1, max_value=10, value=1, key=f"Rebounding_1")
+    #     player["Defense"] = st.slider("수비", min_value=1, max_value=10, value=1, key=f"Defense_1")
+    #     player["Stamina"] = st.slider("스테미나", min_value=1, max_value=10, value=1, key=f"Stamina_1")
+
+    #     total_stats=player["Shooting"]+player["Dribbling"]+player["Passing"]+player["Rebounding"]+player["Defense"]+player["Stamina"]
+    #     if total_stats > 40:
+    #         st.warning("스텟 총합이 40을 넘을 수 없습니다.")
+    #     else:
+
+
+    # if st.button('저장'):
+    #     players.append(player)
+
+    # tabs = st.tabs([f"{i}번째 선수" for i in range(1, 6)])
+
+    cols = st.columns(5)
+    
+    player_keys = [
+        "shooting", "Dribbling", "Passing", "Rebounding", 'Defense', "Stamina"
+    ]
+
+    pl=pd.DataFrame(columns=player_keys, index=range(1,6))
+    # for i, t in enumerate(tabs):
+    url='https://raw.githubusercontent.com/whataLIN/sportsTOoTOo/main/Basketball_processing.csv'
+    df = pd.read_csv(url)
+
+    conf_list=list(df['CONF'].unique())
+    team_conf= st.selectbox('참가할 대회를 선택해주세요.', options=conf_list)
+
+    for i, c in enumerate(cols):
+        with c:
+            st.slider("슈팅", min_value=1, max_value=10, value=1, key=f"shooting_{i+1}")
+            st.slider("드리블", min_value=1, max_value=10, value=1, key=f"Dribbling_{i+1}")
+            st.slider("패스", min_value=1, max_value=10, value=1, key=f"Passing_{i+1}")
+            st.slider("리바운드", min_value=1, max_value=10, value=1, key=f"Rebounding_{i+1}")
+            st.slider("수비", min_value=1, max_value=10, value=1, key=f"Defense_{i+1}")
+            st.slider("스테미나", min_value=1, max_value=10, value=1, key=f"Stamina_{i+1}")
+            state = st.session_state
+            player = {
+                key: value for key, value in [(k, state[f'{k}_{i+1}']) for k in player_keys]
+            }
+            
+            for p in player_keys:           #i는 플레이어번호. p는 능력치
+                stat=state[f"{p}_{i+1}"]
+                st.write(f"{p} : {stat}")
+
+            pl.loc[i+1] = player
+
+    
+    tdf = df.drop(['TEAM', 'YEAR','W','G'], axis=1).copy()
+    max_values = [tdf[i].max() for i in tdf.columns]
+
+    
+
+
+    # st.write(pl)
+
+                #슈팅 : 슈팅_i
+            #데이터프레임에 선수 능력치 저장하깅
+    
