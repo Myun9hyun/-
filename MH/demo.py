@@ -270,7 +270,7 @@ elif choice == "데이터페이지":
             st.write("승률 데이터 계산입니다")
     with tab2:
         tab2.subheader("🦾 Machine Learning")
-        st.write("머신러닝 모델입니다")
+        st.write("머신러닝 모델링 예시입니다")
         option = st.selectbox(
         '원하는 차트를 골라주세요',
         ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XGBoost'))
