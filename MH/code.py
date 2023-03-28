@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import joblib
 
+
 # 데이터 불러오기
 df = pd.read_csv('MH/cbb_preprocess.csv')
 X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
