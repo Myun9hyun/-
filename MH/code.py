@@ -13,7 +13,7 @@ G = st.sidebar.slider('Number of Games Played', 0, 40, 20)
 W = st.sidebar.slider('Number of Wins', 0, 40, 10)
 X_DT = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
 X_new = pd.DataFrame({'GP': [G], 'W': [W]})
-X_DT = X_DT.append(X_new, ignore_index=True)
+X_DT = X_DT.append(X_new, ignore_index=True).reset_index(drop=True)
 
 # 예측
 prediction = model.predict(X_DT.iloc[-1].values.reshape(1, -1))[0]
