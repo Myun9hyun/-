@@ -21,5 +21,5 @@ plt.xlabel('P_V')
 plt.ylabel('predicted')
 plt.title('Linear Regression')
 
-plt.scatter(df['P_V'], df['predicted'])
+sns.scatterplot(df['P_V'], df['predicted'])
 st.pyplot()
