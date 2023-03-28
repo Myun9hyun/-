@@ -338,7 +338,7 @@ elif choice == "데이터페이지":
             y = model.predict(x)[0]
             predict_button = st.button("예측")
             if predict_button:
-                    predicted = model.predict(X)
+                    predicted = model.predict(X * (77/56))
                     variable1 = np.array([x1, x2] * 38 + [x1])
                     model1 = joblib.load('MH/RFmodel.pkl')
                     pred1 = model1.predict([variable1])
