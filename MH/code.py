@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import joblib
 
-model = joblib.load("MH/Decision_drop.pkl")
+model = joblib.load("MH/DecisionTree_drop.pkl")
 
 X = pd.read_csv("cbb_drop.csv")
 y = X.pop("target")
