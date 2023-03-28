@@ -396,7 +396,19 @@ elif choice == "데이터페이지":
             FTR = df['FTR']
             two_O = df['2P_O']
             three_O = df['3P_O']
+            st.write("Decision Tree 상관관계에 따른 히트맵입니다.")
+            model = joblib.load("MH/DecisionTree_drop.pkl")
 
+            df = pd.read_csv("MH/cbb_drop.csv")
+            y = df.pop("P_V")
+
+            feature_importances = pd.Series(model.feature_importances_, index=df.columns)
+            st.set_option('deprecation.showPyplotGlobalUse', False)
+            plt.figure(figsize=(12, 10))
+            sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+            # sns.heatmap(X.iloc[:, sorted_idx].corr(), cmap='coolwarm', annot=True)
+
+            st.pyplot()
 
             # 모델 불러오기
             with open('MH/DecisionTree_drop.pkl', 'rb') as f:
