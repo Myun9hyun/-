@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import joblib
 import xgboost as xgb
 import seaborn as sns
+from streamlit_option_menu import option_menu
+
 
 menu = ["메인페이지", "데이터페이지", "시뮬레이션"]
 choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)

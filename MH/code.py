@@ -7,27 +7,27 @@ from streamlit_option_menu import option_menu
 import plotly.express as px
 import seaborn as sns
 
-##################################################################################
-# st.markdown을 통해 전체 틀 고정
-st.markdown(
-        f"""
-<style>
-    .reportview-container .main .block-container{{
-        max-width: 90%;
-        padding-top: 5rem;
-        padding-right: 5rem;
-        padding-left: 5rem;
-        padding-bottom: 5rem;
-    }}
-    img{{
-    	max-width:40%;
-    	margin-bottom:40px;
-    }}
-</style>
-""",
-        unsafe_allow_html=True,
-    )
-##################################################################################
+# ##################################################################################
+# # st.markdown을 통해 전체 틀 고정
+# st.markdown(
+#         f"""
+# <style>
+#     .reportview-container .main .block-container{{
+#         max-width: 90%;
+#         padding-top: 5rem;
+#         padding-right: 5rem;
+#         padding-left: 5rem;
+#         padding-bottom: 5rem;
+#     }}
+#     img{{
+#     	max-width:40%;
+#     	margin-bottom:40px;
+#     }}
+# </style>
+# """,
+#         unsafe_allow_html=True,
+#     )
+# ##################################################################################
 with st.sidebar:
     choose = option_menu("Contents", ["메인페이지", "데이터페이지", "시뮬레이션"],
                          icons=['house', 'kanban', 'bi bi-robot'],
