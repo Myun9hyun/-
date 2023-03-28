@@ -9,7 +9,7 @@ model = joblib.load("MH/DecisionTree_drop.pkl")
 df = pd.read_csv("MH/cbb_drop.csv")
 y = df.pop("P_V")
 
-feature_importances = pd.Series(model.feature_importances_, index=X.columns)
+feature_importances = pd.Series(model.feature_importances_, index=df.columns)
 
 plt.figure(figsize=(12, 10))
 sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
