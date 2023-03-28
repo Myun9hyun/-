@@ -26,6 +26,6 @@ plt.title('Linear Regression')
 st.pyplot(fig)
 
 # 모델 예측
-x_new = st.slider('W', min_value=0, max_value=40)
+x_new = st.slider('P_V', min_value=0, max_value=40)
 y_new = model.predict([[x_new]])[0]
 st.write(f'예측 결과: {y_new:.2f}')
