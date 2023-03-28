@@ -37,7 +37,7 @@ with open('MH/LRmodel.pkl', 'rb') as f:
 # 모델 예측
 x = np.array(df['G'])
 y = np.array(df['P_V'])
-y_pred = model.predict(np.array([x,y]).T)
+y_pred = model.predict(np.array([x,y]*28).T)
 
 # 산점도 그리기
 sns.set_style('darkgrid')
