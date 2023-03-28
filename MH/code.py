@@ -14,8 +14,8 @@ wins = st.sidebar.slider('Number of Wins', 0, 30, 10)
 # 예측
 df = pd.read_csv('MH/cbb_preprocess.csv')
 data = {'G': df['G'], 'W': df['W']}
-# df = pd.DataFrame(data)
-prediction = model.predict(df)[0]
+df2 = pd.DataFrame(data)
+prediction = model.predict(df2)[0]
 
 # 결과 출력
 st.title('Winning Percentage Prediction')
