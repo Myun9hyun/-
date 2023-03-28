@@ -322,19 +322,20 @@ elif choice == "데이터페이지":
             model_path = "MH/RFmodel.pkl"
             model = joblib.load(model_path)
             df = pd.read_csv('MH/cbb_preprocess.csv')
-            X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            X_RF = bd.drop('Winning_rate', axis=1)
+            y_RF = bd['Winning_rate']
             # Streamlit 앱 설정
             st.title('Random Forest Model')
             st.write('입력 변수')
 
             # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('X1', 0.0, 1.0, 0.5, 0.01)
-            x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
+            X_RF = st.slider('X1', 0.0, 1.0, 0.5, 0.01)
+            y_RF = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
             # x3 = st.slider('X3', 0.0, 1.0, 0.5, 0.01)
             # x4 = st.slider('X4', 0.0, 1.0, 0.5, 0.01)
 
             # 모델을 사용하여 예측 수행
-            x = np.array([x1, x2] * 38 + [x2]).reshape(1, -1)
+            x = np.array([X_RF, y_RF] * 38 + [y_RF]).reshape(1, -1)
 
             y = model.predict(x)[0]
 
