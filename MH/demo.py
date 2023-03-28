@@ -312,7 +312,7 @@ elif choice == "데이터페이지":
                     predicted = model.predict(X)
                     variable1 = np.array([G, W] * 28)
                     model1 = joblib.load('MH/LRmodel.pkl')
-                    # pred1 = model1.predict([predicted])
+                    pred1 = model1.predict([variable1])
                     pred1 = pred1.round(2)
                     st.metric("결과: ", pred1[0])
 
