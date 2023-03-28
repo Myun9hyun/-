@@ -270,7 +270,7 @@ elif choice == "데이터페이지":
         st.write("머신러닝 모델입니다")
         option = st.selectbox(
         '원하는 차트를 골라주세요',
-        ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XGBoost'))
+        ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XG Boost'))
 
         if option == 'LinearRegressor':
             # 모델 불러오기
@@ -344,12 +344,12 @@ elif choice == "데이터페이지":
             st.write('Y:', round(y, 2))
 
 
-        elif option == 'XGBoost':
+        elif option == 'XG Boost':
 
             model_path = "MH/XGBoost.pkl"
             model = joblib.load(model_path)
 
-            st.title('XGBoost')
+            st.title('XG Boost')
             st.write("경기수에 따른 승리 게임")
 
             # first line
