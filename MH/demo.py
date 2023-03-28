@@ -265,14 +265,13 @@ elif choice == "데이터페이지":
 
         elif option == 'Chart':
             st.write("승률 데이터 계산입니다")
-    with tab2:
+     with tab2:
         tab2.subheader("🦾 Machine Learning")
         st.write("머신러닝 모델입니다")
         option = st.selectbox(
         '원하는 차트를 골라주세요',
-        ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XG Boost'))
-
-        if option == 'LinearRegressor':
+        ('Chart1', 'Chart2', 'Chart3'))
+        if option == 'Chart1':
             # 모델 불러오기
            # 랜덤 포레스트 모델 불러오기
             model_path = "MH/LRmodel.pkl"
@@ -287,12 +286,11 @@ elif choice == "데이터페이지":
             predict_button = st.button("예측")
 
             if predict_button:
-                    variable1 = np.array([승리수, 경기수]*38 + [경기수])
+                    variable1 = np.array([승리수, 경기수])
                     model1 = joblib.load('MH/LRmodel.pkl')
                     pred1 = model1.predict([variable1])
                     pred1 = pred1.round(2)
                     st.metric("결과: ", pred1[0])
-
         elif option == 'RandomForest':
 
             # 랜덤 포레스트 모델 불러오기
