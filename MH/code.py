@@ -8,11 +8,11 @@ import joblib
 df = pd.read_csv('MH/cbb_preprocess.csv')
 
 # 모델 불러오기
-with open('MH/DecisionTree.pkl', 'rb') as f:
+with open('MH/LRmodel.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 예측값 계산
-df['predicted'] = model.predict(df[['P_V']*77])
+df['predicted'] = model.predict(df[['P_V']*28])
 
 # 산점도 그리기
 sns.set_style('darkgrid')
