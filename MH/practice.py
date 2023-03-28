@@ -437,7 +437,7 @@ elif choice == "데이터페이지":
         elif option == 'XGBoost':
 
             # xgboost 모델 불러오기
-            model_path = "MH/XGBoost_3.pkl"
+            model_path = "MH/XGBoost5.pkl"
             model = joblib.load(model_path)
             # 데이터 불러오기
             df = pd.read_csv('MH/cbb_drop.csv')
@@ -451,7 +451,7 @@ elif choice == "데이터페이지":
 
 
             # 모델 불러오기
-            with open('MH/XGBoost_3.pkl', 'rb') as f:
+            with open('MH/XGBoost5.pkl', 'rb') as f:
                 model = joblib.load(f)
             st.write("구현한 XG Boost 모델 그래프입니다.")                
             # 첫번째 행
