@@ -15,7 +15,7 @@ with open('MH/LRmodel.pkl', 'rb') as f:
 
 # 예측값 계산
 df['predicted'] = model.predict(X)
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 # 산점도 그리기
 sns.set_style('darkgrid')
 plt.figure(figsize=(8, 6))
