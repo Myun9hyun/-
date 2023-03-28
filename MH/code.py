@@ -12,14 +12,14 @@ with open('MH/LRmodel.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 예측값 계산
-df['predicted'] = model.predict(df[['feature1', 'feature2', 'feature3']])
+df['predicted'] = model.predict(df[['P_V']])
 
 # 산점도 그리기
 sns.set_style('darkgrid')
 plt.figure(figsize=(8, 6))
-plt.xlabel('feature1')
+plt.xlabel('P_V')
 plt.ylabel('predicted')
 plt.title('Linear Regression')
 
-plt.scatter(df['feature1'], df['predicted'])
+plt.scatter(df['P_V'], df['predicted'])
 st.pyplot()
