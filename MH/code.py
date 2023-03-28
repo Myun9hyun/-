@@ -27,10 +27,10 @@ import joblib
 import numpy as np
 
 # 데이터 불러오기
-df = pd.read_csv('cbb_preprocess.csv')
+df = pd.read_csv('MH/cbb_preprocess.csv')
 
 # 모델 불러오기
-with open('LRmodel.pkl', 'rb') as f:
+with open('MH/LRmodel.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 산점도 그리기
