@@ -313,7 +313,7 @@ elif choice == "데이터페이지":
             ORB = col3.slider("리바운드 수치", 0, 50)
             FTR = col4.slider("자유투 수치", 0, 50)
             two_O = col5.slider("2점슛 수치", 0, 50)
-            three_O = col6.slider("3점슛 수치", 0, 50)
+            three_O = col6.slider("3점슛 수치", 0, 30)
             
 
 
