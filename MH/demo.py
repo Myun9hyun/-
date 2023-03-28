@@ -310,7 +310,7 @@ elif choice == "데이터페이지":
 
             if predict_button:
                     predicted = model.predict(X)
-                    variable1 = np.array([승리수, 경기수] * 28)
+                    variable1 = np.array([G, W] * 28)
                     model1 = joblib.load('MH/LRmodel.pkl')
                     # pred1 = model1.predict([predicted])
                     pred1 = pred1.round(2)
