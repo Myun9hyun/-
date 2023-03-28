@@ -362,7 +362,7 @@ elif choice == "데이터페이지":
             # 모델 불러오기
             with open('MH/RFmodel_drop.pkl', 'rb') as f:
                 model = joblib.load(f)
-            st.write("구현한 Random Forest 모델 그래프입니다.")               
+            st.write("구현한 Random Forest 모델입니다.")               
             # 첫번째 행
             col1, col2, col3, col4, col5, col6  = st.columns(6)
             G = col1.slider("경기수", 0, 40)
