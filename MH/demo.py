@@ -335,6 +335,7 @@ elif choice == "데이터페이지":
             # 모델을 사용하여 예측 수행
             x = np.array([x1, x2] * 38 + [x2]).reshape(1, -1)
             y = model.predict(x)[0]
+            predict_button = st.button("예측")
             if predict_button:
                     predicted = model.predict(X)
                     variable1 = np.array([x1, x2] * 38 + [x1])
