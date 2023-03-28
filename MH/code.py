@@ -12,7 +12,7 @@ with open('MH/LRmodel.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 예측값 계산
-df['predicted'] = model.predict(df[['P_V']*56])
+df['predicted'] = model.predict(df[['P_V', 'W']*28])
 
 # 산점도 그리기
 sns.set_style('darkgrid')
