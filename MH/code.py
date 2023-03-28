@@ -2,11 +2,11 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pickle
+import joblib
 
 # 모델 불러오기
 with open('MH/LRmodel.pkl', 'rb') as f:
-    model = pickle.load(f)
+    model = joblib.load(f)
 
 # 산점도 그리기
 sns.set_style('darkgrid')
