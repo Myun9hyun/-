@@ -12,5 +12,7 @@ y = X.pop("target")
 feature_importances = pd.Series(model.feature_importances_, index=X.columns)
 
 plt.figure(figsize=(12, 10))
-sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+# sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+sns.heatmap(X.iloc[:, sorted_idx].corr(), cmap='coolwarm', annot=True)
+
 st.pyplot()
