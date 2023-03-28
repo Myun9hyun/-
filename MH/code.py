@@ -1,22 +1,22 @@
-import joblib
-import numpy as np
-import pandas as pd
 import streamlit as st
+import numpy as np
+import joblib
 
-# 랜덤 포레스트 모델 불러오기
-model_path = "MH/LRmodel.pkl"
+# 모델 로드
+model_path = "MH/LRmodel"
 model = joblib.load(model_path)
 
-st.write("LinearRegressor")
-# 첫번째 행
-r1_col1, r1_col2 = st.columns(2)
-경기수 = r1_col1.slider("경기수", 0, 40)
-승리수 = r1_col2.slider("승리수", 0, 40)
+# 승리수, 경기수 입력 받기
+st.write("승리수와 경기수를 입력하세요.")
+wins = st.slider("승리수", 0, 82, 41)
+games = st.slider("경기수", 0, 82, 41)
 
-predict_button = st.button("예측")
+# 입력값 확인
+st.write("입력값:", {"승리수": wins, "경기수": games})
 
-if predict_button:
-        variable1 = np.array([경기수, 승리수]*28)
-        model1 = joblib.load('MH/LRmodel.pkl')
-        pred1 = model1.predict([variable1])
-        st.metric("결과: ", pred1[0])
+# 모델 예측
+inputs = np.array([wins, games])
+pred = model.predict(inputs.reshape(1, -1))[0]
+
+# 예측 결과 출력
+st.write(f"예측 승률: {pred:.2%}")
