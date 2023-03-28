@@ -2,47 +2,29 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import joblib
-import numpy as np
+from sklearn.linear_model import LinearRegression
 
-# 데이터 불러오기
-df = pd.read_csv('MH/cbb_preprocess.csv')
+# Load the data
+df = pd.read_csv('data.csv')
 
-# 모델 불러오기
-with open('MH/LRmodel.pkl', 'rb') as f:
-    model = joblib.load(f)
+# Train the linear regression model
+X = df['G'].values.reshape(-1, 1)
+y = df['P_V'].values
+lr = LinearRegression()
+lr.fit(X, y)
 
-# 산점도 그리기
+# Draw the scatter plot
 sns.set_style('darkgrid')
 plt.figure(figsize=(8, 6))
 plt.xlabel('G')
 plt.ylabel('P_V')
 plt.title('Linear Regression')
+plt.scatter(X, y)
 
-# 입력값 받기
-G = st.slider('G', min_value=0, max_value=40, value=20)
-W = st.slider('W', min_value=0, max_value=40, value=20)
+# Draw the regression line
+x_range = range(df['G'].min(), df['G'].max() + 1)
+y_range = lr.predict([[x] for x in x_range])
+plt.plot(x_range, y_range, c='red')
 
-# 입력값 변환
-input_values = np.zeros((1, 56))
-input_values[0, 0] = G
-input_values[0, 1] = W
-
-# 모델 예측 및 그래프 그리기
-pred = model.predict(input_values)[0]
-st.metric('결과', pred)
-
-x_min = 0
-x_max = 40
-x_new = G
-y_new = pred
-
-x = list(range(x_min, x_max+1))
-input_values = np.zeros((x_max+1, 56))
-input_values[:, 0] = x
-input_values[:, 1] = W
-y = model.predict(input_values)
-
-plt.plot(x, y)
-plt.scatter(x_new, y_new, c='red')
+# Display the plot using Streamlit
 st.pyplot()
