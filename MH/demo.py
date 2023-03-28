@@ -276,13 +276,15 @@ elif choice == "데이터페이지":
         ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XGBoost'))
 
         if option == 'LinearRegressor':
-            # 모델 불러오기
-           # 랜덤 포레스트 모델 불러오기
+            
+            # 선형회귀 모델 불러오기
             model_path = "MH/LRmodel.pkl"
             model = joblib.load(model_path)
             # 데이터 불러오기
             df = pd.read_csv('MH/cbb_preprocess.csv')
             X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+            G = df['G']
+            W = df['W']
 
             # 모델 불러오기
             with open('MH/LRmodel.pkl', 'rb') as f:
@@ -301,15 +303,16 @@ elif choice == "데이터페이지":
             st.write("LinearRegressor")
             # 첫번째 행
             r1_col1, r1_col2 = st.columns(2)
-            경기수 = r1_col1.slider("경기수", 0, 40)
-            승리수 = r1_col2.slider("승리수", 0, 40)
+            G = r1_col1.slider("경기수", 0, 40)
+            W = r1_col2.slider("승리수", 0, 40)
 
             predict_button = st.button("예측")
 
             if predict_button:
-                    variable1 = np.array([승리수, 경기수] * 28)
+                    predicted = model.predict(X)
+                    # variable1 = np.array([승리수, 경기수] * 28)
                     model1 = joblib.load('MH/LRmodel.pkl')
-                    pred1 = model1.predict([variable1])
+                    pred1 = model1.predict([predicted])
                     pred1 = pred1.round(2)
                     st.metric("결과: ", pred1[0])
 
