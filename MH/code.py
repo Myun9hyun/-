@@ -40,7 +40,7 @@ G = r1_col1.slider("게임수", 0, 40)
 W = r1_col2.slider("승리수", 0, 40)
 # 전용면적별세대수1 = r1_col3.slider("전용면적별세대수", 1, 1865)
 
-
+predict_button = st.button("예측")
 if predict_button:
         variable1 = np.array([G, W])
         model1 = joblib.load('MH/LR_model.pkl')
