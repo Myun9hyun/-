@@ -7,3 +7,4 @@ matplotlib
 scikit-learn==0.24.2
 mlxtend
 xgboost
+seaborn
