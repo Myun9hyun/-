@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
 # 데이터 로드
-df = pd.read_csv('MH/cbb.csv')
+df = pd.read_csv('MH/cbb_preprocess.csv')
 
 # x, y 변수 선택
-x = df['G']
-y = df['W']
+X = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
+y = df['P_V']
 
 # 모델 훈련
 model = LinearRegression()
