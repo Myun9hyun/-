@@ -334,7 +334,7 @@ elif choice == "데이터페이지":
             # x4 = st.slider('X4', 0.0, 1.0, 0.5, 0.01)
 
             # 모델을 사용하여 예측 수행
-            x = np.array([x1, x2] * 38 + [x4]).reshape(1, -1)
+            x = np.array([x1, x2] * 38 + [x2]).reshape(1, -1)
 
             y = model.predict(x)[0]
 
