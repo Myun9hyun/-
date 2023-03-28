@@ -351,8 +351,8 @@ elif choice == "데이터페이지":
             # Streamlit 앱 설정
             st.title('결정트리 모델')
             st.write('입력 변수')
-            X_DT = df.drop('P_V', axis=1)
-            y_DT = df['P_V']
+            # X_DT = df.drop('P_V', axis=1)
+            # y_DT = df['P_V']
             # 입력 변수를 위한 슬라이더 추가
             x1 = st.slider('경기수', 0, 40.0, 20)
             x2 = st.slider('승리수', 0, 40.0, 20)
