@@ -336,7 +336,6 @@ elif choice == "데이터페이지":
 
             # 모델을 사용하여 예측 수행
             x = np.array([X_RF, y_RF] * 38 + [y_RF]).reshape(1, -1)
-
             y = model.predict(x)[0]
 
             # 예측 결과 출력
@@ -354,8 +353,8 @@ elif choice == "데이터페이지":
             st.write('입력 변수')
 
             # 입력 변수를 위한 슬라이더 추가
-            x1 = st.slider('X1', 0.0, 10.0, 0.5, 0.01)
-            x2 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
+            경기수 = st.slider('X1', 0.0, 10.0, 0.5, 0.01)
+            승리수 = st.slider('X2', 0.0, 1.0, 0.5, 0.01)
 
             # 모델을 사용하여 예측 수행
             # x = np.array([x1 * 77], [x2]).reshape(1, -1)
