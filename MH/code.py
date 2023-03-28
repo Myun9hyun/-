@@ -12,11 +12,11 @@ df = pd.read_csv('MH/cbb_preprocess.csv')
 G = st.sidebar.slider('Number of Games Played', 0, 40, 20)
 W = st.sidebar.slider('Number of Wins', 0, 40, 10)
 X_DT = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
-y_DT = df['P_V']
+X_new = pd.DataFrame({'GP': [G], 'W': [W]})
+X_DT = X_DT.append(X_new, ignore_index=True)
+
 # 예측
-data = {X_DT, y_DT}
-df2 = pd.DataFrame(data)
-prediction = model.predict(df2)[0]
+prediction = model.predict(X_DT.iloc[-1].values.reshape(1, -1))[0]
 
 # 결과 출력
 st.title('Winning Percentage Prediction')
