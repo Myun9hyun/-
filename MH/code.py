@@ -8,7 +8,7 @@ with open('MH/DecisionTree.pkl', 'rb') as f:
 
 # 입력받기
 st.sidebar.title('Input')
-df = pd.read_csv('MH/cbb_preprocess.csv')
+df = pd.read_csv('MH/cbb_GW.csv')
 G = st.sidebar.slider('Number of Games Played', 0, 40, 20)
 W = st.sidebar.slider('Number of Wins', 0, 40, 10)
 X_DT = df.drop('P_V', axis=1) # 독립변수 (관측값, 피쳐)
