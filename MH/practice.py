@@ -318,7 +318,7 @@ elif choice == "데이터페이지":
             plt.figure(figsize=(8, 6))
             plt.title('Linear Regression')
 
-            sns.scatterplot(x = '승률', y='predicted', data=df)
+            sns.scatterplot(x = 'P_V', y='predicted', data=df)
             st.pyplot()
             st.write("LinearRegressor")
             # 첫번째 행
