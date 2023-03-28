@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import joblib
 
 # 모델 불러오기
-with open('MH/LRmodel.pkl', 'rb') as f:
+with open('MH/LRmodel_56dim.pkl', 'rb') as f:
     model = joblib.load(f)
 
 # 산점도 그리기
@@ -19,10 +19,13 @@ plt.title('Linear Regression')
 x_min = 0
 x_max = 40
 x_new = st.slider('G', min_value=x_min, max_value=x_max)
-y_new = model.predict([[x_new]])[0]
+x_new_56dim = [0]*56  # 56차원 벡터 생성
+x_new_56dim[0] = x_new  # 입력값 할당
+y_new = model.predict([x_new_56dim])[0]
 
 x = list(range(x_min, x_max+1))
-y = model.predict([[i] for i in x])
+x_56dim = [[i] + [0]*55 for i in x]  # 56차원 벡터 생성
+y = model.predict(x_56dim)
 
 plt.plot(x, y)
 plt.scatter(x_new, y_new, c='red')
