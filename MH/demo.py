@@ -265,32 +265,32 @@ elif choice == "데이터페이지":
 
         elif option == 'Chart':
             st.write("승률 데이터 계산입니다")
-    with tab2:
-    tab2.subheader("🦾 Machine Learning")
-    st.write("머신러닝 모델입니다")
-    option = st.selectbox(
-    '원하는 차트를 골라주세요',
-    ('Chart1', 'Chart2', 'Chart3'))
-    if option == 'Chart1':
-        # 모델 불러오기
-        # 랜덤 포레스트 모델 불러오기
-        model_path = "MH/LRmodel.pkl"
-        model = joblib.load(model_path)
+        with tab2:
+            tab2.subheader("🦾 Machine Learning")
+            st.write("머신러닝 모델입니다")
+            option = st.selectbox(
+            '원하는 차트를 골라주세요',
+            ('Chart1', 'Chart2', 'Chart3'))
+            if option == 'Chart1':
+                # 모델 불러오기
+            # 랜덤 포레스트 모델 불러오기
+                model_path = "MH/LRmodel.pkl"
+                model = joblib.load(model_path)
 
-        st.write("LinearRegressor")
-        # 첫번째 행
-        r1_col1, r1_col2 = st.columns(2)
-        경기수 = r1_col1.slider("경기수", 0, 40)
-        승리수 = r1_col2.slider("승리수", 0, 40)
+                st.write("LinearRegressor")
+                # 첫번째 행
+                r1_col1, r1_col2 = st.columns(2)
+                경기수 = r1_col1.slider("경기수", 0, 40)
+                승리수 = r1_col2.slider("승리수", 0, 40)
 
-        predict_button = st.button("예측")
+                predict_button = st.button("예측")
 
-        if predict_button:
-                variable1 = np.array([승리수, 경기수])
-                model1 = joblib.load('MH/LRmodel.pkl')
-                pred1 = model1.predict([variable1])
-                pred1 = pred1.round(2)
-                st.metric("결과: ", pred1[0])
+                if predict_button:
+                        variable1 = np.array([승리수, 경기수])
+                        model1 = joblib.load('MH/LRmodel.pkl')
+                        pred1 = model1.predict([variable1])
+                        pred1 = pred1.round(2)
+                        st.metric("결과: ", pred1[0])
         elif option == 'RandomForest':
 
             # 랜덤 포레스트 모델 불러오기
