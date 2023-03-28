@@ -8,8 +8,8 @@ model = joblib.load(model_path)
 
 # 승리수, 경기수 입력 받기
 st.write("승리수와 경기수를 입력하세요.")
-wins = st.slider("승리수", 0, 82, 41)
-games = st.slider("경기수", 0, 82, 41)
+wins = st.slider("승리수", 0, 10, 5)
+games = st.slider("경기수", 0, 10, 5)
 
 # 입력값 확인
 st.write("입력값:", {"승리수": wins, "경기수": games})
