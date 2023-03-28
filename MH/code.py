@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
 # Load the data
-df = pd.read_csv('data.csv')
+df = pd.read_csv('MH/cbb_preprocess.csv')
 
 # Train the linear regression model
 X = df['G'].values.reshape(-1, 1)
