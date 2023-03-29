@@ -36,7 +36,7 @@ selected_values = random_values(values, probabilities,n)
 
 open_button = st.button("상자 열기")
 if open_button:
-    st.ballons()
+    # st.ballons()
     selected_values = random_values(values, probabilities, n)
     if values == '코젬' or '경뿌' or '반파별4개' or'수에큐3개' or '소경축비':
         for i in range(min(n, len(selected_values))):
