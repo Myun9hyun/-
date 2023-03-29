@@ -135,6 +135,7 @@ if choice == "메인페이지":
         > [![Colab](https://img.shields.io/badge/colab-Decision%20Tree-yellow)](https://colab.research.google.com/drive/1l059OKEqqQkLu9N6RVd-KpjHDcHQI7eX?usp=sharing) 
         * colab XG Boost 모델링 데이터 링크
         > [![Colab](https://img.shields.io/badge/colab-XG%20Boost-yellow)](https://colab.research.google.com/drive/1yF3dcXCYfcFHVDmOUq1RO-tDxqtajA22?usp=sharing) 
+        > [![Notion](https://img.shields.io/badge/Link-Notion-yellowgreen)](https://www.notion.so/SPORT-TOO-TOO-ab7919e6c97a47f9b1ca661837550d05)
         '''
 
 elif choice == "데이터페이지":
