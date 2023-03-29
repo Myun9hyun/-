@@ -13,7 +13,7 @@ def random_values(values, probabilities, n):
 st.title("Random Value Generator")
 
 # 값과 그에 해당하는 확률을 리스트로 지정합니다.
-values = [1, 2, 3, 4, 5]
+values = ['Cozem', 'Coupon', 'Epic', 'Cube', 'Fire']
 probabilities = [0.1, 0.2, 0.3, 0.3, 0.1]
 
 # 출력을 원하는 개수를 입력받습니다.
