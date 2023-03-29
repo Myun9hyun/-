@@ -125,6 +125,9 @@ if choice == "메인페이지":
         * College Basketball Dataset
         > [![Colab](https://img.shields.io/badge/kaggle-College%20Basketball%20Dataset-skyblue)](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset)
         
+        * 팀 Notion 페이지 링크
+        > [![Notion](https://img.shields.io/badge/Link-Notion-yellowgreen)](https://www.notion.so/SPORT-TOO-TOO-ab7919e6c97a47f9b1ca661837550d05)
+        
         * colab 전처리 데이터 링크
         > [![Colab](https://img.shields.io/badge/colab-Data%20preprocessing-yellow)](https://colab.research.google.com/drive/1qTboYP4Pa73isvE4Lt3l5XYLaIhX9Tix?usp=sharing) 
         * colab 선형 회귀 모델링 데이터 링크
@@ -135,7 +138,6 @@ if choice == "메인페이지":
         > [![Colab](https://img.shields.io/badge/colab-Decision%20Tree-yellow)](https://colab.research.google.com/drive/1l059OKEqqQkLu9N6RVd-KpjHDcHQI7eX?usp=sharing) 
         * colab XG Boost 모델링 데이터 링크
         > [![Colab](https://img.shields.io/badge/colab-XG%20Boost-yellow)](https://colab.research.google.com/drive/1yF3dcXCYfcFHVDmOUq1RO-tDxqtajA22?usp=sharing) 
-        > [![Notion](https://img.shields.io/badge/Link-Notion-yellowgreen)](https://www.notion.so/SPORT-TOO-TOO-ab7919e6c97a47f9b1ca661837550d05)
         '''
 
 elif choice == "데이터페이지":
