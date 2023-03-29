@@ -768,8 +768,8 @@ elif choice == "시뮬레이션":
 
         if not isinstance(pred, str):
             pred = (pred).round(2)
-            pred = (pred * 100)
-        st.metric('결과', f"{pred}%")
+            pred1 = (pred * 100)
+        st.metric('결과', f"{pred1}%")
 
 
 
