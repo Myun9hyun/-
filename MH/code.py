@@ -557,7 +557,12 @@ elif choice == "데이터페이지":
         '''
 
 elif choice == "시뮬레이션":
-
+    st.subheader("시뮬레이션")
+    st.write()
+    '''
+    #### 가상의 선수를 추가하여 승률을 예측해 보세요
+    
+    '''
     # tab0, tab1, tab2, tab3 = st.tabs(["첫 번째 선수", "첫 번째 선수", "첫 번째 선수", "첫 번째 선수"])
     # players = []
     
@@ -751,7 +756,7 @@ elif choice == "시뮬레이션":
     option = st.selectbox(
     '원하는 차트를 골라주세요',
     ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XGBoost')) #'XGBoost'
-    model_path = f"MH/{option}.pkl"
+    model_path = f"KL/{option}.pkl"
     model = joblib.load(model_path)
 
     st.write(option)
@@ -760,16 +765,13 @@ elif choice == "시뮬레이션":
 
     if predict_button:
         variable = df_forms
-        model = joblib.load(f'MH/{option}.pkl')
+        model = joblib.load(f'MH{option}.pkl')
         # pred = model.predict(variable)
         # pred = np.round(pred, 2)
         pred = (model.predict(variable)*100).round(2)
         if option=='XGBoost': pred=str(pred)[1:5]
 
-        if not isinstance(pred, str):
-            pred = (pred).round(4)
-            pred = pred * 100
-        st.metric('결과', f"{pred}%")
+        st.write(f"결과: {pred}%")
 
 
 
