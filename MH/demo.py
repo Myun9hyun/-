@@ -31,7 +31,7 @@ probabilities = [0.074, 0.074, 0.074, 0.074, 0.074, 0.03, 0.03, 0.03, 0.03, 0.03
 # 출력을 원하는 개수를 입력받습니다.
 n = st.number_input("상자를 오픈하실 개수를 입력하세요:", min_value=1, max_value=10, step=1, value=1)
 
-값을 랜덤하게 선택하여 출력합니다.
+# 값을 랜덤하게 선택하여 출력합니다.
 selected_values = random_values(values, probabilities,n)
 
 open_button = st.button("상자 열기")
