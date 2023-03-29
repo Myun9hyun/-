@@ -33,13 +33,17 @@ n = st.number_input("상자를 오픈하실 개수를 입력하세요:", min_val
 
 # 값을 랜덤하게 선택하여 출력합니다.
 # selected_values = random_values(values, probabilities,n)
-selected_values = random_values(values, probabilities, n)
-if values == '코젬' or '경뿌' or '반파별4개' or'수에큐3개' or '소경축비':
-    # st.balloons()
-    for i in range(min(n, len(selected_values))):
-        st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
 
-if values == '명큡' or '앱상' or'강환불' or'미코젬' or '주흔_한묶음':
-    st.balloons()
-    for i in range(min(n, len(selected_values))):
-        st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
+open_button = st.button("상자 열기")
+if open_button:
+
+    selected_values = random_values(values, probabilities, n)
+    if values == '코젬' or '경뿌' or '반파별4개' or'수에큐3개' or '소경축비':
+        # st.balloons()
+        for i in range(min(n, len(selected_values))):
+            st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
+
+    elif values == '명큡' or '앱상' or'강환불' or'미코젬' or '주흔_한묶음':
+        st.balloons()
+        for i in range(min(n, len(selected_values))):
+            st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
