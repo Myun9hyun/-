@@ -45,9 +45,9 @@ if open_button:
     elif values == '명큡' or '앱상' or'강환불' or'미코젬' or '주흔_한묶음':
         st.balloons()
         for i in range(min(n, len(selected_values))):
-            
+            st.ballons(
             st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
-
+            )
     elif values == '반빨별' or '재획비' or'경축비' or '고보킬' or '고대비' or '명훈' or '장큐' or '거코젬':
         for i in range(min(n, len(selected_values))):
             st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
