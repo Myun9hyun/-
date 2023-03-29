@@ -766,8 +766,9 @@ elif choice == "시뮬레이션":
         pred = (model.predict(variable)*100).round(2)
         if option=='XGBoost': pred=str(pred)[1:5]
 
-        st.metric('결과', pred)
-
+        if not isinstance(pred, str):
+            pred = (pred * 100).round(2)
+        st.metric('결과', f"{pred}%")
 
 
 
