@@ -21,5 +21,5 @@ probabilities = [0.074, 0.074, 0.074, 0.074, 0.074, 0.03, 0.03, 0.03, 0.03, 0.03
 n = st.number_input("출력을 원하는 개수를 입력하세요:", min_value=1, max_value=10, step=1, value=1)
 
 # 값을 랜덤하게 선택하여 출력합니다.
-selected_values = random_values(values, probabilities)
+selected_values = random_values(values, probabilities)[0]
 st.write(selected_values)
