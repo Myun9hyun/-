@@ -35,5 +35,5 @@ n = st.number_input("상자를 오픈하실 개수를 입력하세요:", min_val
 selected_values = random_values(values, probabilities,n)
 if values == '코젬' or '경뿌' or '반파별4개' or'수에큐3개' or '소경축비':
     st.balloons()
-    st.write(f"축하드립니다! {selected_values[0]}(이)가 당첨되었습니다!")
+    st.write(f"축하드립니다! {selected_values[0:n]}(이)가 당첨되었습니다!")
 
