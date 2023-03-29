@@ -43,8 +43,8 @@ if open_button:
         for i in range(min(n, len(selected_values))):
             st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
 
-    # elif values == '명큡' or '앱상' or'강환불' or'미코젬' or '주흔_한묶음':
+    elif values == '명큡' or '앱상' or'강환불' or'미코젬' or '주흔_한묶음':
         
-    #     for i in range(min(n, len(selected_values))):
+        for i in range(min(n, len(selected_values))):
             
-    #         st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
+            st.write(f"축하드립니다! {selected_values[i]}(이)가 당첨되었습니다!")
