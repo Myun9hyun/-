@@ -751,7 +751,7 @@ elif choice == "시뮬레이션":
     option = st.selectbox(
     '원하는 차트를 골라주세요',
     ('LinearRegressor', 'RandomForest', 'DecisionTree', 'XGBoost')) #'XGBoost'
-    model_path = f"KL/{option}.pkl"
+    model_path = f"MH/{option}.pkl"
     model = joblib.load(model_path)
 
     st.write(option)
@@ -760,7 +760,7 @@ elif choice == "시뮬레이션":
 
     if predict_button:
         variable = df_forms
-        model = joblib.load(f'KL/{option}.pkl')
+        model = joblib.load(f'MH/{option}.pkl')
         # pred = model.predict(variable)
         # pred = np.round(pred, 2)
         pred = (model.predict(variable)*100).round(2)
