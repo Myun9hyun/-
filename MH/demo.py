@@ -12,9 +12,9 @@ with st.form(key='buy_form'):
 # 상태 업데이트
 if 'quantity' in st.session_state:
     repeat = st.session_state['quantity']
-    while repeat > 0 and total_apples > 0:
-        total_apples -= 1
-        repeat -= 1
+    for i in range(repeat):
+        if total_apples > 0:
+            total_apples -= 1
 
 # 상태 출력
 if total_apples == 0:
