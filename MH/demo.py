@@ -11,7 +11,13 @@ with st.form(key='buy_form'):
 
 # 상태 업데이트
 if 'quantity' in st.session_state:
-    total_apples -= st.session_state['quantity']
+    repeat = st.session_state['quantity']
+    while repeat > 0 and total_apples > 0:
+        total_apples -= 1
+        repeat -= 1
 
 # 상태 출력
-st.write(f'사과 갯수: {total_apples}')
+if total_apples == 0:
+    st.warning('품절되었습니다.')
+else:
+    st.write(f'사과 갯수: {total_apples}')
