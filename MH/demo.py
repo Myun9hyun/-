@@ -1,13 +1,14 @@
 import streamlit as st
 import random
 import time
-# def random_values(values, probabilities, n):
-#     # n번 값을 랜덤하게 선택하여 반환합니다.
-#     result = []
-#     for i in range(n):
-#         selected_value = random.choices(values, probabilities)[0]
-#         result.append(selected_value)
-#     return result
+
+def random_values(values, probabilities, n):
+    # n번 값을 랜덤하게 선택하여 반환합니다.
+    result = []
+    for i in range(n):
+        selected_value = random.choices(values, probabilities)[0]
+        result.append(selected_value)
+    return result
 
 # # Streamlit 앱을 실행합니다.
 # st.title("🐻아기자기 랜덤박스🎁")
