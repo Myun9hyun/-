@@ -14,7 +14,7 @@ selected_menu = st.sidebar.radio('', ['상품 구매', '장바구니', '주문 �
 conn = sqlite3.connect('store.db')
 cur = conn.cursor()
 
-# 테이블 조회 함수
+# 테이블 조회 함수  
 def select_products():
     cur.execute("SELECT * FROM products")
     products = cur.fetchall()
