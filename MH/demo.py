@@ -38,7 +38,7 @@ open_button = st.button("상자 열기")
 if open_button:
     # st.balloons()
     selected_values = random_values(values, probabilities, n)
-    if values in ['코젬' or '경뿌' or '반파별4개' or'수에큐3개' or '소경축비']:
+    if selected_values in ['코젬' or '경뿌' or '반파별4개' or'수에큐3개' or '소경축비']:
         # if values in ['코젬', '경뿌', '반파별4개', '수에큐3개', '소경축비']:
         for i in range(min(n, len(selected_values))):
             st.success(f"아쉽습니다.. {selected_values[i]}(이)가 나왔습니다..")
