@@ -1,6 +1,7 @@
 import streamlit as st
 import sqlite3
 from streamlit_SessionState import SessionState
+from SessionState import SessionState
 
 # 페이지 넓이 설정
 st.set_page_config(page_title='온라인 상점', page_icon=':shopping_bags:', layout='wide')
