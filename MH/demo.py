@@ -10,8 +10,11 @@ with st.form(key='buy_form'):
 
 # 상태 업데이트
 if submitted:
-    total_apples -= quantity
-    st.session_state.quantity = quantity
+    if quantity > total_apples:
+        st.error('재고보다 많은 수량을 구매할 수 없습니다.')
+    else:
+        total_apples -= quantity
+        st.session_state.quantity = quantity
 
 # 상태 출력
 st.write(f'사과 갯수: {total_apples}')
