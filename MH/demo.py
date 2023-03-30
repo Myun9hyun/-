@@ -1,6 +1,6 @@
 import streamlit as st
 import random
-
+import time
 # def random_values(values, probabilities, n):
 #     # n번 값을 랜덤하게 선택하여 반환합니다.
 #     result = []
