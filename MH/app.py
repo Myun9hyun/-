@@ -11,6 +11,30 @@ flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
 
+
+
+
+# 데이터를 저장할 파일 경로 지정
+FILE_PATH = 'data.csv'
+
+# 파일에서 데이터 불러오기
+def load_data():
+    try:
+        data = pd.read_csv(FILE_PATH)
+    except FileNotFoundError:
+        data = pd.DataFrame(columns=['Name', 'Weekly_Mission',	'Suro',	'Suro_Cozem',	'Flag',	'Flag_Cozem',	'Cozem_Total',	'Novel'])
+    return data
+
+# 데이터를 파일에 저장하기
+def save_data(data):
+    data.to_csv(FILE_PATH, index=False)
+
+# 데이터 초기화 함수
+def clear_data():
+    global data
+    data = pd.DataFrame(columns=['Name', 'Weekly_Mission',	'Suro',	'Suro_Cozem',	'Flag',	'Flag_Cozem',	'Cozem_Total',	'Novel'])
+    # 파일 삭제
+    os.remove(FILE_PATH)
 def flag_cozem(flag):
     # input(f"f입력 : {n} ")
     if flag >= 0 and flag < 500:
@@ -47,30 +71,6 @@ def novel():
         return 'O'
     else:
         return 'X'
-
-
-# 데이터를 저장할 파일 경로 지정
-FILE_PATH = 'data.csv'
-
-# 파일에서 데이터 불러오기
-def load_data():
-    try:
-        data = pd.read_csv(FILE_PATH)
-    except FileNotFoundError:
-        data = pd.DataFrame(columns=['Name', 'Weekly_Mission',	'Suro',	'Suro_Cozem',	'Flag',	'Flag_Cozem',	'Cozem_Total',	'Novel'])
-    return data
-
-# 데이터를 파일에 저장하기
-def save_data(data):
-    data.to_csv(FILE_PATH, index=False)
-
-# 데이터 초기화 함수
-def clear_data():
-    global data
-    data = pd.DataFrame(columns=['Name', 'Weekly_Mission',	'Suro',	'Suro_Cozem',	'Flag',	'Flag_Cozem',	'Cozem_Total',	'Novel'])
-    # 파일 삭제
-    os.remove(FILE_PATH)
-
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
 
