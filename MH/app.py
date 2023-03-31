@@ -121,6 +121,10 @@ def main():
         clear_data()
         st.warning('Data Cleared Successfully')
 
+    if st.button('Cozem sum'):
+        weekly_total = sum(cozem_total)
+        st.write(f"{weekly_total}개)
+
 if __name__ == '__main__':
     main()
 
