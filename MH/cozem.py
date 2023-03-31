@@ -307,14 +307,15 @@ elif choice == "명단관리":
 
         novel_down = name1O_index and name2X_index
         novel_up = name1X_index and name2O_index
-        if not novel_up:
-            st.write("이번주 직위 상승자는 없습니다.")
-        else : 
-            st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
-        if not novel_down:
-            st.write("이번주 직위 하락자는 없습니다.")
-        else:
-            st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
+        if st.button("직위 상승/하락자 목록"):
+            if not novel_up:
+                st.write("이번주 직위 상승자는 없습니다.")
+            else : 
+                st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
+            if not novel_down:
+                st.write("이번주 직위 하락자는 없습니다.")
+            else:
+                st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
 
   
     if __name__ == "__main__":
