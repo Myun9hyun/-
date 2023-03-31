@@ -30,7 +30,7 @@ def divide_cozem(cozem_sums):
     
 
 # 위클리 코젬 내야하는 갯수
-def manager(n):
+def manager(cozem_sums):
     st.write(f"반디 : {divide_cozem(n)[1]} 개")
     st.write(f"샴푸 : {divide_cozem(n)[2]} 개")
     st.write(f"둥둥 : {divide_cozem(n)[3]} 개")
@@ -162,6 +162,7 @@ def main():
     if st.button('devide'):
         weekly_total = data['Cozem_Total'].sum()
         st.write(manager(weekly_total))
+
 if __name__ == '__main__':
     main()
 
