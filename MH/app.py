@@ -126,10 +126,10 @@ def main():
         st.warning('Data Cleared Successfully')
 
     if st.button('Delete Data'):
-    name = st.text_input('Enter Name to Delete')
-    if name:
-        if name in data['Name'].values:
-            data = data[data['Name'] != name]
+    names = st.text_input('Enter Name to Delete')
+    if names:
+        if names in data['Name'].values:
+            data = data[data['Name'] != names]
             save_data(data)
             st.success('Data Deleted Successfully')
         else:
