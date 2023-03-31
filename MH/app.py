@@ -93,7 +93,7 @@ def add_data(name, weekly_mission, suro, flag):
 
 
 def main():
-    st.title('Add and Display Data')
+    st.title('cozem')
     
     # 사용자로부터 이름과 점수를 입력받는 UI 구성
     name = st.text_input('Enter Name')
