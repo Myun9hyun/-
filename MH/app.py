@@ -224,7 +224,7 @@ def add_data(name, weekly_mission, suro, flag):
     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-    novel_value = novel  # Novel 값 계산
+    novel_value = novel()  # Novel 값 계산
 
     data = data.append({
         'Name': name, 
