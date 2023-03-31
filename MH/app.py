@@ -158,7 +158,9 @@ def main():
     if st.button('monthly'):
         # 먼슬리 참여 가능자 명단
         st.write(data[data['Novel'] == 'O'])
-
+        
+    if st.button('devide'):
+        st.write(manager)
 if __name__ == '__main__':
     main()
 
