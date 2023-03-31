@@ -127,7 +127,7 @@ def main():
 
     if st.button('Delete Data'):
         name = st.text_input('Enter Name to Delete')
-        data[data['Name'] != name]
+        data = data[data['Name'] != name]
         save_data(data)
         st.success('Data Deleted Successfully')
 
