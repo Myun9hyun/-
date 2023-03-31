@@ -75,7 +75,7 @@ def clear_data():
 data = load_data()
 
 # 사용자로부터 이름과 점수를 입력받아 데이터프레임에 추가하는 함수
-def add_data(name, suro, flag):
+def add_data(name, weekly_mission, suro, flag):
     global data
     data = data.append({'Name': name, 'Weekly_Mission' : weekly_mission, 'Score': suro, 'Flag' : flag }, ignore_index=True)
 
