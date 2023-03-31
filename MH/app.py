@@ -204,7 +204,7 @@ elif choice == "길드페이지":
                     st.write('이번주 노블 사용제한 목록 입니다.')
                     st.write(f"노블 제한자 :  {warning_list}.")
                     st.write(data[data['Novel'] == 'X'])
-                    warning_WM = data[data['Weekly_Mission'] < 3]
+                    warning_WM = data[data['Weekly_Mission'] < 2]
                     warning_WM_list = warning_WM['Name'].tolist()
                     st.write(f"노블 제한자 중 주간미션 미달자입니다 :  {warning_WM_list}.")
                     warning_suro = data[data['Suro'] <= 0]
