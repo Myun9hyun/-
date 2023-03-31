@@ -96,7 +96,7 @@ data = load_data()
 def delete_data(name):
     global data
     for i, item in enumerate(data):
-        if item['name'] == name:
+        if item['Name'] == name:
             del data[i]
             return True
     return False
