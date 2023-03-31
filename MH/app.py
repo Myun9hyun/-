@@ -64,26 +64,6 @@ def clear_data():
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
 
-# # 사용자로부터 이름과 점수를 입력받아 데이터프레
-# def add_data(name, weekly_mission, suro, flag):
-#     global data
-#     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-#     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-#     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-#     novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-
-#     data = data.append({
-#         'Name': name, 
-#         'Weekly_Mission': weekly_mission, 
-#         'Suro': suro, 
-#         'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
-#         'Flag': flag, 
-#         'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
-#         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-#         'Novel': novel_value  # Novel 값을 추가
-#     }, ignore_index=True)
-
-
 def add_data(name, weekly_mission, suro, flag):
     global data
     # 중복 검사
@@ -123,10 +103,10 @@ def main():
         save_data(data)  # 데이터를 파일에 저장
         st.success('데이터가 추가되었습니다.')
 
-    if st.button('데이터 삭제'):
-        name_to_delete = st.text_input('삭제할 이름을 입력하세요')
-        if name_to_delete in data['Name'].values:
-            data = data[data['Name'] != name_to_delete]
+    # if st.button('데이터 삭제'):
+    #     name_to_delete = st.text_input('삭제할 이름을 입력하세요')
+    #     if name_to_delete in data['Name'].values:
+    #         data = data[data['Name'] != name_to_delete]
 
     # 저장된 데이터
     if st.button('차트 열기'):
