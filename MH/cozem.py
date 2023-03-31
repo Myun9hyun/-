@@ -307,11 +307,11 @@ elif choice == "명단관리":
 
         novel_down = name1O_index and name2X_index
         novel_up = name1X_index and name2O_index
-        if novel_up not empty:
+        if not novel_up.empty:
             st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
         else : 
             st.write("이번주 직위 상승자는 없습니다.")
-        if novel_down not empty:
+        if not novel_down.empty:
             st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
         else:
             st.write("이번주 직위 하락자는 없습니다.")
