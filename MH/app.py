@@ -176,7 +176,7 @@ def main():
             else:
                 e += 1
 
-        st.write(a, b, c, d, e)
+        # st.write(a, b, c, d, e)
         st.write(f"반디 : {a} 개")
         st.write(f"샴푸 : {b} 개")
         st.write(f"둥둥 : {c} 개")
