@@ -293,14 +293,16 @@ elif choice == "명단관리":
             # 데이터프레임 출력
             st.write("데이터프레임2")
             st.write(df2)
+
         df1_O = df1[df1['Novel'] == 'O']
         df1_X = df1[df1['Novel'] == 'X']
         
         df2_O = df2[df2['Novel'] == 'O']
         df2_X = df2[df2['Novel'] == 'X']
         st.write(df1_O)
+        st.write(df2_Xd)
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
-        novel_up = df1_O.index['Name'] or df2_X.index['Name']
+
         # 중복 값이 있을 경우 출력
         if duplicates:
             st.write(f"지난주에도 미실시 했고, 이번주에도 미실시 명단입니다. {duplicates}")
