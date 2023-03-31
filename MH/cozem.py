@@ -301,7 +301,7 @@ elif choice == "명단관리":
         df2_X = df2[df2['Novel'] == 'X']
         # novel_up = df1_X or df2_O
         st.write(df1_O)
-        st.write(df2_X)
+        st.write(df2_X['Name'])
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
 
         # 중복 값이 있을 경우 출력
