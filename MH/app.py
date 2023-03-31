@@ -215,7 +215,7 @@ def add_data(name, weekly_mission, suro, flag):
     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
     novel_value = novel()  # Novel 값 계산
-    
+
     data = data.append({
         'Name': name, 
         'Weekly_Mission': weekly_mission, 
@@ -227,15 +227,15 @@ def add_data(name, weekly_mission, suro, flag):
         'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
 
-def novel():
-    if (weekly_mission >= 3) and (s > 0) and (f > 0):
-        return 'O'
-    elif weekly_mission == 5 and s >= 1500:
-        return 'O'
-    elif weekly_mission == 5 and f >= 650:
-        return 'O'
-    else:
-        return 'X'
+# def novel():
+#     if (weekly_mission >= 3) and (s > 0) and (f > 0):
+#         return 'O'
+#     elif weekly_mission == 5 and s >= 1500:
+#         return 'O'
+#     elif weekly_mission == 5 and f >= 650:
+#         return 'O'
+#     else:
+#         return 'X'
 def main():
     st.title('Add and Display Data')
     
