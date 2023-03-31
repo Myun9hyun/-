@@ -131,7 +131,6 @@ conn = sqlite3.connect(':memory:')
 cur = conn.cursor()
 
 # 테이블 생성
-# 테이블 생성
 cur.execute("""
 CREATE TABLE IF NOT EXISTS products (
     id INTEGER PRIMARY KEY,
@@ -163,8 +162,6 @@ def update_product_quantity(id, quantity):
     conn.commit()
 
 # 상품 정보 표시
-# 상품 정보 표시
-# 상품 정보 표시
 def display_product_info(product):
     col1, col2, col3, col4 = st.beta_columns([1, 1, 1, 0.5])
     with col1:
@@ -184,9 +181,7 @@ def display_product_info(product):
                 update_product_quantity(product[0], new_quantity)
                 updated_product = select_products()[product[0]-1]  # 업데이트된 값을 다시 가져옴
                 st.success(f'{updated_product[1]} {quantity}개 구매 완료')
-
-
-
+                product[3] = new_quantity  # 수정된 부분
 
 # 메인 함수
 def main():
