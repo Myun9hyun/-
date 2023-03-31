@@ -127,7 +127,7 @@ import csv
 st.set_page_config(page_title='온라인 상점', page_icon=':shopping_bags:', layout='wide')
 
 # 데이터베이스 연결
-conn = sqlite3.connect('/products.db')
+conn = sqlite3.connect('./products.db')
 cur = conn.cursor()
 
 # 테이블 생성
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS products (
 """)
 
 # csv 파일에서 데이터 가져오기
-with open('/MH/products.csv', 'r', encoding='utf-8') as f:
+with open('./MH/products.csv', 'r', encoding='utf-8') as f:
     reader = csv.reader(f)
     header = next(reader)
     for row in reader:
