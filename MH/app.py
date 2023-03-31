@@ -27,7 +27,7 @@ def divide_cozem(weekly_total):
         return [cozem_else, cozem_else + 1, cozem_else + 1, cozem_else + 1]
     # 입력값이 4미만일 경우 오류 -> 해결 필요
     n = weekly_total
-    manager(n)
+    
 
 # 위클리 코젬 내야하는 갯수
 def manager(n):
