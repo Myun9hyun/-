@@ -91,6 +91,9 @@ def display_order_history():
 def main():
     # 로그인 세션 관리
     session = st.session_state.get('cart', {})
+    
+    if 'cart' not in session:
+        session.cart = {}
 
     # 상품 정보 가져오기
     products = select_products()
@@ -108,6 +111,7 @@ def main():
 
     elif selected_menu == '주문 내역':
         display_order_history()
+
 
 if __name__ == '__main__':
     main()
