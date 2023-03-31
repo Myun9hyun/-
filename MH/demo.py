@@ -95,11 +95,11 @@ data = load_data()
 
 def delete_data(name):
     global data
-    if name in data:
-        del data[name]
-        st.success('데이터 삭제 완료!')
-    else:
-        st.warning('해당 이름의 데이터가 없습니다.')
+    for i, item in enumerate(data):
+        if item['name'] == name:
+            del data[i]
+            return True
+    return False
 
 
 def add_data(name, weekly_mission, suro, flag):
@@ -147,9 +147,12 @@ def main():
         st.subheader('데이터 삭제')
         name = st.text_input('이름')
         if st.button('삭제'):
-            delete_data(name)
-            save_data(data)
-            st.success('데이터 삭제 완료!')
+            if delete_data(name):
+                save_data(data)
+                st.success('데이터 삭제 완료!')
+            else:
+                st.warning('해당 이름의 데이터가 없습니다.')
+
 
     elif choice == '데이터 조회':
         st.subheader('데이터 조회')
