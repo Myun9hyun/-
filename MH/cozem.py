@@ -294,7 +294,7 @@ elif choice == "명단관리":
             st.write("데이터프레임2")
             st.write(df2)
         df1_O = df1['Novel'] == 'O'
-        df1_X = df1['Novel'] == 'X'
+        df1_X = df1.index['Novel'] == 'X'
         df2_X = df2[df2['Novel'] == 'X']
         st.write(df1_O)
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
