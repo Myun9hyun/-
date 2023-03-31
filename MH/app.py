@@ -70,7 +70,7 @@ def main():
     # 사용자로부터 이름과 점수를 입력받는 UI 구성
     name = st.text_input('Enter Name')
     suro = st.number_input('Enter suro', min_value=0, max_value=100000)
-    suro = st.number_input('Enter flag', min_value=0, max_value=1000)
+    flag = st.number_input('Enter flag', min_value=0, max_value=1000)
     
     
     # 이름과 점수가 입력되면 데이터프레임에 추가
