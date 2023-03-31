@@ -88,12 +88,15 @@ def add_data(name, weekly_mission, suro, flag):
     }, ignore_index=True)
 
 
-# 다운로드 버튼 클릭 시 CSV 파일 다운로드
-def download_csv(data, file_name):
-    csv = data.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="{file_name}.csv">Download CSV</a>'
-    return href
+def download_csv(df):
+    # 파일명을 입력받는다.
+    filename = st.text_input('Enter a file name', 'example.csv')
+    # 파일명이 입력되면, 파일을 다운로드한다.
+    if st.button('Download CSV'):
+        csv = df.to_csv(index=False)
+        b64 = base64.b64encode(csv.encode()).decode()
+        href = f'<a href="data:file/csv;base64,{b64}" download="{filename}">Download</a>'
+        st.markdown(href, unsafe_allow_html=True)
 
 
 def main():
@@ -149,9 +152,7 @@ def main():
         st.write(data[data['Novel'] == 'O'])
     # 다운로드 버튼 클릭
     if st.button("다운로드"):
-        file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기")
-        # file_name = st.text_input('Enter the file name:', 'my_data')
-        st.markdown(download_csv(data, file_name), unsafe_allow_html=True)
+        download_csv(df)
 
 
 
