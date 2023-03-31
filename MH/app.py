@@ -154,7 +154,7 @@ def main():
     # 저장 버튼 클릭 시
         if st.button("저장"):
             # 데이터프레임을 CSV 파일로 저장
-            df.to_csv(file_name, index=False)
+            data.to_csv(file_name, index=False)
             st.success(f"{file_name} 파일이 저장되었습니다.")
 
 
