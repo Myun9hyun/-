@@ -9,4 +9,4 @@ xgboost
 seaborn
 streamlit_option_menu
 numpy
-streamlit_SessionState
+streamlit_SessionState==0.4.1
