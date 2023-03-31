@@ -140,17 +140,21 @@ def main():
 
     if st.button('노블 제한목록 보기'):
         # 경고자 명단
+        warning = data[data['Novel'] == 'X']
+        warning_list = warning['Name'].tolist()
         st.write('이번주 노블 사용제한 목록 입니다.')
+        st.write(f"노블 제한자 :  {warning_list}.")
         st.write(data[data['Novel'] == 'X'])
     
     if st.button('노블 사용가능 목록 보기'):
         # 먼슬리 참여 가능자 명단
-        st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
-        st.write(data[data['Novel'] == 'O'])
         monthly = data[data['Novel'] == 'O']
         monthly_list = monthly['Name'].tolist()
-        st.write(f"사용가능자는 {monthly_list}입니다.")
-
+        st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
+        st.write(f"사용가능자 :  {monthly_list}.")
+        st.write(data[data['Novel'] == 'O'])
+        
+    
     if st.button('위클리 코젬 분배 계산'):
         weekly_total = data['Cozem_Total'].sum()
         quotient = weekly_total // 5
