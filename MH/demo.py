@@ -1,90 +1,237 @@
-
 import streamlit as st
-import sqlite3
+import pandas as pd
+import os
 
-# 페이지 넓이 설정
-st.set_page_config(page_title='온라인 상점', page_icon=':shopping_bags:', layout='wide')
+def Flag_cozem(flag):
+    if flag >= 0 and flag < 500:
+        i = 0
+        return i
+    if flag >= 500 and flag <= 750:
+        i = 1
+        return i
+    elif flag > 750 and flag < 1000:
+        i = 2
+        return i
+    elif flag == 1000:
+        i = 3
+        return i
 
-# 사이드바 설정
-st.sidebar.title('메뉴')
-selected_menu = st.sidebar.radio('', ['상품 구매', '장바구니', '주문 내역'])
+def Suro_cozem(suro):
+    if suro < 500:
+        i = 0
+    else:
+        i = (suro // 500)
+    return i
 
-# 데이터베이스 연결
-conn = sqlite3.connect('store.db')
-cur = conn.cursor()
+def cozem_sum(suro, flag):
+    answer = 0
+    answer = Suro_cozem(suro) + Flag_cozem(flag)
+    return answer
 
-# 테이블 조회 함수  
-def select_products():
-    cur.execute("SELECT * FROM products")
-    products = cur.fetchall()
-    return products
+def novel_p(weekly_mission, suro, flag):
+    if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
+        novel = 'O'
+    elif weekly_mission == 5 and suro >= 1500:
+        novel = 'O'
+    elif weekly_mission == 5 and flag >= 650:
+        novel = 'O'
+    else:
+        novel = 'X'
+    return novel
 
-# 테이블 업데이트 함수
-def update_product_quantity(id, quantity):
-    cur.execute("UPDATE products SET quantity = ? WHERE id = ?", (quantity, id))
-    conn.commit()
+# 데이터를 저장할 파일 경로 지정
+FILE_PATH = 'data.csv'
 
-# 상품 정보 표시
-def display_product_info(product, session):
-    col1, col2, col3, col4 = st.beta_columns([1, 1, 1, 0.5])
-    with col1:
-        st.write(product[0])
-    with col2:
-        st.write(product[1])
-    with col3:
-        st.write(product[2])
-    with col4:
-        if product[3] == 0:
-            st.write('품절')
-        else:
-            quantity = st.number_input('수량', value=1, min_value=1, max_value=product[3])
-            if st.button('구매'):
-                update_product_quantity(product[0], product[3]-quantity)
-                st.success(f'{product[1]} {quantity}개 구매 완료')
+# 파일에서 데이터 불러오기
+def load_data():
+    try:
+        data = pd.read_csv(FILE_PATH)
+    except FileNotFoundError:
+        data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
+    return data
 
-                # 장바구니에 추가
-                if 'cart' not in session:
-                    session.cart = {}
-                if product[1] not in session.cart:
-                    session.cart[product[1]] = {'price': product[2], 'quantity': quantity}
-                else:
-                    session.cart[product[1]]['quantity'] += quantity
+# 데이터를 파일에 저장하기
+def save_data(data):
+    data.to_csv(FILE_PATH, index=False)
 
-# 장바구니 표시
-def display_cart(session):
-    st.header('장바구니')
-    total_price = 0
-    for name, item in session.cart.items():
-        st.write(f'{name} ({item["quantity"]}개): {item["price"]*item["quantity"]}원')
-        total_price += item["price"]*item["quantity"]
-    st.write(f'총 가격: {total_price}원')
+# 데이터 초기화 함수
+def clear_data():
+    global data
+    data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
+    # 파일 삭제
+    os.remove(FILE_PATH)
 
-# 주문 내역 표시
-def display_order_history():
-    st.header('주문 내역')
+# 불러온 데이터를 전역 변수로 저장
+data = load_data()
 
-# 메인 함수
+# # 사용자로부터 이름과 점수를 입력받아 데이터프레
+# def add_data(name, weekly_mission, suro, flag):
+#     global data
+#     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
+#     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+#     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+#     novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+
+#     data = data.append({
+#         'Name': name, 
+#         'Weekly_Mission': weekly_mission, 
+#         'Suro': suro, 
+#         'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+#         'Flag': flag, 
+#         'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
+#         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
+#         'Novel': novel_value  # Novel 값을 추가
+#     }, ignore_index=True)
+
+
+def add_data(name, weekly_mission, suro, flag):
+    global data
+    # 중복 검사
+    if name in data['Name'].values:
+        st.warning(f'{name} (은)는 이미 있는 이름이야!')
+        return
+    suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
+    flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+    cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+    novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+
+    data = data.append({
+        'Name': name, 
+        'Weekly_Mission': weekly_mission, 
+        'Suro': suro, 
+        'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+        'Flag': flag, 
+        'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
+        'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
+        'Novel': novel_value  # Novel 값을 추가
+    }, ignore_index=True)
+
+
 def main():
-    # 로그인 세션 관리
-    session = st.session_state.get('cart', {})
+    st.title('cozem')
+    
+    # 사용자로부터 이름과 점수를 입력받는 UI 구성
+    name = st.text_input('이름을 입력하세요')
+    weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+    suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+    flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+    
+    menu = ['데이터 추가', '데이터 검색', '데이터 삭제', '데이터 출력', '데이터 초기화']
+    choice = st.sidebar.selectbox('메뉴', menu)
 
-    # 상품 정보 가져오기
-    products = select_products()
+    if choice == '데이터 추가':
+        st.subheader('데이터 추가')
+        # 사용자로부터 입력받은 이름
+        name = st.text_input('이름')
+        # 사용자로부터 입력받은 주간 미션
+        weekly_mission = st.slider('주간 미션', min_value=0, max_value=5, step=1)
+        # 사용자로부터 입력받은 수로 점수
+        suro = st.number_input('수로', min_value=0)
+        # 사용자로부터 입력받은 깃발 점수
+        flag = st.number_input('깃발', min_value=0)
+        
+        # 사용자가 입력한 데이터 추가
+        if st.button('추가'):
+            add_data(name, weekly_mission, suro, flag)
+            st.success(f'{name} (이)가 추가되었습니다!')
 
-    # 페이지 헤더
-    st.header('온라인 상점')
+    elif choice == '데이터 검색':
+        st.subheader('데이터 검색')
+        search_term = st.text_input('찾고 싶은 이름 입력')
+        # 사용자가 입력한 이름을 포함하는 행만 추출
+        result = data[data['Name'].str.contains(search_term)]
+        # 검색 결과 출력
+        st.write(result)
 
-    # 페이지 내용
-  
-    if selected_menu == '상품 구매':
-        for product in products:
-            display_product_info(product, session)
+    elif choice == '데이터 삭제':
+        st.subheader('데이터 삭제')
+        # 사용자로부터 삭제하고 싶은 이름 입력받기
+        name = st.text_input('삭제하고 싶은 이름 입력')
+        # 입력받은 이름이 데이터에 있는지 검사
+        if name in data['Name'].values:
+            # 입력받은 이름이 포함된 행을 삭제하고 데이터 업데이트
+            data = data[data['Name'] != name]
+            save_data(data)
+            st.success(f'{name} (이)가 삭제되었습니다!')
+        else:
+            st.warning(f'{name} (은)는 데이터에 없는 이름입니다.')
 
-    elif selected_menu == '장바구니':
-        display_cart(session)
+    elif choice == '데이터 출력':
+        st.subheader('데이터 출력')
+        st.write(data)
 
-    elif selected_menu == '주문 내역':
-        display_order_history()
+    else:
+        st.subheader('데이터 초기화')
+        if st.button('초기화'):
+            clear_data()
+            st.success('데이터가 초기화되었습니다!')
 
+    # 추가된 데이터 출력
+    st.subheader('추가된 데이터')
+    st.write(data)
+
+
+    # 이름과 점수가 입력되면 데이터프레임에 추가
+    if st.button('데이터 추가'):
+        add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+        save_data(data)  # 데이터를 파일에 저장
+        st.success('데이터가 추가되었습니다.')
+    
+    # 저장된 데이터
+    if st.button('차트 열기'):
+        if not data.empty:
+            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+        else:
+            st.write('입력되어있는 데이터가 없습니다.')
+    # 데이터 전부 삭제
+    if st.button('차트 초기화'):
+        clear_data()
+        st.warning('Data Cleared Successfully')
+
+    if st.button('위클리 코젬 합계 계산'):
+        weekly_total = data['Cozem_Total'].sum()
+        st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
+
+    if st.button('노블 제한목록 보기'):
+        # 경고자 명단
+        warning = data[data['Novel'] == 'X']
+        warning_list = warning['Name'].tolist()
+        st.write('이번주 노블 사용제한 목록 입니다.')
+        st.write(f"노블 제한자 :  {warning_list}.")
+        st.write(data[data['Novel'] == 'X'])
+    
+    if st.button('노블 사용가능 목록 보기'):
+        # 먼슬리 참여 가능자 명단
+        monthly = data[data['Novel'] == 'O']
+        monthly_list = monthly['Name'].tolist()
+        st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
+        st.write(f"사용가능자 :  {monthly_list}.")
+        st.write(data[data['Novel'] == 'O'])
+        
+    
+    if st.button('위클리 코젬 분배 계산'):
+        weekly_total = data['Cozem_Total'].sum()
+        quotient = weekly_total // 5
+        remainder = weekly_total % 5
+        a = b = c = d = e = quotient
+        for i in range(remainder):
+            if i == 0:
+                a += 1
+            elif i == 1:
+                b += 1
+            elif i == 2:
+                c += 1
+            elif i == 3:
+                d += 1
+            else:
+                e += 1
+
+        st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_total}개 입니다.")
+        st.write(f"반디 : {a} 개")
+        st.write(f"샴푸 : {b} 개")
+        st.write(f"둥둥 : {c} 개")
+        st.write(f"돌체 : {d} 개")
+        st.write(f"영래 : {e} 개")
 if __name__ == '__main__':
     main()
+
