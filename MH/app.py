@@ -149,7 +149,7 @@ def main():
             else:
                 e += 1
 
-        # st.write(a, b, c, d, e)
+        st.write(f"위클리는 총 {weekly_total}개 입니다.")
         st.write(f"반디 : {a} 개")
         st.write(f"샴푸 : {b} 개")
         st.write(f"둥둥 : {c} 개")
