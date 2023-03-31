@@ -152,7 +152,7 @@ suros = []  # 수로 점수 리스트
 flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
-
+flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 def flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
@@ -215,7 +215,24 @@ def clear_data():
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
 
-
+# 사용자로부터 이름과 점수를 입력받아 데이터프레
+def add_data(name, weekly_mission, suro, flag):
+    global data
+    suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
+    flag_cozem = flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+    cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+    novel_value = novel()  # Novel 값 계산
+    
+    data = data.append({
+        'Name': name, 
+        'Weekly_Mission': weekly_mission, 
+        'Suro': suro, 
+        'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+        'Flag': flag, 
+        'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
+        'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
+        'Novel': novel_value  # Novel 값을 추가
+    }, ignore_index=True)
 
 def novel():
     if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
@@ -235,24 +252,6 @@ def main():
     suro = st.number_input('Enter suro', min_value=0, max_value=100000)
     flag = st.number_input('Enter flag', min_value=0, max_value=1000)
     
-# 사용자로부터 이름과 점수를 입력받아 데이터프레
-def add_data(name, weekly_mission, suro, flag):
-    global data
-    suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-    flag_cozem = flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-    cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-    novel_value = novel()  # Novel 값 계산
-    
-    data = data.append({
-        'Name': name, 
-        'Weekly_Mission': weekly_mission, 
-        'Suro': suro, 
-        'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
-        'Flag': flag, 
-        'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
-        'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-        'Novel': novel_value  # Novel 값을 추가
-    }, ignore_index=True)
     
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
