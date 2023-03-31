@@ -141,10 +141,13 @@ CREATE TABLE IF NOT EXISTS products (
 """)
 
 # csv 파일에서 데이터 가져오기
-with open('MH/products.csv', 'r', encoding='utf-8') as f:
-    products = list(csv.reader(f))[1:]
-    cur.execute("DELETE FROM products")
-    cur.executemany("INSERT INTO products VALUES (?, ?, ?, ?)", products)
+with open('products.csv', 'r', encoding='utf-8') as f:
+    reader = csv.reader(f)
+    header = next(reader)
+    for row in reader:
+        cur.execute(f"INSERT INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
+
+# 커밋
 conn.commit()
 
 # 테이블 조회 함수
@@ -178,7 +181,8 @@ def display_product_info(product):
                 update_product_quantity(product[0], new_quantity)
                 updated_product = select_products()[product[0]-1]  # 업데이트된 값을 다시 가져옴
                 st.success(f'{updated_product[1]} {quantity}개 구매 완료')
-                product[3] = updated_product[3]  # 상품 정보를 수정
+                product[:] = updated_product  # 리스트를 수정
+
 
 # 메인 함수
 def main():
