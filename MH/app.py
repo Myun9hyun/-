@@ -137,7 +137,8 @@ def main():
     #     delete_name = st.text_input('Enter name to delete')
     #     delete_data(delete_name)
     if st.button('Delete Data'):
-        delete_data()
+        if st.button('삭제'):
+            delete_data()
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
         st.write(f"{weekly_total}개")
