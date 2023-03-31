@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS products (
     stock INTEGER
 )
 """)
+
 # csv 파일에서 데이터 가져오기
 with open('MH/products.csv', 'r', encoding='utf-8') as f:
     products = list(csv.reader(f))[1:]
