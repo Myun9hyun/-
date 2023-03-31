@@ -33,6 +33,22 @@ def suro(s):
         i = (s // 500)
         return i
 
+def cozem_sum():
+    answer = 0
+    answer = suro(s) + flag_cozem(f)
+    return answer
+
+def novel():
+    if (weekly_mission >= 3) and (s > 0) and (f > 0):
+        return 'O'
+    elif weekly_mission == 5 and s >= 1500:
+        return 'O'
+    elif weekly_mission == 5 and f >= 650:
+        return 'O'
+    else:
+        return 'X'
+
+
 # 데이터를 저장할 파일 경로 지정
 FILE_PATH = 'data.csv'
 
@@ -61,7 +77,7 @@ data = load_data()
 # 사용자로부터 이름과 점수를 입력받아 데이터프레임에 추가하는 함수
 def add_data(name, suro, flag):
     global data
-    data = data.append({'Name': name, 'Score': suro, 'Flag' : flag}, ignore_index=True)
+    data = data.append({'Name': name, 'Weekly_Mission' : weekly_mission, 'Score': suro, 'Flag' : flag }, ignore_index=True)
 
 # Streamlit 앱 생성
 def main():
@@ -71,11 +87,12 @@ def main():
     name = st.text_input('Enter Name')
     suro = st.number_input('Enter suro', min_value=0, max_value=100000)
     flag = st.number_input('Enter flag', min_value=0, max_value=1000)
+    weekly_mission = st.number_input('Enter weekly mission', min_value=0, max_value=5)
     
     
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
-        add_data(name, suro, flag)
+        add_data(name, weekly_mission ,suro, flag)
         save_data(data)  # 데이터를 파일에 저장
         st.success('Data Added Successfully')
     
