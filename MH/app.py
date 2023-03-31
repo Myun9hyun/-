@@ -148,11 +148,14 @@ def main():
         st.write(f"사용가능자 :  {monthly_list}.")
         st.write(data[data['Novel'] == 'O'])
     # 다운로드 버튼 클릭
-    if st.button('다운로드'):
-        file_name = st.text_input('Enter the file name:', 'my_data')
-        # 다운로드 버튼 생성
-        st.markdown(download_csv(data, file_name), unsafe_allow_html=True)    
-        # 사용자가 입력한 파일명 받아오기
+    if st.button("다운로드"):
+        file_name = st.text_input("저장할 파일명을 입력하세요:", "example.csv")
+
+    # 저장 버튼 클릭 시
+        if st.button("저장"):
+            # 데이터프레임을 CSV 파일로 저장
+            df.to_csv(file_name, index=False)
+            st.success(f"{file_name} 파일이 저장되었습니다.")
 
 
 
