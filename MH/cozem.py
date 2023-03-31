@@ -274,7 +274,7 @@ elif choice == "직위관리":
         '''
         ### ❗파일 업로드 하면 에러 없어짐❗
         '''
-        st.write("엑셀 파일1을 업로드 해주세요")
+        st.write("지난주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
         uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
 
         if uploaded_file1 is not None:
@@ -283,10 +283,10 @@ elif choice == "직위관리":
             df1 = upload_excel_file(uploaded_file1)
 
             # 데이터프레임 출력
-            st.write("데이터프레임1")
+            st.write("지난주 길드컨텐츠 참여자")
             st.write(df1)
 
-        st.write("엑셀 파일2을 업로드 해주세요")
+        st.write("이번주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
         uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload2")
 
         if uploaded_file2 is not None:
@@ -295,7 +295,7 @@ elif choice == "직위관리":
             df2 = upload_excel_file(uploaded_file2)
 
             # 데이터프레임 출력
-            st.write("데이터프레임2")
+            st.write("이번주 길드컨텐츠 참여자")
             st.write(df2)
 
         df1_O = df1[df1['Novel'] == 'O']
