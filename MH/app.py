@@ -161,13 +161,9 @@ def main():
 
     if st.button('devide'):
         weekly_total = data['Cozem_Total'].sum()
-       
-
         quotient = weekly_total // 5
         remainder = weekly_total % 5
-
         a = b = c = d = e = quotient
-
         for i in range(remainder):
             if i == 0:
                 a += 1
@@ -181,7 +177,11 @@ def main():
                 e += 1
 
         st.write(a, b, c, d, e)
-      
+        st.write(f"반디 : {a} 개")
+        st.write(f"샴푸 : {b} 개")
+        st.write(f"둥둥 : {c} 개")
+        st.write(f"돌체 : {d} 개")
+        st.write(f"영래 : {e} 개")
 if __name__ == '__main__':
     main()
 
