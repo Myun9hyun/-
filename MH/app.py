@@ -181,7 +181,7 @@ def main():
             st.write(f"샴푸 : {divide_cozem(cozem_sums)[2]} 개")
             st.write(f"둥둥 : {divide_cozem(cozem_sums)[3]} 개")
             st.write(f"돌체 : {divide_cozem(cozem_sums)[0]} 개")
-        st.write(manager)
+        st.write(manager(weekly_total))
 if __name__ == '__main__':
     main()
 
