@@ -96,10 +96,11 @@ data = load_data()
 def delete_data(name):
     global data
     for i, item in enumerate(data):
-        if item['name'] == name:
+        if isinstance(item, dict) and 'name' in item and item['name'] == name:
             del data[i]
             return True
     return False
+
 
 def add_data(name, weekly_mission, suro, flag):
     global data
