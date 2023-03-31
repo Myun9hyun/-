@@ -144,9 +144,9 @@ def main():
 
     elif choice == '데이터 삭제':
         st.subheader('데이터 삭제')
-        name = st.text_input('이름')
+        names = st.text_input('이름')
         if st.button('삭제'):
-            if delete_data(name):
+            if delete_data(names):
                 save_data(data)
                 st.success('데이터 삭제 완료!')
             else:
