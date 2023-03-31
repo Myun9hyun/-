@@ -72,7 +72,7 @@ elif choice == "길드페이지":
     with tab2:
         st.header("💎코어젬스톤💎")
         st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=400)
-        option = st.selectbox()
+        option = st.selectbox("데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용/제한", "위클리 코젬 계산")
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
@@ -160,41 +160,40 @@ elif choice == "길드페이지":
 
         def main():
             st.title('cozem')
+        
             
+
             # 사용자로부터 이름과 점수를 입력받는 UI 구성
             name = st.text_input('이름을 입력하세요')
             weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
             suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
             flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
             
-
-            # 이름과 점수가 입력되면 데이터프레임에 추가
-            if st.button('데이터 추가'):
-                add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
-                save_data(data)  # 데이터를 파일에 저장
-                st.success('데이터가 추가되었습니다.')
+            if option == "데이터 추가":
+                # 이름과 점수가 입력되면 데이터프레임에 추가
+                if st.button('데이터 추가'):
+                    add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                    save_data(data)  # 데이터를 파일에 저장
+                    st.success('데이터가 추가되었습니다.')
 
             # if st.button('데이터 삭제'):
             #     name_to_delete = st.text_input('삭제할 이름을 입력하세요')
             #     if name_to_delete in data['Name'].values:
             #         data = data[data['Name'] != name_to_delete]
-
-            # 저장된 데이터
-            if st.button('차트 열기'):
-                if not data.empty:
-                    st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
-                else:
-                    st.write('입력되어있는 데이터가 없습니다.')
-            # 데이터 전부 삭제
-            if st.button('차트 초기화'):
-                clear_data()
-                st.warning('Data Cleared Successfully')
-
-            if st.button('위클리 코젬 합계 계산'):
-                weekly_total = data['Cozem_Total'].sum()
-                st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
-
-            if st.button('노블 제한목록 보기'):
+            elif option == "데이터 조회":
+                # 저장된 데이터
+                if st.button('차트 열기'):
+                    if not data.empty:
+                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+                    else:
+                        st.write('입력되어있는 데이터가 없습니다.')
+            elif option == "데이터 초기화":
+                # 데이터 전부 삭제
+                if st.button('차트 초기화'):
+                    clear_data()
+                    st.warning('차트가 초기화 되었습니다')
+            elif option == "노블 사용/제한":
+                if st.button('노블 제한목록 보기'):
                 # 경고자 명단
                 warning = data[data['Novel'] == 'X']
                 warning_list = warning['Name'].tolist()
@@ -202,40 +201,45 @@ elif choice == "길드페이지":
                 st.write(f"노블 제한자 :  {warning_list}.")
                 st.write(data[data['Novel'] == 'X'])
             
-            if st.button('노블 사용가능 목록 보기'):
-                # 먼슬리 참여 가능자 명단
-                monthly = data[data['Novel'] == 'O']
-                monthly_list = monthly['Name'].tolist()
-                st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
-                st.write(f"사용가능자 :  {monthly_list}.")
-                st.write(data[data['Novel'] == 'O'])
-                
-            
-            if st.button('위클리 코젬 분배 계산'):
-                weekly_total = data['Cozem_Total'].sum()
-                quotient = weekly_total // 5
-                remainder = weekly_total % 5
-                a = b = c = d = e = quotient
-                for i in range(remainder):
-                    if i == 0:
-                        a += 1
-                    elif i == 1:
-                        b += 1
-                    elif i == 2:
-                        c += 1
-                    elif i == 3:
-                        d += 1
-                    else:
-                        e += 1
+                if st.button('노블 사용가능 목록 보기'):
+                    # 먼슬리 참여 가능자 명단
+                    monthly = data[data['Novel'] == 'O']
+                    monthly_list = monthly['Name'].tolist()
+                    st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
+                    st.write(f"사용가능자 :  {monthly_list}.")
+                    st.write(data[data['Novel'] == 'O'])
 
-                st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_total}개 입니다.")
-                st.write(f"반디 : {a} 개")
-                st.write(f"샴푸 : {b} 개")
-                st.write(f"둥둥 : {c} 개")
-                st.write(f"돌체 : {d} 개")
-                st.write(f"영래 : {e} 개")
-        # if __name__ == '__main__':
-        #     main()
+            elif option == "위클리 코젬 계산":
+
+                if st.button('위클리 코젬 합계 계산'):
+                    weekly_total = data['Cozem_Total'].sum()
+                    st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
+
+                if st.button('위클리 코젬 분배 계산'):
+                    weekly_total = data['Cozem_Total'].sum()
+                    quotient = weekly_total // 5
+                    remainder = weekly_total % 5
+                    a = b = c = d = e = quotient
+                    for i in range(remainder):
+                        if i == 0:
+                            a += 1
+                        elif i == 1:
+                            b += 1
+                        elif i == 2:
+                            c += 1
+                        elif i == 3:
+                            d += 1
+                        else:
+                            e += 1
+
+                    st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_total}개 입니다.")
+                    st.write(f"반디 : {a} 개")
+                    st.write(f"샴푸 : {b} 개")
+                    st.write(f"둥둥 : {c} 개")
+                    st.write(f"돌체 : {d} 개")
+                    st.write(f"영래 : {e} 개")
+            # if __name__ == '__main__':
+            #     main()
 
 
     with tab3:
