@@ -145,7 +145,7 @@ with open('MH/products.csv', 'r', encoding='utf-8') as f:
     reader = csv.reader(f)
     header = next(reader)
     for row in reader:
-        cur.execute(f"INSERT INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
+        cur.execute(f"REPLACE INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
 
 # 커밋
 conn.commit()
