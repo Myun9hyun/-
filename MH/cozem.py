@@ -300,7 +300,7 @@ elif choice == "명단관리":
         df2_O = df2[df2['Novel'] == 'O']
         df2_X = df2[df2['Novel'] == 'X']
         # df1_O에서 Name열에 해당하는 index 리스트로 추출
-        name_index = df1_O.index[df1_O['Name'].notna()].tolist()
+        name_index = df1_X.index[df1_X['Name'].notna()].tolist()
         st.write("Name 열 index 리스트:", name_index)
 
         # novel_up = df1_X['Name'] or df2_O['Name']
