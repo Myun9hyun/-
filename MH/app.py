@@ -167,11 +167,6 @@ def flag_cozem(flag):
     elif flag == 1000:
         i = 3
         return i
-def my_function():
-    if flag_cozem:
-        print("Flag is True")
-
-my_function()
 
 def Suro_cozem(suro):
     if suro < 500:
