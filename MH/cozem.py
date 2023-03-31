@@ -14,15 +14,9 @@ import xgboost as xgb
 import seaborn as sns
 from streamlit_option_menu import option_menu
 import os
+import openpyxl
+from io import BytesIO
 
-names = [] # 길드원 닉네임 입력 리스트
-weekly_missions = [] # 주간미션 점수 입력 리스트
-suros_cozem = [] # 수로 점수에 따른 코젬 갯수 입력 리스트
-suros = []  # 수로 점수 리스트
-flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
-flags = []  # 플래그 점수 리스트
-cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
-novels = [] # 노블 사용 여부 리스트
 with st.sidebar:
     choice = option_menu("Menu", ["메인페이지", "길드페이지", "기타"],
                          icons=['house', 'bi bi-emoji-smile', 'bi bi-robot'],
@@ -34,10 +28,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#02ab21"},
     }
     )
-
-# # 사이드바에 메뉴 만들기
-# menu = ["메인페이지", "길드페이지", "기타"]
-# choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
+ choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
@@ -51,7 +42,6 @@ if choice == "메인페이지":
     > * 연합길드 '초초' 보유
     '''
     st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)
-    
     
 
 elif choice == "길드페이지":
@@ -75,8 +65,6 @@ elif choice == "길드페이지":
         st.header("💎코어젬스톤💎")
         st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=200)
         
-
-        # option = st.selectbox("데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용or제한", "위클리 코젬 계산")
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
@@ -161,10 +149,24 @@ elif choice == "길드페이지":
                 'Novel': novel_value  # Novel 값을 추가
             }, ignore_index=True)
 
+        
+        def download_xlsx(df, file_name):
+            # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
+            if not file_name.endswith(".xlsx"):
+                file_name += ".xlsx"
+            # 파일을 열어 BytesIO 객체에 쓰기
+            with BytesIO() as buffer:
+                df.to_excel(buffer, index=False)
+                # 파일 포인터를 맨 앞으로 이동시켜 파일 내용을 읽음
+                buffer.seek(0)
+                # 다운로드 링크 생성
+                b64 = base64.b64encode(buffer.read()).decode()
+                return f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{file_name}">다운로드</a>'
+
 
         def main():
             
-            options = ["데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용or제한", "위클리 코젬 계산"]
+            options = ["데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용or제한", "위클리 코젬 계산", "명단 다운로드"]
             option = st.selectbox("기능 선택", options)
             
 
@@ -239,6 +241,11 @@ elif choice == "길드페이지":
                     st.write(f"둥둥 : {c} 개")
                     st.write(f"돌체 : {d} 개")
                     st.write(f"영래 : {e} 개")
+            elif option == "명단 다운로드":
+                # 다운로드 버튼 클릭
+                if st.button("다운로드"):
+                    file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
+                    st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
         if __name__ == '__main__':
                 main()
 
