@@ -10,3 +10,4 @@ seaborn
 streamlit_option_menu
 numpy
 streamlit_SessionState==0.4.1
+sqlite3
