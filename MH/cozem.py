@@ -307,15 +307,23 @@ elif choice == "명단관리":
 
         novel_down = name1O_index and name2X_index
         novel_up = name1X_index and name2O_index
-        if not novel_up.empty:
-            st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
-        else : 
+        if not novel_up:
             st.write("이번주 직위 상승자는 없습니다.")
-        if not novel_down.empty:
-            st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
-        else:
+        else : 
+            st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
+        if not novel_down:
             st.write("이번주 직위 하락자는 없습니다.")
+        else:
+            st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
 
+        import streamlit as st
+
+my_list = []  # 예시로 빈 리스트 생성
+
+if not my_list:  # 리스트가 비어있는지 확인
+    st.write("리스트가 비어있습니다.")
+else:
+    st.write(my_list)  # 리스트의 값 출력
 
     if __name__ == "__main__":
         main()
