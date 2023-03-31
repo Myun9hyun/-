@@ -122,6 +122,7 @@ def main():
         add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
         save_data(data)  # 데이터를 파일에 저장
         st.success('데이터가 추가되었습니다.')
+
     if st.button('데이터 삭제'):
         name_to_delete = st.text_input('삭제할 이름을 입력하세요')
         if name_to_delete in data['Name'].values:
