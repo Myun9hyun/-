@@ -93,13 +93,14 @@ data = load_data()
 
 
 
-def delete_data(name):
+def delete_data(index):
     global data
-    for i, item in enumerate(data):
-        if isinstance(item, dict) and 'Name' in item and data['Name'] == name:
-            del data[i]
-            return True
-    return False
+    try:
+        del data[index]
+        return True
+    except IndexError:
+        return False
+
 
 
 def add_data(name, weekly_mission, suro, flag):
@@ -145,13 +146,14 @@ def main():
 
     elif choice == '데이터 삭제':
         st.subheader('데이터 삭제')
-        names = st.text_input('이름')
+        index = st.number_input('삭제할 데이터의 인덱스를 입력하세요', min_value=0, max_value=len(data)-1, step=1)
         if st.button('삭제'):
-            if delete_data(names):
+            if delete_data(index):
                 save_data(data)
                 st.success('데이터 삭제 완료!')
             else:
-                st.warning('해당 이름의 데이터가 없습니다.')
+                st.warning('해당 인덱스의 데이터가 없습니다.')
+
 
 
     elif choice == '데이터 조회':
