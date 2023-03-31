@@ -160,6 +160,7 @@ def main():
         st.write(data[data['Novel'] == 'O'])
 
     if st.button('devide'):
+        weekly_total = data['Cozem_Total'].sum()
         st.write(manager(weekly_total))
 if __name__ == '__main__':
     main()
