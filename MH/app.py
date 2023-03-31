@@ -41,7 +41,7 @@ def load_data():
     try:
         data = pd.read_csv(FILE_PATH)
     except FileNotFoundError:
-        data = pd.DataFrame(columns=['Name', 'Score'])
+        data = pd.DataFrame(columns=['Name', 'Weekly_Mission',	'Suro',	'Suro_Cozem',	'Flag',	'Flag_Cozem',	'Cozem_Total',	'Novel'])
     return data
 
 # 데이터를 파일에 저장하기
