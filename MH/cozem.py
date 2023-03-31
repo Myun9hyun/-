@@ -298,7 +298,7 @@ elif choice == "명단관리":
 
         # 중복 값이 있을 경우 출력
         if duplicates:
-            st.write("두 데이터프레임에서 중복되는 Name 값:", duplicates)
+            st.write(f"지난주에도 미실시 했고, 이번주에도 미실시 명단입니다. {duplicates}")
 
     if __name__ == "__main__":
         main()
