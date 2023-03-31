@@ -90,8 +90,9 @@ def add_data(name, weekly_mission, suro, flag):
 #     st.success('Data Deleted Successfully')
 
 def delete_data():
+    global data
     index = st.number_input('Enter index to delete', min_value=0, max_value=len(data)-1)
-    data.drop(index, axis=0).reset_index(drop=True)
+    data = data.drop(index, axis=0).reset_index(drop=True)
     save_data(data)
     st.success('Data Deleted Successfully')
 
@@ -125,9 +126,8 @@ def main():
         st.warning('Data Cleared Successfully')
 
     if st.button('Delete Data'):
-        global data
         name = st.text_input('Enter Name to Delete')
-        data = data[data['Name'] != name]
+        data[data['Name'] != name]
         save_data(data)
         st.success('Data Deleted Successfully')
 
