@@ -149,7 +149,7 @@ def main():
         st.write(data[data['Novel'] == 'O'])
         monthly = data[data['Novel'] == 'O']
         monthly_list = monthly['Name'].tolist()
-        st.write(monthly_list)
+        st.write(f"사용가능자는 {monthly_list}입니다.")
 
     if st.button('위클리 코젬 분배 계산'):
         weekly_total = data['Cozem_Total'].sum()
