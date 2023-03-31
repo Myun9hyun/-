@@ -132,13 +132,11 @@ def main():
         clear_data()
         st.warning('Data Cleared Successfully')
 
-    #  # 데이터 삭제
-    # if st.button('Delete Data'):
-    #     delete_name = st.text_input('Enter name to delete')
-    #     delete_data(delete_name)
     if st.button('Delete Data'):
-        if st.button('삭제'):
-            delete_data()
+        name = st.text_input('Enter Name to Delete')
+        data = data[data['Name'] != name]
+        save_data(data)
+        st.success('Data Deleted Successfully')
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
         st.write(f"{weekly_total}개")
