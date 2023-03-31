@@ -11,7 +11,7 @@ novel_p = [] # 노블 사용 여부 리스트
 flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 
 
-
+weekly_total = data['Cozem_Total'].sum()
 # 이번주 위클리 분배
 def divide_cozem(weekly_total):
     cozem = weekly_total // 4  # 몫
@@ -36,7 +36,7 @@ def manager(n):
     print(f"샴푸 : {divide_cozem(n)[2]} 개")
     print(f"둥둥 : {divide_cozem(n)[3]} 개")
     print(f"돌체 : {divide_cozem(n)[0]} 개")
-    
+
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
