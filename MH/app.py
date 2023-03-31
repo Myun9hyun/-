@@ -145,7 +145,14 @@ with open('./MH/products.csv', 'r', encoding='utf-8') as f:
     reader = csv.reader(f)
     header = next(reader)
     for row in reader:
-        cur.execute(f"REPLACE INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
+        cur.execute("SELECT * FROM products WHERE id=?", (row[0],))
+        data = cur.fetchone()
+        if data:
+            cur.execute("UPDATE products SET name=?, price=?, stock=? WHERE id=?", (row[1], row[2], row[3], row[0]))
+        else:
+            cur.execute("INSERT INTO products VALUES (?, ?, ?, ?)", (row[0], row[1], row[2], row[3]))
+    conn.commit()
+
 
 # 커밋
 conn.commit()
