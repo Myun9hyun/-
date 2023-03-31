@@ -175,9 +175,9 @@ def Suro_cozem(suro):
         i = (suro // 500)
     return i
 
-def cozem_sum(s, f):
+def cozem_sum(suro, flag):
     answer = 0
-    answer = Suro_cozem(s) + flag_cozem(f)
+    answer = Suro_cozem(suro) + Flag_cozem(flag)
     return answer
 def novel():
     if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
