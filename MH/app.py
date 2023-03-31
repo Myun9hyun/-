@@ -64,13 +64,34 @@ def clear_data():
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
 
-# 사용자로부터 이름과 점수를 입력받아 데이터프레
+# # 사용자로부터 이름과 점수를 입력받아 데이터프레
+# def add_data(name, weekly_mission, suro, flag):
+#     global data
+#     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
+#     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+#     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+#     novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+
+#     data = data.append({
+#         'Name': name, 
+#         'Weekly_Mission': weekly_mission, 
+#         'Suro': suro, 
+#         'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+#         'Flag': flag, 
+#         'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
+#         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
+#         'Novel': novel_value  # Novel 값을 추가
+#     }, ignore_index=True)
+
 def add_data(name, weekly_mission, suro, flag):
     global data
     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
     novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+
+    if 'data' not in globals():
+        data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel'])
 
     data = data.append({
         'Name': name, 
@@ -82,12 +103,7 @@ def add_data(name, weekly_mission, suro, flag):
         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
         'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
-# def delete_data():
-#     global data
-#     name = st.text_input('Enter Name to Delete')
-#     data = data[data['Name'] != name]
-#     save_data(data)
-#     st.success('Data Deleted Successfully')
+
 
 def delete_data():
     global data
@@ -113,14 +129,12 @@ def main():
         st.success('Data Added Successfully')
     
     # 저장된 데이터
-    # if st.button('Display Data'):
-    #     st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
     if st.button('Display Data'):
         if not data.empty:
             st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
         else:
             st.write('데이터가 없습니다.')
-
+    # 데이터 전부 삭제
     if st.button('Clear Data'):
         clear_data()
         st.warning('Data Cleared Successfully')
@@ -131,8 +145,6 @@ def main():
             data = data[data['Name'] != name]
             save_data(data)
             st.success('Data Deleted Successfully')
-
-
 
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
