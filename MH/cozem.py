@@ -241,8 +241,8 @@ elif choice == "길드페이지":
                     st.write(f"둥둥 : {c} 개")
                     st.write(f"돌체 : {d} 개")
                     st.write(f"영래 : {e} 개")
-            # if __name__ == '__main__':
-            #     main()
+            if __name__ == '__main__':
+                main()
 
 
     with tab3:
