@@ -2,13 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 
-# # 위클리 코젬 내야하는 갯수
-# def manager(cozem_sums):
-#     st.write(f"반디 : {divide_cozem(cozem_sums)[1]} 개")
-#     st.write(f"샴푸 : {divide_cozem(cozem_sums)[2]} 개")
-#     st.write(f"둥둥 : {divide_cozem(cozem_sums)[3]} 개")
-#     st.write(f"돌체 : {divide_cozem(cozem_sums)[0]} 개")
-
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
@@ -120,11 +113,12 @@ def main():
         clear_data()
         st.warning('Data Cleared Successfully')
 
-    if st.button('delete data'):
-        delete_index = st.text_input("삭제할 인덱스를 입력하세요: ")
-        # data.drop(delete_index, axis=0, inplace=True)
-        if delete_index != '':
-            data.drop['Name'](delete_index, axis=0, inplace=True)
+     # 데이터 삭제
+    if st.button('Delete'):
+        name_to_delete = st.text_input('Enter Name to Delete')
+        data = data[data['Name'] != name_to_delete]
+        save_data(data)
+        st.success(f'{name_to_delete} deleted successfully')
 
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
