@@ -128,6 +128,10 @@ def main():
     if st.button('Warning'):
         # 경고자 명단
         st.write(data[data['Novel'] == 'X'])
+    
+    if st.button('monthly'):
+        # 먼슬리 참여 가능자 명단
+        st.write(data[data['Novel'] == 'O'])
 
 if __name__ == '__main__':
     main()
