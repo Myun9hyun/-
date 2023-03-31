@@ -19,8 +19,8 @@ from io import BytesIO
 import base64
 
 with st.sidebar:
-    choice = option_menu("Menu", ["메인페이지", "길드페이지", "기타"],
-                         icons=['house', 'bi bi-emoji-smile', 'bi bi-robot'],
+    choice = option_menu("Menu", ["메인페이지", "길드페이지", "명단관리", "아카이브"],
+                         icons=['house', 'bi bi-emoji-smile', 'bi bi-robot', 'bi bi-palette'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "4!important", "background-color": "#fafafa"},
