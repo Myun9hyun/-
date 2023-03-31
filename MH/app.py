@@ -180,16 +180,16 @@ def cozem_sum(suro, flag):
     answer = Suro_cozem(suro) + Flag_cozem(flag)
     return answer
 
-# def novel_p():
-#     if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
-#         novel = 'O'
-#     elif weekly_mission == 5 and suro >= 1500:
-#         novel = 'O'
-#     elif weekly_mission == 5 and flag >= 650:
-#         novel = 'O'
-#     else:
-#         novel = 'X'
-#     return novel
+def novel_p(weely_mission, suro, flag):
+    if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
+        novel = 'O'
+    elif weekly_mission == 5 and suro >= 1500:
+        novel = 'O'
+    elif weekly_mission == 5 and flag >= 650:
+        novel = 'O'
+    else:
+        novel = 'X'
+    return novel
 
 
 
@@ -224,7 +224,7 @@ def add_data(name, weekly_mission, suro, flag):
     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-    # novel_value = novel_p()  # Novel 값 계산
+    novel_value = novel_p()  # Novel 값 계산
 
     data = data.append({
         'Name': name, 
@@ -234,7 +234,7 @@ def add_data(name, weekly_mission, suro, flag):
         'Flag': flag, 
         'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-        # 'Novel': novel_value  # Novel 값을 추가
+        'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
 
 
