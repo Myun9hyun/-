@@ -161,11 +161,11 @@ def main():
 
     if st.button('devide'):
         weekly_total = data['Cozem_Total'].sum()
-        def divide_cozem(cozem_sums):
-            cozem = cozem_sums // 4  # 몫
-            cozem_else = cozem_sums % 4  # 나머지
-            if cozem_sums < 3:  # 입력값이 3 미만인 경우
-                return [cozem_sums] + [0] * (3 - cozem_sums)
+        def divide_cozem(weekly_total):
+            cozem = weekly_total // 4  # 몫
+            cozem_else = weekly_total % 4  # 나머지
+            if weekly_total < 3:  # 입력값이 3 미만인 경우
+                return [weekly_total] + [0] * (3 - weekly_total)
             if cozem_else == 0:  # 4로 나누어 떨어지는 경우
                 return [cozem] * 4
             elif cozem_else == 1:  # 4로 나누었을 때 나머지가 1인 경우
