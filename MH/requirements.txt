@@ -1,6 +1,5 @@
 streamlit
 pandas
-numpy
 statsmodels
 plotly
 matplotlib
@@ -11,3 +10,4 @@ seaborn
 streamlit_option_menu
 sqlite3
 streamlit-SessionState
+numpy
