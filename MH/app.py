@@ -246,11 +246,11 @@ def main():
     flag = st.number_input('Enter flag', min_value=0, max_value=1000)
     
     def novel():
-        if (weekly_mission >= 3) and (s > 0) and (f > 0):
+        if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
             return 'O'
-        elif weekly_mission == 5 and s >= 1500:
+        elif weekly_mission == 5 and suro >= 1500:
             return 'O'
-        elif weekly_mission == 5 and f >= 650:
+        elif weekly_mission == 5 and flag >= 650:
             return 'O'
         else:
             return 'X'
