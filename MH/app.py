@@ -221,7 +221,7 @@ elif choice == "길드페이지":
                         st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
                     if not warning_flag_list:
                         st.write('이번주 플래그 미실시자는 없습니다.')
-                    else"
+                    else:
                         st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
 
                 if st.button('노블 사용가능 목록 보기'):
