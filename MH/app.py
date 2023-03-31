@@ -39,8 +39,6 @@ def novel_p(weekly_mission, suro, flag):
         novel = 'X'
     return novel
 
-
-
 # 데이터를 저장할 파일 경로 지정
 FILE_PATH = 'data.csv'
 
@@ -98,9 +96,6 @@ def delete_data():
     save_data(data)
     st.success('Data Deleted Successfully')
 
-
-
-
 def main():
     st.title('cozem')
     
@@ -126,17 +121,17 @@ def main():
         else:
             st.write('데이터가 없습니다.')
 
-    
-
     if st.button('Clear Data'):
         clear_data()
         st.warning('Data Cleared Successfully')
 
     if st.button('Delete Data'):
+        global data
         name = st.text_input('Enter Name to Delete')
         data = data[data['Name'] != name]
         save_data(data)
         st.success('Data Deleted Successfully')
+
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
         st.write(f"{weekly_total}개")
