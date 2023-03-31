@@ -151,11 +151,9 @@ def main():
     if st.button("다운로드"):
         file_name = st.text_input("저장할 파일명을 입력하세요:", "example.csv")
 
-    # 저장 버튼 클릭 시
-        if st.button("저장"):
-            # 데이터프레임을 CSV 파일로 저장
-            data.to_csv(file_name, index=False)
-            st.success(f"{file_name} 파일이 저장되었습니다.")
+        # 데이터프레임을 CSV 파일로 저장
+        data.to_csv(file_name, index=False)
+        st.success(f"{file_name} 파일이 저장되었습니다.")
 
 
 
