@@ -267,7 +267,7 @@ elif choice == "명단관리":
 
     # Streamlit 앱
     def main():
-        st.title("Excel 파일 업로드 예제")
+        st.write("엑셀 파일을 업로드 해주세요")
         uploaded_file = st.file_uploader("Excel 파일 업로드", type=["xlsx"])
         
         if uploaded_file is not None:
