@@ -150,7 +150,7 @@ def main():
     if st.button('다운로드'):
         file_name = st.text_input('Enter the file name:', 'my_data')
         # 다운로드 버튼 생성
-        st.markdown(download_csv(df, file_name), unsafe_allow_html=True)    
+        st.markdown(download_csv(data, file_name), unsafe_allow_html=True)    
         # 사용자가 입력한 파일명 받아오기
 
 
