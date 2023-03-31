@@ -125,6 +125,10 @@ def main():
         weekly_total = data['Cozem_Total'].sum()
         st.write(f"{weekly_total}개")
 
+    if st.button('Warning'):
+        # 경고자 명단
+        st.write(data[data['Novel'] == 'X'])
+
 if __name__ == '__main__':
     main()
 
