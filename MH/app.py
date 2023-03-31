@@ -84,7 +84,11 @@ def add_data(name, weekly_mission, suro, flag):
         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
         'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
-
+def delete_data(name):
+    global data
+    data = data[data['Name'] != name]
+    save_data(data)
+    st.success(f"{name} deleted successfully")
 
 def main():
     st.title('Add and Display Data')
@@ -114,11 +118,9 @@ def main():
         st.warning('Data Cleared Successfully')
 
      # 데이터 삭제
-    if st.button('Delete'):
-        name_to_delete = st.text_input('Enter Name to Delete')
-        data = data[data['Name'] != name_to_delete]
-        save_data(data)
-        st.success(f'{name_to_delete} deleted successfully')
+    if st.button('Delete Data'):
+        delete_name = st.text_input('Enter name to delete')
+        delete_data(delete_name)
 
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
