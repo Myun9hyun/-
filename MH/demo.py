@@ -84,14 +84,9 @@ data = load_data()
 #     }, ignore_index=True)
 
 
-def load_data():
-    data = pd.read_csv('data.csv')
-    return data
 
 data = load_data()
 
-def save_data(data):
-    data.to_csv('data.csv', index=False)
 
 def delete_data():
     if st.button('Delete Data'):
