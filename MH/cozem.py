@@ -293,8 +293,8 @@ elif choice == "명단관리":
             # 데이터프레임 출력
             st.write("데이터프레임2")
             st.write(df2)
-        df1_O = df1['Novel'] == 'O'
-        df2_X = df2['Novel'] == 'X'
+        df1_O = df1[df1['Novel'] == 'O']
+        df2_X = df2[df2['Novel'] == 'X']
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
         novel_up = df1_O['Name'] and df2_X['Name']
         # 중복 값이 있을 경우 출력
