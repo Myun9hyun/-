@@ -89,11 +89,13 @@ def add_data(name, weekly_mission, suro, flag):
 
 
 # 다운로드 버튼 클릭 시 CSV 파일 다운로드
-def download_csv(data, file_name):
-    csv = data.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="{file_name}.csv">Download CSV</a>'
-    return href
+def download_xlsx(df, file_name):
+    # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
+    if not file_name.endswith(".xlsx"):
+        file_name += ".xlsx"
+    with open(file_name, "w") as f:
+        df.to_excel(f, index=False)
+    return f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{file_name}">다운로드</a>'
 
 
 def main():
@@ -149,9 +151,8 @@ def main():
         st.write(data[data['Novel'] == 'O'])
     # 다운로드 버튼 클릭
     if st.button("다운로드"):
-        file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기")
-        if file_name:  # 파일명이 입력된 경우에만 실행
-            st.markdown(download_csv(data, file_name), unsafe_allow_html=True)
+        file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
+        st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
 
 
 
