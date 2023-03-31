@@ -16,6 +16,7 @@ from streamlit_option_menu import option_menu
 import os
 import openpyxl
 from io import BytesIO
+import base64
 
 with st.sidebar:
     choice = option_menu("Menu", ["메인페이지", "길드페이지", "기타"],
