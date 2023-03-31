@@ -153,6 +153,7 @@ flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
 flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
+
 def flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
@@ -166,6 +167,11 @@ def flag_cozem(flag):
     elif flag == 1000:
         i = 3
         return i
+def my_function():
+    if flag_cozem:
+        print("Flag is True")
+
+my_function()
 
 def Suro_cozem(suro):
     if suro < 500:
