@@ -69,3 +69,4 @@ def display_product_info(product, session):
             st.write('품절')
         else:
             if st.button(f'구매 ({product[1]})', key=f'buy_{product[0]}'):
+                st.write()
