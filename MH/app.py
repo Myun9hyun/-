@@ -2,12 +2,12 @@ import streamlit as st
 import pandas as pd
 import os
 
-# 위클리 코젬 내야하는 갯수
-def manager(cozem_sums):
-    st.write(f"반디 : {divide_cozem(cozem_sums)[1]} 개")
-    st.write(f"샴푸 : {divide_cozem(cozem_sums)[2]} 개")
-    st.write(f"둥둥 : {divide_cozem(cozem_sums)[3]} 개")
-    st.write(f"돌체 : {divide_cozem(cozem_sums)[0]} 개")
+# # 위클리 코젬 내야하는 갯수
+# def manager(cozem_sums):
+#     st.write(f"반디 : {divide_cozem(cozem_sums)[1]} 개")
+#     st.write(f"샴푸 : {divide_cozem(cozem_sums)[2]} 개")
+#     st.write(f"둥둥 : {divide_cozem(cozem_sums)[3]} 개")
+#     st.write(f"돌체 : {divide_cozem(cozem_sums)[0]} 개")
 
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
