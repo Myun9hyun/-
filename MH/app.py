@@ -179,6 +179,7 @@ def cozem_sum(suro, flag):
     answer = 0
     answer = Suro_cozem(suro) + Flag_cozem(flag)
     return answer
+    
 def novel():
     if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
         return 'O'
@@ -245,15 +246,6 @@ def main():
     suro = st.number_input('Enter suro', min_value=0, max_value=100000)
     flag = st.number_input('Enter flag', min_value=0, max_value=1000)
     
-    def novel():
-        if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
-            return 'O'
-        elif weekly_mission == 5 and suro >= 1500:
-            return 'O'
-        elif weekly_mission == 5 and flag >= 650:
-            return 'O'
-        else:
-            return 'X'
 
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
