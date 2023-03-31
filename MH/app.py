@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import base64
 
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
