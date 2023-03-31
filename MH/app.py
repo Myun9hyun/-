@@ -11,7 +11,7 @@ flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
 
-def flag_cozem(f):
+def flag_cozem(flag):
     # input(f"f입력 : {n} ")
     if f >= 0 and f < 500:
         i = 0
@@ -26,7 +26,7 @@ def flag_cozem(f):
         i = 3
         return i
 
-def suro(s):
+def Suro_cozem(suro):
     if s < 500 and s >= 0:
         return 0
     elif s >= 500:
@@ -75,14 +75,14 @@ def clear_data():
 data = load_data()
 
 # 사용자로부터 이름과 점수를 입력받아 데이터프레임에 추가하는 함수
-def add_data(name, weekly_mission, suro, flag, suros_cozem):
+def add_data(name, weekly_mission, suro, flag):
     global data
     data = data.append({
         'Name': name, 
         'Weekly_Mission' : weekly_mission, 
         'Suro': suro, 
         'Flag' : flag,
-        'Suro_Cozem': suros_cozem }, ignore_index=True)
+         }, ignore_index=True)
 
 # Streamlit 앱 생성
 def main():
