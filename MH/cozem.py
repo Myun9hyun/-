@@ -270,29 +270,30 @@ elif choice == "명단관리":
 
     # Streamlit 앱
     def main():
-        # 첫 번째 엑셀 파일 업로드
-        st.write("첫 번째 엑셀 파일을 업로드 해주세요")
-        uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"])
+        st.write("엑셀 파일1을 업로드 해주세요")
+        uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
+
         if uploaded_file1 is not None:
             # 업로드한 파일을 저장하고, 데이터프레임으로 변환
             save_uploaded_file(uploaded_file1)
             df1 = upload_excel_file(uploaded_file1)
-            
+
             # 데이터프레임 출력
-            st.write("첫 번째 데이터프레임")
+            st.write("데이터프레임1")
             st.write(df1)
 
-        # 두 번째 엑셀 파일 업로드
-        st.write("두 번째 엑셀 파일을 업로드 해주세요")
-        uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"])
+        st.write("엑셀 파일2을 업로드 해주세요")
+        uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload2")
+
         if uploaded_file2 is not None:
             # 업로드한 파일을 저장하고, 데이터프레임으로 변환
             save_uploaded_file(uploaded_file2)
             df2 = upload_excel_file(uploaded_file2)
-            
+
             # 데이터프레임 출력
-            st.write("두 번째 데이터프레임")
+            st.write("데이터프레임2")
             st.write(df2)
+
 
     if __name__ == "__main__":
         main()
