@@ -19,7 +19,7 @@ from io import BytesIO
 import base64
 
 with st.sidebar:
-    choice = option_menu("Menu", ["메인페이지", "길드페이지", "명단관리", "아카이브", "이것저것"],
+    choice = option_menu("Menu", ["메인페이지", "길드페이지", "직위관리", "아카이브", "이것저것"],
                          icons=['house', 'bi bi-emoji-smile', 'bi bi-robot', 'bi bi-palette'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
@@ -252,8 +252,8 @@ elif choice == "길드페이지":
 
 
       
-elif choice == "명단관리":
-    st.header("길드원 명단 관리페이지")
+elif choice == "직위관리":
+    st.header("길드원 직위 상승/하락 페이지")
         # 업로드한 파일을 데이터프레임으로 변환하는 함수
 
 
@@ -270,6 +270,7 @@ elif choice == "명단관리":
 
     # Streamlit 앱
     def main():
+        st.header("파일 업로드 하면 에러 없어짐!")
         st.write("엑셀 파일1을 업로드 해주세요")
         uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
 
@@ -408,5 +409,5 @@ else:
         | GoogleDocs | 📑아기자기명단 | [![Colab](https://img.shields.io/badge/GoogleDocs-아기자기명단-green)](https://onedrive.live.com/edit.aspx?resid=221CE48C87202DCA!2450&ithint=file%2cxlsx&authkey=!ADKQOeLCxzQp_5o) | 
 
         '''
-        
+
         
