@@ -116,7 +116,7 @@ def main():
     
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
-        add_data(name, weekly_mission ,suro, flag, suros_cozem)
+        add_data(name, weekly_mission ,suro, flag)
         save_data(data)  # 데이터를 파일에 저장
         st.success('Data Added Successfully')
     
