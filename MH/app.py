@@ -136,16 +136,15 @@ CREATE TABLE IF NOT EXISTS products (
     id INTEGER PRIMARY KEY,
     name TEXT,
     price INTEGER,
-    quantity INTEGER
+    stock INTEGER
 )
 """)
 # csv 파일에서 데이터 가져오기
 with open('MH/products.csv', 'r', encoding='utf-8') as f:
-    reader = csv.reader(f)
-    header = next(reader)
-    for i, row in enumerate(reader, 1):
-        cur.execute("INSERT INTO products VALUES (?, ?, ?, ?)", (i, row[0], row[1], row[2]))
-
+    products = list(csv.reader(f))[1:]
+    cur.execute("DELETE FROM products")
+    cur.executemany("INSERT INTO products VALUES (?, ?, ?, ?)", products)
+conn.commit()
 
 # # csv 파일에서 데이터 가져오기
 # with open('MH/products.csv', 'r', encoding='utf-8') as f:
@@ -161,14 +160,13 @@ conn.commit()
 def select_products():
     cur.execute("SELECT * FROM products")
     products = cur.fetchall()
-    return [list(product) for product in products]  # 수정된 부분
+    return [list(product) for product in products]
 
 # 테이블 업데이트 함수
 def update_product_quantity(id, quantity):
-    cur.execute("UPDATE products SET quantity = ? WHERE id = ?", (quantity, id))
+    cur.execute("UPDATE products SET stock = ? WHERE id = ?", (quantity, id))
     conn.commit()
 
-# 상품 정보 표시
 # 상품 정보 표시
 def display_product_info(product):
     col1, col2, col3, col4 = st.beta_columns([1, 1, 1, 0.5])
@@ -190,6 +188,8 @@ def display_product_info(product):
                 updated_product = select_products()[product[0]-1]  # 업데이트된 값을 다시 가져옴
                 st.success(f'{updated_product[1]} {quantity}개 구매 완료')
                 product[:] = updated_product  # 리스트를 수정
+
+
 
 
 # 메인 함수
