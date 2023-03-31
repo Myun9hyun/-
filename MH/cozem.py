@@ -11,10 +11,21 @@ flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
 novels = [] # 노블 사용 여부 리스트
+with st.sidebar:
+    choice = option_menu("Contents", ["메인페이지", "길드페이지", "기타"],
+                         icons=['house', 'kanban', 'bi bi-robot'],
+                         menu_icon="app-indicator", default_index=0,
+                         styles={
+        "container": {"padding": "4!important", "background-color": "#fafafa"},
+        "icon": {"color": "black", "font-size": "25px"}, 
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#fafafa"},
+        "nav-link-selected": {"background-color": "#02ab21"},
+    }
+    )
 
-# 사이드바에 메뉴 만들기
-menu = ["메인페이지", "길드페이지", "기타"]
-choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
+# # 사이드바에 메뉴 만들기
+# menu = ["메인페이지", "길드페이지", "기타"]
+# choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
