@@ -201,18 +201,27 @@ elif choice == "길드페이지":
                 # 경고자 명단
                     warning = data[data['Novel'] == 'X']
                     warning_list = warning['Name'].tolist()
-                    st.write('이번주 노블 사용제한 목록 입니다.')
-                    st.write(f"노블 제한자 :  {warning_list}.")
-                    st.write(data[data['Novel'] == 'X'])
-                    warning_WM = data[data['Weekly_Mission'] < 3]
-                    warning_WM_list = warning_WM['Name'].tolist()
-                    st.write(f"노블 제한자 중 주간미션 미달자입니다 :  {warning_WM_list}.")
-                    warning_suro = data[data['Suro'] == 0]
-                    warning_suro_list = warning_suro['Name'].tolist()
-                    st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
-                    warning_flag = data[data['Flag'] == 0]
-                    warning_flag_list = warning_flag['Name'].tolist()
-                    st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
+                    if not warning_list:
+                        st.write('이번주 노블 사용제한자는 없습니다.')
+                    else:
+                        st.write('이번주 노블 사용제한 목록 입니다.')
+                        st.write(f"노블 제한자 :  {warning_list}.")
+                        st.write(data[data['Novel'] == 'X'])
+                    if not warning_WM_list:
+                        st.write('이번주 주간미션 미달자는 없습니다.')
+                        warning_WM = data[data['Weekly_Mission'] < 3]
+                        warning_WM_list = warning_WM['Name'].tolist()
+                        st.write(f"노블 제한자 중 주간미션 미달자입니다 :  {warning_WM_list}.")
+                    if not warning_suro_list:
+                        st.write('이번주 지하수로 미실시자는 없습니다.')
+                        warning_suro = data[data['Suro'] == 0]
+                        warning_suro_list = warning_suro['Name'].tolist()
+                        st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
+                    if not warning_flag_list:
+                        st.write('이번주 플래그 미실시자는 없습니다.')
+                        warning_flag = data[data['Flag'] == 0]
+                        warning_flag_list = warning_flag['Name'].tolist()
+                        st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
 
                 if st.button('노블 사용가능 목록 보기'):
                     # 먼슬리 참여 가능자 명단
