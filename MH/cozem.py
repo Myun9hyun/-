@@ -72,7 +72,7 @@ elif choice == "길드페이지":
     with tab2:
         st.header("💎코어젬스톤💎")
         st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=400)
-        option = st.selectbox("데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용/제한", "위클리 코젬 계산")
+        option = st.selectbox("데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용or제한", "위클리 코젬 계산")
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
@@ -192,7 +192,7 @@ elif choice == "길드페이지":
                 if st.button('차트 초기화'):
                     clear_data()
                     st.warning('차트가 초기화 되었습니다')
-            elif option == "노블 사용/제한":
+            elif option == "노블 사용or제한":
                 if st.button('노블 제한목록 보기'):
                 # 경고자 명단
                     warning = data[data['Novel'] == 'X']
