@@ -3,6 +3,8 @@ import pandas as pd
 import os
 import base64
 import openpyxl
+from io import BytesIO
+
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
@@ -89,13 +91,20 @@ def add_data(name, weekly_mission, suro, flag):
 
 
 # 다운로드 버튼 클릭 시 CSV 파일 다운로드
+
 def download_xlsx(df, file_name):
     # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
     if not file_name.endswith(".xlsx"):
         file_name += ".xlsx"
-    with open(file_name, "w") as f:
-        df.to_excel(f, index=False)
-    return f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{file_name}">다운로드</a>'
+    # 파일을 열어 BytesIO 객체에 쓰기
+    with BytesIO() as buffer:
+        df.to_excel(buffer, index=False)
+        # 파일 포인터를 맨 앞으로 이동시켜 파일 내용을 읽음
+        buffer.seek(0)
+        # 다운로드 링크 생성
+        b64 = base64.b64encode(buffer.read()).decode()
+        return f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{file_name}">다운로드</a>'
+
 
 
 def main():
