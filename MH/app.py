@@ -203,6 +203,8 @@ elif choice == "길드페이지":
                     warning_list = warning['Name'].tolist()
                     warning_WM = data[data['Weekly_Mission'] < 3]
                     warning_WM_list = warning_WM['Name'].tolist()
+                    warning_suro = data[data['Suro'] == 0]
+                    warning_suro_list = warning_suro['Name'].tolist()
                     warning_flag = data[data['Flag'] == 0]
                     warning_flag_list = warning_flag['Name'].tolist()
                     if not warning_list:
