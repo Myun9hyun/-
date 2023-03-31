@@ -270,7 +270,10 @@ elif choice == "직위관리":
 
     # Streamlit 앱
     def main():
-        st.header("파일 업로드 하면 에러 없어짐!")
+        st.write()
+        '''
+        ### ❗파일 업로드 하면 에러 없어짐❗
+        '''
         st.write("엑셀 파일1을 업로드 해주세요")
         uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
 
