@@ -61,7 +61,7 @@ def display_product_info(product, session):
             st.write('품절')
         else:
             quantity = st.number_input('수량', value=1, min_value=1, max_value=product[3])
-            if st.button('구매'):
+            if st.button(f'구매 ({product[1]})', key=f'buy_{product[0]}'):
                 update_product_quantity(product[0], product[3]-quantity)
                 st.success(f'{product[1]} {quantity}개 구매 완료')
 
@@ -72,6 +72,7 @@ def display_product_info(product, session):
                     session.cart[product[1]] = {'price': product[2], 'quantity': quantity}
                 else:
                     session.cart[product[1]]['quantity'] += quantity
+
 
 # 장바구니 표시
 def display_cart(session):
