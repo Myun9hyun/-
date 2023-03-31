@@ -256,8 +256,8 @@ def main():
     # 저장된 데이터
     if st.button('Display Data'):
         #     st.write(data)
-        if st.button('Display Data'):
-            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+        # if st.button('Display Data'):
+        #     st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
 
 
     if st.button('Clear Data'):
