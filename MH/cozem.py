@@ -305,7 +305,7 @@ elif choice == "명단관리":
         name2_index = df2_O['Name'].tolist()
         st.write("Name2 열 index 리스트:", name2_index)
 
-        novel_up = name1_index or name2_index
+        novel_up = name1_index and name2_index
         st.write("직위 상승자",novel_up)
         st.write(df2_X.index['Name'])
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
