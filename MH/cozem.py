@@ -167,7 +167,7 @@ elif choice == "길드페이지":
 
         def main():
             
-            options = ["데이터 추가", "데이터 조회", "데이터 초기화", "노블 사용or제한", "위클리 코젬 계산", "명단 다운로드"]
+            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 초기화✂", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
             option = st.selectbox("기능 선택", options)
             
 
@@ -177,26 +177,26 @@ elif choice == "길드페이지":
             suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
             flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
             
-            if option == "데이터 추가":
+            if option == "데이터 추가➕":
                 # 이름과 점수가 입력되면 데이터프레임에 추가
                 if st.button('데이터 추가'):
                     add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
                     save_data(data)  # 데이터를 파일에 저장
                     st.success('데이터가 추가되었습니다.')
 
-            elif option == "데이터 조회":
+            elif option == "데이터 조회🔎":
                 # 저장된 데이터
                 if st.button('차트 열기'):
                     if not data.empty:
                         st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
                     else:
                         st.write('입력되어있는 데이터가 없습니다.')
-            elif option == "데이터 초기화":
+            elif option == "데이터 초기화✂":
                 # 데이터 전부 삭제
                 if st.button('차트 초기화'):
                     clear_data()
                     st.warning('차트가 초기화 되었습니다')
-            elif option == "노블 사용or제한":
+            elif option == "노블 사용⭕or제한❌":
                 if st.button('노블 제한목록 보기'):
                 # 경고자 명단
                     warning = data[data['Novel'] == 'X']
@@ -213,7 +213,7 @@ elif choice == "길드페이지":
                     st.write(f"사용가능자 :  {monthly_list}.")
                     st.write(data[data['Novel'] == 'O'])
 
-            elif option == "위클리 코젬 계산":
+            elif option == "위클리 코젬 계산📋":
 
                 if st.button('위클리 코젬 합계 계산'):
                     weekly_total = data['Cozem_Total'].sum()
@@ -242,7 +242,7 @@ elif choice == "길드페이지":
                     st.write(f"둥둥 : {c} 개")
                     st.write(f"돌체 : {d} 개")
                     st.write(f"영래 : {e} 개")
-            elif option == "명단 다운로드":
+            elif option == "데이터 다운로드💾":
                 # 다운로드 버튼 클릭
                 if st.button("다운로드"):
                     file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
