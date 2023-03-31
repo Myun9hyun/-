@@ -117,7 +117,8 @@ def main():
 
     if st.button('delete'):
         delete_name = st.text_input('삭제할 이름을 입력하세요')
-        data = data[data['Name'] != delete_name]
+
+        data = data.drop(delete_name)
     if st.button('Clear Data'):
         clear_data()
         st.warning('Data Cleared Successfully')
