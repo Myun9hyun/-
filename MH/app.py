@@ -151,7 +151,8 @@ def main():
     if st.button("다운로드"):
         file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기")
         # file_name = st.text_input('Enter the file name:', 'my_data')
-        st.markdown(download_csv(data, file_name), unsafe_allow_html=True)
+        if st.button("저장"):
+            st.markdown(download_csv(data, file_name), unsafe_allow_html=True)
 
 
 
