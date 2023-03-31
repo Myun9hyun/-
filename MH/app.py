@@ -2,6 +2,37 @@ import streamlit as st
 import pandas as pd
 import os
 
+names = [] # 길드원 닉네임 입력 리스트
+weekly_missions = [] # 주간미션 점수 입력 리스트
+suros_cozem = [] # 수로 점수에 따른 코젬 갯수 입력 리스트
+suros = []  # 수로 점수 리스트
+flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
+flags = []  # 플래그 점수 리스트
+cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
+novels = [] # 노블 사용 여부 리스트
+
+def flag_cozem(f):
+    # input(f"f입력 : {n} ")
+    if f >= 0 and f < 500:
+        i = 0
+        return i
+    if f >= 500 and f <= 750:
+        i = 1
+        return i
+    elif f > 750 and f < 1000:
+        i = 2
+        return i
+    elif f == 1000:
+        i = 3
+        return i
+
+def suro(s):
+    if s < 500 and s >= 0:
+        return 0
+    elif s >= 500:
+        i = (s // 500)
+        return i
+
 # 데이터를 저장할 파일 경로 지정
 FILE_PATH = 'data.csv'
 
@@ -20,7 +51,7 @@ def save_data(data):
 # 데이터 초기화 함수
 def clear_data():
     global data
-    data = pd.DataFrame(columns=['Name', 'Score'])
+    data = pd.DataFrame(columns=['Name', 'Weekly_Mission',	'Suro',	'Suro_Cozem',	'Flag',	'Flag_Cozem',	'Cozem_Total',	'Novel'])
     # 파일 삭제
     os.remove(FILE_PATH)
 
@@ -28,9 +59,9 @@ def clear_data():
 data = load_data()
 
 # 사용자로부터 이름과 점수를 입력받아 데이터프레임에 추가하는 함수
-def add_data(name, score):
+def add_data(name, suro, flag):
     global data
-    data = data.append({'Name': name, 'Score': score}, ignore_index=True)
+    data = data.append({'Name': name, 'Score': suro, 'Flag' : flag}, ignore_index=True)
 
 # Streamlit 앱 생성
 def main():
@@ -38,7 +69,9 @@ def main():
     
     # 사용자로부터 이름과 점수를 입력받는 UI 구성
     name = st.text_input('Enter Name')
-    score = st.number_input('Enter Score', min_value=0, max_value=100)
+    suro = st.number_input('Enter suro', min_value=0, max_value=100000)
+    suro = st.number_input('Enter flag', min_value=0, max_value=1000)
+    
     
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
