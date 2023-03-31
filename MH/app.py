@@ -127,7 +127,7 @@ import csv
 st.set_page_config(page_title='온라인 상점', page_icon=':shopping_bags:', layout='wide')
 
 # 데이터베이스 연결
-conn = sqlite3.connect(':memory:')
+conn = sqlite3.connect('products.db')
 cur = conn.cursor()
 
 # 테이블 생성
