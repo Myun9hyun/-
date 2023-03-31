@@ -28,7 +28,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#02ab21"},
     }
     )
-choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
+# choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
