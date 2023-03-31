@@ -31,11 +31,11 @@ def divide_cozem(weekly_total):
 
 # 위클리 코젬 내야하는 갯수
 def manager(n):
-    print(f"반디 : {divide_cozem(n)[1]} 개")
-    print(f"샴푸 : {divide_cozem(n)[2]} 개")
-    print(f"둥둥 : {divide_cozem(n)[3]} 개")
-    print(f"돌체 : {divide_cozem(n)[0]} 개")
-    
+    st.write(f"반디 : {divide_cozem(n)[1]} 개")
+    st.write(f"샴푸 : {divide_cozem(n)[2]} 개")
+    st.write(f"둥둥 : {divide_cozem(n)[3]} 개")
+    st.write(f"돌체 : {divide_cozem(n)[0]} 개")
+
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
