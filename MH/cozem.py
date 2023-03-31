@@ -300,11 +300,13 @@ elif choice == "명단관리":
         df2_O = df2[df2['Novel'] == 'O']
         df2_X = df2[df2['Novel'] == 'X']
         # df1_O에서 Name열에 해당하는 index 리스트로 추출
-        name_index = df1_X['Name'].tolist()
-        st.write("Name 열 index 리스트:", name_index)
+        name1_index = df1_X['Name'].tolist()
+        st.write("Name 열 index 리스트:", name1_index)
+        name2_index = df2_O['Name'].tolist()
+        st.write("Name 열 index 리스트:", name2_index)
 
-        # novel_up = df1_X['Name'] or df2_O['Name']
-        # st.write(novel_up)
+        novel_up = name1_index or name2_index
+        st.write(novel_up)
         st.write(df2_X.index['Name'])
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
 
