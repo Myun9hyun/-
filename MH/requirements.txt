@@ -9,3 +9,4 @@ xgboost
 seaborn
 streamlit_option_menu
 numpy
+openpyxl
