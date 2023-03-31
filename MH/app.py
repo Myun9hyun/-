@@ -157,9 +157,14 @@ def select_products():
     return [list(product) for product in products]
 
 # 테이블 업데이트 함수
+# 테이블 업데이트 함수
 def update_product_quantity(id, quantity):
     cur.execute("UPDATE products SET stock = ? WHERE id = ?", (quantity, id))
     conn.commit()
+    cur.execute("SELECT * FROM products WHERE id = ?", (id,))
+    product = cur.fetchone()
+    return list(product)
+
 
 
 
@@ -180,10 +185,10 @@ def display_product_info(product):
             quantity = st.number_input('수량', value=1, min_value=1, max_value=product[3], key=f'quantity_{product[0]}')
             if st.button(f'구매 ({product[1]})', key=f'buy_{product[0]}'):
                 new_quantity = product[3] - quantity
-                update_product_quantity(product[0], new_quantity)
-                updated_product = select_products()[product[0]-1]  # 업데이트된 값을 다시 가져옴
+                updated_product = update_product_quantity(product[0], new_quantity)
                 st.success(f'{updated_product[1]} {quantity}개 구매 완료')
                 product[:] = updated_product  # 리스트를 수정
+
 
 
 # 메인 함수
