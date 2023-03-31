@@ -235,15 +235,7 @@ def add_data(name, weekly_mission, suro, flag):
         'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
 
-def novel():
-    if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
-        return 'O'
-    elif weekly_mission == 5 and suro >= 1500:
-        return 'O'
-    elif weekly_mission == 5 and flag >= 650:
-        return 'O'
-    else:
-        return 'X'
+
 def main():
     st.title('Add and Display Data')
     
