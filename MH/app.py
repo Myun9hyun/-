@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 # 데이터를 저장할 파일 경로 지정
 FILE_PATH = 'data.csv'
@@ -15,6 +16,13 @@ def load_data():
 # 데이터를 파일에 저장하기
 def save_data(data):
     data.to_csv(FILE_PATH, index=False)
+
+# 데이터 초기화 함수
+def clear_data():
+    global data
+    data = pd.DataFrame(columns=['Name', 'Score'])
+    # 파일 삭제
+    os.remove(FILE_PATH)
 
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
@@ -41,6 +49,11 @@ def main():
     # 저장된 데이터프레임 출력
     if st.button('Display Data'):
         st.write(data)
+
+    # 데이터 초기화 버튼
+    if st.button('Clear Data'):
+        clear_data()
+        st.warning('Data Cleared Successfully')
 
 if __name__ == '__main__':
     main()
