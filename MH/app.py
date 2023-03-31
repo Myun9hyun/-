@@ -126,16 +126,16 @@ def main():
         st.warning('Data Cleared Successfully')
 
     if st.button('Delete Data'):
-    names = st.text_input('Enter Name to Delete')
-    if names:
-        if names in data['Name'].values:
-            data = data[data['Name'] != names]
-            save_data(data)
-            st.success('Data Deleted Successfully')
+        names = st.text_input('Enter Name to Delete')
+        if names:
+            if names in data['Name'].values:
+                data = data[data['Name'] != names]
+                save_data(data)
+                st.success('Data Deleted Successfully')
+            else:
+                st.warning('Name not found in data')
         else:
-            st.warning('Name not found in data')
-    else:
-        st.warning('Please enter a name to delete')
+            st.warning('Please enter a name to delete')
 
 
     if st.button('Cozem sum'):
