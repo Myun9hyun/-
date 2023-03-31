@@ -91,6 +91,15 @@ def add_data(name, weekly_mission, suro, flag):
 #     save_data(data)
 #     st.success('Data Deleted Successfully')
 
+def delete_data():
+    global data
+    index = st.number_input('Enter index to delete', min_value=0, max_value=len(data)-1)
+    data = data.drop(index, axis=0).reset_index(drop=True)
+    save_data(data)
+    st.success('Data Deleted Successfully')
+
+
+
 
 def main():
     st.title('cozem')
@@ -127,7 +136,8 @@ def main():
     # if st.button('Delete Data'):
     #     delete_name = st.text_input('Enter name to delete')
     #     delete_data(delete_name)
-
+    if st.button('Delete Data'):
+        delete_data()
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
         st.write(f"{weekly_total}개")
