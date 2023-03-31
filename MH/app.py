@@ -141,10 +141,11 @@ CREATE TABLE IF NOT EXISTS products (
 """)
 # csv 파일에서 데이터 가져오기
 with open('MH/products.csv', 'r', encoding='utf-8') as f:
-    products = list(csv.reader(f))[1:]
-    cur.execute("DELETE FROM products")
-    cur.executemany("INSERT INTO products VALUES (?, ?, ?, ?)", products)
-conn.commit()
+    reader = csv.reader(f)
+    header = next(reader)
+    for i, row in enumerate(reader, 1):
+        cur.execute("INSERT INTO products VALUES (?, ?, ?, ?)", (i, row[0], row[1], row[2]))
+
 
 # # csv 파일에서 데이터 가져오기
 # with open('MH/products.csv', 'r', encoding='utf-8') as f:
