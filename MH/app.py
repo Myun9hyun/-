@@ -109,10 +109,14 @@ def main():
         st.success('Data Added Successfully')
     
     # 저장된 데이터
+    # if st.button('Display Data'):
+    #     st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
     if st.button('Display Data'):
+    if not data.empty:
         st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
-        # if st.button('Display Data'):
-        #     st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+    else:
+        st.write('데이터가 없습니다.')
+
     
 
     if st.button('Clear Data'):
