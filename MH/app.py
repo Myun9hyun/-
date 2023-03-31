@@ -13,16 +13,16 @@ novels = [] # 노블 사용 여부 리스트
 
 def flag_cozem(flag):
     # input(f"f입력 : {n} ")
-    if f >= 0 and f < 500:
+    if flag >= 0 and flag < 500:
         i = 0
         return i
-    if f >= 500 and f <= 750:
+    if flag >= 500 and flag <= 750:
         i = 1
         return i
-    elif f > 750 and f < 1000:
+    elif flag > 750 and flag < 1000:
         i = 2
         return i
-    elif f == 1000:
+    elif flag == 1000:
         i = 3
         return i
 
