@@ -146,13 +146,13 @@ def main():
 
     elif choice == '데이터 삭제':
         st.subheader('데이터 삭제')
-        index = st.number_input('삭제할 데이터의 인덱스를 입력하세요', min_value=0, max_value=len(data)-1, step=1)
+        index = st.text_input('삭제할 데이터의 인덱스를 입력하세요.')
         if st.button('삭제'):
             if delete_data(index):
                 save_data(data)
                 st.success('데이터 삭제 완료!')
             else:
-                st.warning('해당 인덱스의 데이터가 없습니다.')
+                st.warning('인덱스를 다시 확인해주세요.')
 
 
 
