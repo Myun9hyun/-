@@ -148,7 +148,7 @@ def main():
         st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
         st.write(data[data['Novel'] == 'O'])
         monthly = data[data['Novel'] == 'O']
-        monthly_list = [monthly['Name']].tolist()
+        monthly_list = monthly['Name'].tolist()
         st.write(monthly_list)
 
     if st.button('위클리 코젬 분배 계산'):
