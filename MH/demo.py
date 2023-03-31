@@ -69,6 +69,13 @@ def delete_data(name):
 
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
+# 다운로드 버튼 생성
+def download_button(df, file_name, button_text):
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="{file_name}">{button_text}</a>'
+    return href
+
 
 # # 사용자로부터 이름과 점수를 입력받아 데이터프레
 # def add_data(name, weekly_mission, suro, flag):
@@ -165,7 +172,7 @@ def main():
         if st.button('초기화'):
             clear_data()
             st.success('데이터 초기화 완료!')
-
+    
 if __name__ == '__main__':
     main()
 

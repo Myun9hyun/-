@@ -87,6 +87,14 @@ def add_data(name, weekly_mission, suro, flag):
     }, ignore_index=True)
 
 
+# 다운로드 버튼 생성
+def download_button(df, file_name, button_text):
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="{file_name}">{button_text}</a>'
+    return href
+
+
 def main():
     st.title('cozem')
     
@@ -138,7 +146,9 @@ def main():
         st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
         st.write(f"사용가능자 :  {monthly_list}.")
         st.write(data[data['Novel'] == 'O'])
-        
+    # 다운로드 버튼 클릭
+    if st.button('다운로드'):
+        st.markdown(download_button(df, 'data.csv', 'CSV 다운로드'), unsafe_allow_html=True)    
     
     if st.button('위클리 코젬 분배 계산'):
         weekly_total = data['Cozem_Total'].sum()
