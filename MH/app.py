@@ -180,8 +180,10 @@ def display_product_info(product):
             quantity = st.number_input('수량', value=1, min_value=1, max_value=product[3], key=f'quantity_{product[0]}')
             if st.button(f'구매 ({product[1]})', key=f'buy_{product[0]}'):
                 new_quantity = product[3] - quantity
-                update_product_quantity(product[0], new_quantity)  # 수정된 부분
+                update_product_quantity(product[0], new_quantity)
+                product[3] = new_quantity  # 수정된 부분
                 st.success(f'{product[1]} {quantity}개 구매 완료')
+
 
 
 # 메인 함수
