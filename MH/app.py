@@ -155,7 +155,7 @@ conn.commit()
 def select_products():
     cur.execute("SELECT * FROM products")
     products = cur.fetchall()
-    return products
+    return [list(product) for product in products]
 
 
 # 테이블 업데이트 함수
