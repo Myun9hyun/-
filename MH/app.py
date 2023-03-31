@@ -151,7 +151,7 @@ weekly_missions = [] # 주간미션 점수 입력 리스트
 suros = []  # 수로 점수 리스트
 flags = []  # 플래그 점수 리스트
 cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리스트
-novels = [] # 노블 사용 여부 리스트
+novel_p = [] # 노블 사용 여부 리스트
 flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 
 def Flag_cozem(flag):
