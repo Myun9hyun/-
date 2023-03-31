@@ -1,8 +1,18 @@
+
+import random
+import streamlit as st
+from PIL import Image
+import requests
 import pandas as pd
 import numpy as np
-import streamlit as st
-import random
-
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import matplotlib.pyplot as plt
+import joblib
+import xgboost as xgb
+import seaborn as sns
+from streamlit_option_menu import option_menu
 names = [] # 길드원 닉네임 입력 리스트
 weekly_missions = [] # 주간미션 점수 입력 리스트
 suros_cozem = [] # 수로 점수에 따른 코젬 갯수 입력 리스트
