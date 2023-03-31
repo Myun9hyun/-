@@ -121,7 +121,11 @@ def main():
     if st.button('데이터 추가'):
         add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
         save_data(data)  # 데이터를 파일에 저장
-        st.success('데이터가 추가되었습니다.')
+        if name in data['Name'].values:
+            st.warning(f'{name} (은)는 이미 있는 이름이야!')
+            return
+        else:
+            st.success('데이터가 추가되었습니다.')
     
     # 저장된 데이터
     if st.button('차트 열기'):
