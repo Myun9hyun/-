@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS products (
 """)
 
 # csv 파일에서 데이터 가져오기
-with open('products.csv', 'r', encoding='utf-8') as f:
+with open('MH/products.csv', 'r', encoding='utf-8') as f:
     reader = csv.reader(f)
     header = next(reader)
     for row in reader:
