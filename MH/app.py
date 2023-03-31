@@ -114,11 +114,16 @@ def main():
         st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
         # if st.button('Display Data'):
         #     st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
-
+    
 
     if st.button('Clear Data'):
         clear_data()
         st.warning('Data Cleared Successfully')
+
+    if st.button('delete data'):
+        delete_index = st.text_input("삭제할 인덱스를 입력하세요: ")
+        data = data.drop(delete_index, axis=0)
+
 
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
