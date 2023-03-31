@@ -90,6 +90,9 @@ def display_order_history():
 # 메인 함수
 def main():
     # 로그인 세션 관리
+    if 'cart' not in session:
+    session.cart = {}
+
     session = st.session_state.get('cart', {})
     
     if 'cart' not in session:
