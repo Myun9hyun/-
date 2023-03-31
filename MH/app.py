@@ -139,13 +139,17 @@ CREATE TABLE IF NOT EXISTS products (
     quantity INTEGER
 )
 """)
-
 # csv 파일에서 데이터 가져오기
 with open('MH/products.csv', 'r', encoding='utf-8') as f:
-    reader = csv.reader(f)
-    header = next(reader)
-    for row in reader:
-        cur.execute(f"INSERT INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
+    products = list(csv.reader(f))[1:]
+    cur.executemany("INSERT INTO products VALUES (?, ?, ?, ?)", products)
+
+# # csv 파일에서 데이터 가져오기
+# with open('MH/products.csv', 'r', encoding='utf-8') as f:
+#     reader = csv.reader(f)
+#     header = next(reader)
+#     for row in reader:
+#         cur.execute(f"INSERT INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
 
 # 커밋
 conn.commit()
