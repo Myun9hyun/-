@@ -13,6 +13,8 @@ import joblib
 import xgboost as xgb
 import seaborn as sns
 from streamlit_option_menu import option_menu
+import os
+
 names = [] # 길드원 닉네임 입력 리스트
 weekly_missions = [] # 주간미션 점수 입력 리스트
 suros_cozem = [] # 수로 점수에 따른 코젬 갯수 입력 리스트
