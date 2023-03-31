@@ -115,7 +115,7 @@ def main():
     flag = st.number_input('Enter flag', min_value=0, max_value=1000)
     
 
-if flag:
+    if flag:
         flags_cozem.append(flag_cozem(flag))
         flags.append(flag)
     
