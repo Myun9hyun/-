@@ -238,5 +238,5 @@ else:
                 st.balloons()
                 st.success(f"축하드립니다! 상자에서 {selected_values[i]}(이)가 나왔습니다!")
             else:
-                st.success(f"상자에서 {selected_values[i]}(이)가 나왔습니다!")
+                st.warning(f"상자에서 {selected_values[i]}(이)가 나왔습니다!")
 
