@@ -9,5 +9,5 @@ xgboost
 seaborn
 streamlit_option_menu
 numpy
-streamlit_SessionState==0.4.1
+streamlit_SessionState==0.3.2
 sqlite3
