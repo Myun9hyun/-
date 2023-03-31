@@ -295,6 +295,7 @@ elif choice == "명단관리":
             st.write(df2)
         df1_O = df1[df1['Novel'] == 'O']
         df2_X = df2[df2['Novel'] == 'X']
+        st.write(df1_O)
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
         novel_up = df1_O.index['Name'] or df2_X.index['Name']
         # 중복 값이 있을 경우 출력
@@ -303,7 +304,7 @@ elif choice == "명단관리":
 
         if novel_up:
             st.write(f"직위 상승자는 다음과 같습니다. {novel_up}")
-        
+
 
     if __name__ == "__main__":
         main()
