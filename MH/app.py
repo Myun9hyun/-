@@ -174,11 +174,12 @@ def main():
         elif cozem_else == 3:  # 4으로 나누었을 때 나머지가 3인 경우
             return [cozem_else, cozem_else + 1, cozem_else + 1, cozem_else + 1]
         # 입력값이 4미만일 경우 오류 -> 해결 필요
-        n = cozem_sums
+        # n = cozem_sums
         st.write(f"반디 : {(cozem_sums)[1]} 개")
         st.write(f"샴푸 : {(cozem_sums)[2]} 개")
         st.write(f"둥둥 : {(cozem_sums)[3]} 개")
         st.write(f"돌체 : {(cozem_sums)[0]} 개")
+
 if __name__ == '__main__':
     main()
 
