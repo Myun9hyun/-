@@ -72,9 +72,6 @@ def novel():
     else:
         return 'X'
 
-if flag:
-    flags_cozem.append(flag_cozem(flag))
-    flags.append(flag)
 
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
@@ -107,7 +104,6 @@ def add_data(name, weekly_mission, suro, flag):
         'Novel': novel_use  # novel 함수로부터 반환된 값을 추가합니다.
     }, ignore_index=True)
 
-
 # Streamlit 앱 생성
 def main():
     st.title('Add and Display Data')
@@ -118,6 +114,10 @@ def main():
     suro = st.number_input('Enter suro', min_value=0, max_value=100000)
     flag = st.number_input('Enter flag', min_value=0, max_value=1000)
     
+
+if flag:
+        flags_cozem.append(flag_cozem(flag))
+        flags.append(flag)
     
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
