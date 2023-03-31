@@ -96,9 +96,7 @@ def add_data(name, weekly_mission, suro, flag):
 
 def main():
     st.title('Add and Display Data')
-    suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-    flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-    cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+    
     # 사용자로부터 이름과 점수를 입력받는 UI 구성
     name = st.text_input('Enter Name')
     weekly_mission = st.number_input('Enter weekly mission', min_value=0, max_value=5)
@@ -124,7 +122,7 @@ def main():
         st.warning('Data Cleared Successfully')
 
     if st.button('Cozem sum'):
-        weekly_total = sum(cozem_total)
+        weekly_total = sum(cozem_sums)
         st.write(f"{weekly_total}개")
 
 if __name__ == '__main__':
