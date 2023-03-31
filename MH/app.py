@@ -87,10 +87,9 @@ def add_data(name, weekly_mission, suro, flag):
 def delete_data():
     global data
     name = st.text_input('Enter Name to Delete')
-    if st.button('Delete Data'):
-        data = data[data['Name'] != name]
-        save_data(data)
-        st.success('Data Deleted Successfully')
+    data = data[data['Name'] != name]
+    save_data(data)
+    st.success('Data Deleted Successfully')
 
 
 def main():
