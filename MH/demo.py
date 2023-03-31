@@ -85,7 +85,6 @@ data = load_data()
 
 
 
-data = load_data()
 
 
 def delete_data():
@@ -119,6 +118,8 @@ def add_data(name, weekly_mission, suro, flag):
         'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
 
+
+data = load_data()
 
 def main():
     st.title('cozem')
