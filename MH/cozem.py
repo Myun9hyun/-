@@ -407,4 +407,6 @@ else:
         | :---: | :---: | :---: | 
         | GoogleDocs | 📑아기자기명단 | [![Colab](https://img.shields.io/badge/GoogleDocs-아기자기명단-green)](https://onedrive.live.com/edit.aspx?resid=221CE48C87202DCA!2450&ithint=file%2cxlsx&authkey=!ADKQOeLCxzQp_5o) | 
 
+        '''
+        
         
