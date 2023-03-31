@@ -10,6 +10,33 @@ cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리
 novel_p = [] # 노블 사용 여부 리스트
 flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 
+
+
+# 이번주 위클리 분배
+def divide_cozem(weekly_total):
+    cozem = weekly_total // 4  # 몫
+    cozem_else = weekly_total % 4  # 나머지
+    if weekly_total < 3:  # 입력값이 3 미만인 경우
+        return [weekly_total] + [0] * (3 - weekly_total)
+    if cozem_else == 0:  # 4로 나누어 떨어지는 경우
+        return [cozem] * 4
+    elif cozem_else == 1:  # 4로 나누었을 때 나머지가 1인 경우
+        return [cozem_else, cozem_else, cozem_else, cozem_else + 1]
+    elif cozem_else == 2:  # 4으로 나누었을 때 나머지가 2인 경우
+        return [cozem_else, cozem_else, cozem_else + 1, cozem_else + 1]
+    elif cozem_else == 3:  # 4으로 나누었을 때 나머지가 3인 경우
+        return [cozem_else, cozem_else + 1, cozem_else + 1, cozem_else + 1]
+# 입력값이 4미만일 경우 오류 -> 해결 필요
+n = weekly_total
+manager(n)
+
+# 위클리 코젬 내야하는 갯수
+def manager(n):
+    print(f"반디 : {divide_cozem(n)[1]} 개")
+    print(f"샴푸 : {divide_cozem(n)[2]} 개")
+    print(f"둥둥 : {divide_cozem(n)[3]} 개")
+    print(f"돌체 : {divide_cozem(n)[0]} 개")
+    
 def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
