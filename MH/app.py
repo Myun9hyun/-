@@ -179,16 +179,16 @@ def cozem_sum(suro, flag):
     answer = 0
     answer = Suro_cozem(suro) + Flag_cozem(flag)
     return answer
-    
-def novel():
-    if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
-        return 'O'
-    elif weekly_mission == 5 and suro >= 1500:
-        return 'O'
-    elif weekly_mission == 5 and flag >= 650:
-        return 'O'
-    else:
-        return 'X'
+
+# def novel():
+#     if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
+#         return 'O'
+#     elif weekly_mission == 5 and suro >= 1500:
+#         return 'O'
+#     elif weekly_mission == 5 and flag >= 650:
+#         return 'O'
+#     else:
+#         return 'X'
 
 
 
