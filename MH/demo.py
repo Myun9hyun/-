@@ -93,13 +93,13 @@ data = load_data()
 
 
 
-def delete_data():
-    if st.button('Delete Data'):
-        name = st.text_input('Enter Name to Delete')
-        data = load_data()
-        data = data[data['Name'] != name]
-        save_data(data)
-        st.success('Data Deleted Successfully')
+def delete_data(name):
+    global data
+    if name in data:
+        del data[name]
+        st.success('데이터 삭제 완료!')
+    else:
+        st.warning('해당 이름의 데이터가 없습니다.')
 
 
 def add_data(name, weekly_mission, suro, flag):
