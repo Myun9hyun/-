@@ -208,10 +208,10 @@ elif choice == "길드페이지":
                     warning_WM_list = warning_WM['Name'].tolist()
                     st.write(f"노블 제한자 중 주간미션 미달자입니다 :  {warning_WM_list}.")
                     warning_suro = data[data['Suro'] == 0]
-                    warning_suro_list = warning_WM['Name'].tolist()
+                    warning_suro_list = warning_suro['Name'].tolist()
                     st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
                     warning_flag = data[data['Flag'] == 0]
-                    warning_flag_list = warning_WM['Name'].tolist()
+                    warning_flag_list = warning_flag['Name'].tolist()
                     st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
 
                 if st.button('노블 사용가능 목록 보기'):
