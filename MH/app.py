@@ -210,7 +210,7 @@ elif choice == "길드페이지":
                     warning_suro = data[data['Suro'] == 0]
                     warning_suro_list = warning_WM['Name'].tolist()
                     st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
-                    warning_flag = data[data['flag'] == 0]
+                    warning_flag = data[data['Flag'] == 0]
                     warning_flag_list = warning_WM['Name'].tolist()
                     st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
 
