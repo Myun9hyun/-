@@ -148,12 +148,12 @@ def main():
         st.write(f"사용가능자 :  {monthly_list}.")
         st.write(data[data['Novel'] == 'O'])
     # 다운로드 버튼 클릭
+    # 다운로드 버튼 클릭
     if st.button("다운로드"):
-        file_name = st.text_input("저장할 파일명을 입력하세요:")
-        # file_name = st.text_input('Enter the file name:', 'my_data')
-        if st.button("저장"):
-            st.markdown(download_csv(data, file_name), unsafe_allow_html=True)
-
+        file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기")
+        if file_name.strip() == "":
+            file_name = "아기자기" # 기본 파일명 사용
+        st.markdown(download_csv(data, file_name), unsafe_allow_html=True)
 
 
     if st.button('위클리 코젬 분배 계산'):
