@@ -84,6 +84,24 @@ data = load_data()
 #     }, ignore_index=True)
 
 
+def load_data():
+    data = pd.read_csv('data.csv')
+    return data
+
+data = load_data()
+
+def save_data(data):
+    data.to_csv('data.csv', index=False)
+
+def delete_data():
+    if st.button('Delete Data'):
+        name = st.text_input('Enter Name to Delete')
+        data = load_data()
+        data = data[data['Name'] != name]
+        save_data(data)
+        st.success('Data Deleted Successfully')
+
+
 def add_data(name, weekly_mission, suro, flag):
     global data
     # 중복 검사
@@ -116,67 +134,18 @@ def main():
     suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
     flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
     
-    menu = ['데이터 추가', '데이터 검색', '데이터 삭제', '데이터 출력', '데이터 초기화']
-    choice = st.sidebar.selectbox('메뉴', menu)
-
-    if choice == '데이터 추가':
-        st.subheader('데이터 추가')
-        # 사용자로부터 입력받은 이름
-        name = st.text_input('이름')
-        # 사용자로부터 입력받은 주간 미션
-        weekly_mission = st.slider('주간 미션', min_value=0, max_value=5, step=1)
-        # 사용자로부터 입력받은 수로 점수
-        suro = st.number_input('수로', min_value=0)
-        # 사용자로부터 입력받은 깃발 점수
-        flag = st.number_input('깃발', min_value=0)
-        
-        # 사용자가 입력한 데이터 추가
-        if st.button('추가'):
-            add_data(name, weekly_mission, suro, flag)
-            st.success(f'{name} (이)가 추가되었습니다!')
-
-    elif choice == '데이터 검색':
-        st.subheader('데이터 검색')
-        search_term = st.text_input('찾고 싶은 이름 입력')
-        # 사용자가 입력한 이름을 포함하는 행만 추출
-        result = data[data['Name'].str.contains(search_term)]
-        # 검색 결과 출력
-        st.write(result)
-
-    elif choice == '데이터 삭제':
-        st.subheader('데이터 삭제')
-        # 사용자로부터 삭제하고 싶은 이름 입력받기
-        name = st.text_input('삭제하고 싶은 이름 입력')
-        # 입력받은 이름이 데이터에 있는지 검사
-        if name in data['Name'].values:
-            # 입력받은 이름이 포함된 행을 삭제하고 데이터 업데이트
-            data = data[data['Name'] != name]
-            save_data(data)
-            st.success(f'{name} (이)가 삭제되었습니다!')
-        else:
-            st.warning(f'{name} (은)는 데이터에 없는 이름입니다.')
-
-    elif choice == '데이터 출력':
-        st.subheader('데이터 출력')
-        st.write(data)
-
-    else:
-        st.subheader('데이터 초기화')
-        if st.button('초기화'):
-            clear_data()
-            st.success('데이터가 초기화되었습니다!')
-
-    # 추가된 데이터 출력
-    st.subheader('추가된 데이터')
-    st.write(data)
-
 
     # 이름과 점수가 입력되면 데이터프레임에 추가
     if st.button('데이터 추가'):
         add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
         save_data(data)  # 데이터를 파일에 저장
         st.success('데이터가 추가되었습니다.')
-    
+
+    if st.button('데이터 삭제'):
+        name_to_delete = st.text_input('삭제할 이름을 입력하세요')
+        if name_to_delete in data['Name'].values:
+            data = data[data['Name'] != name_to_delete]
+
     # 저장된 데이터
     if st.button('차트 열기'):
         if not data.empty:
