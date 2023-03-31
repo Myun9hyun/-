@@ -27,9 +27,9 @@ def flag_cozem(flag):
         return i
 
 def Suro_cozem(suro):
-    if s < 500 and s >= 0:
+    if suro < 500 and suro >= 0:
         return 0
-    elif s >= 500:
+    elif suro >= 500:
         i = (s // 500)
         return i
 
