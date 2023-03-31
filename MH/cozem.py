@@ -299,23 +299,17 @@ elif choice == "명단관리":
         
         df2_O = df2[df2['Novel'] == 'O']
         df2_X = df2[df2['Novel'] == 'X']
-        # df1_O에서 Name열에 해당하는 index 리스트로 추출
-        name1_index = df1_X['Name'].tolist()
-        st.write("Name1 열 index 리스트:", name1_index)
-        name2_index = df2_O['Name'].tolist()
-        st.write("Name2 열 index 리스트:", name2_index)
 
-        novel_up = name1_index and name2_index
-        st.write("직위 상승자",novel_up)
-        st.write(df2_X.index['Name'])
-        duplicates = set(df1['Name']).intersection(set(df2['Name']))
+        name1O_index = df1_O['Name'].tolist()
+        name1X_index = df1_X['Name'].tolist()
+        name2O_index = df2_O['Name'].tolist()
+        name2X_index = df2_X['Name'].tolist()
 
-        # 중복 값이 있을 경우 출력
-        if duplicates:
-            st.write(f"지난주에도 미실시 했고, 이번주에도 미실시 명단입니다. {duplicates}")
-
-        if novel_up:
-            st.write(f"직위 상승자는 다음과 같습니다. {novel_up}")
+        novel_down = name1O_index and name2X_index
+        novel_up = name1X_index and name2O_index
+        st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
+        st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
+        
 
 
     if __name__ == "__main__":
