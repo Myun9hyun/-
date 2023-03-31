@@ -122,7 +122,7 @@ def main():
 
     if st.button('delete data'):
         delete_index = st.text_input("삭제할 인덱스를 입력하세요: ")
-        data = data.drop(delete_index, axis=0, inplace=True)
+        data.drop(delete_index, axis=0, inplace=True)
 
 
     if st.button('Cozem sum'):
