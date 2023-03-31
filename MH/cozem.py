@@ -195,12 +195,12 @@ elif choice == "길드페이지":
             elif option == "노블 사용/제한":
                 if st.button('노블 제한목록 보기'):
                 # 경고자 명단
-                warning = data[data['Novel'] == 'X']
-                warning_list = warning['Name'].tolist()
-                st.write('이번주 노블 사용제한 목록 입니다.')
-                st.write(f"노블 제한자 :  {warning_list}.")
-                st.write(data[data['Novel'] == 'X'])
-            
+                    warning = data[data['Novel'] == 'X']
+                    warning_list = warning['Name'].tolist()
+                    st.write('이번주 노블 사용제한 목록 입니다.')
+                    st.write(f"노블 제한자 :  {warning_list}.")
+                    st.write(data[data['Novel'] == 'X'])
+                
                 if st.button('노블 사용가능 목록 보기'):
                     # 먼슬리 참여 가능자 명단
                     monthly = data[data['Novel'] == 'O']
