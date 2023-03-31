@@ -122,8 +122,9 @@ def main():
 
     if st.button('delete data'):
         delete_index = st.text_input("삭제할 인덱스를 입력하세요: ")
-        data.drop(delete_index, axis=0, inplace=True)
-
+        # data.drop(delete_index, axis=0, inplace=True)
+        if delete_index != '':
+            data.drop(delete_index, axis=0, inplace=True)
 
     if st.button('Cozem sum'):
         weekly_total = data['Cozem_Total'].sum()
