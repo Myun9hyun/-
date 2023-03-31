@@ -294,6 +294,11 @@ elif choice == "명단관리":
             st.write("데이터프레임2")
             st.write(df2)
 
+        duplicates = set(df1['Name']).intersection(set(df2['Name']))
+
+        # 중복 값이 있을 경우 출력
+        if duplicates:
+            st.write("두 데이터프레임에서 중복되는 Name 값:", duplicates)
 
     if __name__ == "__main__":
         main()
