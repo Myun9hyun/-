@@ -71,6 +71,11 @@ def novel():
         return 'O'
     else:
         return 'X'
+
+if flag:
+    flags_cozem.append(flag_cozem(flag))
+    flags.append(flag)
+
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
 
