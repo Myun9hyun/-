@@ -30,7 +30,7 @@ def Suro_cozem(suro):
     if suro < 500 and suro >= 0:
         return 0
     elif suro >= 500:
-        i = (s // 500)
+        i = (suro // 500)
         return i
 
 def cozem_sum():
