@@ -164,6 +164,7 @@ def update_product_quantity(id, quantity):
 
 # 상품 정보 표시
 # 상품 정보 표시
+# 상품 정보 표시
 def display_product_info(product):
     col1, col2, col3, col4 = st.beta_columns([1, 1, 1, 0.5])
     with col1:
@@ -181,8 +182,9 @@ def display_product_info(product):
             if st.button(f'구매 ({product[1]})', key=f'buy_{product[0]}'):
                 new_quantity = product[3] - quantity
                 update_product_quantity(product[0], new_quantity)
-                product[3] = new_quantity  # 수정된 부분
-                st.success(f'{product[1]} {quantity}개 구매 완료')
+                updated_product = select_products()[product[0]-1]  # 업데이트된 값을 다시 가져옴
+                st.success(f'{updated_product[1]} {quantity}개 구매 완료')
+
 
 
 
