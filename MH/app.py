@@ -154,7 +154,7 @@ cozem_sums = [] # 전체 코젬 합산 갯수에 따른 코젬 갯수 입력 리
 novels = [] # 노블 사용 여부 리스트
 flags_cozem = [] # 플래그 점수에 따른 코젬 갯수 입력 리스트
 
-def flag_cozem(flag):
+def Flag_cozem(flag):
     if flag >= 0 and flag < 500:
         i = 0
         return i
@@ -220,7 +220,7 @@ data = load_data()
 def add_data(name, weekly_mission, suro, flag):
     global data
     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-    flag_cozem = flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+    flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
     novel_value = novel()  # Novel 값 계산
     
