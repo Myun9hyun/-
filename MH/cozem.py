@@ -296,7 +296,7 @@ elif choice == "명단관리":
         df1_O = df1[df1['Novel'] == 'O']
         df2_X = df2[df2['Novel'] == 'X']
         duplicates = set(df1['Name']).intersection(set(df2['Name']))
-        novel_up = df1_O and df2_X :
+        novel_up = df1_O and df2_X
         # 중복 값이 있을 경우 출력
         if duplicates:
             st.write(f"지난주에도 미실시 했고, 이번주에도 미실시 명단입니다. {duplicates}")
