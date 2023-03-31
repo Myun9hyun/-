@@ -180,15 +180,7 @@ def cozem_sum(s, f):
     answer = Suro_cozem(s) + flag_cozem(f)
     return answer
 
-def novel():
-    if (weekly_mission >= 3) and (s > 0) and (f > 0):
-        return 'O'
-    elif weekly_mission == 5 and s >= 1500:
-        return 'O'
-    elif weekly_mission == 5 and f >= 650:
-        return 'O'
-    else:
-        return 'X'
+
 
 
 # 데이터를 저장할 파일 경로 지정
@@ -235,7 +227,15 @@ def add_data(name, weekly_mission, suro, flag):
         'Novel': novel_value  # Novel 값을 추가
     }, ignore_index=True)
 
-
+def novel():
+    if (weekly_mission >= 3) and (s > 0) and (f > 0):
+        return 'O'
+    elif weekly_mission == 5 and s >= 1500:
+        return 'O'
+    elif weekly_mission == 5 and f >= 650:
+        return 'O'
+    else:
+        return 'X'
 def main():
     st.title('Add and Display Data')
     
