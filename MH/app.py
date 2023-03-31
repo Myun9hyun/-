@@ -10,8 +10,31 @@ st.sidebar.title('메뉴')
 selected_menu = st.sidebar.radio('', ['상품 구매', '장바구니', '주문 내역'])
 
 # 데이터베이스 연결
-conn = sqlite3.connect('store.db')
+# conn = sqlite3.connect('store.db')
+# cur = conn.cursor()
+conn = sqlite3.connect(':memory:')
 cur = conn.cursor()
+
+# 테이블 생성
+cur.execute("""
+CREATE TABLE IF NOT EXISTS products (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    price INTEGER,
+    quantity INTEGER
+)
+""")
+
+# csv 파일에서 데이터 가져오기
+with open('MH/products.csv', 'r', encoding='utf-8') as f:
+    reader = csv.reader(f)
+    header = next(reader)
+    for row in reader:
+        cur.execute(f"INSERT INTO products VALUES ({row[0]}, '{row[1]}', {row[2]}, {row[3]})")
+
+# 커밋
+conn.commit()
+
 
 # 테이블 조회 함수
 def select_products():
