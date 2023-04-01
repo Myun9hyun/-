@@ -90,7 +90,7 @@ def main():
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
             st.success('접근을 허용합니다')
-            Name = st.text_input('Enter Name')
+            name = st.text_input('Enter Name')
             point = st.number_input('Enter Point', min_value=0, max_value=50)
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
             if st.button('데이터추가'):
