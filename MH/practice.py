@@ -460,7 +460,7 @@ def main():
             elif options_DN == '간부용':
                 options_manager = ['포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
                 option_manager = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_manager)
-                elif option_manager == "데이터삭제✂":
+                if option_manager == "데이터삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
