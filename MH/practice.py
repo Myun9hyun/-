@@ -124,7 +124,7 @@ def purchase_item(name, product_name, mount):
         save_data2(data2)
         
         # 구매 내역 저장
-        data3(name, product_name, mount)
+        save_purchase_history(name, product_name, mount)
         
         st.success(f'{mount} {product_name} Purchased from {name} Successfully')
     else:
