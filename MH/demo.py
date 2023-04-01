@@ -69,6 +69,8 @@ def main():
 
     # 포인트 차감 버튼
     elif option == '포인트 삭제✂':
+        point = st.number_input('Enter Point', min_value=0)
+    
         if st.button('포인트 삭제✂'):
             deduct_point(name, point)
     elif option == '데이터 초기화💣':
