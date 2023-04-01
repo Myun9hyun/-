@@ -458,9 +458,39 @@ def main():
                 else :
                     st.warning('비밀번호가 틀렸습니다.')
         elif options_DN == '간부용':
-                options_manager = ['포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
+                options_manager = ['데이터추가➕🌞','데이터추가➕🌙''포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
                 option_manager = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_manager)
-                if option_manager == "데이터삭제✂":
+                if option_manager == "데이터추가➕🌞":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        name = st.text_input('품목명을 입력해줘')
+                        price = st.number_input('가격을 입력해줘', min_value=0, max_value=10000)
+                        # point = st.number_input('Enter Point', min_value=0, max_value=50)
+                        mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
+                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
+                        if st.button('데이터추가'):
+                            # if st.button('추가'):
+                            add_data(name, price, mount)
+                            save_data(data)  # 데이터를 파일에 저장
+                            st.success('품목이 추가되었어!')
+                if option_manager == "데이터추가➕🌞":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        name = st.text_input('품목명을 입력해줘')
+                        price = st.number_input('가격을 입력해줘', min_value=0, max_value=10000)
+                        # point = st.number_input('Enter Point', min_value=0, max_value=50)
+                        mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
+                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
+                        if st.button('데이터추가'):
+                            # if st.button('추가'):
+                            add_data4(name, price, mount)
+                            save_data4(data4)  # 데이터를 파일에 저장
+                            st.success('품목이 추가되었어!')
+                elif option_manager == "데이터삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
@@ -548,6 +578,7 @@ def main():
                             st.success('포인트가 지급되었어!')
                     else :
                         st.warning('비밀번호가 틀렸습니다.')
+                
     with tab1:
         st.write()
         '''
