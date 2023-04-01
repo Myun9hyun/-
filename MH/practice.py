@@ -303,11 +303,10 @@ def main():
     elif option == '구매내역':
         if st.button('구매내역 조회'):
             st.write(data3)
-            options = st.selectbox(
-            '원하는 차트를 골라주세요',
-            ('구매내역 검색, 안녕'))
-            st.write(f'고르신 {options}를 출력하겠습니다: ')
-            if options == '구매내역 검색':
+            p_options = ["구매내역 검색, 안녕"]
+            p_option = st.selectbox("기능 선택", p_options)
+            st.write(f'고르신 {p_options}를 출력하겠습니다: ')
+            if p_options == '구매내역 검색':
                 df = load_data3
                 df = df.iloc[:, 1:]
                 unique_CONF = df['Name'].unique()
