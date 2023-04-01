@@ -148,18 +148,14 @@ def purchase_item(name, product_name, mount):
         # 품목 가격만큼 point 차감
         total_price = row['Price'] * mount
         if row2['Point'] >= total_price:
-            # 데이터프레임에 구매내역 추가
-            purchase_df = pd.DataFrame({
-                'Name': [name],
-                'Product': [product_name],
-                'Mount': [mount]
-            })
-            data3 = load_data3()
-            data3 = pd.concat([data3, purchase_df], ignore_index=True)
+            # 데이터프레임에 구매내역 추가 or mount 누적
+            purchase_df = data3[(data3['Name'] == name) & (data3['Product'] == product_name)]
+            if purchase_df.empty:
+                purchase_df = pd.DataFrame({'Name': [name], 'Product': [product_name], 'Mount': [mount]})
+                data3 = pd.concat([data3, purchase_df], ignore_index=True)
+            else:
+                data3.loc[(data3['Name'] == name) & (data3['Product'] == product_name), 'Mount'] += mount
             save_data3(data3)
-            # 구매자의 포인트 차감
-            data2.loc[data2['Name'] == name, 'Point'] -= total_price
-            save_data2(data2)
             st.success(f'{product_name} {mount}개 구매 완료')
             # # 구매내역 호출 버튼 생성
             # st.button("구매내역 확인", on_click=view_purchase_history)
@@ -167,7 +163,6 @@ def purchase_item(name, product_name, mount):
             st.warning(f'Not Enough Point for {name} to Purchase {product_name}')
     else:
         st.warning(f'Not Enough {product_name} to Purchase')
-
 
 
 def save_purchase_history(name, product_name, mount):
