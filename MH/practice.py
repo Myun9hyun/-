@@ -290,8 +290,8 @@ def main():
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == day_password:
                 st.success('다락방의 낮을 공개할게!')
-                img_url1='https://github.dev/Myun9hyun/trash/blob/main/MH/room/day.jpg'
-                img_url2='https://github.dev/Myun9hyun/trash/blob/main/MH/room/day_secret.jpg'
+                img_url1='https://github.dev/Myun9hyun/trash/raw/main/MH/room/day.jpg'
+                img_url2='https://github.dev/Myun9hyun/trash/raw/main/MH/room/day_secret.jpg'
                 st.image(img_url1)
                 st.image(img_url2)
         elif option == '아기자기 다락방🌙':
