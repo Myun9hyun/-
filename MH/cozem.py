@@ -340,57 +340,62 @@ elif choice == "직위관리":
 
     # Streamlit 앱
     def main():
-        st.write()
-        '''
-        ### ❗파일 업로드 하면 에러 없어짐❗
-        '''
-        st.write("지난주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
-        uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
+        st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ')
+        if password_input == password:
+            st.success('접근을 허용합니다')
+            st.write()
+            '''
+            ### ❗파일 업로드 하면 에러 없어짐❗
+            '''
+            st.write("지난주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
+            uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
 
-        if uploaded_file1 is not None:
-            # 업로드한 파일을 저장하고, 데이터프레임으로 변환
-            save_uploaded_file(uploaded_file1)
-            df1 = upload_excel_file(uploaded_file1)
+            if uploaded_file1 is not None:
+                # 업로드한 파일을 저장하고, 데이터프레임으로 변환
+                save_uploaded_file(uploaded_file1)
+                df1 = upload_excel_file(uploaded_file1)
 
-            # 데이터프레임 출력
-            st.write("지난주 길드컨텐츠 참여자")
-            st.write(df1)
+                # 데이터프레임 출력
+                st.write("지난주 길드컨텐츠 참여자")
+                st.write(df1)
 
-        st.write("이번주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
-        uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload2")
+            st.write("이번주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
+            uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload2")
 
-        if uploaded_file2 is not None:
-            # 업로드한 파일을 저장하고, 데이터프레임으로 변환
-            save_uploaded_file(uploaded_file2)
-            df2 = upload_excel_file(uploaded_file2)
+            if uploaded_file2 is not None:
+                # 업로드한 파일을 저장하고, 데이터프레임으로 변환
+                save_uploaded_file(uploaded_file2)
+                df2 = upload_excel_file(uploaded_file2)
 
-            # 데이터프레임 출력
-            st.write("이번주 길드컨텐츠 참여자")
-            st.write(df2)
+                # 데이터프레임 출력
+                st.write("이번주 길드컨텐츠 참여자")
+                st.write(df2)
 
-        df1_O = df1[df1['Novel'] == 'O']
-        df1_X = df1[df1['Novel'] == 'X']
-        
-        df2_O = df2[df2['Novel'] == 'O']
-        df2_X = df2[df2['Novel'] == 'X']
+            df1_O = df1[df1['Novel'] == 'O']
+            df1_X = df1[df1['Novel'] == 'X']
+            
+            df2_O = df2[df2['Novel'] == 'O']
+            df2_X = df2[df2['Novel'] == 'X']
 
-        name1O_index = df1_O['Name'].tolist()
-        name1X_index = df1_X['Name'].tolist()
-        name2O_index = df2_O['Name'].tolist()
-        name2X_index = df2_X['Name'].tolist()
+            name1O_index = df1_O['Name'].tolist()
+            name1X_index = df1_X['Name'].tolist()
+            name2O_index = df2_O['Name'].tolist()
+            name2X_index = df2_X['Name'].tolist()
 
-        novel_down = name1O_index and name2X_index
-        novel_up = name1X_index and name2O_index
-        if st.button("직위 상승/하락자 목록"):
-            if not novel_up:
-                st.write("이번주 직위 상승자는 없습니다.")
-            else : 
-                st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
-            if not novel_down:
-                st.write("이번주 직위 하락자는 없습니다.")
-            else:
-                st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
-
+            novel_down = name1O_index and name2X_index
+            novel_up = name1X_index and name2O_index
+            if st.button("직위 상승/하락자 목록"):
+                if not novel_up:
+                    st.write("이번주 직위 상승자는 없습니다.")
+                else : 
+                    st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
+                if not novel_down:
+                    st.write("이번주 직위 하락자는 없습니다.")
+                else:
+                    st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
+        else:
+            st.warning('비밀번호가 틀렸습니다.')
   
     if __name__ == "__main__":
         main()
