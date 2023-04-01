@@ -305,7 +305,7 @@ def main():
             st.write(data3)
             options = st.selectbox(
             '원하는 차트를 골라주세요',
-            ('스탯비교 그래프', '승률데이터 그래프', 'Chart'))
+            ('구매내역 검색, 안녕'))
             st.write(f'고르신 {options}를 출력하겠습니다: ')
             if option == '구매내역 검색':
                 df = load_data3
