@@ -124,10 +124,12 @@ elif choice == "길드페이지":
             data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
             # 파일 삭제
             os.remove(FILE_PATH)
-        def edit_data(row_index, name, score):
+        def edit_data(row_index, name, Suro, weekly_mission, flag):
             global data
             data.loc[row_index, 'Name'] = name
-            data.loc[row_index, 'Score'] = score
+            data.loc[row_index, 'Suro'] = suro
+            data.loc[row_index, 'Weekly_Mission'] = weekly_mission
+            data.loc[row_index, 'Flag'] = flag
 
         # 데이터 삭제 함수
         def delete_data(row_index):
