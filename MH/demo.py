@@ -60,7 +60,7 @@ def main():
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
         if st.button('데이터추가'):
             # if st.button('추가'):
-            add_data(name, price, point)
+            add_data(name, price, point, mount)
             save_data(data)  # 데이터를 파일에 저장
             st.success('Data Added Successfully')
     elif option == '데이터조회🔎':
