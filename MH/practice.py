@@ -620,9 +620,9 @@ def main():
         >> * 구매내역에서 이름이 지워졌어도 너무 놀라지 말아줘(‾◡◝)
         '''
     with tab3:
-        options = ["아기자기 다락방🌞", "아기자기 다락방🌙"]
-        option = st.selectbox("품목 보기", options)
-        if option == '아기자기 다락방🌞':
+        options_poster = ["아기자기 다락방🌞", "아기자기 다락방🌙"]
+        option_poster = st.selectbox("품목 보기", options_poster)
+        if option_poster == '아기자기 다락방🌞':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input_poster = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input_poster == day:
@@ -633,7 +633,7 @@ def main():
                 st.image(img_url2)
             else: 
                 st.warning('비밀번호가 틀린것 같아')
-        elif option == '아기자기 다락방🌙':
+        elif option_poster == '아기자기 다락방🌙':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input_night = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
             if password_input_night == night:
