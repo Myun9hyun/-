@@ -206,7 +206,7 @@ def main():
         purchase_name
         purchase_product
         purchase_mount
-        add_purchase(name, product, mount):
+        add_purchase(name, product, mount)
 
 if __name__ == '__main__':
     main()
