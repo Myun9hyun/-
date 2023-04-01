@@ -205,6 +205,10 @@ elif choice == "길드페이지":
                         st.write('입력되어있는 데이터가 없습니다.')
             
             elif option == "데이터 삭제✂":
+                st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                if password_input == password:
+                    st.success('접근을 허용합니다')
                 # 데이터 삭제 기능
                 # if st.button('데이터 삭제'):
                     # 사용자로부터 삭제할 행 번호 입력받기
@@ -217,6 +221,8 @@ elif choice == "길드페이지":
                             delete_data(row_index)
                             save_data(data)  # 데이터를 파일에 저장
                             st.success('입력하신 행이 삭제되었습니다.')
+                else:
+                    st.warning('비밀번호가 틀렸습니다.')
 
             elif option == "데이터 초기화💣":
                 st.error('길드 간부진만 접근할 수 있는 메뉴입니다!')
@@ -301,10 +307,16 @@ elif choice == "길드페이지":
                     st.write(f"돌체 : {d} 개")
                     st.write(f"영래 : {e} 개")
             elif option == "데이터 다운로드💾":
-                # 다운로드 버튼 클릭
-                if st.button("다운로드"):
-                    file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
-                    st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
+                st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                if password_input == password:
+                    st.success('접근을 허용합니다')
+                    # 다운로드 버튼 클릭
+                    if st.button("다운로드"):
+                        file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
+                        st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
+                else:
+                    st.warning('비밀번호가 틀렸습니다.')
         if __name__ == '__main__':
                 main()
 
