@@ -152,6 +152,7 @@ def main():
         else :
             st.warning('비밀번호가 틀렸습니다.')
     elif option == '포인트분배':
+        st.error('길드 간부진만 접근할 수 있는 메뉴입니다!')
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
             st.success('접근을 허용합니다')
