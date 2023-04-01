@@ -305,8 +305,8 @@ def main():
             st.write(data3)
             p_options = ["구매내역 검색, 안녕"]
             p_option = st.selectbox("기능 선택", p_options)
-            st.write(f'고르신 {p_options}를 출력하겠습니다: ')
             if p_options == '구매내역 검색':
+                st.write(f'고르신 {p_options}를 출력하겠습니다: ')
                 df = load_data3
                 df = df.iloc[:, 1:]
                 unique_CONF = df['Name'].unique()
