@@ -171,13 +171,19 @@ elif choice == "길드페이지":
             option = st.selectbox("기능 선택", options)
             
 
-            # 사용자로부터 이름과 점수를 입력받는 UI 구성
-            name = st.text_input('이름을 입력하세요')
-            weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-            suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-            flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+            # # 사용자로부터 이름과 점수를 입력받는 UI 구성
+            # name = st.text_input('이름을 입력하세요')
+            # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+            # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+            # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
             
             if option == "데이터 추가➕":
+                # 사용자로부터 이름과 점수를 입력받는 UI 구성
+                name = st.text_input('이름을 입력하세요')
+                weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+                suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+                flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+            
                 # 이름과 점수가 입력되면 데이터프레임에 추가
                 if st.button('데이터 추가'):
                     add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
