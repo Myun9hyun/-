@@ -51,13 +51,23 @@ def add_data2(name, point):
     data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
 
 # 포인트를 차감하는 함수
-def deduct_point(name, mount):
-    global data1
+def deduct_mount(name, mount):
+    global data
     row = data[data['Name'] == name].iloc[0]  # 이름이 일치하는 row 선택
     if row['Mount'] >= mount:  # 차감 가능한 경우
         data.loc[data['Name'] == name, 'Mount'] -= mount  # 포인트 차감
         save_data(data)  # 데이터를 파일에 저장
         st.success(f'{mount} Point Deducted from {name} Successfully')
+    else:  # 차감 불가능한 경우
+        st.warning(f'Not enough mount for {name}')
+
+def deduct_point(name, point):
+    global data2
+    row = data2[data2['Name'] == name].iloc[0]  # 이름이 일치하는 row 선택
+    if row['Point'] >= point:  # 차감 가능한 경우
+        data2.loc[data2['Name'] == name, 'Point'] -= point  # 포인트 차감
+        data2(data2)  # 데이터를 파일에 저장
+        st.success(f'{point} Point Deducted from {name} Successfully')
     else:  # 차감 불가능한 경우
         st.warning(f'Not Enough Point for {name}')
 
