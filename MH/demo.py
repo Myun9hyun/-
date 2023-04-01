@@ -194,7 +194,7 @@ elif choice == "길드페이지":
                     save_data(data)  # 데이터를 파일에 저장
                     # st.success('데이터가 추가되었습니다.')
                     if name in data['Name'].values:
-                        st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                        st.warning(f'{name} (은)는 이미 추가되어 있는 이름이야!')
                         return
                     else : 
                         st.success('데이터가 추가되었습니다.')
