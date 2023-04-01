@@ -194,8 +194,8 @@ def purchase_item(name, product_name, mount):
             data2.loc[data2['Name'] == name, 'Point'] -= total_price
             save_data2(data2)
             st.success(f'{product_name} {mount}개 구매 완료')
-            # 구매내역 호출 버튼 생성
-            st.button("구매내역 확인", on_click=view_purchase_history)
+            # # 구매내역 호출 버튼 생성
+            # st.button("구매내역 확인", on_click=view_purchase_history)
         else:
             st.warning(f'Not Enough Point for {name} to Purchase {product_name}')
     else:
