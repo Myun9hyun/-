@@ -287,7 +287,7 @@ def main():
         option = st.selectbox("품목 보기", options)
         if option == '아기자기 다락방🌞':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
-            password_input = st.number_input('비밀번호를 입력해주세요 : ')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input == day_password:
                 st.success('다락방의 낮을 공개할게!')
                 img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/day.jpg'
@@ -298,7 +298,7 @@ def main():
                 st.warning('비밀번호가 틀린것 같아')
         elif option == '아기자기 다락방🌙':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
-            password_input = st.number_input('비밀번호를 입력해주세요 : ')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
             if password_input == night_password:
                 st.success('다락방의 밤을 공개할게!')
                 img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/night.jpg'
