@@ -213,7 +213,7 @@ elif choice == "길드페이지":
                             delete_data(row_index)
                             save_data(data)  # 데이터를 파일에 저장
                         
-                            # st.success('입력하신 행이 삭제되었습니다.')
+                            st.success('입력하신 행이 삭제되었습니다.')
 
             elif option == "데이터 초기화💣":
                 # 데이터 전부 삭제
