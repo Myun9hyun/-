@@ -183,11 +183,12 @@ def main():
         #             # 차감에 실패한 경우
         #             st.warning(f'Failed to purchase {item_name}')
 
+        
+        # 구매 버튼이 눌렸을 때 실행되는 코드 블럭
+        name = st.text_input('이름 입력')
+        product_name = st.text_input('상품 이름 입력')
+        mount = st.number_input('구매 수량 입력', min_value=1, value=1)
         if st.button('구매'):
-            # 구매 버튼이 눌렸을 때 실행되는 코드 블럭
-            name = st.text_input('이름 입력')
-            product_name = st.text_input('상품 이름 입력')
-            mount = st.number_input('구매 수량 입력', min_value=1, value=1)
             if name and product_name and mount:
                 if deduct_mount(product_name, mount) and deduct_point(name, data2[data2['Name'] == name]['Point'].values[0]):
                     add_data(name, data[data['Name'] == product_name]['Price'].values[0] * mount, mount)
