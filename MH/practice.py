@@ -316,10 +316,10 @@ def main():
                     st.warning('데이터가 초기화 되었습니다.')
             else:
                 st.warning('비밀번호가 틀렸습니다')
-        elif option == '구매내역🛒':
+        elif option == '🌞구매내역🛒':
             if st.button('구매내역 조회'):
                 st.write(data3)
-        elif option == '구매내역🛒':
+        elif option == '🌙구매내역🛒':
             if st.button('구매내역 조회'):
                 st.write(data5)
         elif option == "데이터삭제✂":
