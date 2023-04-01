@@ -136,6 +136,7 @@ def main():
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
     
     if option == '데이터추가➕':
+        st.error('길드 간부진만 접근할 수 있는 메뉴입니다!')
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
             st.success('접근을 허용합니다')
