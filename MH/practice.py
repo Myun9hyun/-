@@ -345,10 +345,10 @@ def main():
                 st.warning('비밀번호가 틀렸습니다.')
         elif options_DN == '밤':
             options_night = ["🌙물건/포인트보기🔎", "🌙물건구매🎁",'🌙구매내역🛒','데이터추가➕🌙','포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
-            option = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_night)
+            option_night = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_night)
         # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
         
-        if option == '데이터추가➕🌙':
+        if option_night == '데이터추가➕🌙':
             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == password:
@@ -365,7 +365,7 @@ def main():
                     st.success('품목이 추가되었어!')
             else :
                 st.warning('비밀번호가 틀렸습니다.')
-        elif option == '포인트지급📝':
+        elif option_night == '포인트지급📝':
             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == password:
@@ -381,7 +381,7 @@ def main():
             else :
                 st.warning('비밀번호가 틀렸습니다.')
 
-        elif option == '🌙물건/포인트보기🔎':
+        elif option_night == '🌙물건/포인트보기🔎':
         # 저장된 데이터프레임 출력
             if st.button('🌙물건/포인트보기🔎'):
                 st.write('물품 목록이야╰(*°▽°*)╯')
@@ -389,7 +389,7 @@ def main():
                 st.write('지급된 포인트 목록이야ヾ(•ω•`)o')
                 st.write(data2)
         # 포인트 차감 버튼
-        elif option == '🌙물건구매🎁':
+        elif option_night == '🌙물건구매🎁':
             st.write('지급된 포인트와 물품 목록은 "물건/포인트보기🔎" 기능을 이용해줘(❁´◡`❁)')
             # 구매자 이름 입력창
             name = st.text_input('이름을 입력해줘😀')
@@ -402,7 +402,7 @@ def main():
             if st.button('구매하기'):
                 purchase_item2(name, product_name, mount)
 
-        elif option == '데이터 초기화💣':
+        elif option_night == '데이터 초기화💣':
             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == password:
@@ -414,10 +414,10 @@ def main():
                     st.warning('데이터가 초기화 되었습니다.')
             else:
                 st.warning('비밀번호가 틀렸습니다')
-        elif option == '🌙구매내역🛒':
+        elif option_night == '🌙구매내역🛒':
             if st.button('구매내역 조회'):
                 st.write(data5)
-        elif option == "데이터삭제✂":
+        elif option_night == "데이터삭제✂":
             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == password:
