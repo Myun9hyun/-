@@ -127,10 +127,9 @@ def main():
         # # name_index = name.tolist()
         # if st.button('구매하기'):
         #     deduct_mount(Name, Mount)
-
+        item_name = st.text_input('Enter Item Name:')
+        item_mount = st.number_input('Enter Item Mount:', value=1)
         if st.button('Purchase'):
-            item_name = st.text_input('Enter Item Name:')
-            item_mount = st.number_input('Enter Item Mount:', value=1)
             if item_name and item_mount:
                 if deduct_mount(item_name, item_mount):
                     # 차감에 성공한 경우
