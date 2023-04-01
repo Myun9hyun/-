@@ -120,12 +120,12 @@ def main():
     elif option == '포인트 삭제✂':
         st.write(data)
         st.write(data2)
-        name = st.text_input('구매하시는 분의 이름을 입력해주세요')
+        Name = st.text_input('구매하시는 분의 이름을 입력해주세요')
         product = st.text_input('구매하실 품목을 입력하세요')
-        mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
+        Mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
         # name_index = name.tolist()
         if st.button('구매하기'):
-            deduct_mount(name, mount)
+            deduct_mount(Name, Mount)
             save_data(data)  # 데이터를 파일에 저장
             st.success(f'{mount} Point Deducted from {name} Successfully')
     elif option == '데이터 초기화💣':
