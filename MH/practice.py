@@ -130,7 +130,7 @@ def delete_data3(row_index):
 def main():
     password = 1234
     day_password = 1017
-    night_password = 0206
+    night_password = 940206
 
     st.title('💜아기자기 다락방💙')
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
@@ -285,7 +285,7 @@ def main():
         elif option == '아기자기 다락방🌙':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
-            if password_input == day_password:
+            if password_input == night_password:
                 st.success('다락방의 밤을 공개할게!')
                         
 if __name__ == '__main__':
