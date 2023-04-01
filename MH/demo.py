@@ -18,7 +18,7 @@ def load_data2():
     try:
         data2 = pd.read_csv(FILE_PATH2)
     except FileNotFoundError:
-        data2 = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
+        data2 = pd.DataFrame(columns=['Name', 'Point'])
     return data2
 
 # 데이터를 파일에 저장하기
