@@ -56,7 +56,7 @@ def deduct_mount(name, mount):
     if row['Mount'] >= mount:  # 차감 가능한 경우
         data.loc[data['Name'] == name, 'Mount'] -= mount  # 포인트 차감
         save_data(data)  # 데이터를 파일에 저장
-        st.success(f'{mount} Point Deducted from {name} Successfully')
+        # st.success(f'{mount} Point Deducted from {name} Successfully')
         return True
     else:  # 차감 불가능한 경우
         st.warning(f'Not enough mount for {name}')
