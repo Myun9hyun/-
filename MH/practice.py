@@ -465,9 +465,9 @@ def main():
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
                         st.success('접근을 허용합니다')
-                        delete_datas = ['품목', '명단', '구매내역']
+                        delete_datas = ['품목🌞','품목🌙', '명단', '구매내역🌞', '구매내역🌙']
                         delete_datass = st.selectbox('삭제하려는 데이터를 선택하세요', delete_datas)
-                        if delete_datass == '품목':
+                        if delete_datass == '품목🌞':
                             # 사용자로부터 삭제할 행 번호 입력받기
                             st.write("품목입니다")
                             st.write(data)
@@ -477,6 +477,17 @@ def main():
                                 if row_index >= 0 and row_index < data.shape[0]:
                                     delete_data(row_index)
                                     save_data(data)  # 데이터를 파일에 저장
+                                    st.success('입력하신 행이 삭제되었습니다.')
+                        elif delete_datass == '품목🌙':
+                            # 사용자로부터 삭제할 행 번호 입력받기
+                            st.write("품목입니다")
+                            st.write(data4)
+                            row_index4 = st.number_input('삭제하고 싶은 품목의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+                            if st.button('품목 삭제'):
+                            # 해당 행이 존재할 경우, 행을 삭제
+                                if row_index4 >= 0 and row_index4 < data.shape[0]:
+                                    delete_data4(row_index4)
+                                    save_data4(data4)  # 데이터를 파일에 저장
                                     st.success('입력하신 행이 삭제되었습니다.')
                         elif delete_datass == '명단':
                             st.write("포인트입니다")
@@ -488,15 +499,25 @@ def main():
                                     delete_data2(row_index2)
                                     save_data2(data2)  # 데이터를 파일에 저장
                                     st.success('입력하신 행이 삭제되었습니다.')
-                        elif delete_datass == '구매내역':
-                            st.write("구매내역 입니다")
+                        elif delete_datass == '구매내역🌞':
+                            st.write("구매내역🌞 입니다")
                             st.write(data3)
                             row_index3 = st.number_input('삭제하고 싶은 구매내역의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
-                            if st.button('구매내역 삭제'):
+                            if st.button('구매내역🌞 삭제'):
                                 # 해당 행이 존재할 경우, 행을 삭제
                                 if row_index3 >= 0 and row_index3 < data3.shape[0]:
                                     delete_data3(row_index3)
                                     save_data3(data3)  # 데이터를 파일에 저장
+                                    st.success('입력하신 행이 삭제되었습니다.')
+                        elif delete_datass == '구매내역🌙':
+                            st.write("구매내역🌙 입니다")
+                            st.write(data5)
+                            row_index5 = st.number_input('삭제하고 싶은 구매내역의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
+                            if st.button('구매내역🌙 삭제'):
+                                # 해당 행이 존재할 경우, 행을 삭제
+                                if row_index5 >= 0 and row_index5 < data5.shape[0]:
+                                    delete_data5(row_index5)
+                                    save_data5(data5)  # 데이터를 파일에 저장
                                     st.success('입력하신 행이 삭제되었습니다.')
                     else :
                         st.warning('비밀번호가 틀렸습니다.')
