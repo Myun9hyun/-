@@ -100,7 +100,7 @@ def add_data(name, price, mount): # 낮
     data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
 def add_data4(name, price, mount): # 밤
-    global data
+    global data4
     if name in data4['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 품목이야!')
                 return
