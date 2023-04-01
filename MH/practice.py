@@ -246,38 +246,7 @@ def main():
             st.write(data2)
     # 포인트 차감 버튼
     elif option == '포인트 삭제✂':
-        # st.write(data)
-        # st.write(data2)
-        # # # Name = st.text_input('구매하시는 분의 이름을 입력해주세요')
-        # # # product = st.text_input('구매하실 품목을 입력하세요')
-        # # # Mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
-        # # # # name_index = name.tolist()
-        # # # if st.button('구매하기'):
-        # # #     deduct_mount(Name, Mount)
-        # # item_name = st.text_input('Enter Item Name:')
-        # # item_mount = st.number_input('Enter Item Mount:', value=1)
-        # # if st.button('Purchase'):
-        # #     if item_name and item_mount:
-        # #         if deduct_mount(item_name, item_mount):
-        # #             # 차감에 성공한 경우
-        # #             purchase_item(item_name, item_mount)  # 품목을 구매합니다
-        # #             # st.success(f'{item_mount} {item_name} Purchased Successfully')
-        # #         else:
-        # #             # 차감에 실패한 경우
-        # #             st.warning(f'Failed to purchase {item_name}')
-        # # 구매 버튼이 눌렸을 때 실행되는 코드 블럭
-        # name = st.text_input('이름 입력')
-        # product_name = st.text_input('상품 이름 입력')
-        # mount = st.number_input('구매 수량 입력', min_value=1, value=1)
-        # if st.button('구매'):
-        #     if name and product_name and mount:
-        #         if deduct_mount(product_name, mount) and deduct_point(name, data2[data2['Name'] == name]['Point'].values[0]):
-        #             add_data(name, data[data['Name'] == product_name]['Price'].values[0] * mount, mount)
-        #             save_data(data)
-        #             st.success(f'{product_name} {mount}개를 구매하였습니다.')
-
-      
-
+   
         # 구매자 이름 입력창
         name = st.text_input('이름을 입력하세요.')
 
