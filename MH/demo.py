@@ -195,7 +195,7 @@ elif choice == "길드페이지":
                     # st.success('데이터가 추가되었습니다.')
                     if name in data['Name'].values:
                         st.warning(f'{name} (은)는 이미 추가되어 있는 이름이야!')
-                        return
+                        # return
                     else : 
                         st.success('데이터가 추가되었습니다.')
             elif option == "데이터 조회🔎":
