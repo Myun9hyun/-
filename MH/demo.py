@@ -280,19 +280,6 @@ elif choice == "길드페이지":
                     file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
                     st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
             elif option == "데이터 삭제":
-
-                if st.button('Edit Data'):
-                    # 사용자로부터 수정할 행 번호 입력받기
-                    row_index = st.number_input('Enter Row Index to Edit', min_value=0, max_value=data.shape[0]-1)
-                    
-                    # 해당 행이 존재할 경우, 행의 값을 수정
-                    if row_index >= 0 and row_index < data.shape[0]:
-                        edit_data(row_index)
-                        save_data(data)  # 데이터를 파일에 저장
-                        st.success('Data Edited Successfully')
-                else:
-                    st.warning('Invalid Row Index')
-            
                 # 데이터 삭제 기능
                 if st.button('Delete Data'):
                     # 사용자로부터 삭제할 행 번호 입력받기
