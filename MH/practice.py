@@ -232,12 +232,12 @@ def main():
         option_DN = ['낮', '밤', '간부용']
         options_DN = st.selectbox("낮과 밤중에 골라줘!", option_DN)
         if options_DN == '낮':
-                st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
-                password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
-                if password_input == day_password:
-                    options = ["🌞물건/포인트보기🔎", "🌞물건구매🎁","🌞구매내역🛒"]
-                    option = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options)
-                # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
+            st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
+            if password_input == day_password:
+                options = ["🌞물건/포인트보기🔎", "🌞물건구매🎁","🌞구매내역🛒"]
+                option = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options)
+            # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
                 if option == '데이터추가➕🌞':
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
