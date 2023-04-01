@@ -55,7 +55,7 @@ def main():
     if option == '데이터추가➕':
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
-            st.write('접근을 허용합니다')
+            st.success('접근을 허용합니다')
             name = st.text_input('Enter Name')
             price = st.number_input('Enter Price', min_value=0, max_value=10000)
             point = st.number_input('Enter Point', min_value=0, max_value=50)
@@ -66,6 +66,8 @@ def main():
                 add_data(name, price, point, mount)
                 save_data(data)  # 데이터를 파일에 저장
                 st.success('Data Added Successfully')
+        else :
+            st.warning('비밀번호가 틀렸습니다.')
     elif option == '데이터조회🔎':
     # 저장된 데이터프레임 출력
         if st.button('데이터조회🔎'):
