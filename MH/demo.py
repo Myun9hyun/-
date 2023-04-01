@@ -54,23 +54,23 @@ def main():
     point = st.number_input('Enter Point', min_value=0, max_value=50)
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
     
-    if option == '데이터추가➕'
+    if option == '데이터추가➕':
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
         if st.button('데이터추가'):
             # if st.button('추가'):
             add_data(name, price, point)
             save_data(data)  # 데이터를 파일에 저장
             st.success('Data Added Successfully')
-    elif option == '데이터조회🔎'
+    elif option == '데이터조회🔎':
     # 저장된 데이터프레임 출력
         if st.button('데이터조회🔎'):
             st.write(data)
 
     # 포인트 차감 버튼
-    elif option == '포인트 삭제✂'
+    elif option == '포인트 삭제✂':
         if st.button('포인트 삭제✂'):
             deduct_point(name, point)
-    elif option == '데이터 초기화💣'
+    elif option == '데이터 초기화💣':
         # 데이터 초기화 버튼
         if st.button('Clear Data'):
             clear_data()
