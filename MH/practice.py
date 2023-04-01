@@ -303,7 +303,7 @@ def main():
     elif option == '구매내역':
         if st.button('구매내역 조회'):
             st.write(data3)
-            p_options = ["구매내역 검색, 안녕"]
+            p_options = ["구매내역 검색", "안녕"]
             p_option = st.selectbox("기능 선택", p_options)
             if p_option == '구매내역 검색':
                 st.write(f'고르신 {p_option}를 출력하겠습니다: ')
