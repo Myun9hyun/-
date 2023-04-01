@@ -132,7 +132,7 @@ elif choice == "길드페이지":
         # 데이터 삭제 함수
         def delete_data(row_index):
             global data
-    data = data.drop(index=row_index).reset_index(drop=True)
+            data = data.drop(index=row_index).reset_index(drop=True)
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
 
