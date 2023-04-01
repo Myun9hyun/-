@@ -77,7 +77,7 @@ def main():
         if st.button('포인트 삭제✂'):
             deduct_point(name, mount)
     elif option == '데이터 초기화💣':
-        password_input = st.number_input('비밀번호를 입력해주세요 : '):
+        password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
             st.write('접근을 허용합니다')
             # 데이터 초기화 버튼
