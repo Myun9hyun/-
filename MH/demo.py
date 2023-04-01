@@ -68,7 +68,7 @@ def deduct_point(name, point):
     if row['Point'] >= point:  # 차감 가능한 경우
         data2.loc[data2['Name'] == name, 'Point'] -= point  # 포인트 차감
         data2(data2)  # 데이터를 파일에 저장
-        st.success(f'{point} Point Deducted from {name} Successfully')
+        # st.success(f'{point} Point Deducted from {name} Successfully')
     else:  # 차감 불가능한 경우
         st.warning(f'Not Enough Point for {name}')
 
