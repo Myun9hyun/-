@@ -203,14 +203,15 @@ elif choice == "길드페이지":
             
             elif option == "데이터 삭제✂":
                 # 데이터 삭제 기능
-                if st.button('데이터 삭제'):
+                # if st.button('데이터 삭제'):
                     # 사용자로부터 삭제할 행 번호 입력받기
                     row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
                     st.write("Enter를 입력하면 삭제됩니다.")
-                    # 해당 행이 존재할 경우, 행을 삭제
-                    if row_index >= 0 and row_index < data.shape[0]:
-                        delete_data(row_index)
-                        save_data(data)  # 데이터를 파일에 저장
+                    if st.button('데이터 삭제'):
+                        # 해당 행이 존재할 경우, 행을 삭제
+                        if row_index >= 0 and row_index < data.shape[0]:
+                            delete_data(row_index)
+                            save_data(data)  # 데이터를 파일에 저장
                         
                             # st.success('입력하신 행이 삭제되었습니다.')
 
