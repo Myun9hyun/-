@@ -72,6 +72,11 @@ def deduct_point(name, point):
     else:  # 차감 불가능한 경우
         st.warning(f'Not Enough Point for {name}')
 
+def purchase_item(name, mount):
+    deduct_mount(name, mount)
+    st.success(f'{mount} Point Purchased from {name} Successfully')
+
+
 # Streamlit 앱 생성
 def main():
     password = 1234
@@ -134,7 +139,7 @@ def main():
                 if deduct_mount(item_name, item_mount):
                     # 차감에 성공한 경우
                     purchase_item(item_name, item_mount)  # 품목을 구매합니다
-                    st.success(f'{item_mount} {item_name} Purchased Successfully')
+                    # st.success(f'{item_mount} {item_name} Purchased Successfully')
                 else:
                     # 차감에 실패한 경우
                     st.warning(f'Failed to purchase {item_name}')
