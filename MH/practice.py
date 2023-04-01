@@ -5,6 +5,7 @@ import os
 
 FILE_PATH1 = 'data1.csv'
 FILE_PATH2 = 'data2.csv'
+FILE_PATH3 = 'data3.csv'
 
 # 파일에서 데이터 불러오기
 def load_data():
@@ -21,6 +22,13 @@ def load_data2():
         data2 = pd.DataFrame(columns=['Name', 'Point'])
     return data2
 
+def load_data3():
+    try:
+        data3 = pd.read_csv(FILE_PATH2)
+    except FileNotFoundError:
+        data3 = pd.DataFrame(columns=['Name', 'Product', 'Mount'])
+    return data3
+
 # 데이터를 파일에 저장하기
 def save_data(data):
     data.to_csv(FILE_PATH1, index=False)
@@ -28,18 +36,24 @@ def save_data(data):
 def save_data2(data2):
     data2.to_csv(FILE_PATH2, index=False)
 
+def save_data3(data3):
+    data3.to_csv(FILE_PATH3, index=False)
+
 # 데이터 초기화 함수
 def clear_data():
-    global data, data2
+    global data, data2, data3
     data = pd.DataFrame(columns=['Name', 'Price', 'Mount'])
     data2 = pd.DataFrame(columns=['Name', 'Point','Product'])
+    data3 = pd.DataFrame(columns=['Name', 'Product', 'Mount'])
     # 파일 삭제
     os.remove(FILE_PATH1)
     os.remove(FILE_PATH2)
+    os.remove(FILE_PATH3)
 
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
 data2 = load_data2()
+data3 = load_data3()
 
 # 사용자로부터 이름, 점수, 포인트, 수량을 입력받아 데이터프레임에 추가하는 함수
 def add_data(name, price, mount):
@@ -49,6 +63,10 @@ def add_data(name, price, mount):
 def add_data2(name, point):
     global data2
     data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
+
+def add_data3(name, price, mount):
+    global data3
+    data3 = data3.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
 def deduct_mount(name, mount):
     global data
@@ -72,27 +90,49 @@ def deduct_point(name, point):
     else:  # 차감 불가능한 경우
         st.warning(f'Not Enough Point for {name}')
 
+# def purchase_item(name, product_name, mount):
+#     global data, data2
+#     # data에서 product_name에 해당하는 row 선택
+#     row = data[data['Name'] == product_name].iloc[0]
+#     # data2에서 name에 해당하는 row 선택
+#     row2 = data2[data2['Name'] == name].iloc[0]
+#     # 구매하고자 하는 수량만큼 차감
+#     if row['Mount'] >= mount:
+#         data.loc[data['Name'] == product_name, 'Mount'] -= mount
+#         save_data(data)
+#         # 품목 가격만큼 point 차감
+#         total_price = row['Price'] * mount
+#         if row2['Point'] >= total_price:
+#             data2.loc[data2['Name'] == name, 'Point'] -= total_price
+#             save_data2(data2)
+#             st.success(f'{product_name} {mount}개 구매 완료')
+#         else:
+#             st.warning(f'Not Enough Point for {name} to Purchase {product_name}')
+#     else:
+#         st.warning(f'Not Enough {product_name} to Purchase')
+
 def purchase_item(name, product_name, mount):
     global data, data2
-    # data에서 product_name에 해당하는 row 선택
     row = data[data['Name'] == product_name].iloc[0]
-    # data2에서 name에 해당하는 row 선택
-    row2 = data2[data2['Name'] == name].iloc[0]
-    # 구매하고자 하는 수량만큼 차감
-    if row['Mount'] >= mount:
+    price = row['Price']
+    
+    # 데이터 차감
+    if deduct_mount(name, price * mount) and deduct_point(name, mount):
         data.loc[data['Name'] == product_name, 'Mount'] -= mount
         save_data(data)
-        # 품목 가격만큼 point 차감
-        total_price = row['Price'] * mount
-        if row2['Point'] >= total_price:
-            data2.loc[data2['Name'] == name, 'Point'] -= total_price
-            save_data2(data2)
-            st.success(f'{product_name} {mount}개 구매 완료')
-        else:
-            st.warning(f'Not Enough Point for {name} to Purchase {product_name}')
+        data2.loc[data2['Name'] == name, 'Point'] -= mount * price
+        save_data2(data2)
+        
+        # 구매 내역 저장
+        data3(name, product_name, mount)
+        
+        st.success(f'{mount} {product_name} Purchased from {name} Successfully')
     else:
-        st.warning(f'Not Enough {product_name} to Purchase')
+        st.warning('Purchase Failed')
 
+def save_purchase_history(name, product_name, mount):
+    global data3
+    data3 = data3.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
     
 def add_purchase(name, product, mount):
     global data
