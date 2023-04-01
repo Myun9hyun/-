@@ -223,8 +223,9 @@ def delete_data5(row_index):
 def main():
     password = 970808
     day_password = 980506
+    day = 980506
     night_password = 940206
-
+    night = 940206
     st.title('💜아기자기 다락방💙')
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
     tab1, tab2, tab3 = st.tabs(["Howto", "Menu", "Product_poster"])
@@ -624,7 +625,7 @@ def main():
         if option == '아기자기 다락방🌞':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input_poster = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
-            if password_input_poster == day_password:
+            if password_input_poster == day:
                 st.success('다락방의 낮을 공개할게!')
                 img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/day.jpg'
                 img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/day_secret.jpg'
@@ -635,7 +636,7 @@ def main():
         elif option == '아기자기 다락방🌙':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input_night = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
-            if password_input_night == night_password:
+            if password_input_night == night:
                 st.success('다락방의 밤을 공개할게!')
                 img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/night.jpg'
                 img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/night_secret.jpg'
