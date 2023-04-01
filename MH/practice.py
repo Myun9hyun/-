@@ -457,7 +457,7 @@ def main():
                                 st.success('입력하신 행이 삭제되었습니다.')
                 else :
                     st.warning('비밀번호가 틀렸습니다.')
-            elif options_DN == '간부용':
+        elif options_DN == '간부용':
                 options_manager = ['포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
                 option_manager = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_manager)
                 if option_manager == "데이터삭제✂":
