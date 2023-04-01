@@ -286,25 +286,25 @@ def main():
             st.write(data3)
 
     elif option == "데이터삭제✂":
-                # 데이터 삭제 기능
-                # if st.button('데이터 삭제'):
-                    # 사용자로부터 삭제할 행 번호 입력받기
-                    st.write(data)
-                    st.write(data2)
-                    row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
-                    row_index2 = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
-                    st.write("Enter를 입력하면 삭제됩니다.")
-                    if st.button('데이터1 삭제'):
-                        # 해당 행이 존재할 경우, 행을 삭제
-                        if row_index >= 0 and row_index < data.shape[0]:
-                            delete_data(row_index)
-                            save_data(data)  # 데이터를 파일에 저장
-                            st.success('입력하신 행이 삭제되었습니다.')
-                    elif st.button('데이터2 삭제'):
-                        # 해당 행이 존재할 경우, 행을 삭제
-                        if row_index2 >= 0 and row_index2 < data2.row_index2[0]:
-                            delete_data2(row_index2)
-                            save_data2(data2)  # 데이터를 파일에 저장
-                            st.success('입력하신 행이 삭제되었습니다.')
+        # 데이터 삭제 기능
+        # if st.button('데이터 삭제'):
+            # 사용자로부터 삭제할 행 번호 입력받기
+            st.write(data)
+            st.write(data2)
+            row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+            row_index2 = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
+            st.write("Enter를 입력하면 삭제됩니다.")
+            if st.button('데이터1 삭제'):
+                # 해당 행이 존재할 경우, 행을 삭제
+                if row_index >= 0 and row_index < data.shape[0]:
+                    delete_data(row_index)
+                    save_data(data)  # 데이터를 파일에 저장
+                    st.success('입력하신 행이 삭제되었습니다.')
+            elif st.button('데이터2 삭제'):
+                # 해당 행이 존재할 경우, 행을 삭제
+                if row_index2 >= 0 and row_index2 < data2.row_index2[0]:
+                    delete_data2(row_index2)
+                    save_data2(data2)  # 데이터를 파일에 저장
+                    st.success('입력하신 행이 삭제되었습니다.')
 if __name__ == '__main__':
     main()
