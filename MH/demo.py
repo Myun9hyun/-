@@ -124,7 +124,15 @@ elif choice == "길드페이지":
             data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
             # 파일 삭제
             os.remove(FILE_PATH)
+        def edit_data(row_index, name, score):
+            global data
+            data.loc[row_index, 'Name'] = name
+            data.loc[row_index, 'Score'] = score
 
+        # 데이터 삭제 함수
+        def delete_data(row_index):
+            global data
+    data = data.drop(index=row_index).reset_index(drop=True)
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
 
