@@ -122,7 +122,7 @@ def main():
         name = st.text_input('구매하시는 분의 이름을 입력해주세요')
         product = st.text_input('구매하실 품목을 입력하세요')
         mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
-        name_index = name.tolist()
+        # name_index = name.tolist()
         if st.button('포인트 삭제✂'):
             deduct_point(product, mount)
             
