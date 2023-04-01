@@ -118,6 +118,7 @@ def main():
             st.write(data2)
     # 포인트 차감 버튼
     elif option == '포인트 삭제✂':
+        st.write(data)
         st.write(data2)
         name = st.text_input('구매하시는 분의 이름을 입력해주세요')
         product = st.text_input('구매하실 품목을 입력하세요')
