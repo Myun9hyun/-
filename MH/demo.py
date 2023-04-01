@@ -125,7 +125,7 @@ def main():
         mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
         # name_index = name.tolist()
         if st.button('포인트 삭제✂'):
-            deduct_point(name, mount)
+            deduct_mount(name, mount)
             
     elif option == '데이터 초기화💣':
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
