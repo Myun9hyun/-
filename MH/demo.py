@@ -102,7 +102,7 @@ def add_purchase(name, product, mount):
 def main():
     password = 1234
     st.title('Add, Display and Deduct Point')
-    options = ["데이터추가➕", '포인트분배', "데이터조회🔎", "포인트 삭제✂", "데이터 초기화💣", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+    options = ["데이터추가➕", '포인트분배', "데이터조회🔎", "포인트 삭제✂", "데이터 초기화💣", "구매내역", "위클리 코젬 계산📋", "데이터 다운로드💾"]
     option = st.selectbox("기능 선택", options)
     
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
@@ -173,6 +173,11 @@ def main():
             if st.button('Clear Data'):
                 clear_data()
                 st.warning('Data Cleared Successfully')
+    elif option == '구매내역':
+        purchase_name
+        purchase_product
+        purchase_mount
+        add_purchase(name, product, mount):
 
 if __name__ == '__main__':
     main()
