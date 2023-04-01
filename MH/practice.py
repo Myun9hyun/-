@@ -155,16 +155,16 @@ def main():
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == password:
                 st.success('접근을 허용합니다')
-                name = st.text_input('Enter Name')
-                price = st.number_input('Enter Price', min_value=0, max_value=10000)
+                name = st.text_input('품목명을 입력해줘')
+                price = st.number_input('가격을 입력해줘', min_value=0, max_value=10000)
                 # point = st.number_input('Enter Point', min_value=0, max_value=50)
-                mount = st.number_input('Enter Mount', min_value=0, max_value=100)
+                mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
         # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
                 if st.button('데이터추가'):
                     # if st.button('추가'):
                     add_data(name, price, mount)
                     save_data(data)  # 데이터를 파일에 저장
-                    st.success('Data Added Successfully')
+                    st.success('품목이 추가되었어!')
             else :
                 st.warning('비밀번호가 틀렸습니다.')
         elif option == '포인트지급📝':
@@ -172,14 +172,14 @@ def main():
             password_input = st.number_input('비밀번호를 입력해주세요 : ')
             if password_input == password:
                 st.success('접근을 허용합니다')
-                name = st.text_input('Enter Name')
-                point = st.number_input('Enter Point', min_value=0, max_value=50)
+                name = st.text_input('닉네임을 입력해줘')
+                point = st.number_input('포인트를 입력해줘', min_value=0, max_value=50)
         # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
                 if st.button('데이터추가'):
                     # if st.button('추가'):
                     add_data2(name, point)
                     save_data2(data2)  # 데이터를 파일에 저장
-                    st.success('Data Added Successfully')
+                    st.success('포인트가 지급되었어!')
             else :
                 st.warning('비밀번호가 틀렸습니다.')
 
