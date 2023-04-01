@@ -167,7 +167,7 @@ elif choice == "길드페이지":
 
         def main():
             
-            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 초기화✂", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 초기화✂", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾", "데이터삭제"]
             option = st.selectbox("기능 선택", options)
             
 
@@ -275,6 +275,29 @@ elif choice == "길드페이지":
                 if st.button("다운로드"):
                     file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
                     st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
+            elif option == "데이터 삭제":
+
+                if st.button('Edit Data'):
+                    # 사용자로부터 수정할 행 번호 입력받기
+                    row_index = st.number_input('Enter Row Index to Edit', min_value=0, max_value=data.shape[0]-1)
+                    
+                    # 해당 행이 존재할 경우, 행의 값을 수정
+                    if row_index >= 0 and row_index < data.shape[0]:
+                        edit_data(row_index, name, score)
+                        save_data(data)  # 데이터를 파일에 저장
+                        st.success('Data Edited Successfully')
+                else:
+                    st.warning('Invalid Row Index')
+            
+                # 데이터 삭제 기능
+                if st.button('Delete Data'):
+                    # 사용자로부터 삭제할 행 번호 입력받기
+                    row_index = st.number_input('Enter Row Index to Delete', min_value=0, max_value=data.shape[0]-1)
+                    
+                    # 해당 행이 존재할 경우, 행을 삭제
+                    if row_index >= 0 and row_index < data.shape[0]:
+                        delete_data(row_index)
+                        save_data(data)  # 데이터를 파일에 저장
         if __name__ == '__main__':
                 main()
 
