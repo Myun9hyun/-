@@ -1,52 +1,56 @@
 import pandas as pd
 import streamlit as st
-# CSV 파일 불러오기
-df = pd.read_csv('products.csv')
 
-# 필요한 열 선택
-df = df[['name', 'price', 'stock']]
+# 데이터프레임1: 품목, 수량, 가격
+df1 = pd.DataFrame({
+    '품목': ['사과', '바나나', '오렌지'],
+    '수량': [10, 5, 8],
+    '가격': [1000, 1500, 800]
+})
 
-# 상품 이름으로 정렬
-df = df.sort_values(by='name')
+# 데이터프레임2: 이름, 포인트
+df2 = pd.DataFrame({
+    '이름': ['홍길동', '김철수', '이영희'],
+    '포인트': [10000, 5000, 8000]
+})
 
-# 인덱스 재설정
-df = df.reset_index(drop=True)
+# 구매 함수
+def purchase(name, item, quantity):
+    # 데이터프레임1에서 해당 품목의 수량을 가져옴
+    stock = df1.loc[df1['품목'] == item, '수량'].values[0]
+    # 구매하려는 수량이 재고보다 많으면 구매 실패 메시지 출력
+    if stock < quantity:
+        st.write('재고가 부족합니다.')
+        return
+    # 데이터프레임1에서 해당 품목의 가격을 가져옴
+    price = df1.loc[df1['품목'] == item, '가격'].values[0]
+    # 데이터프레임2에서 해당 이름의 포인트를 가져옴
+    points = df2.loc[df2['이름'] == name, '포인트'].values[0]
+    # 구매하려는 가격이 보유한 포인트보다 많으면 구매 실패 메시지 출력
+    if price * quantity > points:
+        st.write('포인트가 부족합니다.')
+        return
+    # 구매 완료 메시지 출력
+    st.write('구매가 완료되었습니다.')
+    # 데이터프레임1에서 해당 품목의 수량을 구매한 수량만큼 감소시킴
+    df1.loc[df1['품목'] == item, '수량'] -= quantity
+    # 데이터프레임2에서 해당 이름의 포인트를 구매한 가격만큼 차감시킴
+    df2.loc[df2['이름'] == name, '포인트'] -= price * quantity
 
+# streamlit 앱
+st.title('구매 프로그램')
 
-# 초기 상태 설정
-cart = {}
+# 구매자의 이름 입력
+name = st.text_input('이름을 입력하세요:', '')
 
-# 제목 출력
-st.title('상점 페이지')
+# 구매할 품목과 수량 입력
+item = st.selectbox('구매할 품목을 선택하세요:', df1['품목'].tolist())
+quantity = st.number_input('구매할 수량을 입력하세요:', min_value=1, max_value=10, value=1)
 
-# 상품 목록 출력
-for i in range(len(df)):
-    col1, col2, col3 = st.beta_columns([2, 1, 1])
-    name = df.loc[i, 'name']
-    price = df.loc[i, 'price']
-    stock = df.loc[i, 'stock']
-    quantity = 1
-    with col1:
-        st.write(name)
-    with col2:
-        st.write(price)
-    with col3:
-        if stock == 0:
-            st.write('품절')
-        else:
-            quantity = st.number_input('수량', min_value=1, max_value=stock, value=1)
-    if quantity > 0:
-        if st.button('장바구니에 추가', key=name):
-            if name in cart:
-                cart[name] += quantity
-            else:
-                cart[name] = quantity
-            st.success(f'{name} {quantity}개를 장바구니에 추가했습니다.')
-
-# 장바구니 출력
-if cart:
-    st.write('## 장바구니')
-    for name, quantity in cart.items():
-        st.write(f'{name}: {quantity}개')
-else:
-    st.write('장바구니에 상품이 없습니다.')
+# 구매 버
+# 구매 버튼
+if st.button('구매'):
+    if name and item and quantity:
+        purchase(name, item, quantity)
+    else:
+        st.write('모든 항목을 입력하세요.')
