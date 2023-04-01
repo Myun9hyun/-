@@ -217,8 +217,8 @@ elif choice == "길드페이지":
 
             elif option == "데이터 초기화💣":
                 # 데이터 전부 삭제
-                st.write("버튼을 누르면 데이터가 다 날아갑니다!")
-                st.write("신중하게 누르세요!!")
+                st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
+                st.write("⚠️신중하게 누르세요!!⚠️")
                 if st.button('차트 초기화'):
                     clear_data()
                     st.warning('차트가 초기화 되었습니다')
