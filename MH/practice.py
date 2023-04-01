@@ -301,9 +301,31 @@ def main():
                 clear_data()
                 st.warning('Data Cleared Successfully')
     elif option == '구매내역':
-        if st.button('Show Purchase History'):
+        if st.button('구매내역 조회'):
             st.write(data3)
-
+            options = st.selectbox(
+            '원하는 차트를 골라주세요',
+            ('스탯비교 그래프', '승률데이터 그래프', 'Chart'))
+            st.write(f'고르신 {options}를 출력하겠습니다: ')
+            if option == '구매내역 검색':
+                df = load_data3
+                df = df.iloc[:, 1:]
+                unique_CONF = df['Name'].unique()
+                
+                # 각 고유값에 해당하는 인덱스 추출하여 딕셔너리에 저장
+                index_dict = {}
+                for Name in unique_CONF:
+                    index_dict[Name] = df[df['Name'] == Name].index.tolist()
+                
+                # 사용자로부터 지역 입력 받기
+                user_CONF = st.selectbox("원하시는 지역을 골라주세요:", unique_CONF)
+                
+                # 선택한 지역에 해당하는 모든 행 출력
+                if user_CONF in unique_CONF:
+                    indices = index_dict[user_CONF]
+                    sub_df = df.loc[indices]
+                    st.write(f"### 해당 지역 '{user_CONF}'에 소속된 팀들의 데이터입니다. ")
+                    st.write(sub_df)
     elif option == "데이터삭제✂":
         # 데이터 삭제 기능
         # if st.button('데이터 삭제'):
