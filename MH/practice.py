@@ -202,7 +202,7 @@ def main():
                 # 사용자로부터 삭제할 행 번호 입력받기
                 st.write("품목입니다")
                 st.write(data)
-                row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+                row_index = st.number_input('삭제하고 싶은 품목의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
                 if st.button('품목 삭제'):
                 # 해당 행이 존재할 경우, 행을 삭제
                     if row_index >= 0 and row_index < data.shape[0]:
@@ -212,7 +212,7 @@ def main():
             elif delete_datass == '명단':
                 st.write("포인트입니다")
                 st.write(data2)
-                row_index2 = st.number_input('삭제하고 싶은 데이터2의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
+                row_index2 = st.number_input('삭제하고 싶은 포인트의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
                 if st.button('포인트 삭제'):
                     # 해당 행이 존재할 경우, 행을 삭제
                     if row_index2 >= 0 and row_index2 < data2.shape[0]:
@@ -222,7 +222,7 @@ def main():
             elif delete_datass == '구매내역':
                 st.write("구매내역 입니다")
                 st.write(data3)
-                row_index3 = st.number_input('삭제하고 싶은 데이터3의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
+                row_index3 = st.number_input('삭제하고 싶은 구매내역의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
                 if st.button('구매내역 삭제'):
                     # 해당 행이 존재할 경우, 행을 삭제
                     if row_index3 >= 0 and row_index3 < data3.shape[0]:
