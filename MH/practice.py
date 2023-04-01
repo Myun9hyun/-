@@ -111,24 +111,55 @@ def deduct_point(name, point):
 #     else:
 #         st.warning(f'Not Enough {product_name} to Purchase')
 
+# def purchase_item(name, product_name, mount):
+#     global data, data2
+#     row = data[data['Name'] == product_name].iloc[0]
+#     price = row['Price']
+    
+#     # 데이터 차감
+#     if deduct_mount(name, price * mount) and deduct_point(name, mount):
+#         data.loc[data['Name'] == product_name, 'Mount'] -= mount
+#         save_data(data)
+#         data2.loc[data2['Name'] == name, 'Point'] -= mount * price
+#         save_data2(data2)
+        
+#         # 구매 내역 저장
+#         save_purchase_history(name, product_name, mount)
+        
+#         st.success(f'{mount} {product_name} Purchased from {name} Successfully')
+#     else:
+#         st.warning('Purchase Failed')
 def purchase_item(name, product_name, mount):
     global data, data2
+    # data에서 product_name에 해당하는 row 선택
     row = data[data['Name'] == product_name].iloc[0]
-    price = row['Price']
-    
-    # 데이터 차감
-    if deduct_mount(name, price * mount) and deduct_point(name, mount):
+    # data2에서 name에 해당하는 row 선택
+    row2 = data2[data2['Name'] == name].iloc[0]
+    # 구매하고자 하는 수량만큼 차감
+    if row['Mount'] >= mount:
         data.loc[data['Name'] == product_name, 'Mount'] -= mount
         save_data(data)
-        data2.loc[data2['Name'] == name, 'Point'] -= mount * price
-        save_data2(data2)
-        
-        # 구매 내역 저장
-        save_purchase_history(name, product_name, mount)
-        
-        st.success(f'{mount} {product_name} Purchased from {name} Successfully')
+        # 품목 가격만큼 point 차감
+        total_price = row['Price'] * mount
+        if row2['Point'] >= total_price:
+            # 데이터프레임에 구매내역 추가
+            purchase_df = pd.DataFrame({
+                'Name': [name],
+                'Product': [product_name],
+                'Mount': [mount]
+            })
+            data3 = load_data3()
+            data3 = pd.concat([data3, purchase_df], ignore_index=True)
+            save_data3(data3)
+            # 구매자의 포인트 차감
+            data2.loc[data2['Name'] == name, 'Point'] -= total_price
+            save_data2(data2)
+            st.success(f'{product_name} {mount}개 구매 완료')
+        else:
+            st.warning(f'Not Enough Point for {name} to Purchase {product_name}')
     else:
-        st.warning('Purchase Failed')
+        st.warning(f'Not Enough {product_name} to Purchase')
+
 
 def save_purchase_history(name, product_name, mount):
     global data3
