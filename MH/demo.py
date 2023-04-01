@@ -55,9 +55,10 @@ def main():
         name = st.text_input('Enter Name')
         price = st.number_input('Enter Score', min_value=0, max_value=10000)
         point = st.number_input('Enter Point', min_value=0, max_value=50)
-        add_data(name, price, point)
-        save_data(data)  # 데이터를 파일에 저장
-        st.success('Data Added Successfully')
+        if st.button('추가'):
+            add_data(name, price, point)
+            save_data(data)  # 데이터를 파일에 저장
+            st.success('Data Added Successfully')
     
     # 저장된 데이터프레임 출력
     if st.button('Display Data'):
