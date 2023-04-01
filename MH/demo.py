@@ -73,7 +73,7 @@ def deduct_point(name, point):
         st.warning(f'Not Enough Point for {name}')
 
 def purchase_item(name, mount):
-    deduct_mount(name, mount)
+    # deduct_mount(name, mount)
     st.success(f'{mount} Point Purchased from {name} Successfully')
 
 
