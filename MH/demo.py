@@ -134,7 +134,7 @@ elif choice == "길드페이지":
 
         def add_data(name, weekly_mission, suro, flag):
             global data
-            중복 검사
+            # 중복 검사
             if name in data['Name'].values:
                 # st.warning(f'{name} (은)는 이미 있는 이름이야!')
                 return
