@@ -11,7 +11,7 @@ def load_data():
     try:
         data = pd.read_csv(FILE_PATH1)
     except FileNotFoundError:
-        data = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
+        data = pd.DataFrame(columns=['Name', 'Price', 'Mount'])
     return data
 
 def load_data2():
