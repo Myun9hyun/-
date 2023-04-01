@@ -2,39 +2,87 @@ import streamlit as st
 import pandas as pd
 import os
 
-# 데이터를 저장할 파일 경로 지정
-FILE_PATH = 'data.csv'
+
+FILE_PATH1 = 'data1.csv'
+FILE_PATH2 = 'data2.csv'
 
 # 파일에서 데이터 불러오기
 def load_data():
     try:
-        data = pd.read_csv(FILE_PATH)
+        data = pd.read_csv(FILE_PATH1)
     except FileNotFoundError:
-        data = pd.DataFrame(columns=['Name', 'Price','Mount', 'Point'])
+        data = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
     return data
+
+def load_data2():
+    try:
+        data2 = pd.read_csv(FILE_PATH2)
+    except FileNotFoundError:
+        data2 = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
+    return data2
 
 # 데이터를 파일에 저장하기
 def save_data(data):
-    data.to_csv(FILE_PATH, index=False)
+    data.to_csv(FILE_PATH1, index=False)
+
+def save_data2(data2):
+    data2.to_csv(FILE_PATH2, index=False)
 
 # 데이터 초기화 함수
 def clear_data():
-    global data
-    data = pd.DataFrame(columns=['Name', 'Price','Mount', 'Point'])
+    global data, data2
+    data = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
+    data2 = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
     # 파일 삭제
-    os.remove(FILE_PATH)
+    os.remove(FILE_PATH1)
+    os.remove(FILE_PATH2)
 
 # 불러온 데이터를 전역 변수로 저장
 data = load_data()
+data2 = load_data2()
 
-# 사용자로부터 이름, 점수, 포인트를 입력받아 데이터프레임에 추가하는 함수
+# 사용자로부터 이름, 점수, 포인트, 수량을 입력받아 데이터프레임에 추가하는 함수
 def add_data(name, price, point, mount):
     global data
-    data = data.append({'Name': name, 'Price': price,'Point': point, 'Mount' : mount }, ignore_index=True)
+    data = data.append({'Name': name, 'Price': price, 'Point': point, 'Mount': mount}, ignore_index=True)
+
+def add_data2(name, price, point, mount):
+    global data2
+    data2 = data2.append({'Name': name, 'Price': price, 'Point': point, 'Mount': mount}, ignore_index=True)
+
+# # 데이터를 저장할 파일 경로 지정
+# FILE_PATH = 'data.csv'
+
+# # 파일에서 데이터 불러오기
+# def load_data():
+#     try:
+#         data = pd.read_csv(FILE_PATH)
+#     except FileNotFoundError:
+#         data = pd.DataFrame(columns=['Name', 'Price','Mount', 'Point'])
+#     return data
+
+# # 데이터를 파일에 저장하기
+# def save_data(data):
+#     data.to_csv(FILE_PATH, index=False)
+
+# # 데이터 초기화 함수
+# def clear_data():
+#     global data
+#     data = pd.DataFrame(columns=['Name', 'Price','Mount', 'Point'])
+#     # 파일 삭제
+#     os.remove(FILE_PATH)
+
+# # 불러온 데이터를 전역 변수로 저장
+# data = load_data()
+
+# # 사용자로부터 이름, 점수, 포인트를 입력받아 데이터프레임에 추가하는 함수
+# def add_data(name, price, point, mount):
+#     global data
+#     data = data.append({'Name': name, 'Price': price,'Point': point, 'Mount' : mount }, ignore_index=True)
 
 # 포인트를 차감하는 함수
 def deduct_point(name, mount):
-    global data
+    global data1
     row = data[data['Name'] == name].iloc[0]  # 이름이 일치하는 row 선택
     if row['Mount'] >= mount:  # 차감 가능한 경우
         data.loc[data['Name'] == name, 'Mount'] -= mount  # 포인트 차감
@@ -76,11 +124,13 @@ def main():
     # 포인트 차감 버튼
     elif option == '포인트 삭제✂':
         st.write(data)
-        name = st.text_input('구매하실 품목을 입력하세요')
+        name = st.text_input('구매하시는 분의 이름을 입력해주세요')
+        product = st.text_input('구매하실 품목을 입력하세요')
         mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
-    
+        name_index = name.tolist()
         if st.button('포인트 삭제✂'):
-            deduct_point(name, mount)
+            deduct_point(product, mount)
+            
     elif option == '데이터 초기화💣':
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
