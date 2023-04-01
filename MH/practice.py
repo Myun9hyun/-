@@ -138,7 +138,7 @@ def delete_data3(row_index):
 # Streamlit 앱 생성
 def main():
     password = 1234
-    day_password = 1017
+    day_password = 980506
     night_password = 940206
 
     st.title('💜아기자기 다락방💙')
