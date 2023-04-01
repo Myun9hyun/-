@@ -135,9 +135,9 @@ elif choice == "길드페이지":
         def add_data(name, weekly_mission, suro, flag):
             global data
             # 중복 검사
-            if name in data['Name'].values:
-                st.warning(f'{name} (은)는 이미 있는 이름이야!')
-                return
+            # if name in data['Name'].values:
+            #     st.warning(f'{name} (은)는 이미 있는 이름이야!')
+            #     return
             suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
@@ -192,8 +192,12 @@ elif choice == "길드페이지":
                 if st.button('데이터 추가'):
                     add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
                     save_data(data)  # 데이터를 파일에 저장
-                    st.success('데이터가 추가되었습니다.')
-
+                    # st.success('데이터가 추가되었습니다.')
+                    if name in data['Name'].values:
+                        st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                        return
+                    else : 
+                        st.success('데이터가 추가되었습니다.')
             elif option == "데이터 조회🔎":
                 # 저장된 데이터
                 if st.button('차트 열기'):
