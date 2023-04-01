@@ -42,7 +42,7 @@ data = load_data()
 data2 = load_data2()
 
 # 사용자로부터 이름, 점수, 포인트, 수량을 입력받아 데이터프레임에 추가하는 함수
-def add_data(name, price, point, mount):
+def add_data(name, price, mount):
     global data
     data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
