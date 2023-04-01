@@ -105,7 +105,7 @@ def main():
     # 저장된 데이터프레임 출력
         if st.button('데이터조회🔎'):
             st.write(data)
-
+            st.write(data2)
     # 포인트 차감 버튼
     elif option == '포인트 삭제✂':
         st.write(data2)
