@@ -232,7 +232,6 @@ def main():
         option_DN = ['낮', '밤', '간부용']
         options_DN = st.selectbox("낮과 밤중에 골라줘!", option_DN)
         if options_DN == '낮':
-            if option == '아기자기 다락방🌞':
                 st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
                 password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
                 if password_input == day_password:
