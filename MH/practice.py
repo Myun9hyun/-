@@ -460,7 +460,7 @@ def main():
             elif options_DN == '간부용':
                 options_manager = ['포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
                 option_manager = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_manager)
-                elif option_night == "데이터삭제✂":
+                elif option_manager == "데이터삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
@@ -498,6 +498,33 @@ def main():
                                     delete_data3(row_index3)
                                     save_data3(data3)  # 데이터를 파일에 저장
                                     st.success('입력하신 행이 삭제되었습니다.')
+                    else :
+                        st.warning('비밀번호가 틀렸습니다.')
+                elif option_manager == '데이터 초기화💣':
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.write('접근을 허용합니다')
+                        # 데이터 초기화 버튼
+                        st.write('☢아래의 버튼을 누르면 전부 초기화 됩니다!☢')
+                        if st.button('데이터 초기화'):
+                            clear_data()
+                            st.warning('데이터가 초기화 되었습니다.')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다')
+                elif option_manager == '포인트지급📝':
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        name = st.text_input('닉네임을 입력해줘')
+                        point = st.number_input('포인트를 입력해줘', min_value=0, max_value=1000)
+                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
+                        if st.button('데이터추가'):
+                            # if st.button('추가'):
+                            add_data2(name, point)
+                            save_data2(data2)  # 데이터를 파일에 저장
+                            st.success('포인트가 지급되었어!')
                     else :
                         st.warning('비밀번호가 틀렸습니다.')
     with tab1:
