@@ -70,6 +70,7 @@ def main():
 
     # 포인트 차감 버튼
     elif option == '포인트 삭제✂':
+        st.write(data)
         name = st.text_input('구매하실 품목을 입력하세요')
         mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
     
