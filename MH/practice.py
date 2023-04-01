@@ -295,7 +295,7 @@ def main():
             st.write(data)
             st.write(data2)
             row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
-            row_index2 = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
+            row_index2 = st.number_input('삭제하고 싶은 데이터2의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
             st.write("Enter를 입력하면 삭제됩니다.")
             if st.button('데이터1 삭제'):
                 # 해당 행이 존재할 경우, 행을 삭제
