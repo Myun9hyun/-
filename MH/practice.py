@@ -107,9 +107,9 @@ def purchase_item(name, product_name, mount):
             # # 구매내역 호출 버튼 생성
             # st.button("구매내역 확인", on_click=view_purchase_history)
         else:
-            st.warning(f'{name}은(는) {product_name}을(를) 구매할 포인트가 부족해!')
+            st.warning(f'{name}은(는) {product_name}을(를) 구매할 포인트가 부족해!(┬┬﹏┬┬)')
     else:
-        st.warning(f'{product_name}(은)는 품절되었습니다!')
+        st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
 
 
 def save_purchase_history(name, product_name, mount):
@@ -129,7 +129,8 @@ def delete_data3(row_index):
 # Streamlit 앱 생성
 def main():
     password = 1234
-    st.title('다락방')
+    st.title('💜아기자기 다락방💙')
+    st.write('아기자기의 다락방에 아깅이들을 초대할게!')
     options = ["데이터추가➕", '포인트지급📝', "데이터조회🔎", "물건구매🎁", "데이터 초기화💣", "구매내역🛒", "데이터삭제✂"]
     option = st.selectbox("기능 선택", options)
     
@@ -177,13 +178,13 @@ def main():
             st.write(data2)
     # 포인트 차감 버튼
     elif option == '물건구매🎁':
-        st.write('지급된 포인트와 물품 목록은 "데이터조회"기능을 이용해주세요')
+        st.write('지급된 포인트와 물품 목록은 "데이터조회" 기능을 이용해줘(❁´◡`❁)')
         # 구매자 이름 입력창
-        name = st.text_input('이름을 입력하세요.')
+        name = st.text_input('이름을 입력해줘(●'◡'●)')
         # 구매하려는 품목 선택창
-        product_name = st.selectbox('구매하려는 품목을 선택하세요.', options=data['Name'].tolist())
+        product_name = st.selectbox('구매하려는 품목을 선택해줘(❁´◡`❁)', options=data['Name'].tolist())
         # 구매 수량 입력창
-        mount = st.number_input('구매 수량을 입력하세요.', min_value=1)
+        mount = st.number_input('구매 수량을 입력해줘╰(*°▽°*)╯', min_value=1)
 
         # 구매 버튼 클릭시 purchase_item 함수 실행
         if st.button('구매하기'):
