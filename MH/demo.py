@@ -49,12 +49,13 @@ def main():
     st.title('Add, Display and Deduct Point')
     options = ["데이터추가➕", "데이터조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
     option = st.selectbox("기능 선택", options)
-    name = st.text_input('Enter Name')
-    price = st.number_input('Enter Score', min_value=0, max_value=10000)
-    point = st.number_input('Enter Point', min_value=0, max_value=50)
+    
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
     
     if option == '데이터추가➕':
+        name = st.text_input('Enter Name')
+        price = st.number_input('Enter Score', min_value=0, max_value=10000)
+        point = st.number_input('Enter Point', min_value=0, max_value=50)
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
         if st.button('데이터추가'):
             # if st.button('추가'):
