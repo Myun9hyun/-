@@ -24,7 +24,7 @@ def load_data2():
 
 def load_data3():
     try:
-        data3 = pd.read_csv(FILE_PATH2)
+        data3 = pd.read_csv(FILE_PATH3)
     except FileNotFoundError:
         data3 = pd.DataFrame(columns=['Name', 'Product', 'Mount'])
     return data3
