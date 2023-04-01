@@ -187,11 +187,18 @@ def add_purchase(name, product, mount):
     st.success(f'{name} purchased {mount} {product}(s) successfully.')
 
 
+def delete_data(row_index):
+            global data
+            data = data.drop(index=row_index).reset_index(drop=True)
+def delete_data2(row_index):
+            global data2
+            data2 = data2.drop(index=row_index).reset_index(drop=True)
+# Streamlit 앱 생성
 # Streamlit 앱 생성
 def main():
     password = 1234
     st.title('Add, Display and Deduct Point')
-    options = ["데이터추가➕", '포인트분배', "데이터조회🔎", "포인트 삭제✂", "데이터 초기화💣", "구매내역", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+    options = ["데이터추가➕", '포인트분배', "데이터조회🔎", "포인트 삭제✂", "데이터 초기화💣", "구매내역", "데이터삭제✂", "데이터 다운로드💾"]
     option = st.selectbox("기능 선택", options)
     
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
@@ -278,6 +285,25 @@ def main():
         if st.button('Show Purchase History'):
             st.write(data3)
 
-
+    elif option == "데이터삭제✂":
+                # 데이터 삭제 기능
+                # if st.button('데이터 삭제'):
+                    # 사용자로부터 삭제할 행 번호 입력받기
+                    st.write(data)
+                    st.write(data2)
+                    row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+                    st.write("Enter를 입력하면 삭제됩니다.")
+                    if st.button('데이터1 삭제'):
+                        # 해당 행이 존재할 경우, 행을 삭제
+                        if row_index >= 0 and row_index < data.shape[0]:
+                            delete_data(row_index)
+                            save_data(data)  # 데이터를 파일에 저장
+                            st.success('입력하신 행이 삭제되었습니다.')
+                    elif st.button('데이터2 삭제'):
+                        # 해당 행이 존재할 경우, 행을 삭제
+                        if row_index >= 0 and row_index < data2.shape[0]:
+                            delete_data2(row_index)
+                            save_data2(data2)  # 데이터를 파일에 저장
+                            st.success('입력하신 행이 삭제되었습니다.')
 if __name__ == '__main__':
     main()
