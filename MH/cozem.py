@@ -211,7 +211,7 @@ elif choice == "길드페이지":
                     if row_index >= 0 and row_index < data.shape[0]:
                         delete_data(row_index)
                         save_data(data)  # 데이터를 파일에 저장
-                        if save_data:
+                        
                             # st.success('입력하신 행이 삭제되었습니다.')
 
             elif option == "데이터 초기화💣":
