@@ -498,7 +498,7 @@ def main():
                         st.warning('비밀번호가 틀렸습니다')
                 elif option_manager == "데이터삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
                     if password_input == password:
                         st.success('접근을 허용합니다')
                         delete_datas = ['품목🌞','품목🌙', '명단', '구매내역🌞', '구매내역🌙']
@@ -559,7 +559,7 @@ def main():
                         st.warning('비밀번호가 틀렸습니다.')
                 elif option_manager == '데이터 초기화💣':
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
                     if password_input == password:
                         st.write('접근을 허용합니다')
                         # 데이터 초기화 버튼
@@ -571,7 +571,7 @@ def main():
                         st.warning('비밀번호가 틀렸습니다')
                 elif option_manager == '포인트지급📝':
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
                     if password_input == password:
                         st.success('접근을 허용합니다')
                         name = st.text_input('닉네임을 입력해줘')
