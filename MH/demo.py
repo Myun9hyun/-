@@ -46,19 +46,18 @@ def deduct_point(name, point):
 # Streamlit 앱 생성
 def main():
     st.title('Add, Display and Deduct Point')
-    
+    name = st.text_input('Enter Name')
+    price = st.number_input('Enter Score', min_value=0, max_value=10000)
+    point = st.number_input('Enter Point', min_value=0, max_value=50)
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
     
     
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
     if st.button('Add Data'):
-        name = st.text_input('Enter Name')
-        price = st.number_input('Enter Score', min_value=0, max_value=10000)
-        point = st.number_input('Enter Point', min_value=0, max_value=50)
-        if st.button('추가'):
-            add_data(name, price, point)
-            save_data(data)  # 데이터를 파일에 저장
-            st.success('Data Added Successfully')
+        # if st.button('추가'):
+        add_data(name, price, point)
+        save_data(data)  # 데이터를 파일에 저장
+        st.success('Data Added Successfully')
     
     # 저장된 데이터프레임 출력
     if st.button('Display Data'):
