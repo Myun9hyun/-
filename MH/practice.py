@@ -131,7 +131,7 @@ def main():
     password = 1234
     st.title('💜아기자기 다락방💙')
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
-    tab1, tab2= st.tabs(["menu", "Howto"])
+    tab1, tab2= st.tabs(["Howto", "menu"])
     with tab2:
         options = ["데이터추가➕", '포인트지급📝', "데이터조회🔎", "물건구매🎁", "데이터 초기화💣", "구매내역🛒", "데이터삭제✂"]
         option = st.selectbox("기능 선택", options)
