@@ -28,9 +28,9 @@ def clear_data():
 data = load_data()
 
 # 사용자로부터 이름, 점수, 포인트를 입력받아 데이터프레임에 추가하는 함수
-def add_data(name, price, mount, point):
+def add_data(name, price, point, mount):
     global data
-    data = data.append({'Name': name, 'Price': price, 'Mount' : mount ,'Point': point}, ignore_index=True)
+    data = data.append({'Name': name, 'Price': price,'Point': point, 'Mount' : mount }, ignore_index=True)
 
 # 포인트를 차감하는 함수
 def deduct_point(name, point):
