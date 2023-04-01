@@ -75,6 +75,27 @@ def deduct_point(name, point):
 def purchase_item(name, mount):
     # deduct_mount(name, mount)
     st.success(f'{mount} Point Purchased from {name} Successfully')
+    
+def add_purchase(name, product, mount):
+    global data
+    
+    # 차감할 mount 계산
+    price = prices[product]
+    total_price = price * mount
+    
+    # 차감 함수 호출
+    deduct_mount(name, total_price)
+    
+    # 새로운 데이터프레임 생성
+    new_df = pd.DataFrame({'Name': [name], 'Product': [product], 'Mount': [mount], 'Total Price': [total_price]})
+    
+    # 기존 데이터프레임과 새로운 데이터프레임을 합쳐서 새로운 데이터프레임 생성
+    data = pd.concat([data, new_df], ignore_index=True)
+    
+    # 데이터를 파일에 저장
+    save_data(data)
+    
+    st.success(f'{name} purchased {mount} {product}(s) successfully.')
 
 
 # Streamlit 앱 생성
