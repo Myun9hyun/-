@@ -124,7 +124,7 @@ def main():
         product = st.text_input('구매하실 품목을 입력하세요')
         mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
         # name_index = name.tolist()
-        if st.button('포인트 삭제✂'):
+        if st.button('구매하기'):
             deduct_mount(name, mount)
             
     elif option == '데이터 초기화💣':
