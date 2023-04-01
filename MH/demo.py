@@ -126,8 +126,6 @@ def main():
         # name_index = name.tolist()
         if st.button('구매하기'):
             deduct_mount(Name, Mount)
-            save_data(data)  # 데이터를 파일에 저장
-            st.success(f'{mount} Point Deducted from {name} Successfully')
     elif option == '데이터 초기화💣':
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
