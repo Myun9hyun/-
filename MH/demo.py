@@ -56,7 +56,7 @@ def main():
         name = st.text_input('Enter Name')
         price = st.number_input('Enter Price', min_value=0, max_value=10000)
         point = st.number_input('Enter Point', min_value=0, max_value=50)
-        mount = st.number_input('Enter Mount', min_value=0, max_value=50)
+        mount = st.number_input('Enter Mount', min_value=0, max_value=100)
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
         if st.button('데이터추가'):
             # if st.button('추가'):
