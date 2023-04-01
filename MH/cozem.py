@@ -170,7 +170,7 @@ elif choice == "길드페이지":
 
         def main():
             
-            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
             option = st.selectbox("기능 선택", options)
             
 
@@ -224,7 +224,7 @@ elif choice == "길드페이지":
                     clear_data()
                     st.warning('차트가 초기화 되었습니다')
 
-            elif option == "노블 사용⭕or제한❌":
+            elif option == "노블 사용⭕제한❌":
                 if st.button('노블 제한목록 보기'):
                 # 경고자 명단
                     warning = data[data['Novel'] == 'X']
