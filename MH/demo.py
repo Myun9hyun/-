@@ -53,7 +53,7 @@ def add_data2(name, point):
 # 포인트를 차감하는 함수
 def deduct_mount(name, mount):
     global data
-    row = data[data['Name'] == name].iloc[0]  # 이름이 일치하는 row 선택
+    row = data[data['Name'] == name].iloc[1]  # 이름이 일치하는 row 선택
     if row['Mount'] >= mount:  # 차감 가능한 경우
         data.loc[data['Name'] == name, 'Mount'] -= mount  # 포인트 차감
         save_data(data)  # 데이터를 파일에 저장
