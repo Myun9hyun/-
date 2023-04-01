@@ -31,7 +31,7 @@ def save_data2(data2):
 # 데이터 초기화 함수
 def clear_data():
     global data, data2
-    data = pd.DataFrame(columns=['Name', 'Price', 'Point', 'Mount'])
+    data = pd.DataFrame(columns=['Name', 'Price', 'Mount'])
     data2 = pd.DataFrame(columns=['Name', 'Point','Product'])
     # 파일 삭제
     os.remove(FILE_PATH1)
@@ -44,7 +44,7 @@ data2 = load_data2()
 # 사용자로부터 이름, 점수, 포인트, 수량을 입력받아 데이터프레임에 추가하는 함수
 def add_data(name, price, point, mount):
     global data
-    data = data.append({'Name': name, 'Price': price, 'Point': point, 'Mount': mount}, ignore_index=True)
+    data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
 def add_data2(name, point):
     global data2
@@ -76,7 +76,7 @@ def main():
             st.success('접근을 허용합니다')
             name = st.text_input('Enter Name')
             price = st.number_input('Enter Price', min_value=0, max_value=10000)
-            point = st.number_input('Enter Point', min_value=0, max_value=50)
+            # point = st.number_input('Enter Point', min_value=0, max_value=50)
             mount = st.number_input('Enter Mount', min_value=0, max_value=100)
     # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
             if st.button('데이터추가'):
