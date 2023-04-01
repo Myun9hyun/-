@@ -475,7 +475,7 @@ def main():
                             add_data(name, price, mount)
                             save_data(data)  # 데이터를 파일에 저장
                             st.success('품목이 추가되었어!')
-                elif option_manager == "데이터추가➕🌞":
+                elif option_manager == "데이터추가➕🌙":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
