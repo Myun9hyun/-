@@ -124,8 +124,8 @@ elif choice == "길드페이지":
             data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
             # 파일 삭제
             os.remove(FILE_PATH)
-            
-        def edit_data(row_index, name, Suro, weekly_mission, flag):
+
+        def edit_data(row_index):
             global data
             data.loc[row_index, 'Name'] = name
             data.loc[row_index, 'Suro'] = suro
@@ -294,7 +294,7 @@ elif choice == "길드페이지":
                     
                     # 해당 행이 존재할 경우, 행의 값을 수정
                     if row_index >= 0 and row_index < data.shape[0]:
-                        edit_data(row_index, name, suro, weekly_mission, flag)
+                        edit_data(row_index)
                         save_data(data)  # 데이터를 파일에 저장
                         st.success('Data Edited Successfully')
                 else:
