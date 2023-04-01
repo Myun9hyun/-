@@ -304,8 +304,7 @@ elif choice == "길드페이지":
                     delete_input = st.button('삭제')
                     # 사용자로부터 삭제할 행 번호 입력받기
                     row_index = st.number_input('Enter Row Index to Delete', min_value=0, max_value=data.shape[0]-1)
-                    if row_index is True:
-                        delete_input
+                    if delete_input is True:
                     # 해당 행이 존재할 경우, 행을 삭제
                         if row_index >= 0 and row_index < data.shape[0]:
                             delete_data(row_index)
