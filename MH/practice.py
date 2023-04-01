@@ -358,11 +358,11 @@ def main():
                     # point = st.number_input('Enter Point', min_value=0, max_value=50)
                     mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
             # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
-                        if st.button('데이터추가'):
-                            # if st.button('추가'):
-                            add_data4(name, price, mount)
-                            save_data4(data4)  # 데이터를 파일에 저장
-                            st.success('품목이 추가되었어!')
+                    if st.button('데이터추가'):
+                        # if st.button('추가'):
+                        add_data4(name, price, mount)
+                        save_data4(data4)  # 데이터를 파일에 저장
+                        st.success('품목이 추가되었어!')
                 else :
                     st.warning('비밀번호가 틀렸습니다.')
             elif option_night == '포인트지급📝':
