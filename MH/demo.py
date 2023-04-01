@@ -50,16 +50,17 @@ def add_data2(name, point):
     global data2
     data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
 
-# 포인트를 차감하는 함수
 def deduct_mount(name, mount):
     global data
-    row = data[data['Name'] == name].iloc[1]  # 이름이 일치하는 row 선택
+    row = data[data['Name'] == name].iloc[0]  # 이름이 일치하는 row 선택
     if row['Mount'] >= mount:  # 차감 가능한 경우
         data.loc[data['Name'] == name, 'Mount'] -= mount  # 포인트 차감
         save_data(data)  # 데이터를 파일에 저장
         st.success(f'{mount} Point Deducted from {name} Successfully')
+        return True
     else:  # 차감 불가능한 경우
         st.warning(f'Not enough mount for {name}')
+        return False
 
 def deduct_point(name, point):
     global data2
@@ -120,12 +121,25 @@ def main():
     elif option == '포인트 삭제✂':
         st.write(data)
         st.write(data2)
-        Name = st.text_input('구매하시는 분의 이름을 입력해주세요')
-        product = st.text_input('구매하실 품목을 입력하세요')
-        Mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
-        # name_index = name.tolist()
-        if st.button('구매하기'):
-            deduct_mount(Name, Mount)
+        # Name = st.text_input('구매하시는 분의 이름을 입력해주세요')
+        # product = st.text_input('구매하실 품목을 입력하세요')
+        # Mount = st.number_input('구매하실 갯수를 입력하세요', min_value=0)
+        # # name_index = name.tolist()
+        # if st.button('구매하기'):
+        #     deduct_mount(Name, Mount)
+
+        if st.button('Purchase'):
+        item_name = st.text_input('Enter Item Name:')
+        item_mount = st.number_input('Enter Item Mount:', value=1)
+        if item_name and item_mount:
+            if deduct_mount(item_name, item_mount):
+                # 차감에 성공한 경우
+                purchase_item(item_name, item_mount)  # 품목을 구매합니다
+                st.success(f'{item_mount} {item_name} Purchased Successfully')
+            else:
+                # 차감에 실패한 경우
+                st.warning(f'Failed to purchase {item_name}')
+
     elif option == '데이터 초기화💣':
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
