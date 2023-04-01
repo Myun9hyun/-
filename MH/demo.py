@@ -53,7 +53,7 @@ def main():
     # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
     
     if option == '데이터추가➕':
-         password_input = st.number_input('비밀번호를 입력해주세요 : ')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
             st.write('접근을 허용합니다')
             name = st.text_input('Enter Name')
