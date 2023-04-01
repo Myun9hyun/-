@@ -349,8 +349,8 @@ def main():
                                     st.success('입력하신 행이 삭제되었습니다.')
                     else :
                         st.warning('비밀번호가 틀렸습니다.')
-                else:
-                    st.warning('비밀번호가 틀렸습니다')
+        else:
+            st.warning('비밀번호가 틀렸습니다')
         elif options_DN == '밤':           
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
