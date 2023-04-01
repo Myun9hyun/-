@@ -39,6 +39,8 @@ def purchase(name, item, quantity):
 
 # streamlit 앱
 st.title('구매 프로그램')
+st.write(df1)
+st.write(df2)
 
 # 구매자의 이름 입력
 name = st.text_input('이름을 입력하세요:', '')
