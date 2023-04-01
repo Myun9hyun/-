@@ -307,7 +307,7 @@ def main():
             '원하는 차트를 골라주세요',
             ('구매내역 검색, 안녕'))
             st.write(f'고르신 {options}를 출력하겠습니다: ')
-            if option == '구매내역 검색':
+            if options == '구매내역 검색':
                 df = load_data3
                 df = df.iloc[:, 1:]
                 unique_CONF = df['Name'].unique()
