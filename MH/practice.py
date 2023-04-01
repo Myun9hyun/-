@@ -221,6 +221,9 @@ def main():
             delete_datas = ['품목', '명단', '구매내역']
             delete_datass = st.selectbox('삭제하려는 데이터를 선택하세요', delete_datas)
             if delete_datass == '품목':
+                # 사용자로부터 삭제할 행 번호 입력받기
+                st.write("품목입니다")
+                st.write(data)
                 row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
                 if st.button('데이터1 삭제'):
                 # 해당 행이 존재할 경우, 행을 삭제
