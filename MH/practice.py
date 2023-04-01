@@ -219,8 +219,11 @@ def main():
             st.write(data3)
     elif option == "데이터삭제✂":
             # 사용자로부터 삭제할 행 번호 입력받기
+            st.write("품목입니다")
             st.write(data)
+            st.write("포인트입니다")
             st.write(data2)
+            st.write("구매내역 입니다")
             st.write(data3)
             row_index = st.number_input('삭제하고 싶은 데이터1의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
             row_index2 = st.number_input('삭제하고 싶은 데이터2의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
