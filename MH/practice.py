@@ -137,7 +137,7 @@ def delete_data3(row_index):
 # Streamlit 앱 생성
 # Streamlit 앱 생성
 def main():
-    password = 1234
+    password = 970808
     day_password = 980506
     night_password = 940206
 
