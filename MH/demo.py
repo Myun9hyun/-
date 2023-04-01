@@ -45,7 +45,7 @@ def deduct_point(name, mount):
 
 # Streamlit 앱 생성
 def main():
-    
+    password = 1234
     st.title('Add, Display and Deduct Point')
     options = ["데이터추가➕", "데이터조회🔎", "포인트 삭제✂", "데이터 초기화💣", "노블 사용⭕or제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
     option = st.selectbox("기능 선택", options)
@@ -77,10 +77,13 @@ def main():
         if st.button('포인트 삭제✂'):
             deduct_point(name, mount)
     elif option == '데이터 초기화💣':
-        # 데이터 초기화 버튼
-        if st.button('Clear Data'):
-            clear_data()
-            st.warning('Data Cleared Successfully')
+        password_input = st.number_input('비밀번호를 입력해주세요 : '):
+        if password_input == password:
+            st.write('접근을 허용합니다')
+            # 데이터 초기화 버튼
+            if st.button('Clear Data'):
+                clear_data()
+                st.warning('Data Cleared Successfully')
 
 if __name__ == '__main__':
     main()
