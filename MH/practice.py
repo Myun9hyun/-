@@ -307,7 +307,7 @@ def main():
             p_option = st.selectbox("기능 선택", p_options)
             if p_option == '구매내역 검색':
                 st.write(f'고르신 {p_option}를 출력하겠습니다: ')
-                df = load_data3
+                df = load_data3()
                 df = df.iloc[:, 1:]
                 unique_CONF = df['Name'].unique()
                 
