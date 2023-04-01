@@ -58,10 +58,16 @@ data3 = load_data3()
 # 사용자로부터 이름, 점수, 포인트, 수량을 입력받아 데이터프레임에 추가하는 함수
 def add_data(name, price, mount):
     global data
+    if name in data['Name'].values:
+                st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                return
     data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
 def add_data2(name, point):
     global data2
+    if name in data2['Name'].values:
+                st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                return
     data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
 
 def add_data3(name, price, mount):
