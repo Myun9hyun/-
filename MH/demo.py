@@ -131,14 +131,14 @@ def main():
         if st.button('Purchase'):
             item_name = st.text_input('Enter Item Name:')
             item_mount = st.number_input('Enter Item Mount:', value=1)
-        if item_name and item_mount:
-            if deduct_mount(item_name, item_mount):
-                # 차감에 성공한 경우
-                purchase_item(item_name, item_mount)  # 품목을 구매합니다
-                st.success(f'{item_mount} {item_name} Purchased Successfully')
-            else:
-                # 차감에 실패한 경우
-                st.warning(f'Failed to purchase {item_name}')
+            if item_name and item_mount:
+                if deduct_mount(item_name, item_mount):
+                    # 차감에 성공한 경우
+                    purchase_item(item_name, item_mount)  # 품목을 구매합니다
+                    st.success(f'{item_mount} {item_name} Purchased Successfully')
+                else:
+                    # 차감에 실패한 경우
+                    st.warning(f'Failed to purchase {item_name}')
 
     elif option == '데이터 초기화💣':
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
