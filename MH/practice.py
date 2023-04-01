@@ -143,7 +143,7 @@ def main():
 
     st.title('💜아기자기 다락방💙')
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
-    tab1, tab2, tab3 = st.tabs(["Howto", "Menu", "Product_poster"])
+    tab1, tab2, tab3, tab4 = st.tabs(["Howto", "Menu", "Product_poster", "Random_Box"])
     with tab2:
         options = ["물건/포인트보기🔎", "물건구매🎁","구매내역🛒","데이터추가➕",'포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
         option = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options)
@@ -173,7 +173,7 @@ def main():
             if password_input == password:
                 st.success('접근을 허용합니다')
                 name = st.text_input('닉네임을 입력해줘')
-                point = st.number_input('포인트를 입력해줘', min_value=0, max_value=50)
+                point = st.number_input('포인트를 입력해줘', min_value=0, max_value=1000)
         # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
                 if st.button('데이터추가'):
                     # if st.button('추가'):
@@ -307,5 +307,56 @@ def main():
                 st.image(img_url2)
             else: 
                 st.warning('비밀번호가 틀린것 같아')
+    with tab4:
+            st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
+            if password_input == password:
+                st.success('접근을 허용합니다')
+                def random_values(values, probabilities, n):
+                    # n번 값을 랜덤하게 선택하여 반환합니다.
+                    result = []
+                    for i in range(n):
+                        selected_value = random.choices(values, probabilities)[0]
+                        result.append(selected_value)
+                    return result
+
+                # Streamlit 앱을 실행합니다.
+                st.title("🐻아기자기 랜덤박스🎁")
+                st.write()
+                '''
+                ##### 랜덤박스🎁 내 물품은 다음과 같습니다
+
+                | 구분 |  구성품 | 확률 | 
+                |:---: | :---: | :---: | 
+                | 꽝💣 | 코젬, 경뿌, 반파별4개, 수에큐3개 | 7.4% |
+                | 대박🎊 | 명큡, 앱솔상자, 강환불, 미코젬, 주흔 한묶음 | 6% |
+                | 일반💰 | 반빨별, 재획비, 경축비, 고보킬, 고대비, 명훈, 장큐, 거코젬 | 3% | 
+
+
+                '''
+                # 값과 그에 해당하는 확률을 리스트로 지정합니다.
+                values = ['코젬', '경뿌', '반파별4개', '수에큐3개', '소경축비', '명큡', '앱상', '강환불', '미코젬', '주흔_한묶음', '반빨별', '재획비', '경축비', '고보킬', '고대비', '명훈', '장큐', '거코젬']
+                probabilities = [0.074, 0.074, 0.074, 0.074, 0.074, 0.03, 0.03, 0.03, 0.03, 0.03, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06]
+
+
+                # 출력을 원하는 개수를 입력받습니다.
+                n = st.number_input("상자를 오픈하실 개수를 입력하세요:", min_value=1, max_value=10, step=1, value=1)
+
+                # 값을 랜덤하게 선택하여 출력합니다.
+                selected_values = random_values(values, probabilities,n)
+                # st.success('This is a success message!', icon="✅")
+                open_button = st.button("상자 열기")
+                if open_button:
+                    selected_values = random_values(values, probabilities, n)
+                    for i in range(min(n, len(selected_values))):
+                        if selected_values[i] in ['코젬', '경뿌', '반파별4개', '수에큐3개', '소경축비']:
+                            st.error(f"아쉽습니다.. {selected_values[i]}(이)가 나왔습니다..")
+                        elif selected_values[i] in ['명큡', '앱상', '강환불', '미코젬', '주흔_한묶음']:
+                            st.balloons()
+                            st.success(f"축하드립니다! 상자에서 {selected_values[i]}(이)가 나왔습니다!")
+                        else:
+                            st.warning(f"상자에서 {selected_values[i]}(이)가 나왔습니다!")
+            else:
+                st.warning('비밀번호가 틀렸어!')
 if __name__ == '__main__':
     main()
