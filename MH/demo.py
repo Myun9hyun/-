@@ -33,7 +33,7 @@ def add_data(name, price, point, mount):
     data = data.append({'Name': name, 'Price': price,'Point': point, 'Mount' : mount }, ignore_index=True)
 
 # 포인트를 차감하는 함수
-def deduct_point(name, point):
+def deduct_point(name, mount):
     global data
     row = data[data['Name'] == name].iloc[0]  # 이름이 일치하는 row 선택
     if row['Mount'] >= mount:  # 차감 가능한 경우
