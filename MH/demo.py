@@ -125,13 +125,6 @@ elif choice == "길드페이지":
             # 파일 삭제
             os.remove(FILE_PATH)
 
-        def edit_data(row_index):
-            global data
-            data.loc[row_index, 'Name'] = name
-            data.loc[row_index, 'Suro'] = suro
-            data.loc[row_index, 'Weekly_Mission'] = weekly_mission
-            data.loc[row_index, 'Flag'] = flag
-
         # 데이터 삭제 함수
         def delete_data(row_index):
             global data
