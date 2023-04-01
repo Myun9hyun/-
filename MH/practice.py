@@ -213,7 +213,7 @@ def main():
                 st.write("포인트입니다")
                 st.write(data2)
                 row_index2 = st.number_input('삭제하고 싶은 데이터2의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
-                if st.button('데이터2 삭제'):
+                if st.button('포인트 삭제'):
                     # 해당 행이 존재할 경우, 행을 삭제
                     if row_index2 >= 0 and row_index2 < data2.shape[0]:
                         delete_data2(row_index2)
@@ -223,7 +223,7 @@ def main():
                 st.write("구매내역 입니다")
                 st.write(data3)
                 row_index3 = st.number_input('삭제하고 싶은 데이터3의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
-                if st.button('데이터3 삭제'):
+                if st.button('구매내역 삭제'):
                     # 해당 행이 존재할 경우, 행을 삭제
                     if row_index3 >= 0 and row_index3 < data3.shape[0]:
                         delete_data3(row_index3)
