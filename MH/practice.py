@@ -244,10 +244,9 @@ def main():
                 clear_data()
                 st.warning('Data Cleared Successfully')
     elif option == '구매내역':
-        purchase_name
-        purchase_product
-        purchase_mount
-        add_purchase(name, product, mount)
+        if st.button('Show Purchase History'):
+            st.write(data3())
+
 
 if __name__ == '__main__':
     main()
