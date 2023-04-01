@@ -132,7 +132,7 @@ def main():
     st.title('💜아기자기 다락방💙')
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
     tab1, tab2= st.tabs(["menu", "Howto"])
-    with tab1:
+    with tab2:
         options = ["데이터추가➕", '포인트지급📝', "데이터조회🔎", "물건구매🎁", "데이터 초기화💣", "구매내역🛒", "데이터삭제✂"]
         option = st.selectbox("기능 선택", options)
         
@@ -247,7 +247,7 @@ def main():
                             st.success('입력하신 행이 삭제되었습니다.')
             else :
                 st.warning('비밀번호가 틀렸습니다.')
-    with tab2:
+    with tab1:
         st.write('여기 있는 안내사항을 먼저 읽고 참여해줘!')
 if __name__ == '__main__':
     main()
