@@ -141,6 +141,7 @@ def purchase_item(name, product_name, mount):
     row = data[data['Name'] == product_name].iloc[0]
     # data2에서 name에 해당하는 row 선택
     row2 = data2[data2['Name'] == name].iloc[0]
+    data3 = load_data3()
     # 구매하고자 하는 수량만큼 차감
     if row['Mount'] >= mount:
         data.loc[data['Name'] == product_name, 'Mount'] -= mount
