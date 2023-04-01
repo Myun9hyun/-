@@ -195,6 +195,7 @@ elif choice == "길드페이지":
 
             elif option == "데이터 조회🔎":
                 # 저장된 데이터
+                st.write("버튼을 누르면 입력하신 데이터를 확인할 수 있습니다.")
                 if st.button('차트 열기'):
                     if not data.empty:
                         st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
