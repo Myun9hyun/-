@@ -186,13 +186,17 @@ def main():
             purchase_item(name, product_name, mount)
 
     elif option == '데이터 초기화💣':
+        st.error('길드 간부진만 접근할 수 있는 메뉴입니다!')
         password_input = st.number_input('비밀번호를 입력해주세요 : ')
         if password_input == password:
             st.write('접근을 허용합니다')
             # 데이터 초기화 버튼
-            if st.button('Clear Data'):
+            st.write('☢아래의 버튼을 누르면 전부 초기화 됩니다!☢')
+            if st.button('데이터 초기화'):
                 clear_data()
-                st.warning('Data Cleared Successfully')
+                st.warning('데이터가 초기화 되었습니다.')
+        else:
+            st.warning('비밀번호가 틀렸습니다')
     elif option == '구매내역':
         if st.button('구매내역 조회'):
             st.write(data3)
