@@ -245,7 +245,7 @@ def main():
                 st.warning('Data Cleared Successfully')
     elif option == '구매내역':
         if st.button('Show Purchase History'):
-            st.write(data3())
+            st.write(data3)
 
 
 if __name__ == '__main__':
