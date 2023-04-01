@@ -197,6 +197,10 @@ def main():
         if st.button('구매내역 조회'):
             st.write(data3)
     elif option == "데이터삭제✂":
+        st.error('길드 간부진만 접근할 수 있는 메뉴입니다!')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ')
+        if password_input == password:
+            st.success('접근을 허용합니다')
             delete_datas = ['품목', '명단', '구매내역']
             delete_datass = st.selectbox('삭제하려는 데이터를 선택하세요', delete_datas)
             if delete_datass == '품목':
@@ -230,5 +234,7 @@ def main():
                         delete_data3(row_index3)
                         save_data3(data3)  # 데이터를 파일에 저장
                         st.success('입력하신 행이 삭제되었습니다.')
+        else :
+            st.warning('비밀번호가 틀렸습니다.')
 if __name__ == '__main__':
     main()
