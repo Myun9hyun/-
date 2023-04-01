@@ -180,7 +180,7 @@ def main():
     elif option == '물건구매🎁':
         st.write('지급된 포인트와 물품 목록은 "데이터조회" 기능을 이용해줘(❁´◡`❁)')
         # 구매자 이름 입력창
-        name = st.text_input('이름을 입력해줘(●'◡'●)')
+        name = st.text_input('이름을 입력해줘😀')
         # 구매하려는 품목 선택창
         product_name = st.selectbox('구매하려는 품목을 선택해줘(❁´◡`❁)', options=data['Name'].tolist())
         # 구매 수량 입력창
