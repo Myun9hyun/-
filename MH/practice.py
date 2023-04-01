@@ -129,9 +129,9 @@ def purchase_item(name, product_name, mount):
             # # 구매내역 호출 버튼 생성
             # st.button("구매내역 확인", on_click=view_purchase_history)
         else:
-            st.warning(f'{name}은 {product_name}을(를) 구매할 포인트가 부족해!')
+            st.warning(f'{name}은(는) {product_name}을(를) 구매할 포인트가 부족해!')
     else:
-        st.warning(f'{product_name} 는 품절되었습니다!')
+        st.warning(f'{product_name}(은)는 품절되었습니다!')
 
 
 def save_purchase_history(name, product_name, mount):
