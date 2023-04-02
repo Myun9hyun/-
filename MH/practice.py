@@ -452,7 +452,7 @@ def main():
         > * 품목별 인당 구매 제한을 초과해서 구매하면 구매 기록은 지워질 예정이야! 그럴 땐 우리가 알려줄테니까 다시 구매해줘!
         >> * 구매내역에서 이름이 지워졌어도 너무 놀라지 말아줘(‾◡◝)
         '''
-    with tab3:
+    with tab2:
         options_poster = ["아기자기 다락방🌞", "아기자기 다락방🌙"]
         option_poster = st.selectbox("품목 보기", options_poster)
         if option_poster == '아기자기 다락방🌞':
