@@ -240,39 +240,39 @@ def main():
                 options = ["🌞물건/포인트보기🔎", "🌞물건구매🎁","🌞구매내역🛒"]
                 option = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options)
             # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
-                if option == '데이터추가➕🌞':
-                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                    if password_input == password:
-                        st.success('접근을 허용합니다')
-                        name = st.text_input('품목명을 입력해줘')
-                        price = st.number_input('가격을 입력해줘', min_value=0, max_value=10000)
-                        # point = st.number_input('Enter Point', min_value=0, max_value=50)
-                        mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
-                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
-                        if st.button('데이터추가'):
-                            # if st.button('추가'):
-                            add_data(name, price, mount)
-                            save_data(data)  # 데이터를 파일에 저장
-                            st.success('품목이 추가되었어!')
+                # if option == '데이터추가➕🌞':
+                #     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+                #     password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                #     if password_input == password:
+                #         st.success('접근을 허용합니다')
+                #         name = st.text_input('품목명을 입력해줘')
+                #         price = st.number_input('가격을 입력해줘', min_value=0, max_value=10000)
+                #         # point = st.number_input('Enter Point', min_value=0, max_value=50)
+                #         mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
+                # # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
+                #         if st.button('데이터추가'):
+                #             # if st.button('추가'):
+                #             add_data(name, price, mount)
+                #             save_data(data)  # 데이터를 파일에 저장
+                #             st.success('품목이 추가되었어!')
 
-                elif option == '포인트지급📝':
-                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                    if password_input == password:
-                        st.success('접근을 허용합니다')
-                        name = st.text_input('닉네임을 입력해줘')
-                        point = st.number_input('포인트를 입력해줘', min_value=0, max_value=1000)
-                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
-                        if st.button('데이터추가'):
-                            # if st.button('추가'):
-                            add_data2(name, point)
-                            save_data2(data2)  # 데이터를 파일에 저장
-                            st.success('포인트가 지급되었어!')
-                    else :
-                        st.warning('비밀번호가 틀렸습니다.')
+                # elif option == '포인트지급📝':
+                #     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
+                #     password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                #     if password_input == password:
+                #         st.success('접근을 허용합니다')
+                #         name = st.text_input('닉네임을 입력해줘')
+                #         point = st.number_input('포인트를 입력해줘', min_value=0, max_value=1000)
+                # # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
+                #         if st.button('데이터추가'):
+                #             # if st.button('추가'):
+                #             add_data2(name, point)
+                #             save_data2(data2)  # 데이터를 파일에 저장
+                #             st.success('포인트가 지급되었어!')
+                #     else :
+                #         st.warning('비밀번호가 틀렸습니다.')
 
-                elif option == '🌞물건/포인트보기🔎':
+                if option == '🌞물건/포인트보기🔎':
                 # 저장된 데이터프레임 출력
                     if st.button('🌞물건/포인트보기🔎'):
                         st.write('물품 목록이야╰(*°▽°*)╯')
