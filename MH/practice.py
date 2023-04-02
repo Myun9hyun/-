@@ -19,7 +19,7 @@ FILE_PATH4 = 'data4.csv'
 FILE_PATH5 = 'data5.csv'
 
 # 파일에서 데이터 불러오기
-def load_data(): #낮
+def load_data(): #낮 품목
     try:
         data = pd.read_csv(FILE_PATH1)
     except FileNotFoundError:
@@ -40,7 +40,7 @@ def load_data3():
         data3 = pd.DataFrame(columns=['Name', 'Product', 'Mount'])
     return data3
 
-def load_data4(): # 밤
+def load_data4(): # 밤 품목
     try:
         data4 = pd.read_csv(FILE_PATH4)
     except FileNotFoundError:
@@ -92,21 +92,21 @@ data4 = load_data4()
 data5 = load_data5()
 
 # 사용자로부터 이름, 점수, 포인트, 수량을 입력받아 데이터프레임에 추가하는 함수
-def add_data(name, price, mount): # 낮
+def add_data(name, price, mount): # 낮 품목 저장
     global data
     if name in data['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 품목이야!')
                 return
     data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
-def add_data4(name, price, mount): # 밤
+def add_data4(name, price, mount): # 밤 품목 저장
     global data4
     if name in data4['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 품목이야!')
                 return
     data4 = data4.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
-def add_data2(name, point): 
+def add_data2(name, point): # 포인트 배분 
     global data2
     if name in data2['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 이름이야!')
@@ -121,7 +121,7 @@ def add_data5(name, price, mount):
     global data5
     data5 = data5.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
 
-def purchase_item(name, product_name, mount): # 낮
+def purchase_item(name, product_name, mount): # 낮 구매하기
     global data, data2
     # data에서 product_name에 해당하는 row 선택
     row = data[data['Name'] == product_name].iloc[0]
@@ -158,7 +158,7 @@ def purchase_item(name, product_name, mount): # 낮
     else:
         st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
 
-def purchase_item2(name, product_name, mount):
+def purchase_item2(name, product_name, mount): # 밤 구매하기
     global data4, data2
     # data에서 product_name에 해당하는 row 선택
     row = data4[data4['Name'] == product_name].iloc[0]
@@ -196,10 +196,10 @@ def purchase_item2(name, product_name, mount):
         st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
 
 
-def save_purchase_history(name, product_name, mount): # 낮
+def save_purchase_history(name, product_name, mount): # 낮 구매내역 저장
     global data3
     data3 = data3.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
-def save_purchase_history2(name, product_name, mount): # 밤
+def save_purchase_history2(name, product_name, mount): # 밤 구매내역 저장
     global data5
     data5 = data5.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
     
@@ -218,7 +218,7 @@ def delete_data4(row_index):
 def delete_data5(row_index):
             global data5
             data5 = data5.drop(index=row_index).reset_index(drop=True)
-# Streamlit 앱 생성
+
 # Streamlit 앱 생성
 def main():
     password = 970808
@@ -289,7 +289,6 @@ def main():
                     product_name = st.selectbox('구매하려는 품목을 선택해줘(❁´◡`❁)', options=data['Name'].tolist())
                     # 구매 수량 입력창
                     mount = st.number_input('구매 수량을 입력해줘╰(*°▽°*)╯', min_value=1)
-
                     # 구매 버튼 클릭시 purchase_item 함수 실행
                     if st.button('구매하기'):
                         purchase_item(name, product_name, mount)
@@ -358,7 +357,6 @@ def main():
                 options_night = ["🌙물건/포인트보기🔎", "🌙물건구매🎁",'🌙구매내역🛒']
                 option_night = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_night)
                 # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
-                    
                 if option_night == '데이터추가➕🌙':
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
