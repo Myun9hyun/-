@@ -697,10 +697,10 @@ else:
         # Streamlit 앱 생성
         def main():
             password = 970808
-            day_password = 970303
-            day = 970303
-            night_password = 940206
-            night = 940206
+            day_password = 1234
+            day = 1234
+            night_password = 1234
+            night = 1234
             st.title('💜아기자기 다락방💙')
             st.write('아기자기의 다락방에 아깅이들을 초대할게!')
             tab1, tab2, tab3 = st.tabs(["Howto", "Product_poster", "Menu"])
