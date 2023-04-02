@@ -236,6 +236,7 @@ def main():
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input == day_password:
+                st.success('다락방의 낮에 온걸 환영해!( •̀ ω •́ )✧')
                 options = ["🌞물건/포인트보기🔎", "🌞물건구매🎁","🌞구매내역🛒"]
                 option = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options)
             # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
@@ -354,6 +355,7 @@ def main():
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
             if password_input == night_password:
+                st.success("다락방의 밤에 찾아와줘서 고마워!ヾ(≧▽≦*)o")
                 options_night = ["🌙물건/포인트보기🔎", "🌙물건구매🎁",'🌙구매내역🛒']
                 option_night = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_night)
                 # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
