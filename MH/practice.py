@@ -230,9 +230,9 @@ def main():
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
     tab1, tab2, tab3 = st.tabs(["Howto", "Menu", "Product_poster"])
     with tab2:
-        option_DN = ['낮', '밤', '간부용']
+        option_DN = ['낮🌞', '밤🌙', '간부용😎']
         options_DN = st.selectbox("낮과 밤중에 골라줘!", option_DN)
-        if options_DN == '낮':
+        if options_DN == '낮🌞':
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input == day_password:
@@ -351,7 +351,7 @@ def main():
                         st.warning('비밀번호가 틀렸습니다.')
             else:
                 st.warning('비밀번호가 틀렸습니다')
-        elif options_DN == '밤':           
+        elif options_DN == '밤🌙':           
             st.error('⚠️시간에 맞춰 공개되는 비밀번호를 입력해줘(￣┰￣*)ゞ!⚠️')
             password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
             if password_input == night_password:
@@ -471,7 +471,7 @@ def main():
                                     st.success('입력하신 행이 삭제되었습니다.')
             else :
                 st.warning('비밀번호가 틀렸습니다.')
-        elif options_DN == '간부용':
+        elif options_DN == '간부용😎':
                 options_manager = ['데이터추가➕🌞','데이터추가➕🌙','포인트지급📝', "데이터 초기화💣", "데이터삭제✂"]
                 option_manager = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_manager)
                 if option_manager == "데이터추가➕🌞":
