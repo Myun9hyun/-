@@ -228,7 +228,7 @@ def main():
     night = 940206
     st.title('💜아기자기 다락방💙')
     st.write('아기자기의 다락방에 아깅이들을 초대할게!')
-    tab1, tab3, tab2 = st.tabs(["Howto", "Menu", "Product_poster"])
+    tab1, tab2, tab3 = st.tabs(["Howto", "Product_poster", "Menu"])
     with tab2:
         option_DN = ['낮', '밤', '간부용']
         options_DN = st.selectbox("낮과 밤중에 골라줘!", option_DN)
