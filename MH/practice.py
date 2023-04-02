@@ -273,42 +273,8 @@ def main():
                 st.success("다락방의 밤에 찾아와줘서 고마워!ヾ(≧▽≦*)o")
                 options_night = ["🌙물건/포인트보기🔎", "🌙물건구매🎁",'🌙구매내역🛒']
                 option_night = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_night)
-                # 사용자로부터 이름, 점수, 포인트를 입력받는 UI 구성
-                if option_night == '데이터추가➕🌙':
-                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                    if password_input == password:
-                        st.success('접근을 허용합니다')
-                        name = st.text_input('품목명을 입력해줘')
-                        price = st.number_input('가격을 입력해줘', min_value=0, max_value=10000)
-                        # point = st.number_input('Enter Point', min_value=0, max_value=50)
-                        mount = st.number_input('수량을 입력해줘', min_value=0, max_value=100)
-                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
-                        if st.button('데이터추가'):
-                            # if st.button('추가'):
-                            add_data4(name, price, mount)
-                            save_data4(data4)  # 데이터를 파일에 저장
-                            st.success('품목이 추가되었어!')
-                    else :
-                        st.warning('비밀번호가 틀렸습니다.')
-            
-                elif option_night == '포인트지급📝':
-                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                    if password_input == password:
-                        st.success('접근을 허용합니다')
-                        name = st.text_input('닉네임을 입력해줘')
-                        point = st.number_input('포인트를 입력해줘', min_value=0, max_value=1000)
-                # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
-                        if st.button('데이터추가'):
-                            # if st.button('추가'):
-                            add_data2(name, point)
-                            save_data2(data2)  # 데이터를 파일에 저장
-                            st.success('포인트가 지급되었어!')
-                    else :
-                        st.warning('비밀번호가 틀렸습니다.')
-
-                elif option_night == '🌙물건/포인트보기🔎':
+                
+                if option_night == '🌙물건/포인트보기🔎':
                 # 저장된 데이터프레임 출력
                     if st.button('🌙물건/포인트보기🔎'):
                         st.write('물품 목록이야╰(*°▽°*)╯')
@@ -330,60 +296,9 @@ def main():
                     # 구매 버튼 클릭시 purchase_item 함수 실행
                     if st.button('구매하기'):
                         purchase_item2(name, product_name, mount)
-
-                elif option_night == '데이터 초기화💣':
-                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                    if password_input == password:
-                        st.write('접근을 허용합니다')
-                        # 데이터 초기화 버튼
-                        st.write('☢아래의 버튼을 누르면 전부 초기화 됩니다!☢')
-                        if st.button('데이터 초기화'):
-                            clear_data()
-                            st.warning('데이터가 초기화 되었습니다.')
-                    else:
-                        st.warning('비밀번호가 틀렸습니다')
                 elif option_night == '🌙구매내역🛒':
                     if st.button('구매내역 조회'):
                         st.write(data5)
-                elif option_night == "데이터삭제✂":
-                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                    if password_input == password:
-                        st.success('접근을 허용합니다')
-                        delete_datas = ['품목', '명단', '구매내역']
-                        delete_datass = st.selectbox('삭제하려는 데이터를 선택하세요', delete_datas)
-                        if delete_datass == '품목':
-                            # 사용자로부터 삭제할 행 번호 입력받기
-                            st.write("품목입니다")
-                            st.write(data)
-                            row_index = st.number_input('삭제하고 싶은 품목의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
-                            if st.button('품목 삭제'):
-                            # 해당 행이 존재할 경우, 행을 삭제
-                                if row_index >= 0 and row_index < data.shape[0]:
-                                    delete_data(row_index)
-                                    save_data(data)  # 데이터를 파일에 저장
-                                    st.success('입력하신 행이 삭제되었습니다.')
-                        elif delete_datass == '명단':
-                            st.write("포인트입니다")
-                            st.write(data2)
-                            row_index2 = st.number_input('삭제하고 싶은 포인트의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
-                            if st.button('포인트 삭제'):
-                                # 해당 행이 존재할 경우, 행을 삭제
-                                if row_index2 >= 0 and row_index2 < data2.shape[0]:
-                                    delete_data2(row_index2)
-                                    save_data2(data2)  # 데이터를 파일에 저장
-                                    st.success('입력하신 행이 삭제되었습니다.')
-                        elif delete_datass == '구매내역':
-                            st.write("구매내역 입니다")
-                            st.write(data3)
-                            row_index3 = st.number_input('삭제하고 싶은 구매내역의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
-                            if st.button('구매내역 삭제'):
-                                # 해당 행이 존재할 경우, 행을 삭제
-                                if row_index3 >= 0 and row_index3 < data3.shape[0]:
-                                    delete_data3(row_index3)
-                                    save_data3(data3)  # 데이터를 파일에 저장
-                                    st.success('입력하신 행이 삭제되었습니다.')
             else :
                 st.warning('비밀번호가 틀렸습니다.')
         elif options_DN == '간부용😎':
