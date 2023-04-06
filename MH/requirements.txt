@@ -10,7 +10,5 @@ streamlit_option_menu
 numpy
 openpyxl
 streamlit
-streamlit-webrtc==0.20.0
-pydeck==0.6.2
-awesome-streamlit
+
 
