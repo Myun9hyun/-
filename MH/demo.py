@@ -15,21 +15,22 @@ from streamlit_option_menu import option_menu
 
 bg_image = Image.open("MH/image/back.jpg")
 
-# 페이지 배경색을 투명색으로 설정합니다.
-st.set_page_config(page_title="My App", page_icon=None, layout="wide", initial_sidebar_state="auto", page_bg_color='rgba(0, 0, 0, 0)')
 
-# 배경 이미지를 CSS 스타일을 사용하여 설정합니다.
+# CSS 스타일을 사용하여 배경 이미지를 설정합니다.
 st.markdown(
     f"""
     <style>
-    .reportview-container {{
-        background: url(data:image/jpeg;base64,{base64.b64encode(open(bg_image, "rb").read()).decode()});
+    body {{
+        background-image: url(data:image/jpeg;base64,{base64.b64encode(open(bg_image, "rb").read()).decode()});
         background-size: cover;
     }}
     </style>
     """,
     unsafe_allow_html=True
 )
+
+# 이후 Streamlit 앱의 나머지 부분을 정의합니다.
+
 
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
 
