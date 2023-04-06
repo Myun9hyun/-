@@ -17,6 +17,7 @@ bg_image = Image.open("MH/image/back.jpg")
 
 img_bytes = bg_image.tobytes()
 img_base64 = base64.b64encode(img_bytes).decode()
+
 # CSS 스타일을 사용하여 배경 이미지를 설정합니다.
 st.markdown(
     f"""
