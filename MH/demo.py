@@ -32,8 +32,6 @@ st.markdown(
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
 
 
-# 이후 Streamlit 앱의 나머지 부분을 정의합니다.
-
 
 
 with st.sidebar:
