@@ -106,16 +106,16 @@ if choice == "페이지1":
 elif choice == "페이지2":
     st.subheader("페이지2")
     # CSS 스타일을 사용하여 배경 이미지를 설정합니다.
-        st.markdown(
-        f"""
-        <style>
-        body {{
-            background-image: url(data:image/jpg;base64,{img_base64});
-            background-size: cover;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
+    st.markdown(
+    f"""
+    <style>
+    body {{
+        background-image: url(data:image/jpg;base64,{img_base64});
+        background-size: cover;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
     )
         
 
