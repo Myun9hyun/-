@@ -1,11 +1,17 @@
 import streamlit as st
 
+css = """
+h1 {
+  color: blue;
+  font-size: 36px;
+}
 
+p {
+  color: red;
+  font-size: 18px;
+}
+"""
 
-# 테마 설정
-[theme]
-primaryColor = "#E694FF"
-backgroundColor = "#00172B"
-secondaryBackgroundColor = "#0083B8"
-textColor = "#C6CDD4"
-font = "sans-serif"
+st.write(f"<style>{css}</style>", unsafe_allow_html=True)
+st.write("<h1>Hello, World!</h1>", unsafe_allow_html=True)
+st.write("<p>This is a paragraph.</p>", unsafe_allow_html=True)
