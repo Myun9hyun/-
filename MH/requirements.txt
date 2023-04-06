@@ -9,5 +9,5 @@ seaborn
 streamlit_option_menu
 numpy
 openpyxl
-streamlit
-streamlit-themes==0.58.0
+streamlit==1.1.0
+streamlit-themes==0.1.1
