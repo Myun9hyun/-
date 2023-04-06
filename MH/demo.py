@@ -13,6 +13,11 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 
 
+bg_image = Image.open("MH/image/back.jpg")
+
+st.set_page_config(page_title="My App", page_icon=None, layout="wide", initial_sidebar_state="auto", background_image=bg_image)
+
+
 with st.sidebar:
     choice = option_menu("Menu", ["페이지1", "페이지2", "페이지3"],
                          icons=['house', 'kanban', 'bi bi-robot'],
