@@ -13,7 +13,7 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 import base64
 
-bg_image = Image.open("MH/image/back.jpg")
+bg_image = Image.open("MH/image/newjeans.jpeg")
 
 img_bytes = bg_image.tobytes()
 img_base64 = base64.b64encode(img_bytes).decode()
