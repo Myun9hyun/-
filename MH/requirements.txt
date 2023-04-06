@@ -9,7 +9,7 @@ seaborn
 streamlit_option_menu
 numpy
 openpyxl
-streamlit==1.1.0
+streamlit
 streamlit-webrtc==0.20.0
 pydeck==0.6.2
 awesome-streamlit
