@@ -78,7 +78,7 @@ if choice == "페이지1":
         | 이름 | 역할 분담 | 그 외 역할 | 딥러닝모델링 | GitHub |
         | :---: | :---: | :---: | :---: | :---: |
         | 서상원 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/tkd8973)|
-        | 조성훈 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/)|
+        | 조성훈 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/chohoon901)|
         | 김명현 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/Myun9hyun)|
         | 강성욱 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/JoySoon)|
         ---
