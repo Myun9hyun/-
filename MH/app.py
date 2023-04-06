@@ -1,5 +1,5 @@
 import streamlit as st
-import streamlit-themes as stt
+import streamlit_themes as stt
 
 # 테마 설정
 [theme]
