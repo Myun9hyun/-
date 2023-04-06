@@ -1,5 +1,3 @@
-!pip install streamlit-themes
-
 import streamlit as st
 import streamlit_themes as stt
 
