@@ -24,6 +24,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#08c7b4"},
     }
     )
+    st.markdown('<a href="https://github.com/Myun9hyun"><img src="[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/Myun9hyun)"></a>', unsafe_allow_html=True)
 
 if choice == "페이지1":
 
