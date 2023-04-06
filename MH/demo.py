@@ -21,7 +21,7 @@ st.markdown(
     f"""
     <style>
     body {{
-        background-image: url(data:image/jpeg;base64,{base64.b64encode(open(bg_image, "rb").read()).decode()});
+        background-image: url(data:image/jpeg;base64,{base64.b64encode(bg_image.tobytes()).decode()});
         background-size: cover;
     }}
     </style>
