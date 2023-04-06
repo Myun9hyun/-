@@ -58,18 +58,7 @@ if choice == "페이지1":
     image_path = "MH/image/molu.gif"
 
         # Streamlit에서 GIF 보여주기
-    # CSS 스타일을 사용하여 배경 이미지를 설정합니다.
-    st.markdown(
-        f"""
-        <style>
-        body {{
-            background-image: url(data:image/jpeg;base64,{base64.b64encode(bg_image.tobytes()).decode()});
-            background-size: cover;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    
    
 
     with tab0:
@@ -116,7 +105,18 @@ if choice == "페이지1":
         '''
 elif choice == "페이지2":
     st.subheader("페이지2")
-    
+    # CSS 스타일을 사용하여 배경 이미지를 설정합니다.
+    st.markdown(
+        f"""
+        <style>
+        body {{
+            background-image: url(data:image/jpeg;base64,{base64.b64encode(bg_image.tobytes()).decode()});
+            background-size: cover;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
         
 
 elif choice == "페이지3":
