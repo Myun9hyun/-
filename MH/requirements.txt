@@ -10,4 +10,3 @@ streamlit_option_menu
 numpy
 openpyxl
 streamlit
-streamlit-themes
