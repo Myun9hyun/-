@@ -110,7 +110,7 @@ elif choice == "페이지2":
         f"""
         <style>
         body {{
-            background-image: url(data:image/jpeg;base64,{base64.b64encode(bg_image.tobytes()).decode()});
+            background-image: url(data:image/jpg;base64,{base64.b64encode(bg_image.tobytes()).decode()});
             background-size: cover;
         }}
         </style>
