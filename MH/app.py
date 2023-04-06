@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit_themes as stt
+python -m pip install --upgrade pip
 
 # 테마 설정
 [theme]
