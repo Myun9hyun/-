@@ -11,7 +11,7 @@ import joblib
 import xgboost as xgb
 import seaborn as sns
 from streamlit_option_menu import option_menu
-
+import base64
 
 bg_image = Image.open("MH/image/back.jpg")
 
