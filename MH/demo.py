@@ -64,8 +64,6 @@ if choice == "페이지1":
     image_molu_ai = "MH/image/molu_ai.jpg"
 
         # Streamlit에서 GIF 보여주기
-    
-   
 
     with tab0:
         st.write()
