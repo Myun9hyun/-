@@ -8,7 +8,7 @@ image = Image.open("MH/image/newjeans.jpg")
 draw = ImageDraw.Draw(image)
 text = "Hello, world!"
 font = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 36)
-draw.text((10, 10), text, font=font, fill=(7, 7, 7))
+draw.text((0, 10), text, font=font, fill=(7, 7, 7))
 
 # streamlit에 이미지 표시
 st.image(image, caption='Image overlaid with text')
