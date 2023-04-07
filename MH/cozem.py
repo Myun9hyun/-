@@ -489,6 +489,21 @@ elif choice == "아카이브":
         elif option == '봄':
             st.write("봄 컨셉 포스터입니다")
             st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)    
+    elif options=='길드사진':
+        st.write("길드 사진 아카이브입니다.")
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.write("**몰?루**")
+            st.image(guild1, use_column_width=True)
+        with col2:
+            st.write("**몰?루 ai실사**")
+            st.image(guild2, use_column_width=True)
+        with col3:
+            st.write("**몰?루 ai실사**")
+            st.image(guild3, use_column_width=True)
+        with col4:
+            st.write("**엘리넬**")
+            st.image(elinel, use_column_width=True)
 else:
     tab1, tab2, tab3= st.tabs(["🎁Random Box", "🔗Link","🏚Attic"])
     with tab1:
