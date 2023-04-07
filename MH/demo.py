@@ -39,7 +39,7 @@ with st.sidebar:
         '역할': ['데이터 수집 및 전처리', '모델링', '모델링', '발표'],
         'E-mail': ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com']
     }
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data).index=False
     st.sidebar.dataframe(df)
 
     
