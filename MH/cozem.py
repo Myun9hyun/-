@@ -371,7 +371,7 @@ elif choice == "길드페이지":
                     st.warning('비밀번호가 틀렸습니다.')
 
             if __name__ == '__main__':
-                    main()
+                main()
 
 
       
