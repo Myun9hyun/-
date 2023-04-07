@@ -22,12 +22,7 @@
 # 
 import streamlit as st
 
-st.set_page_config(
-    page_title="My Streamlit App",
-    page_icon=":sunglasses:",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    page_bg_color="#02ab21"
-)
+st.set_page_config(page_title="My Page", page_icon=":guardsman:", layout="wide", page_bg_color="#f0f0f0")
+
 
 # Streamlit 앱의 나머지 코드
