@@ -1,15 +1,15 @@
-import streamlit as st
-import base64
+# import streamlit as st
+# import base64
 
-st.set_page_config(
-    page_title="My Streamlit App",
-    page_icon=":sunglasses:",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+# st.set_page_config(
+#     page_title="My Streamlit App",
+#     page_icon=":sunglasses:",
+#     layout="wide",
+#     initial_sidebar_state="expanded"
+# )
 
-with open("MH/image/newjeans.jpg", "rb") as f:
-    bg_image_data = f.read()
+# with open("MH/image/newjeans.jpg", "rb") as f:
+#     bg_image_data = f.read()
 
 # bg_image_base64 = base64.b64encode(bg_image_data).decode()
 
