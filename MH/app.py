@@ -1,10 +1,10 @@
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 
-width, height = image.size
+
 # 이미지 업로드
 image = Image.open("MH/image/newjeans.jpg")
-
+width, height = image.size
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
 text = "Hello, world!"
