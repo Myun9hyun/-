@@ -33,6 +33,14 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#08c7b4"},
     }
     )
+    st.write("팀 정보")
+    st.sidebar.table({
+        '팀원': ['A', 'B', 'C', 'D'],
+        '역할': ['데이터 수집 및 전처리', '모델링', '모델링', '발표'],
+        'E-mail': ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com']
+    })
+
+
     st.write("💾Team repo")
     st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
     st.write("💪Team Notion")
