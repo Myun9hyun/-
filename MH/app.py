@@ -21,3 +21,4 @@ draw.text((x, y), text, font=font, fill=(7, 7, 7))
 
 # streamlit에 이미지 표시
 st.image(image, caption='Image overlaid with text')
+
