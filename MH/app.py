@@ -35,9 +35,9 @@ with open("MH/image/newjeans.jpg", "rb") as f:
 if not bg_image_data:
     st.write("Error: Failed to read image file.")
 
-st.write(f"Image Bytes: {img_bytes}")
+st.write(f"Image Bytes: {bg_image_data}")
 
-b64 = base64.b64encode(img_bytes).decode()
+b64 = base64.b64encode(bg_image_data).decode()
 
 st.write(f"B64: {b64}")
 
