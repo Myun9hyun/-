@@ -11,16 +11,16 @@ st.set_page_config(
 with open("MH/image/newjeans.jpg", "rb") as f:
     bg_image_data = f.read()
 
-bg_image_base64 = base64.b64encode(bg_image_data).decode()
+# bg_image_base64 = base64.b64encode(bg_image_data).decode()
 
-bg_css = f"""
-    <style>
-        body {{
-            background-image: url('data:image/jpg;base64,{bg_image_base64}');
-            background-size: cover;
-        }}
-    </style>
-"""
+# bg_css = f"""
+#     <style>
+#         body {{
+#             background-image: url('data:image/jpg;base64,{bg_image_base64}');
+#             background-size: cover;
+#         }}
+#     </style>
+# """
 
 # st.markdown(bg_css, unsafe_allow_html=True)
 # st.image(bg_image_data)
