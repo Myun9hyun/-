@@ -23,6 +23,30 @@ st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", l
 # st.header("DL Project")
 image_NJS = "MH/image/deep.jpg"
 st.image(image_NJS, use_column_width=True)
+
+image = Image.open("MH/image/deep.jpg")
+width, height = image.size
+# 이미지에 텍스트 추가
+draw = ImageDraw.Draw(image)
+text = "Deeplearning"
+font = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 36)
+text_width, text_height = draw.textsize(text, font=font)
+# x = (width - text_width) // 2
+# y = (height - text_height) // 2
+x = (width - text_width) // 2
+y = height - text_height - 10
+
+# 이미지에 텍스트 추가
+draw = ImageDraw.Draw(image)
+draw.text((x, y), text, font=font, fill=(255, 255, 255))
+
+# streamlit에 이미지 표시
+st.image(image, caption='Image overlaid with text')
+
+
+
+
+
 with st.sidebar:
     choice = option_menu("Menu", ["페이지1", "페이지2", "페이지3"],
                          icons=['house', 'kanban', 'bi bi-robot'],
