@@ -93,6 +93,8 @@ elif choice == "길드페이지":
     with tab1:
         st.header("😎Manager")
         st.write()
+        col1, col2 = st.columns(2)
+        with col1:
         '''
         ---
         ### 길드 간부진 💪
@@ -105,6 +107,9 @@ elif choice == "길드페이지":
         | 부마 | 돌체라페  | 메르세데스 | [![Colab](https://img.shields.io/badge/kakaotalk-돌체라페-yellow)](https://open.kakao.com/o/sEmQw9Ye) |
         | 부마 | 영래곰  | 듀얼블레이드 | [![Colab](https://img.shields.io/badge/kakaotalk-영래곰-yellow)](https://open.kakao.com/o/sBK5y3md) |
         '''
+
+        with col2:
+            st.image("MH/image/elinel.jpg", use_column_width=True)
     with tab2:
         st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
