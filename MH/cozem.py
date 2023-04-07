@@ -494,16 +494,16 @@ elif choice == "아카이브":
         col1, col2, col3, col4 = st.columns(4)
         with col1:
             st.write("**몰?루**")
-            st.image(guild1, use_column_width=True)
+            st.image("MH/image/guild1.jpg", use_column_width=True)
         with col2:
             st.write("**몰?루 ai실사**")
-            st.image(guild2, use_column_width=True)
+            st.image("MH/image/guild2.jpg", use_column_width=True)
         with col3:
             st.write("**몰?루 ai실사**")
-            st.image(guild3, use_column_width=True)
+            st.image("MH/image/guild3.jpg", use_column_width=True)
         with col4:
             st.write("**엘리넬**")
-            st.image(elinel, use_column_width=True)
+            st.image("MH/image/elinel.jpg", use_column_width=True)
 else:
     tab1, tab2, tab3= st.tabs(["🎁Random Box", "🔗Link","🏚Attic"])
     with tab1:
