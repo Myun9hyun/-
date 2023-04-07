@@ -44,18 +44,18 @@ with st.sidebar:
     # st.sidebar.dataframe(df)
     st.write(df.to_markdown(index=False))
     col1, col2 = st.columns(2)
-    with col1:
-        st.write("💾Team repo")
-        st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
-    with col2:
-        st.write("💪Team Notion")
-        st.markdown('<a href="https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056"><img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"></a>', unsafe_allow_html=True)
+    # with col1:
+    #     st.write("💾Team repo")
+    #     st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
+    # with col2:
+    #     st.write("💪Team Notion")
+    #     st.markdown('<a href="https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056"><img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"></a>', unsafe_allow_html=True)
     
 
-    st.write("💾Team repo")
-    st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
-    st.write("💪Team Notion")
-    st.markdown('<a href="https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056"><img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"></a>', unsafe_allow_html=True)
+    # st.write("💾Team repo")
+    # st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
+    # st.write("💪Team Notion")
+    # st.markdown('<a href="https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056"><img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"></a>', unsafe_allow_html=True)
 
 if choice == "페이지1":
     
