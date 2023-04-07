@@ -365,8 +365,8 @@ elif choice == "길드페이지":
                         if st.button("다운로드"):
                             file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
                             st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
-            else:
-                st.warning('비밀번호가 틀렸습니다.')
+        else:
+            st.warning('비밀번호가 틀렸습니다.')
         
         if __name__ == '__main__':
                 main()
