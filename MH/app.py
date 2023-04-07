@@ -22,7 +22,14 @@
 # 
 import streamlit as st
 
-st.set_page_config(page_title="My Page", page_icon=":guardsman:", layout="wide", page_bg_color="#f0f0f0")
+bg_color = "#f0f0f0"
+css = f"""
+    <style>
+        body {{
+            background-color: {bg_color};
+        }}
+    </style>
+"""
+st.markdown(css, unsafe_allow_html=True)
 
-
-# Streamlit 앱의 나머지 코드
+# 나머지 코드 작성
