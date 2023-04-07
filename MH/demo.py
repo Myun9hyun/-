@@ -22,7 +22,7 @@ st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", l
 
 # st.header("DL Project")
 image_NJS = "MH/image/deep.jpg"
-st.image(image_NJS, use_column_width=True)
+# st.image(image_NJS, use_column_width=True)
 
 image = Image.open("MH/image/deep.jpg")
 width, height = image.size
@@ -41,7 +41,7 @@ draw = ImageDraw.Draw(image)
 draw.text((x, y), text, font=font, fill=(255, 255, 255))
 
 # streamlit에 이미지 표시
-st.image(image, caption='Image overlaid with text')
+st.image(image, caption='Image overlaid with text', use_column_width=True)
 
 
 
