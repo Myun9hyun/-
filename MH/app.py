@@ -8,21 +8,19 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+import streamlit as st
+import base64
+
 with open("MH/image/newjeans.jpg", "rb") as f:
-    bg_image_data = f.read()
+    img_bytes = f.read()
 
-bg_image_base64 = base64.b64encode(bg_image_data).decode()
+st.write(f"Image Bytes: {img_bytes}")
 
-bg_css = f"""
-    <style>
-        body {{
-            background-image: url('data:image/jpg;base64,{bg_image_base64}');
-            background-size: cover;
-        }}
-    </style>
-"""
+b64 = base64.b64encode(img_bytes).decode()
 
-st.markdown(bg_css, unsafe_allow_html=True)
-st.image(bg_image_data)
-# Streamlit 앱의 나머지 코드
+st.write(f"B64: {b64}")
 
+st.markdown(
+    f'<style>body {{background-image: url("data:image/jpeg;base64,{b64}")}}</style>',
+    unsafe_allow_html=True,
+)
