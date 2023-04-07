@@ -22,7 +22,7 @@ st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", l
 
 st.header("DL Project")
 image_NJS = "MH/image/newjeans.jpg"
-st.image(image_NJS, use_column_width=True)
+st.image(image_NJS)
 with st.sidebar:
     choice = option_menu("Menu", ["페이지1", "페이지2", "페이지3"],
                          icons=['house', 'kanban', 'bi bi-robot'],
