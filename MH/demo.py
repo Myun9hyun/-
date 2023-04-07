@@ -40,7 +40,7 @@ with st.sidebar:
         'E-mail': ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com']
     }
     df = pd.DataFrame(data)
-    st.sidebar.dataframe(df.to_dict('records'), index=False)
+    st.sidebar.dataframe(df, index=False)
 
     st.write("💾Team repo")
     st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
