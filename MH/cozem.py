@@ -491,15 +491,16 @@ elif choice == "아카이브":
             st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)    
     elif options=='길드사진':
         st.write("길드 사진 아카이브입니다.")
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2=st.columns(2)
         with col1:
-            st.write("**몰?루**")
+            st.write("**리나와 한컷**")
             st.image("MH/image/guild1.jpg", use_column_width=True)
         with col2:
-            st.write("**몰?루 ai실사**")
+            st.write("**왕의 쉼터**")
             st.image("MH/image/guild2.jpg", use_column_width=True)
+        col3, col4 = st.columns(2)
         with col3:
-            st.write("**몰?루 ai실사**")
+            st.write("**옷맞춤**")
             st.image("MH/image/guild3.jpg", use_column_width=True)
         with col4:
             st.write("**엘리넬**")
