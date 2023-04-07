@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 # 이미지 업로드
 image = Image.open("MH/image/newjeans.jpg")
