@@ -34,7 +34,7 @@ st.markdown(
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
 
 
-
+st.header("DL Project")
 
 with st.sidebar:
     choice = option_menu("Menu", ["페이지1", "페이지2", "페이지3"],
@@ -53,7 +53,7 @@ with st.sidebar:
     st.markdown('<a href="https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056"><img src="https://img.shields.io/badge/Notion-Deep%20Learning-lightgrey"></a>', unsafe_allow_html=True)
 
 if choice == "페이지1":
-    st.header("DL Project")
+    
     tab0, tab1, tab2, tab3 = st.tabs(["🏠 Main", "tab1", "tab2", "tab3"])
     image_path = "MH/image/molu.gif"
 
