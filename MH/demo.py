@@ -36,7 +36,7 @@ with st.sidebar:
     st.write("Link")
     data = {
         'Name': ['Repo', 'Notion'],
-        'Link': ['(<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>)', 'b@example.com', 'c@example.com', 'd@example.com']
+        'Link': ['(<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>)', 'b@example.com']
     }
     df = pd.DataFrame(data)
     # st.sidebar.dataframe(df)
