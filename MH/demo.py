@@ -13,18 +13,9 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 import base64
 
-def main():
-    st.set_page_config(page_title="Deep Learning Project", page_icon=":smiley:", layout="wide")
 
-    # CSS 파일 적용하기
-    st.markdown("""
-        <style>
-            body {
-                color: #FFFFFF;
-                background-color: #2F2F2F;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", layout="wide")
+
 
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
 
