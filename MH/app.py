@@ -29,7 +29,7 @@
 import streamlit as st
 import base64
 
-with open("MH/image/newjeans.jpg", "rb") as f:
+with open("MH/image/back.jpg", "rb") as f:
     img_bytes = f.read()
 
 if not img_bytes:
