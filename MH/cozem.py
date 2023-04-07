@@ -35,7 +35,7 @@ outline_width = 3
 
 # x = (width - text_width) // 2
 # y = (height - text_height) // 2
-x = width - text_width - 50
+x = width - 50
 y = height - text_height - 20
 z = height - text_height - 100
 
