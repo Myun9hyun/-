@@ -33,7 +33,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#08c7b4"},
     }
     )
-    st.write("Link")
+    # st.write("Link")
     data = {
         'Name': ['💾Team Repo', '💪Team Notion', 'Data Source'],
         'Link': ['[![GitHub](https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/tkd8973/DL_Project)',
