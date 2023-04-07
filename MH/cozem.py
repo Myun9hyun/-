@@ -45,11 +45,11 @@ z = height - text_height - 250
 # draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255), outline=outline_color, width=outline_width)
 
 # 테두리가 있는 텍스트 그리기
-# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
 # draw.text((x - stroke_width, y), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
 # draw.text((x + stroke_width, y), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
 # draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
