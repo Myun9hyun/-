@@ -60,9 +60,9 @@ if choice == "페이지1":
         # st.image(image_molu_ai, width=200)
         col1, col2 = st.columns(2)
         with col1:
-            st.image(image_molu, caption='GIF', width=200, use_column_width=True)
+            st.image(image_molu, caption='GIF', use_column_width=True)
         with col2:
-            st.image(image_molu_ai, width=200, use_column_width=True)
+            st.image(image_molu_ai, use_column_width=True)
         '''
         ---
 
