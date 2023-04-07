@@ -41,7 +41,7 @@ draw = ImageDraw.Draw(image)
 draw.text((x, y), text, font=font, fill=(255, 255, 255))
 
 # streamlit에 이미지 표시
-st.image(image, caption='Image overlaid with text', use_column_width=True)
+st.image(image, use_column_width=True)
 
 
 
