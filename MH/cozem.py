@@ -73,11 +73,11 @@ if choice == "메인페이지":
     '''
     ---
     ### 아기자기 길드 페이지에 오신것을 환영합니다😊
-    > * <mark>47포<mark/> 길드
-    > * <mark>Lv220 이상<mark/> 가입 가능
+    > * 47포 길드
+    > * Lv220 이상 가입 가능
     > * 연합길드 '초초' 보유
     '''
-    st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)
+    
     
 
 elif choice == "길드페이지":
