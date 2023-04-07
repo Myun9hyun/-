@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 # 배경에 사용할 이미지 파일 경로를 지정합니다.
-bg_image = 'MH/image/newjeans.jpeg'
+bg_image = 'MH/image/newjeans.jpg'
 
 st.markdown(
     f"""
