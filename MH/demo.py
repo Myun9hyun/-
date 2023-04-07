@@ -34,7 +34,7 @@ text_width, text_height = draw.textsize(text, font=font)
 # x = (width - text_width) // 2
 # y = (height - text_height) // 2
 x = (width - text_width) // 2
-y = height - text_height - 10
+y = height - text_height - 20
 
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
