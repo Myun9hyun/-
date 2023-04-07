@@ -35,9 +35,9 @@ outline_width = 3
 
 # x = (width - text_width) // 2
 # y = (height - text_height) // 2
-x = text_width - 70
-y = height - text_height - 20
-z = height - text_height - 100
+x = text_width - 100
+y = height - text_height - 200
+z = height - text_height - 500
 
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
