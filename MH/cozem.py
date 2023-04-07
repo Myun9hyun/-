@@ -115,9 +115,9 @@ elif choice == "길드페이지":
         st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                if password_input == password:
-                    st.write('접근을 허용합니다')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ')
+            if password_input == password:
+                st.write('접근을 허용합니다')
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
