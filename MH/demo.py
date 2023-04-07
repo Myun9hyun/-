@@ -38,7 +38,7 @@ with st.sidebar:
         'Name': ['💾Team Repo', '💪Team Notion', '💿Data Source'],
         'Link': ['[![GitHub](https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/tkd8973/DL_Project)',
          '[![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056)',
-         '몰루']
+         '몰?루']
     }
     df = pd.DataFrame(data)
     # st.sidebar.dataframe(df)
