@@ -14,7 +14,7 @@ from streamlit_option_menu import option_menu
 import base64
 
 def main():
-    st.set_page_config(page_title="My Custom Page Title", page_icon=":smiley:", layout="wide")
+    st.set_page_config(page_title="Deep Learning Project", page_icon=":smiley:", layout="wide")
 
     # CSS 파일 적용하기
     st.markdown("""
