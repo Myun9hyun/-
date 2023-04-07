@@ -1,20 +1,10 @@
 import streamlit as st
 
-def main():
-    st.set_page_config(page_title="My Custom Page Title", page_icon=":smiley:", layout="wide")
+# 배경에 사용할 이미지 파일 경로를 지정합니다.
+bg_image = 'MH/newjeans.jpeg'
 
-    # CSS 파일 적용하기
-    st.markdown("""
-        <style>
-            body {
-                color: #FFFFFF;
-                background-color: #2F2F2F;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+# set_page_config 함수를 사용하여 배경을 변경합니다.
+st.set_page_config(layout="wide", page_title='My Streamlit App', page_icon=':smiley:', 
+                   initial_sidebar_state='expanded', background_image=bg_image)
 
-    # Streamlit 애플리케이션 내용 작성하기
-    st.write("Hello, world!")
-
-if __name__ == "__main__":
-    main()
+# 이후에는 일반적인 Streamlit 코드를 작성합니다.
