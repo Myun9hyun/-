@@ -9,12 +9,15 @@ width, height = image.size
 
 # 이미지 위에 텍스트 추가
 draw = ImageDraw.Draw(image)
-text = "hi"
-font = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.ttf", 36)  # 한글 폰트 사용
+text = "이미지와 텍스트 겹쳐서 표시하기"
+
+# Noto Sans CJK 폰트 로드
+font = ImageFont.truetype("NotoSansCJKkr-Medium.otf", 36)
+
 textwidth, textheight = draw.textsize(text, font)
 x = (width - textwidth) / 2
 y = (height - textheight) / 2
-draw.text((x, y), text, font=foMH/font/arial-cufonfontsnt, fill=(255, 255, 255, 255))
+draw.text((x, y), text, font=font, fill=(255, 255, 255, 255))
 
 # 결과 이미지 출력
 st.image(image)
