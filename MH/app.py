@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-with open("MH/image/newjeans.jpg", "rb") as f:
+with open("newjeans.jpg", "rb") as f:
     bg_image_data = f.read()
 
 bg_image_base64 = base64.b64encode(bg_image_data).decode()
