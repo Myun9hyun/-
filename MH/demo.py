@@ -13,23 +13,18 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 import base64
 
-bg_image = Image.open("MH/image/newjeans.jpeg")
+def main():
+    st.set_page_config(page_title="My Custom Page Title", page_icon="bi bi-cpu", layout="wide")
 
-img_bytes = bg_image.tobytes()
-img_base64 = base64.b64encode(img_bytes).decode()
-
-# CSS 스타일을 사용하여 배경 이미지를 설정합니다.
-st.markdown(
-    f"""
-    <style>
-    body {{
-        background-image: url(data:image/jpeg;base64,{base64.b64encode(bg_image.tobytes()).decode()});
-        background-size: cover;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    # CSS 파일 적용하기
+    st.markdown("""
+        <style>
+            body {
+                color: #FFFFFF;
+                background-color: #2F2F2F;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
 
