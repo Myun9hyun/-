@@ -40,7 +40,7 @@ with st.sidebar:
         'E-mail': ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com']
     }
     df = pd.DataFrame(data)
-    st.sidebar.dataframe(df)
+    # st.sidebar.dataframe(df)
     st.write(df.to_markdown(index=False))
 
     
