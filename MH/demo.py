@@ -68,8 +68,6 @@ if choice == "페이지1":
    
 
     with tab0:
-        tab0.subheader("팀 이름")
-        
         st.write()
         '''
         **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
