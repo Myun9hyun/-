@@ -56,8 +56,13 @@ if choice == "페이지1":
         **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
         '''
         # st.image("https://cdn.pixabay.com/photo/2020/09/02/04/06/man-5537262_960_720.png", width=700)
-        st.image(image_molu, caption='GIF', width=200)
-        st.image(image_molu_ai, width=200)
+        # st.image(image_molu, caption='GIF', width=200)
+        # st.image(image_molu_ai, width=200)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image(image_molu, caption='GIF', width=200, use_column_width=True)
+        with col2:
+            st.image(image_molu_ai, width=200, use_column_width=True)
         '''
         ---
 
