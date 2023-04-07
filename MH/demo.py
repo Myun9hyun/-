@@ -28,8 +28,8 @@ image = Image.open("MH/image/develop_jeans.jpg")
 width, height = image.size
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
-text = "Deep Learning Project"
-font = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 36)
+text = "독산 개발진스"
+font = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 36)
 text_width, text_height = draw.textsize(text, font=font)
 # x = (width - text_width) // 2
 # y = (height - text_height) // 2
@@ -38,7 +38,7 @@ y = height - text_height - 10
 
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
-draw.text((x, y), text, font=font, fill=(255, 255, 255))
+draw.text((x, y), text, font=font, fill=(7, 7, 7))
 
 # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
