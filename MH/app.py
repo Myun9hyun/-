@@ -8,9 +8,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-import streamlit as st
-import base64
-
 with open("MH/image/newjeans.jpg", "rb") as f:
     img_bytes = f.read()
 
@@ -24,3 +21,4 @@ st.markdown(
     f'<style>body {{background-image: url("data:image/jpeg;base64,{b64}")}}</style>',
     unsafe_allow_html=True,
 )
+
