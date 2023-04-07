@@ -50,11 +50,11 @@ draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stro
 draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
 draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
 draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
-draw.text((x - stroke_width, y), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, y), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z + stroke_width),text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
+# draw.text((x - stroke_width, y), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, y), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
 
 # # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
