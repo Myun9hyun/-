@@ -13,14 +13,14 @@
 
 # bg_image_base64 = base64.b64encode(bg_image_data).decode()
 
-# bg_css = f"""
-#     <style>
-#         body {{
-#             background-image: url('data:image/jpg;base64,{bg_image_base64}');
-#             background-size: cover;
-#         }}
-#     </style>
-# """
+bg_css = f"""
+    <style>
+        body {{
+            background-image: url('data:image/jpg;base64,{bg_image_base64}');
+            background-size: cover;
+        }}
+    </style>
+"""
 
 # st.markdown(bg_css, unsafe_allow_html=True)
 # st.image(bg_image_data)
@@ -30,7 +30,7 @@ import streamlit as st
 import base64
 
 with open("MH/image/newjeans.jpg", "rb") as f:
-    img_bytes = f.read()
+    bg_image_data = f.read()
 
 if not bg_image_data:
     st.write("Error: Failed to read image file.")
