@@ -25,4 +25,4 @@ bg_css = f"""
 st.markdown(bg_css, unsafe_allow_html=True)
 
 # Streamlit 앱의 나머지 코드
-``
+
