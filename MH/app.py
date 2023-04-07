@@ -1,23 +1,14 @@
 import streamlit as st
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
-# 이미지 열기
+# 이미지 업로드
 image = Image.open("MH/image/newjeans.jpg")
 
-# 이미지 사이즈 가져오기
-width, height = image.size
-
-# 이미지 위에 텍스트 추가
+# 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
-text = "이미지와 텍스트 겹쳐서 표시하기"
+text = "Hello, world!"
+font = ImageFont.truetype("arial.ttf", 36)
+draw.text((10, 10), text, font=font, fill=(255, 255, 255))
 
-# Noto Sans CJK 폰트 로드
-font = ImageFont.truetype("NotoSansCJKkr-Medium.otf", 36)
-
-textwidth, textheight = draw.textsize(text, font)
-x = (width - textwidth) / 2
-y = (height - textheight) / 2
-draw.text((x, y), text, font=font, fill=(255, 255, 255, 255))
-
-# 결과 이미지 출력
-st.image(image)
+# streamlit에 이미지 표시
+st.image(image, caption='Image overlaid with text', use_column_width=True)
