@@ -101,7 +101,7 @@ if choice == "페이지1":
         col1, col2 = st.columns(2)
         with col1:
             st.write("**몰?루**")
-            st.image(image_molu, caption='GIF', use_column_width=True)
+            st.image(image_molu, use_column_width=True)
         with col2:
             st.write("**몰?루 ai실사**")
             st.image(image_molu_ai, use_column_width=True)
