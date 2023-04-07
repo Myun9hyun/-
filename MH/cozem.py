@@ -281,7 +281,7 @@ elif choice == "길드페이지":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
-                        st.write('접근을 허용합니다')
+                        st.success('접근을 허용합니다')
                         # 데이터 전부 삭제
                         st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
                         st.write("⚠️신중하게 누르세요!!⚠️")
