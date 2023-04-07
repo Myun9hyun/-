@@ -220,151 +220,151 @@ elif choice == "길드페이지":
                 return f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{file_name}">다운로드</a>'
 
 
-        def main():
-            
-            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
-            option = st.selectbox("기능 선택", options)
-            
-
-            # # 사용자로부터 이름과 점수를 입력받는 UI 구성
-            # name = st.text_input('이름을 입력하세요')
-            # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-            # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-            # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
-            
-            if option == "데이터 추가➕":
-                # 사용자로부터 이름과 점수를 입력받는 UI 구성
-                name = st.text_input('이름을 입력하세요')
-                weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-                suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-                flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
-            
-                # 이름과 점수가 입력되면 데이터프레임에 추가
-                if st.button('데이터 추가'):
-                    add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
-                    save_data(data)  # 데이터를 파일에 저장
-                    st.success('데이터가 추가되었습니다.')
-
-            elif option == "데이터 조회🔎":
-                # 저장된 데이터
-                st.write("버튼을 누르면 입력하신 데이터를 확인할 수 있습니다.")
-                if st.button('차트 열기'):
-                    if not data.empty:
-                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
-                    else:
-                        st.write('입력되어있는 데이터가 없습니다.')
-            
-            elif option == "데이터 삭제✂":
-                st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                if password_input == password:
-                    st.success('접근을 허용합니다')
-                # 데이터 삭제 기능
-                # if st.button('데이터 삭제'):
-                    # 사용자로부터 삭제할 행 번호 입력받기
-                    st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
-                    row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
-                    st.write("Enter를 입력하면 삭제됩니다.")
-                    if st.button('데이터 삭제'):
-                        # 해당 행이 존재할 경우, 행을 삭제
-                        if row_index >= 0 and row_index < data.shape[0]:
-                            delete_data(row_index)
-                            save_data(data)  # 데이터를 파일에 저장
-                            st.success('입력하신 행이 삭제되었습니다.')
-                else:
-                    st.warning('비밀번호가 틀렸습니다.')
-
-            elif option == "데이터 초기화💣":
-                st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                if password_input == password:
-                    st.write('접근을 허용합니다')
-                    # 데이터 전부 삭제
-                    st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
-                    st.write("⚠️신중하게 누르세요!!⚠️")
-                    if st.button('차트 초기화'):
-                        clear_data()
-                        st.warning('차트가 초기화 되었습니다')
-                else:
-                    st.warning('비밀번호가 틀렸습니다.')
-            elif option == "노블 사용⭕제한❌":
-                if st.button('노블 제한목록 보기'):
-                # 경고자 명단
-                    warning = data[data['Novel'] == 'X']
-                    warning_list = warning['Name'].tolist()
-                    warning_WM = warning[warning['Weekly_Mission'] < 3]
-                    warning_WM_list = warning_WM['Name'].tolist()
-                    warning_suro = warning[warning['Suro'] == 0]
-                    warning_suro_list = warning_suro['Name'].tolist()
-                    warning_flag = warning[warning['Flag'] == 0]
-                    warning_flag_list = warning_flag['Name'].tolist()
-
-                    if not warning_list:
-                        st.write('이번주 노블 사용제한자는 없습니다.')
-                    else:
-                        st.write('이번주 노블 사용제한 목록 입니다.')
-                        st.write(f"노블 제한자 :  {warning_list}.")
-                        st.write(data[data['Novel'] == 'X'])
-                    if not warning_WM_list:
-                        st.write('이번주 주간미션 미달자는 없습니다.')
-                    else:
-                        st.write(f"노블 제한자 중 주간미션 미달자입니다 :  {warning_WM_list}.")
-                    if not warning_suro_list:
-                        st.write('이번주 지하수로 미실시자는 없습니다.')
-                    else:
-                        st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
-                    if not warning_flag_list:
-                        st.write('이번주 플래그 미실시자는 없습니다.')
-                    else:
-                        st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
-
+            def main():
                 
-                if st.button('노블 사용가능 목록 보기'):
-                    # 먼슬리 참여 가능자 명단
-                    monthly = data[data['Novel'] == 'O']
-                    monthly_list = monthly['Name'].tolist()
-                    st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
-                    st.write(f"사용가능자 :  {monthly_list}.")
-                    st.write(data[data['Novel'] == 'O'])
+                options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+                option = st.selectbox("기능 선택", options)
+                
 
-            elif option == "위클리 코젬 계산📋":
+                # # 사용자로부터 이름과 점수를 입력받는 UI 구성
+                # name = st.text_input('이름을 입력하세요')
+                # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+                # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+                # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+                
+                if option == "데이터 추가➕":
+                    # 사용자로부터 이름과 점수를 입력받는 UI 구성
+                    name = st.text_input('이름을 입력하세요')
+                    weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+                    suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+                    flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+                
+                    # 이름과 점수가 입력되면 데이터프레임에 추가
+                    if st.button('데이터 추가'):
+                        add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                        save_data(data)  # 데이터를 파일에 저장
+                        st.success('데이터가 추가되었습니다.')
 
-                if st.button('위클리 코젬 합계 계산'):
-                    weekly_total = data['Cozem_Total'].sum()
-                    st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
-
-                if st.button('위클리 코젬 분배 계산'):
-                    weekly_total = data['Cozem_Total'].sum()
-                    quotient = weekly_total // 5
-                    remainder = weekly_total % 5
-                    a = b = c = d = e = quotient
-                    for i in range(remainder):
-                        if i == 0:
-                            a += 1
-                        elif i == 1:
-                            b += 1
-                        elif i == 2:
-                            c += 1
-                        elif i == 3:
-                            d += 1
+                elif option == "데이터 조회🔎":
+                    # 저장된 데이터
+                    st.write("버튼을 누르면 입력하신 데이터를 확인할 수 있습니다.")
+                    if st.button('차트 열기'):
+                        if not data.empty:
+                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
                         else:
-                            e += 1
+                            st.write('입력되어있는 데이터가 없습니다.')
+                
+                elif option == "데이터 삭제✂":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                    # 데이터 삭제 기능
+                    # if st.button('데이터 삭제'):
+                        # 사용자로부터 삭제할 행 번호 입력받기
+                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+                        st.write("Enter를 입력하면 삭제됩니다.")
+                        if st.button('데이터 삭제'):
+                            # 해당 행이 존재할 경우, 행을 삭제
+                            if row_index >= 0 and row_index < data.shape[0]:
+                                delete_data(row_index)
+                                save_data(data)  # 데이터를 파일에 저장
+                                st.success('입력하신 행이 삭제되었습니다.')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
 
-                    st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_total}개 입니다.")
-                    st.write(f"반디 : {a} 개")
-                    st.write(f"샴푸 : {b} 개")
-                    st.write(f"둥둥 : {c} 개")
-                    st.write(f"돌체 : {d} 개")
-                    st.write(f"영래 : {e} 개")
-            elif option == "데이터 다운로드💾":
-                st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                password_input = st.number_input('비밀번호를 입력해주세요 : ')
-                if password_input == password:
-                    st.success('접근을 허용합니다')
-                    # 다운로드 버튼 클릭
-                    if st.button("다운로드"):
-                        file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
-                        st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
+                elif option == "데이터 초기화💣":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.write('접근을 허용합니다')
+                        # 데이터 전부 삭제
+                        st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
+                        st.write("⚠️신중하게 누르세요!!⚠️")
+                        if st.button('차트 초기화'):
+                            clear_data()
+                            st.warning('차트가 초기화 되었습니다')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+                elif option == "노블 사용⭕제한❌":
+                    if st.button('노블 제한목록 보기'):
+                    # 경고자 명단
+                        warning = data[data['Novel'] == 'X']
+                        warning_list = warning['Name'].tolist()
+                        warning_WM = warning[warning['Weekly_Mission'] < 3]
+                        warning_WM_list = warning_WM['Name'].tolist()
+                        warning_suro = warning[warning['Suro'] == 0]
+                        warning_suro_list = warning_suro['Name'].tolist()
+                        warning_flag = warning[warning['Flag'] == 0]
+                        warning_flag_list = warning_flag['Name'].tolist()
+
+                        if not warning_list:
+                            st.write('이번주 노블 사용제한자는 없습니다.')
+                        else:
+                            st.write('이번주 노블 사용제한 목록 입니다.')
+                            st.write(f"노블 제한자 :  {warning_list}.")
+                            st.write(data[data['Novel'] == 'X'])
+                        if not warning_WM_list:
+                            st.write('이번주 주간미션 미달자는 없습니다.')
+                        else:
+                            st.write(f"노블 제한자 중 주간미션 미달자입니다 :  {warning_WM_list}.")
+                        if not warning_suro_list:
+                            st.write('이번주 지하수로 미실시자는 없습니다.')
+                        else:
+                            st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
+                        if not warning_flag_list:
+                            st.write('이번주 플래그 미실시자는 없습니다.')
+                        else:
+                            st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
+
+                    
+                    if st.button('노블 사용가능 목록 보기'):
+                        # 먼슬리 참여 가능자 명단
+                        monthly = data[data['Novel'] == 'O']
+                        monthly_list = monthly['Name'].tolist()
+                        st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
+                        st.write(f"사용가능자 :  {monthly_list}.")
+                        st.write(data[data['Novel'] == 'O'])
+
+                elif option == "위클리 코젬 계산📋":
+
+                    if st.button('위클리 코젬 합계 계산'):
+                        weekly_total = data['Cozem_Total'].sum()
+                        st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
+
+                    if st.button('위클리 코젬 분배 계산'):
+                        weekly_total = data['Cozem_Total'].sum()
+                        quotient = weekly_total // 5
+                        remainder = weekly_total % 5
+                        a = b = c = d = e = quotient
+                        for i in range(remainder):
+                            if i == 0:
+                                a += 1
+                            elif i == 1:
+                                b += 1
+                            elif i == 2:
+                                c += 1
+                            elif i == 3:
+                                d += 1
+                            else:
+                                e += 1
+
+                        st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_total}개 입니다.")
+                        st.write(f"반디 : {a} 개")
+                        st.write(f"샴푸 : {b} 개")
+                        st.write(f"둥둥 : {c} 개")
+                        st.write(f"돌체 : {d} 개")
+                        st.write(f"영래 : {e} 개")
+                elif option == "데이터 다운로드💾":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        # 다운로드 버튼 클릭
+                        if st.button("다운로드"):
+                            file_name = st.text_input("저장할 파일명을 입력하세요:", "아기자기.xlsx")
+                            st.markdown(download_xlsx(data, file_name), unsafe_allow_html=True)
             else:
                 st.warning('비밀번호가 틀렸습니다.')
         
