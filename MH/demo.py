@@ -41,7 +41,8 @@ with st.sidebar:
 if choice == "페이지1":
     
     tab0, tab1, tab2, tab3 = st.tabs(["🏠 Main", "tab1", "tab2", "tab3"])
-    image_path = "MH/image/molu.gif"
+    image_molu = "MH/image/molu.gif"
+    image_molu_ai = "MH/image/molu_ai.jpg"
 
         # Streamlit에서 GIF 보여주기
     
@@ -55,7 +56,8 @@ if choice == "페이지1":
         **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
         '''
         # st.image("https://cdn.pixabay.com/photo/2020/09/02/04/06/man-5537262_960_720.png", width=700)
-        st.image(image_path, caption='GIF', width=500)
+        st.image(image_molu, caption='GIF', width=200)
+        st.image(image_molu_ai, , width=200)
         '''
         ---
 
