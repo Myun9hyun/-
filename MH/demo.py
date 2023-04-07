@@ -24,7 +24,7 @@ st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", l
 image_NJS = "MH/image/deep.jpg"
 # st.image(image_NJS, use_column_width=True)
 
-image = Image.open("MH/image/deep.jpg")
+image = Image.open("MH/image/developjeans.jpg")
 width, height = image.size
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
