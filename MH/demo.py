@@ -34,7 +34,7 @@ font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf",
 font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
 text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
-outline_color = (0, 0, 0)  # 검정색 테두리선
+outline_color = (7, 7, 7)  # 검정색 테두리선
 outline_width = 3
 
 # x = (width - text_width) // 2
