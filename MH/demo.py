@@ -86,7 +86,7 @@ if choice == "페이지1":
         | :---: | :---: | :---: | :---: | :--- |
         | 서상원 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github%20tkd8973?icon=github&label)](https://github.com/tkd8973)|
         | 조성훈 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github%20chohoon901?icon=github&label)](https://github.com/chohoon901)|
-        | 김명현 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github%220Myun9hyun?icon=github&label)](https://github.com/Myun9hyun)|
+        | 김명현 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github%20Myun9hyun?icon=github&label)](https://github.com/Myun9hyun)|
         | 강성욱 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
         ---
         
