@@ -1,12 +1,20 @@
-# app.py
-
 import streamlit as st
 
-# 커스텀 테마 적용
-st.set_theme({'primaryColor': '#3f51b5', 'backgroundColor': '#f2f2f2',
-              'secondaryBackgroundColor': '#fff', 'textColor': '#333',
-              'font': 'sans-serif'}, "custom_theme")
+def main():
+    st.set_page_config(page_title="My Custom Page Title", page_icon=":smiley:", layout="wide")
 
-# 텍스트 출력
-st.header("This is a header")
-st.write("This is some text.")
+    # CSS 파일 적용하기
+    st.markdown("""
+        <style>
+            body {
+                color: #FFFFFF;
+                background-color: #2F2F2F;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+    # Streamlit 애플리케이션 내용 작성하기
+    st.write("Hello, world!")
+
+if __name__ == "__main__":
+    main()
