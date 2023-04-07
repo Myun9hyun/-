@@ -33,16 +33,9 @@ text_width, text_height = draw.textsize(text_kor, font=font_kor)
 stroke_width = 2
 stroke_fill = (0, 0, 0)
 
-# x = (width - text_width) // 2
-# y = (height - text_height) // 2
 x = text_width - 100
 y = height - text_height - 200
 z = height - text_height - 255
-
-# # 이미지에 텍스트 추가
-# draw = ImageDraw.Draw(image)
-# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255),outline=outline_color, width=outline_width)
-# draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255), outline=outline_color, width=outline_width)
 
 # 테두리가 있는 텍스트 그리기
 draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
@@ -59,12 +52,6 @@ draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
 
 # # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
-
-
-
-
-
-
 
 with st.sidebar:
     choice = option_menu("Menu", ["메인페이지", "길드페이지", "직위관리", "아카이브", "이것저것"],
@@ -86,9 +73,9 @@ if choice == "메인페이지":
     '''
     ---
     ### 아기자기 길드 페이지에 오신것을 환영합니다😊
-    > * 47포 길드
-    > * Lv220 이상 가입 가능
-    > * 연합길드 '초초' 보유
+    > * **<mark>47포<mark/> 길드**
+    > * **<mark>Lv220 이상<mark/> 가입 가능**
+    > * **연합길드 '초초' 보유**
     '''
     st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)
     
