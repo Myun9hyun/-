@@ -20,8 +20,8 @@ st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", l
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
 
 
-st.header("DL Project")
-image_NJS = "MH/image/cover.jpg"
+# st.header("DL Project")
+image_NJS = "MH/image/deep.jpg"
 st.image(image_NJS)
 with st.sidebar:
     choice = option_menu("Menu", ["페이지1", "페이지2", "페이지3"],
