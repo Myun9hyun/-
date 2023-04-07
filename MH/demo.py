@@ -34,15 +34,24 @@ with st.sidebar:
     }
     )
     st.write("Link")
-    data = {
-        '팀원': ['A', 'B', 'C', 'D'],
-        '역할': ['데이터 수집 및 전처리', '모델링', '모델링', '발표'],
-        'E-mail': ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com']
-    }
-    df = pd.DataFrame(data)
-    st.sidebar.dataframe(df, index=False)
-    
+    # data = {
+    #     '팀원': ['A', 'B', 'C', 'D'],
+    #     '역할': ['데이터 수집 및 전처리', '모델링', '모델링', '발표'],
+    #     'E-mail': ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com']
+    # }
+    # df = pd.DataFrame(data)
+    # st.sidebar.dataframe(df, index=False)
 
+    st.write()
+    '''
+    | 이름 | 역할 분담 | 그 외 역할 | 딥러닝모델링 | GitHub |
+        | :---: | :---: | :---: | :---: | :---: |
+        | 서상원 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/tkd8973)|
+        | 조성훈 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/chohoon901)|
+        | 김명현 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/Myun9hyun)|
+        | 강성욱 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/JoySoon)|
+    '''
+    
     st.write("💾Team repo")
     st.markdown('<a href="https://github.com/tkd8973/DL_Project"><img src="https://img.shields.io/badge/Github-3152A0?style=for-the-badge&logo=Github&logoColor=white"></a>', unsafe_allow_html=True)
     st.write("💪Team Notion")
