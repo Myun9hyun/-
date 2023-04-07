@@ -1,35 +1,9 @@
-
-
-# import streamlit as st
-# import base64
-
-# with open("MH/image/back.jpg", "rb") as f:
-#     img_bytes = f.read()
-
-# if not img_bytes:
-#     st.write("Error: Failed to read image file.")
-
-# st.write(f"Image Bytes: {img_bytes}")
-
-# b64 = base64.b64encode(img_bytes).decode()
-
-# st.write(f"B64: {b64}")
-
-# st.markdown(
-#     f'<style>body {{background-image: url("data:image/jpeg;base64,{b64}")}}</style>',
-#     unsafe_allow_html=True,
-# )
-# 
 import streamlit as st
+from PIL import Image
 
-bg_color = "#f0f0f0"
-css = f"""
-    <style>
-        body {{
-            background-color: {bg_color};
-        }}
-    </style>
-"""
-st.markdown(css, unsafe_allow_html=True)
+st.sidebar.title("Upload Cover Photo")
+cover_photo = st.sidebar.file_uploader("Choose a PNG or JPG image", type=["png", "jpg"])
 
-# 나머지 코드 작성
+if cover_photo is not None:
+    img = Image.open(cover_photo)
+    st.image(img, caption='Uploaded Cover Photo', use_column_width=True)
