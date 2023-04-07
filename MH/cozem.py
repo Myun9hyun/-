@@ -17,6 +17,7 @@ import openpyxl
 from io import BytesIO
 import base64
 
+st.set_page_config(page_title="BanShamDoongDolYoung", page_icon=":rabbit:", layout="wide")
 password = 1234
 
 with st.sidebar:
