@@ -99,7 +99,7 @@ elif choice == "길드페이지":
         '''
     with tab2:
         st.header("💎코어젬스톤💎")
-        st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDEwMTBfMTkg%2FMDAxNjAyMzE0NjY1MTM3.OCHXBz1V9YHlZgKQWBqvgPyy8dKbnDj_sAMmoL67wWIg.2XpBx6CyawstsbtIl2UTMRJeE0VHPULU1OfbbzPVJkYg.JPEG%2FexternalFile.jpg&type=a340", width=200)
+        st.image("MH/image/cozem_guild", use_column_width=True)
         
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
