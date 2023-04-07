@@ -7,7 +7,7 @@ image = Image.open("MH/image/newjeans.jpg")
 width, height = image.size
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
-text = "Hello, world!"
+text = "뉴진스"
 font = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 36)
 text_width, text_height = draw.textsize(text, font=font)
 # x = (width - text_width) // 2
