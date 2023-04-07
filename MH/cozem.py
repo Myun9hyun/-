@@ -64,6 +64,14 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#02ab21"},
     }
     )
+    data = {
+        'Name': ['💾Google Docs'],
+        'Link': ['[![GitHub](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://onedrive.live.com/edit.aspx?resid=221CE48C87202DCA!2450&ithint=file%2cxlsx&authkey=!ADKQOeLCxzQp_5o)',
+         ]
+    }
+    df = pd.DataFrame(data)
+    # st.sidebar.dataframe(df)
+    st.write(df.to_markdown(index=False))
 # choice = st.sidebar.selectbox("메뉴를 선택해주세요", menu)
 
 # 선택된 메뉴에 따라 다른 탭 출력
