@@ -463,7 +463,7 @@ elif choice == "아카이브":
     '원하는 종류를 골라주세요',
     ('포스터', '길드사진'))
     if options=='포스터':
-        st.header("길드포스터 아카이브🎨")
+        st.write("길드포스터 아카이브🎨")
         st.write("길드홍보 포스터 저장소입니다")
         option = st.selectbox(
         '원하는 포스터를 골라주세요',
