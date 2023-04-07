@@ -10,7 +10,7 @@ width, height = image.size
 # 이미지 위에 텍스트 추가
 draw = ImageDraw.Draw(image)
 text = "이미지와 텍스트 겹쳐서 표시하기"
-font = ImageFont.truetype("arial.ttf", size=30)
+font = ImageFont.load_default()
 textwidth, textheight = draw.textsize(text, font)
 x = (width - textwidth) / 2
 y = (height - textheight) / 2
