@@ -28,7 +28,7 @@ image = Image.open("MH/image/deep.jpg")
 width, height = image.size
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
-text = "Deeplearning"
+text = "Deep Learning Project"
 font = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 36)
 text_width, text_height = draw.textsize(text, font=font)
 # x = (width - text_width) // 2
