@@ -57,7 +57,7 @@ if choice == "페이지1":
         '''
         # st.image("https://cdn.pixabay.com/photo/2020/09/02/04/06/man-5537262_960_720.png", width=700)
         st.image(image_molu, caption='GIF', width=200)
-        st.image(image_molu_ai, , width=200)
+        st.image(image_molu_ai, width=200)
         '''
         ---
 
