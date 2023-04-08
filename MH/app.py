@@ -311,10 +311,10 @@ elif choice == "길드페이지":
                     role = st.selectbox("Select Role", ("본캐", "부캐"))
                     # 이름과 점수가 입력되면 데이터프레임에 추가
                     if st.button('데이터 추가'):
-                        if role == "본캐"
-                        add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
-                        save_data(data)  # 데이터를 파일에 저장
-                        st.success('데이터가 추가되었습니다.')
+                        if role == "본캐":
+                            add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                            save_data(data)  # 데이터를 파일에 저장
+                            st.success('데이터가 추가되었습니다.')
 
                 elif option == "데이터 조회🔎":
                     # 저장된 데이터
