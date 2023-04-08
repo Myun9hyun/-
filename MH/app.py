@@ -182,6 +182,7 @@ elif choice == "길드페이지":
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
 
+
         def add_data(name, weekly_mission, suro, flag):
             global data
             # 중복 검사
@@ -192,7 +193,7 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-
+            role = Role
             data = data.append({
                 'Name': name, 
                 'Weekly_Mission': weekly_mission, 
@@ -202,8 +203,32 @@ elif choice == "길드페이지":
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                 'Novel': novel_value  # Novel 값을 추가
+                'Role' : role
             }, ignore_index=True)
 
+        def role(Role):
+            genre = st.radio(
+                ('본캐', '부캐'))
+            if genre == '본캐':
+                add_data()
+            else:
+                main_name = st.text_input("Enter the main character's name")
+                if main_name not in data['Name'].values:
+                    st.warning(f"{main_name} is not in the data.")
+                    return
+                main_data = data[data["Name"] == main_name].iloc[0]
+                cozem_total = main_data["Cozem_Total"]
+                novel_value = novel_p(weekly_mission, suro, flag)
+                data = data.append({
+                    'Name': name, 
+                    'Weekly_Mission': weekly_mission, 
+                    'Suro': suro, 
+                    'Suro_Cozem': 0,
+                    'Flag': flag, 
+                    'Flag_Cozem': 0,
+                    'Cozem_Total': cozem_total,
+                    'Novel': novel_value
+                }, ignore_index=True)
         
         def download_xlsx(df, file_name):
             # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
