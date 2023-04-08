@@ -329,7 +329,7 @@ elif choice == "길드페이지":
                 
                 if option == "데이터 추가➕":
                     name = st.text_input('이름',key='add3')
-                    role = st.selectbox('역할', ['본캐', '부캐'])
+                    role = st.selectbox('역할', ['본캐', '부캐'],key='select1')
                     weekly_mission = st.number_input('주간 미션', min_value=0)
                     suro = st.number_input('슈로 갯수', min_value=0)
                     flag = st.number_input('깃발 갯수', min_value=0)
