@@ -153,6 +153,7 @@ elif choice == "길드페이지":
             else:
                 novel = 'X'
             return novel
+
         def Role(role):
             if role == '본캐':
                 i = '본캐'
@@ -199,7 +200,7 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            # role = Role
+            # role = Role()
             data = data.append({
                 'Name': name, 
                 'Weekly_Mission': weekly_mission, 
@@ -209,7 +210,6 @@ elif choice == "길드페이지":
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                 'Novel': novel_value  # Novel 값을 추가
-                # 'Role' : role
             }, ignore_index=True)
 
         # def add_data(name, weekly_mission, suro, flag):
@@ -281,7 +281,8 @@ elif choice == "길드페이지":
                         'Flag': flag, 
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
-                        'Novel': novel_value
+                        'Novel': novel_value,
+                        'Grade' : character_type
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
