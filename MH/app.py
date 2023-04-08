@@ -328,7 +328,7 @@ elif choice == "길드페이지":
                 # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
                 
                 if option == "데이터 추가➕":
-                    name = st.text_input('이름')
+                    name = st.text_input('이름',key='add1')
                     role = st.selectbox('역할', ['본캐', '부캐'])
                     weekly_mission = st.number_input('주간 미션', min_value=0)
                     suro = st.number_input('슈로 갯수', min_value=0)
