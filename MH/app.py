@@ -305,12 +305,12 @@ elif choice == "길드페이지":
                     #     save_data(data)  # 데이터를 파일에 저장
                     #     st.success('데이터가 추가되었습니다.')
 
-                    if st.button('저장', key=add1):
+                    if st.button('저장', key='add1'):
                         if type_of_character == '본캐':
                             add_data(name, weekly_mission, suro, flag)
                         else:
                             main_name = st.text_input('본캐 이름')
-                            if st.button('저장', key=add2):
+                            if st.button('저장', key='add2'):
                                 add_data(name, weekly_mission, suro, flag, main_name)
 
                 elif option == "데이터 조회🔎":
