@@ -261,7 +261,7 @@ elif choice == "길드페이지":
             
         #     st.success(f'{name}님의 정보가 추가되었습니다.')
 
-        def add_data():
+        def add_data(name, weekly_mission, suro, flag):
             name = st.text_input('이름')
             role = st.selectbox('역할', ['본캐', '부캐'])
             weekly_mission = st.number_input('주간 미션', min_value=0)
