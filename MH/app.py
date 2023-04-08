@@ -316,12 +316,13 @@ elif choice == "길드페이지":
                     # add_button = st.button('데이터 추가')
                     # 데이터 추가 버튼이 눌렸을 때
                     # 이름 입력
-                    name = st.text_input('이름을 입력하세요.')
+                    
                     # '본캐'인지 '부캐'인지 입력받음
                     character_type = st.radio('캐릭터 종류를 선택하세요.', ('본캐', '부캐'))
 
                     # '본캐'인 경우
                     if character_type == '본캐':
+                        name = st.text_input('이름을 입력하세요.')
                         weekly_mission = st.number_input('주간 미션을 입력하세요.', value=0, step=1)
                         suro = st.number_input('수로 레벨을 입력하세요.', value=0, step=1)
                         flag = st.number_input('국기 레벨을 입력하세요.', value=0, step=1)
