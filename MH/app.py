@@ -329,6 +329,8 @@ elif choice == "길드페이지":
                         # 데이터 추가 함수 호출
                         if st.button('추가'):
                             add_data(name, weekly_mission, suro, flag)
+                            save_data(data)  # 데이터를 파일에 저장
+
                             st.success(f'{name}의 데이터가 추가되었습니다!')
 
                     # '부캐'인 경우
@@ -353,6 +355,8 @@ elif choice == "길드페이지":
                             if st.button('추가'):
                                 # 데이터 추가 함수 호출
                                 add_data(name, weekly_mission, suro, flag, cozem_total, main_name)
+                                save_data(data)  # 데이터를 파일에 저장
+
                                 st.success(f'{name}의 데이터가 추가되었습니다!')
 
 
