@@ -329,11 +329,11 @@ elif choice == "길드페이지":
                 
                 if option == "데이터 추가➕":
                     # 사용자로부터 이름과 점수를 입력받는 UI 구성
-                    name = st.text_input('이름을 입력하세요')
-                    type_of_character = st.radio('캐릭터 유형', ('본캐', '부캐'))
-                    weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-                    suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-                    flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+                    # name = st.text_input('이름을 입력하세요')
+                    # type_of_character = st.radio('캐릭터 유형', ('본캐', '부캐'))
+                    # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+                    # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+                    # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
                 
                     # 이름과 점수가 입력되면 데이터프레임에 추가
                     # if st.button('데이터 추가'):
