@@ -327,8 +327,9 @@ elif choice == "길드페이지":
                             suro = st.number_input('수로 레벨을 입력하세요.', value=0, step=1)
                             flag = st.number_input('국기 레벨을 입력하세요.', value=0, step=1)
                             # 데이터 추가 함수 호출
-                            add_data(name, weekly_mission, suro, flag)
-                            st.success(f'{name}의 데이터가 추가되었습니다!')
+                            if st.button('추가'):
+                                add_data(name, weekly_mission, suro, flag)
+                                st.success(f'{name}의 데이터가 추가되었습니다!')
 
                         # '부캐'인 경우
                         elif character_type == '부캐':
@@ -349,10 +350,10 @@ elif choice == "길드페이지":
                                 suro_cozem = Suro_cozem(suro)
                                 flag_cozem = Flag_cozem(flag)
                                 cozem_total = suro_cozem + flag_cozem + main_cozem_total
-
-                                # 데이터 추가 함수 호출
-                                add_data(name, weekly_mission, suro, flag, cozem_total, main_name)
-                                st.success(f'{name}의 데이터가 추가되었습니다!')
+                                if st.button('추가'):
+                                    # 데이터 추가 함수 호출
+                                    add_data(name, weekly_mission, suro, flag, cozem_total, main_name)
+                                    st.success(f'{name}의 데이터가 추가되었습니다!')
 
 
                 elif option == "데이터 조회🔎":
