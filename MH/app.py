@@ -325,19 +325,19 @@ elif choice == "길드페이지":
                         if main_name not in data['Name'].values:
                             st.warning(f"{main_name} is not in the data.")
                             return
-                            main_data = data[data["Name"] == main_name].iloc[0]
-                            cozem_total = main_data["Cozem_Total"]
-                            name = st.text_input('이름을 입력하세요')
-                            weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-                            suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-                            flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
-                            if st.button('추가'):
-                                add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
-                                save_data(data)  # 데이터를 파일에 저장
-                                st.success('데이터가 추가되었습니다.')
-                            # add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
-                            # save_data(data)  # 데이터를 파일에 저장
-                            # st.success('데이터가 추가되었습니다.')
+                        main_data = data[data["Name"] == main_name].iloc[0]
+                        cozem_total = main_data["Cozem_Total"]
+                        name = st.text_input('이름을 입력하세요')
+                        weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+                        suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+                        flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+                        if st.button('추가'):
+                            add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                            save_data(data)  # 데이터를 파일에 저장
+                            st.success('데이터가 추가되었습니다.')
+                        # add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                        # save_data(data)  # 데이터를 파일에 저장
+                        # st.success('데이터가 추가되었습니다.')
 
                 elif option == "데이터 조회🔎":
                     # 저장된 데이터
