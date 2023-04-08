@@ -252,25 +252,33 @@ elif choice == "길드페이지":
         # def role(Role):
         def add_character_data(name, character_type, weekly_mission, suro, flag):
             global data
-            main_name = st.text_input('본캐 이름을 입력하세요')
-            main_data = data.loc[data['Name'] == main_name]
-
-            main_data_index = main_data.index[0]
-            suro_cozem = Suro_cozem(suro)
-            flag_cozem = Flag_cozem(flag)
-            cozem_total = suro_cozem + flag_cozem
-            data.loc[main_data_index, 'Cozem_Total'] += cozem_total
-            novel_value = novel_p(weekly_mission, suro, flag)
-            data = data.append({
-                'Name': name, 
-                'Weekly_Mission': weekly_mission, 
-                'Suro': suro, 
-                'Suro_Cozem': suro_cozem,
-                'Flag': flag, 
-                'Flag_Cozem': flag_cozem,
-                'Cozem_Total': cozem_total,
-                'Novel': novel_value
-            }, ignore_index=True)
+            if character_type == '본캐':
+                add_data(name, weekly_mission, suro, flag)
+            elif character_type == '부캐':
+                main_name = st.text_input('본캐 이름을 입력하세요')
+                main_data = data.loc[data['Name'] == main_name]
+                if len(main_data) == 0:
+                    st.warning(f"{main_name} (은)는 데이터에 존재하지 않습니다.")
+                    return
+                else:
+                    main_data_index = main_data.index[0]
+                    suro_cozem = Suro_cozem(suro)
+                    flag_cozem = Flag_cozem(flag)
+                    cozem_total = suro_cozem + flag_cozem
+                    data.loc[main_data_index, 'Cozem_Total'] += cozem_total
+                    novel_value = novel_p(weekly_mission, suro, flag)
+                    data = data.append({
+                        'Name': name, 
+                        'Weekly_Mission': weekly_mission, 
+                        'Suro': suro, 
+                        'Suro_Cozem': suro_cozem,
+                        'Flag': flag, 
+                        'Flag_Cozem': flag_cozem,
+                        'Cozem_Total': cozem_total,
+                        'Novel': novel_value
+                    }, ignore_index=True)
+            else:
+                st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
 
 
         
