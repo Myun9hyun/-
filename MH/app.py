@@ -323,9 +323,9 @@ elif choice == "길드페이지":
                     # '본캐'인 경우
                     if character_type == '본캐':
                         name = st.text_input('이름을 입력하세요.')
-                        weekly_mission = st.number_input('주간 미션을 입력하세요.', value=0, step=1)
-                        suro = st.number_input('수로 레벨을 입력하세요.', value=0, step=1)
-                        flag = st.number_input('국기 레벨을 입력하세요.', value=0, step=1)
+                        weekly_mission = st.number_input('주간 미션을 입력하세요.', min_value=0 )
+                        suro = st.number_input('수로 레벨을 입력하세요.', min_value=0 )
+                        flag = st.number_input('국기 레벨을 입력하세요.', min_value=0)
                         # 데이터 추가 함수 호출
                         if st.button('추가'):
                             add_data(name, weekly_mission, suro, flag)
