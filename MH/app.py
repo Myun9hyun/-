@@ -252,7 +252,6 @@ elif choice == "길드페이지":
         # def role(Role):
         def add_character_data(name, character_type, weekly_mission, suro, flag):
             global data
-
             if character_type == '본캐':
                 add_data(name, weekly_mission, suro, flag)
             elif character_type == '부캐':
@@ -328,9 +327,8 @@ elif choice == "길드페이지":
                         flag = st.number_input('국기 레벨을 입력하세요.', min_value=0)
                         # 데이터 추가 함수 호출
                         if st.button('추가'):
-                            add_data(name, weekly_mission, suro, flag)
+                            add_character_data(name, character_type, weekly_mission, suro, flag)
                             save_data(data)  # 데이터를 파일에 저장
-
                             st.success(f'{name}의 데이터가 추가되었습니다!')
 
                     # '부캐'인 경우
