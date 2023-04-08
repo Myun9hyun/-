@@ -343,6 +343,7 @@ elif choice == "길드페이지":
                             # 입력한 본캐의 코젬 총합 값을 조회하여 보여줌
                             main_cozem_total = data.loc[data['Name'] == main_name, 'Cozem_Total'].values[0]
                             st.write(f"{main_name}의 코젬 총합: {main_cozem_total}")
+                            name = st.text_input('이름을 입력하세요.')
 
                             weekly_mission = st.number_input('주간 미션을 입력하세요.', value=0, step=1)
                             suro = st.number_input('수로 레벨을 입력하세요.', value=0, step=1)
