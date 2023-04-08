@@ -313,7 +313,7 @@ elif choice == "길드페이지":
                 
                 if option == "데이터 추가➕":
                     # 데이터 추가 버튼
-                    add_button = st.button('데이터 추가')
+                    # add_button = st.button('데이터 추가')
                     # 데이터 추가 버튼이 눌렸을 때
                     # 이름 입력
                     name = st.text_input('이름을 입력하세요.')
