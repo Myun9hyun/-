@@ -153,6 +153,12 @@ elif choice == "길드페이지":
             else:
                 novel = 'X'
             return novel
+        def Role(role):
+            if role == '본캐':
+                i = '본캐'
+            else:
+                i = name
+            return i
 
         # 데이터를 저장할 파일 경로 지정
         FILE_PATH = 'data.csv'
