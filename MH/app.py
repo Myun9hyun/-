@@ -273,6 +273,7 @@ elif choice == "길드페이지":
                     cozem_total = suro_cozem + flag_cozem
                     data.loc[main_data_index, 'Cozem_Total'] += cozem_total
                     novel_value = novel_p(weekly_mission, suro, flag)
+                    role = character_type
                     data = data.append({
                         'Name': name, 
                         'Weekly_Mission': weekly_mission, 
@@ -282,7 +283,7 @@ elif choice == "길드페이지":
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
-                        'Grade' : character_type
+                        'Grade' : role
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
