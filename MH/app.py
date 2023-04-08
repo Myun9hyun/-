@@ -308,7 +308,7 @@ elif choice == "길드페이지":
                     # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
                     # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
                     # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
-                    role = st.selectbox("Select Role", ("본캐", "부캐"))
+                    role = st.selectbox("Select Role", ("본캐", "부캐"),key='select1')
                     # 이름과 점수가 입력되면 데이터프레임에 추가
                     if st.button('데이터 추가'):
                         if role == "본캐":
