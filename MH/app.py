@@ -169,7 +169,7 @@ elif choice == "길드페이지":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Grade'])
             return data
 
         # 데이터를 파일에 저장하기
@@ -179,7 +179,7 @@ elif choice == "길드페이지":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Grade'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
