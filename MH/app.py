@@ -355,7 +355,7 @@ elif choice == "길드페이지":
                             cozem_total = suro_cozem + flag_cozem + main_cozem_total
                             if st.button('추가'):
                                 # 데이터 추가 함수 호출
-                                add_data(name, weekly_mission, suro, flag, cozem_total, main_name)
+                                add_data(name, weekly_mission, suro, flag)
                                 save_data(data)  # 데이터를 파일에 저장
 
                                 st.success(f'{name}의 데이터가 추가되었습니다!')
