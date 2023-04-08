@@ -328,6 +328,11 @@ elif choice == "길드페이지":
                 # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
                 
                 if option == "데이터 추가➕":
+                    name = st.text_input('이름')
+                    role = st.selectbox('역할', ['본캐', '부캐'])
+                    weekly_mission = st.number_input('주간 미션', min_value=0)
+                    suro = st.number_input('슈로 갯수', min_value=0)
+                    flag = st.number_input('깃발 갯수', min_value=0)
                     # 사용자로부터 이름과 점수를 입력받는 UI 구성
                     # name = st.text_input('이름을 입력하세요')
                     # type_of_character = st.radio('캐릭터 유형', ('본캐', '부캐'))
@@ -342,6 +347,7 @@ elif choice == "길드페이지":
                     #     st.success('데이터가 추가되었습니다.')
 
                     if st.button('저장', key='add1'):
+                        
                         add_data(name, weekly_mission, suro, flag)
                         
                     # else:
