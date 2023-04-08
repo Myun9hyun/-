@@ -193,7 +193,7 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            role = Role
+            # role = Role
             data = data.append({
                 'Name': name, 
                 'Weekly_Mission': weekly_mission, 
@@ -203,7 +203,7 @@ elif choice == "길드페이지":
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                 'Novel': novel_value  # Novel 값을 추가
-                'Role' : role
+                # 'Role' : role
             }, ignore_index=True)
 
         def role(Role):
