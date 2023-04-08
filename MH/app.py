@@ -252,7 +252,7 @@ elif choice == "길드페이지":
         # def role(Role):
         def add_character_data(name, character_type, weekly_mission, suro, flag):
             global data
-
+            main_name = name
             main_data = data.loc[data['Name'] == main_name]
 
             main_data_index = main_data.index[0]
