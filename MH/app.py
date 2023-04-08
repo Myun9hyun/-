@@ -312,9 +312,45 @@ elif choice == "길드페이지":
                     # 이름과 점수가 입력되면 데이터프레임에 추가
                     if st.button('데이터 추가'):
                         if role == "본캐":
-                            add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
-                            save_data(data)  # 데이터를 파일에 저장
-                            st.success('데이터가 추가되었습니다.')
+                            suro_cozem = Suro_cozem(suro)
+                            flag_cozem = Flag_cozem(flag)
+                            cozem_total = suro_cozem + flag_cozem
+                            novel_value = novel_p(weekly_mission, suro, flag)
+                            # 중복 검사
+                            if name in data['Name'].values:
+                                st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                                return
+                            data = data.append({
+                                'Name': name, 
+                                'Weekly_Mission': weekly_mission, 
+                                'Suro': suro, 
+                                'Suro_Cozem': suro_cozem,
+                                'Flag': flag, 
+                                'Flag_Cozem': flag_cozem,
+                                'Cozem_Total': cozem_total,
+                                'Novel': novel_value
+                            }, ignore_index=True)
+                            elif role == "부캐":
+                                main_name = st.text_input("Enter the main character's name")
+                                if main_name not in data['Name'].values:
+                                    st.warning(f"{main_name} is not in the data.")
+                                    return
+                                main_data = data[data["Name"] == main_name].iloc[0]
+                                cozem_total = main_data["Cozem_Total"]
+                                novel_value = novel_p(weekly_mission, suro, flag)
+                                data = data.append({
+                                    'Name': name, 
+                                    'Weekly_Mission': weekly_mission, 
+                                    'Suro': suro, 
+                                    'Suro_Cozem': 0,
+                                    'Flag': flag, 
+                                    'Flag_Cozem': 0,
+                                    'Cozem_Total': cozem_total,
+                                    'Novel': novel_value
+                                }, ignore_index=True)
+                            # add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                            # save_data(data)  # 데이터를 파일에 저장
+                            # st.success('데이터가 추가되었습니다.')
 
                 elif option == "데이터 조회🔎":
                     # 저장된 데이터
