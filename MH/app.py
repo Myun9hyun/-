@@ -480,7 +480,7 @@ elif choice == "길드페이지":
       
 elif choice == "직위관리":
     st.header("길드원 직위 관리 페이지")
-    tab1, tab2= st.tabs(["💎Cozem", "Grade"])
+    tab1, tab2= st.tabs(["💎Cozem", "📋Grade"])
     with tab1:
         st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
@@ -525,13 +525,6 @@ elif choice == "직위관리":
                 novel = 'X'
             return novel
 
-        # def Role(role):
-        #     if role == '본캐':
-        #         i = '본캐'
-        #     else:
-        #         i = name
-        #     return i
-
         # 데이터를 저장할 파일 경로 지정
         FILE_PATH = 'data.csv'
 
@@ -560,28 +553,6 @@ elif choice == "직위관리":
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
 
-
-        # def add_data(name, weekly_mission, suro, flag):
-        #     global data
-        #     # 중복 검사
-        #     if name in data['Name'].values:
-        #         st.warning(f'{name} (은)는 이미 있는 이름이야!')
-        #         return
-        #     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-        #     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-        #     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-        #     novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-        #     # role = Role()
-        #     data = data.append({
-        #         'Name': name, 
-        #         'Weekly_Mission': weekly_mission, 
-        #         'Suro': suro, 
-        #         'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
-        #         'Flag': flag, 
-        #         'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
-        #         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-        #         'Novel': novel_value  # Novel 값을 추가
-        #     }, ignore_index=True)
         def add_data(name,character_type, weekly_mission, suro, flag):
             global data
             # role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
@@ -634,7 +605,7 @@ elif choice == "직위관리":
                 main_name = st.text_input('본캐 이름을 입력하세요')
                 main_data = data.loc[data['Name'] == main_name]
                 if len(main_data) == 0:
-                    st.warning(f"{main_name} (은)는 데이터에 존재하지 않습니다.")
+                    st.warning(f"{main_name} (은)는 등록되어있지 않아!.")
                     return
                 else:
                     main_data_index = main_data.index[0]
@@ -660,10 +631,8 @@ elif choice == "직위관리":
                         'Main_Name' : main_name
                     }, ignore_index=True)
             else:
-                st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
+                st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
 
-
-        
         def download_xlsx(df, file_name):
             # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
             if not file_name.endswith(".xlsx"):
@@ -698,7 +667,6 @@ elif choice == "직위관리":
                         # add_character_data(name, character_type, weekly_mission, suro, flag)
                         save_data(data)  # 데이터를 파일에 저장
                         st.success(f'{name}의 데이터가 추가되었습니다!')
-
 
 
                 elif option == "데이터 조회🔎":
