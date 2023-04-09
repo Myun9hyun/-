@@ -405,17 +405,21 @@ elif choice == "길드페이지":
                     
                     if st.button('노블 사용가능 목록 보기'):
                         # 먼슬리 참여 가능자 명단
-                        # monthly = data[data['Novel'] == 'O'] and data[data['Role'] == '본캐']
-                        main_monthly = data[data['Role'] == '본캐']
+                        novel_member = data[data['Novel'] == 'O']
+                        # main_monthly = data[data['Role'] == '본캐']
 
-                        new_df = data[(data['Novel'] == 'O') & (data['Role'] == '본캐')]
+                        monthly = data[(data['Novel'] == 'O') & (data['Role'] == '본캐')]
+                        novel_list = novel_member['Name'].tolist()
+                        monthly_list = monthly['Name'].tolist()
                         
-                        monthly_list = new_df['Name'].tolist()
-                        
-                        st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
+                        st.write('이번주 노블 사용가능 목록입니다.')
+                        # st.write(f"사용가능자 :  {monthly_list}.")
+                        st.write(f"사용가능자 :  {novel_list}.")
+                        st.write(novel_member)
+                        st.write('이번주 먼슬리 참여가능자 목록입니다.')
                         # st.write(f"사용가능자 :  {monthly_list}.")
                         st.write(f"사용가능자 :  {monthly_list}.")
-                        st.write(new_df)
+                        st.write(monthly)
 
                 elif option == "위클리 코젬 계산📋":
 
