@@ -659,7 +659,7 @@ elif choice == "직위관리":
         if password_input == password:
             st.success('접근을 허용합니다')
             options = ["경고자 추가➕","경고횟수 추가/차감", "경고자 조회🔎", "경고자 삭제✂", "데이터 초기화💣" ]
-            option = st.selectbox("기능 선택", options, key='select1')
+            option = st.selectbox("기능 선택", options, key='select3')
         # 파일에서 데이터 불러오기
             def load_data2():
                 try:
