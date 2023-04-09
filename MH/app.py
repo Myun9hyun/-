@@ -211,7 +211,7 @@ elif choice == "길드페이지":
                 'Flag': flag, 
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-                'Novel': novel_value  # Novel 값을 추가
+                'Novel': novel_value,  # Novel 값을 추가
                 'Role' : Role_value
             }, ignore_index=True)
 
