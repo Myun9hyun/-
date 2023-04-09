@@ -578,7 +578,7 @@ elif choice == "직위관리":
                 data1.loc[data1['Name']==name, 'Warning'] = warning_count
                 save_data1(data1)
             if st.button("경고횟수 차감"):
-                add_data1(name, warning_count)
+                
                 warning_count -= 1
                 data1.loc[data1['Name']==name, 'Warning'] = warning_count
                 save_data1(data1)
