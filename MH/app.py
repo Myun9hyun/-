@@ -584,14 +584,14 @@ elif choice == "직위관리":
                     # 데이터 삭제 기능
                     # if st.button('데이터 삭제'):
                         # 사용자로부터 삭제할 행 번호 입력받기
-                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
-                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+                        st.write(data1[['Name','warning_count']])
+                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data1.shape[0]-1)
                         st.write("Enter를 입력하면 삭제됩니다.")
                         if st.button('데이터 삭제'):
                             # 해당 행이 존재할 경우, 행을 삭제
-                            if row_index >= 0 and row_index < data.shape[0]:
+                            if row_index >= 0 and row_index < data1.shape[0]:
                                 delete_data(row_index)
-                                save_data(data)  # 데이터를 파일에 저장
+                                save_data1(data1)  # 데이터를 파일에 저장
                                 st.success('입력하신 행이 삭제되었습니다.')
                     else:
                         st.warning('비밀번호가 틀렸습니다.')
@@ -620,14 +620,14 @@ elif choice == "직위관리":
                         st.write(data1)
                 elif option == "데이터 초기화💣":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass1')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass2')
                     if password_input == password:
                         st.success('접근을 허용합니다')
                         # 데이터 전부 삭제
                         st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
                         st.write("⚠️신중하게 누르세요!!⚠️")
                         if st.button('차트 초기화'):
-                            clear_data()
+                            clear_data1()
                             st.warning('차트가 초기화 되었습니다')
                     else:
                         st.warning('비밀번호가 틀렸습니다.')
