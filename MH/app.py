@@ -429,8 +429,10 @@ elif choice == "길드페이지":
                 elif option == "위클리 코젬 계산📋":
 
                     if st.button('위클리 코젬 합계 계산'):
+                        weekly_main_total = data[(data['Role'] == '본캐') & (data['Cozem_Total'])].sum()
                         weekly_total = data['Cozem_Total'].sum()
                         st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
+                        st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_main_total}개 입니다.")
 
                     if st.button('위클리 코젬 분배 계산'):
                         weekly_total = data['Cozem_Total'].sum()
