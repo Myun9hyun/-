@@ -16,6 +16,7 @@ import os
 import openpyxl
 from io import BytesIO
 import base64
+import datetime
 
 st.set_page_config(page_title="BanShamDoongDolYoung", page_icon=":rabbit:", layout="wide")
 password = 1234
@@ -665,7 +666,7 @@ elif choice == "직위관리":
                 try:
                     data2 = pd.read_csv(FILE_PATH2)
                 except FileNotFoundError:
-                    data2 = pd.DataFrame(columns=['Name', 'Warning'])
+                    data2 = pd.DataFrame(columns=['Name', 'Why', 'Period'])
                 return data2
 
             # 데이터를 파일에 저장하기
@@ -675,7 +676,7 @@ elif choice == "직위관리":
             # 데이터 초기화 함수
             def clear_data2():
                 global data2
-                data2 = pd.DataFrame(columns=['Name', 'Warning'])
+                data2 = pd.DataFrame(columns=['Name', 'Why', 'Period'])
                 # 파일 삭제
                 os.remove(FILE_PATH2)
             # 데이터 삭제 함수
@@ -685,14 +686,16 @@ elif choice == "직위관리":
 
             # 불러온 데이터를 전역 변수로 저장
             data2 = load_data2()
-            def add_data2(name, warning_count):
+            def add_data2(name, why, period):
                 global data2
                 if name in data2['Name'].values:
                     st.warning(f'{name} (은)는 이미 있는 이름이야!')
                     return
                 data2 = data2.append({
                     'Name': name, 
-                    'Warning' : warning_count
+                    'Why' : why,
+                    'period' : period
+
                 }, ignore_index=True)
             
 
@@ -717,10 +720,13 @@ elif choice == "직위관리":
                     else:
                         st.warning('비밀번호가 틀렸습니다.')
                 elif option == "유예자 추가➕":
-                    name = st.text_input("경고자 이름을 입력해주세요")
-                    warning_count = data2.loc[data1['Name']==name, 'Warning'].values[0] if name in data2['Name'].values else 0
+                    name = st.text_input("유예자 이름을 입력해주세요")
+                    why = st.text_input("사유를 입력해주세요(곤란하면 개인사유로 작성)")
+                    day = st.date_input(
+                        "유예기한을 설정해주세요",
+                        datetime.date(2023, 4, 10))
                     if st.button('유예자 이름 추가'):
-                        add_data2(name, warning_count)
+                        add_data2(name, why, day)
                         save_data2(data2)
                         st.success(f"유예자 {name}이(가) 추가되었습니다.")
                 elif option == '경고횟수 추가/차감':
@@ -744,26 +750,12 @@ elif choice == "직위관리":
 
                 elif option == "유예자 조회🔎":
                     if st.button('경고 횟수 확인'):
-                        warning_one = data2[data2['Warning'] == 1]
-                        warning_two = data2[data2['Warning'] == 2]
-                        warning_one_list = warning_one['Name'].tolist()
-                        warning_two_list = warning_two['Name'].tolist()
-                        st.write("경고자 전체 명단입니다.")
+                        st.write("유예자 명단입니다.")
                         st.write(data2)
-                        if not warning_one_list:
-                            st.write("경고 1회자는 없습니다.")
-                        else : 
-                            st.write("경고 1회 명단입니다.")
-                            st.write(f"{warning_one_list}")
-                        if not warning_two_list:
-                            st.write("경고 2회자는 없습니다.")
-                        else : 
-                            st.write("경고 2회 명단입니다.")
-                            st.write(f"{warning_two_list}")
 
                 elif option == "데이터 초기화💣":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass3')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass6')
                     if password_input == password:
                         st.success('접근을 허용합니다')
                         # 데이터 전부 삭제
