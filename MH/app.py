@@ -623,7 +623,12 @@ elif choice == "직위관리":
 
                 elif option == "경고자 조회🔎":
                     if st.button('경고 횟수 확인'):
+                        warning_one = data1['Warning'] == 1
+                        warning_one_list = warning_one['Name'].tolist()
+                        st.write("경고자 명단입니다.")
                         st.write(data1)
+                        st.write("경고 1회 명단입니다.")
+                        st.write(warning_one_list)
                 elif option == "데이터 초기화💣":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass2')
