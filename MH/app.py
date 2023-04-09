@@ -191,7 +191,7 @@ elif choice == "길드페이지":
         data = load_data()
 
 
-        def add_data(name,character_type, weekly_mission, suro, flag):
+        def add_data(name, weekly_mission, suro, flag):
             global data
             # 중복 검사
             if name in data['Name'].values:
@@ -201,7 +201,7 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            role = character_type
+            # role = character_type
             # if role == '본캐':
             #     i = '본캐'
             # else:
@@ -218,12 +218,12 @@ elif choice == "길드페이지":
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                 'Novel': novel_value,  # Novel 값을 추가
-                'Role' : role
+                # 'Role' : role
             }, ignore_index=True)
 
 
         # def role(Role):
-        def add_character_data(name, character_type, weekly_mission, suro, flag):
+        def add_character_data(name, weekly_mission, suro, flag):
             global data
             if character_type == '본캐':
                 add_data(name,character_type, weekly_mission, suro, flag)
@@ -240,7 +240,7 @@ elif choice == "길드페이지":
                     cozem_total = suro_cozem + flag_cozem
                     data.loc[main_data_index, 'Cozem_Total'] += cozem_total
                     novel_value = novel_p(weekly_mission, suro, flag)
-                    role = character_type
+                    # role = character_type
                     data = data.append({
                         'Name': name, 
                         'Weekly_Mission': weekly_mission, 
@@ -250,7 +250,7 @@ elif choice == "길드페이지":
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
-                        'Role' : role
+                        # 'Role' : role
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
@@ -303,7 +303,7 @@ elif choice == "길드페이지":
                     weekly_mission = st.number_input('주간 미션 점수', min_value=0)
                     suro = st.number_input('수로 점수', min_value=0)
                     flag = st.number_input('플래그 점수', min_value=0)
-                    add_character_data(name, is_main_character, weekly_mission, suro, flag)
+                    add_character_data(name, weekly_mission, suro, flag)
                     if st.button('추가'):
                         # 데이터 추가 함수 호출
                         add_character_data(name, is_main_character, weekly_mission, suro, flag)
