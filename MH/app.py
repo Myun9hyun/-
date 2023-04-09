@@ -223,7 +223,7 @@ elif choice == "길드페이지":
 
 
         # def role(Role):
-        def add_character_data(name, weekly_mission, suro, flag):
+        def add_character_data(name,character_type, weekly_mission, suro, flag):
             global data
             if character_type == '본캐':
                 add_data(name,character_type, weekly_mission, suro, flag)
