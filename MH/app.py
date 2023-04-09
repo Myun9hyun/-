@@ -606,8 +606,7 @@ elif choice == "직위관리":
                     name = st.text_input("경고자 이름을 입력해주세요")
                     warning_count = data1.loc[data1['Name']==name, 'Warning']
                     if st.button("경고횟수 추가"):
-                        data1.loc[data1['Name']==name, 'Warning'] = warning_count
-                        warning_count += 1
+                        warning_count = warning_count + 1
                         save_data1(data1)
                         st.success("경고 횟수가 증가되었습니다.")
                     if st.button("경고횟수 차감"):
