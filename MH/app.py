@@ -389,8 +389,8 @@ elif choice == "길드페이지":
                         if not warning_main_list:
                             st.write('이번주 노블 사용제한자는 없습니다.')
                         else:
-                            st.write('이번주 노블 사용제한 목록입니다(본캐).')
-                            st.write(f"노블 제한자 본캐 :  {warning_main_list}.")
+                            st.write('이번주 경고자 목록입니다(본캐).')
+                            st.write(f"경고자 :  {warning_main_list}.")
                             st.write(warning_main)
                         if not warning_list:
                             st.write('이번주 노블 사용제한자는 없습니다.')
