@@ -629,12 +629,12 @@ elif choice == "직위관리":
                         warning_two_list = warning_two['Name'].tolist()
                         st.write("경고자 명단입니다.")
                         st.write(data1)
-                        if not warning_one:
+                        if warning_one is empty:
                             st.write("경고 1회자는 없습니다.")
                         else : 
                             st.write("경고 1회 명단입니다.")
                             st.write(f"{warning_one_list}")
-                        if not warning_two:
+                        if warning_two is empty:
                             st.write("경고 2회자는 없습니다.")
                         else : 
                             st.write("경고 2회 명단입니다.")
