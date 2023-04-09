@@ -578,7 +578,7 @@ elif choice == "직위관리":
             def main():
                 if option == "데이터 삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='pass3')
                     if password_input == password:
                         st.success('접근을 허용합니다')
                     # 데이터 삭제 기능
