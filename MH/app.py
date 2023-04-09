@@ -408,8 +408,8 @@ elif choice == "길드페이지":
                         # monthly = data[data['Novel'] == 'O'] and data[data['Role'] == '본캐']
                         main_monthly = data[data['Role'] == '본캐']
 
-                        new_df = data[[data['Novel'] == 'O'] and [data['Role'] == '본캐']]
-
+                        new_df = data[data['Novel']] == 'O' and data[data['Role'] == '본캐']
+                        
                         monthly_list = new_df['Name'].tolist()
                         
                         st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
