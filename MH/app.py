@@ -98,7 +98,6 @@ elif choice == "길드페이지":
             '''
             ---
             ### 길드 간부진 💪
-
             | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 |
             | :---: | :---: | :---: | :---: |
             | 길마👑 | 뱌닢 | 나이트로드 | [![Colab](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |
@@ -155,7 +154,6 @@ elif choice == "길드페이지":
             return novel
 
         def Role(role):
-            role = st.radio('본캐/부캐', ('본캐', '부캐'))
             if role == '본캐':
                 i = '본캐'
             else:
@@ -170,7 +168,7 @@ elif choice == "길드페이지":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Grade'])
             return data
 
         # 데이터를 파일에 저장하기
@@ -180,7 +178,7 @@ elif choice == "길드페이지":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Grade'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
@@ -201,13 +199,6 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            # role = character_type
-            # if role == '본캐':
-            #     i = '본캐'
-            # else:
-            #     i = name
-            # return i
-            # i = role
             # role = Role()
             data = data.append({
                 'Name': name, 
@@ -217,18 +208,59 @@ elif choice == "길드페이지":
                 'Flag': flag, 
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-                'Novel': novel_value,  # Novel 값을 추가
-                # 'Role' : role
+                'Novel': novel_value  # Novel 값을 추가
             }, ignore_index=True)
 
+        # def add_data(name, weekly_mission, suro, flag):
+        #     global data
+        #     role = st.selectbox("Select Role", ("본캐", "부캐"))
+        #     if role == "본캐":
+        #         suro_cozem = Suro_cozem(suro)
+        #         flag_cozem = Flag_cozem(flag)
+        #         cozem_total = suro_cozem + flag_cozem
+        #         novel_value = novel_p(weekly_mission, suro, flag)
+        #         # 중복 검사
+        #         if name in data['Name'].values:
+        #             st.warning(f'{name} (은)는 이미 있는 이름이야!')
+        #             return
+        #         data = data.append({
+        #             'Name': name, 
+        #             'Weekly_Mission': weekly_mission, 
+        #             'Suro': suro, 
+        #             'Suro_Cozem': suro_cozem,
+        #             'Flag': flag, 
+        #             'Flag_Cozem': flag_cozem,
+        #             'Cozem_Total': cozem_total,
+        #             'Novel': novel_value
+        #         }, ignore_index=True)
+        #     elif role == "부캐":
+        #         main_name = st.text_input("Enter the main character's name")
+        #         if main_name not in data['Name'].values:
+        #             st.warning(f"{main_name} is not in the data.")
+        #             return
+        #         main_data = data[data["Name"] == main_name].iloc[0]
+        #         cozem_total = main_data["Cozem_Total"]
+        #         novel_value = novel_p(weekly_mission, suro, flag)
+        #         data = data.append({
+        #             'Name': name, 
+        #             'Weekly_Mission': weekly_mission, 
+        #             'Suro': suro, 
+        #             'Suro_Cozem': 0,
+        #             'Flag': flag, 
+        #             'Flag_Cozem': 0,
+        #             'Cozem_Total': cozem_total,
+        #             'Novel': novel_value
+        #         }, ignore_index=True)
+
+        #     st.success(f'{name} (이)가 추가됐어요!')
 
         # def role(Role):
-        def add_character_data(name,character_type, weekly_mission, suro, flag):
+        def add_character_data(name, character_type, weekly_mission, suro, flag):
             global data
             if character_type == '본캐':
                 add_data(name, weekly_mission, suro, flag)
             elif character_type == '부캐':
-                main_name = st.text_input('본캐 닉을 입력하세요',key='main2')
+                main_name = st.text_input('본캐 이름을 입력하세요')
                 main_data = data.loc[data['Name'] == main_name]
                 if len(main_data) == 0:
                     st.warning(f"{main_name} (은)는 데이터에 존재하지 않습니다.")
@@ -240,7 +272,7 @@ elif choice == "길드페이지":
                     cozem_total = suro_cozem + flag_cozem
                     data.loc[main_data_index, 'Cozem_Total'] += cozem_total
                     novel_value = novel_p(weekly_mission, suro, flag)
-                    # role = character_type
+                    role = character_type
                     data = data.append({
                         'Name': name, 
                         'Weekly_Mission': weekly_mission, 
@@ -250,30 +282,11 @@ elif choice == "길드페이지":
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
-                        # 'Role' : role
+                        'Grade' : role
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
 
-        # def add_data_widget():
-        #     name = st.text_input("이름을 입력하세요.")
-        #     role = st.radio("역할을 선택하세요.", ("본캐", "부캐"))
-            
-        #     if role == "본캐":
-        #         weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
-        #         suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
-        #         flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
-        #         if st.button("추가하기"):
-        #             add_data(name, weekly_mission, suro, flag)
-        #             save_data(data)
-        #     else:
-        #         main_name = st.text_input("본캐 이름을 입력하세요.")
-        #         weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
-        #         suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
-        #         flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
-        #         if st.button("추가하기"):
-        #             add_data(name, weekly_mission, suro, flag)
-        #             save_data(data)  # 데이터를 파일에 저장
 
         
         def download_xlsx(df, file_name):
@@ -297,17 +310,65 @@ elif choice == "길드페이지":
                 st.success('접근을 허용합니다')
                 options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
+                
+
+                # # 사용자로부터 이름과 점수를 입력받는 UI 구성
+                # name = st.text_input('이름을 입력하세요')
+                # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
+                # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
+                # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
+                
                 if option == "데이터 추가➕":
-                    name = st.text_input('이름',key='name5')
-                    is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'),key='radio2')
-                    weekly_mission = st.number_input('주간 미션 점수', min_value=0)
-                    suro = st.number_input('수로 점수', min_value=0)
-                    flag = st.number_input('플래그 점수', min_value=0)
-                    add_character_data(name, is_main_character,weekly_mission, suro, flag)
+                    # 데이터 추가 버튼
+                    # add_button = st.button('데이터 추가')
+                    # 데이터 추가 버튼이 눌렸을 때
+                    # 이름 입력
+                    
+                    # '본캐'인지 '부캐'인지 입력받음
+                    # character_type = st.radio('캐릭터 종류를 선택하세요.', ('본캐', '부캐'))
+
+                    # # '본캐'인 경우
+                    # if character_type == '본캐':
+                    #     name = st.text_input('이름을 입력하세요.')
+                    #     weekly_mission = st.number_input('주간 미션을 입력하세요.', min_value=0 )
+                    #     suro = st.number_input('수로 레벨을 입력하세요.', min_value=0 )
+                    #     flag = st.number_input('국기 레벨을 입력하세요.', min_value=0)
+                    #     # 데이터 추가 함수 호출
+                    #     if st.button('추가'):
+                    #         add_data(name, weekly_mission, suro, flag)
+                    #         save_data(data)  # 데이터를 파일에 저장
+                    #         st.success(f'{name}의 데이터가 추가되었습니다!')
+
+                    # # '부캐'인 경우
+                    # elif character_type == '부캐':
+                    #     main_name = st.text_input('본캐의 이름을 입력하세요.')
+                    #     # 입력한 본캐의 이름으로 데이터 프레임에서 조회하여 없으면 경고 메시지를 보여줌
+                    #     if main_name not in data['Name'].values:
+                    #         st.warning(f'{main_name} (이)가 데이터에 없습니다!')
+                    #     else:
+                    #         # 입력한 본캐의 코젬 총합 값을 조회하여 보여줌
+                    #         main_cozem_total = data.loc[data['Name'] == main_name, 'Cozem_Total'].values[0]
+                    #         st.write(f"{main_name}의 코젬 총합: {main_cozem_total}")
+                    #         name = st.text_input('이름을 입력하세요.')
+
+                    #         weekly_mission = st.number_input('주간 미션을 입력하세요.', value=0, step=1)
+                    #         suro = st.number_input('수로 레벨을 입력하세요.', value=0, step=1)
+                    #         flag = st.number_input('국기 레벨을 입력하세요.', value=0, step=1)
+
+                    #         # 코젬 총합 계산
+                    #         suro_cozem = Suro_cozem(suro)
+                    #         flag_cozem = Flag_cozem(flag)
+                    #         cozem_total = suro_cozem + flag_cozem + main_cozem_total
+                            # if st.button('캐릭터 데이터 추가'):
+                    name = st.text_input('이름')
+                    is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
+                    weekly_mission = st.number_input('주간 미션 횟수', value=0)
+                    suro = st.number_input('슈로 횟수', value=0)
+                    flag = st.number_input('플래그 횟수', value=0)
+                    add_character_data(name, is_main_character, weekly_mission, suro, flag)
                     if st.button('추가'):
                         # 데이터 추가 함수 호출
-                        add_character_data(name, is_main_character, weekly_mission, suro, flag)
-                    # add_data_widget()
+                        # add_character_data(name, character_type, weekly_mission, suro, flag)
                         save_data(data)  # 데이터를 파일에 저장
                         st.success(f'{name}의 데이터가 추가되었습니다!')
 
@@ -324,7 +385,7 @@ elif choice == "길드페이지":
                 
                 elif option == "데이터 삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass1')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
                         st.success('접근을 허용합니다')
                     # 데이터 삭제 기능
@@ -586,14 +647,11 @@ else:
         st.write()
         '''
         ##### 랜덤박스🎁 내 물품은 다음과 같습니다
-
         | 구분 |  구성품 | 확률 | 
         |:---: | :---: | :---: | 
         | 꽝💣 | 코젬, 경뿌, 반파별4개, 소경축비, 수에큐3개 | 7.4% |
         | 대박🎊 | 명큡, 앱솔상자, 강환불, 미코젬, 주흔 한묶음 | 6% |
         | 일반💰 | 반빨별, 재획비, 경축비, 고보킬, 고대비, 명훈, 장큐, 거코젬 | 3% | 
-
-
         '''
         # 값과 그에 해당하는 확률을 리스트로 지정합니다.
         values = ['코젬', '경뿌', '반파별4개', '수에큐3개', '소경축비', '명큡', '앱상', '강환불', '미코젬', '주흔_한묶음', '반빨별', '재획비', '경축비', '고보킬', '고대비', '명훈', '장큐', '거코젬']
@@ -627,7 +685,6 @@ else:
         | 구분 | 이름  | 링크 | 
         | :---: | :---: | :---: | 
         | GoogleDocs | 📑아기자기명단 | [![Colab](https://img.shields.io/badge/GoogleDocs-아기자기명단-green)](https://onedrive.live.com/edit.aspx?resid=221CE48C87202DCA!2450&ithint=file%2cxlsx&authkey=!ADKQOeLCxzQp_5o) | 
-
         '''
     with tab3:
         FILE_PATH1 = 'data1.csv'
@@ -1099,5 +1156,3 @@ else:
         
         if __name__ == '__main__':
             main()
-
-                
