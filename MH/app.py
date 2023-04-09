@@ -298,7 +298,7 @@ elif choice == "길드페이지":
                 options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
                 if option == "데이터 추가➕":
-                    name = st.text_input('이름')
+                    name = st.text_input('이름',key='name5')
                     is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수', min_value=0)
                     suro = st.number_input('수로 점수', min_value=0)
