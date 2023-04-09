@@ -538,7 +538,7 @@ elif choice == "직위관리":
         if password_input == password:
             st.success('접근을 허용합니다')
             options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
-            option = st.selectbox("기능 선택", options)
+            option = st.selectbox("기능 선택", options, key='select1')
         # 파일에서 데이터 불러오기
             def load_data1():
                 try:
