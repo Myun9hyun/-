@@ -243,8 +243,10 @@ elif choice == "길드페이지":
                 data = data.append({
                     'Name': name, 
                     'Weekly_Mission': weekly_mission, 
-                    'Suro': suro, 
+                    'Suro': suro,
+                    'Suro_Cozem': suro_cozem,
                     'Flag': flag, 
+                    'Flag_Cozem': flag_cozem,
                     'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                     'Novel': novel_value,  # Novel 값을 추가
                     'Role': '본캐',
