@@ -163,7 +163,7 @@ elif choice == "직위관리":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name', 'Warning'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             return data
 
         # 데이터를 파일에 저장하기
@@ -173,7 +173,7 @@ elif choice == "직위관리":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name', 'Warning'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
@@ -203,7 +203,6 @@ elif choice == "직위관리":
                     'Novel': novel_p(weekly_mission, suro, flag),
                     'Role': role,
                     'Main_Name': main_name,
-                    'Warning' : 0
                 }, ignore_index=True)
             else:
                 # 중복 검사
@@ -214,8 +213,6 @@ elif choice == "직위관리":
                 flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
                 cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
                 novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-                if novel_value == 'X':
-                    warning_count = warning_count + 1
                 data = data.append({
                     'Name': name, 
                     'Weekly_Mission': weekly_mission, 
@@ -226,8 +223,7 @@ elif choice == "직위관리":
                     'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                     'Novel': novel_value,  # Novel 값을 추가
                     'Role': '본캐',
-                    'Main_Name' : '본캐',
-                    'Warning' : warning_count
+                    'Main_Name' : '본캐'
                 }, ignore_index=True)
 
         # def role(Role):
