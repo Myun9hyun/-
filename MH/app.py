@@ -578,6 +578,8 @@ elif choice == "직위관리":
             if st.button("경고횟수 차감"):
                 warning_count -= 1
                 data.loc[data['Name']==name, 'Warning'] = warning_count
+            if st.button('경고 횟수 확인'):
+                st.write(data)
 
         if __name__ == "__main__":
             main()
