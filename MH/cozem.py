@@ -114,7 +114,7 @@ elif choice == "길드페이지":
       
 elif choice == "직위관리":
     st.header("길드원 직위 관리 페이지")
-    tab1, tab2, tab3 = st.tabs(["💎Cozem", "📋Grade", "❌Warning"])
+    tab1, tab2, tab3, tab4 = st.tabs(["💎Cozem", "📋Grade", "❌Warning", "⏸Pause"])
     with tab1:
         st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
@@ -651,6 +651,133 @@ elif choice == "직위관리":
                 main()
         else:
             st.warning('비밀번호가 틀렸습니다.')    
+    with tab4 :
+        st.header("⏸유예기간 관리⏸")
+        FILE_PATH2 = 'data2.csv'
+        st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password3')
+        if password_input == password:
+            st.success('접근을 허용합니다')
+            options = ["경고자 추가➕","경고횟수 추가/차감", "경고자 조회🔎", "경고자 삭제✂", "데이터 초기화💣" ]
+            option = st.selectbox("기능 선택", options, key='select1')
+        # 파일에서 데이터 불러오기
+            def load_data2():
+                try:
+                    data2 = pd.read_csv(FILE_PATH2)
+                except FileNotFoundError:
+                    data2 = pd.DataFrame(columns=['Name', 'Warning'])
+                return data2
+
+            # 데이터를 파일에 저장하기
+            def save_data2(data2):
+                data2.to_csv(FILE_PATH2, index=False)
+
+            # 데이터 초기화 함수
+            def clear_data2():
+                global data2
+                data2 = pd.DataFrame(columns=['Name', 'Warning'])
+                # 파일 삭제
+                os.remove(FILE_PATH2)
+            # 데이터 삭제 함수
+            def delete_data2(row_index):
+                global data2
+                data2 = data2.drop(index=row_index).reset_index(drop=True)
+
+            # 불러온 데이터를 전역 변수로 저장
+            data2 = load_data2()
+            def add_data2(name, warning_count):
+                global data2
+                if name in data2['Name'].values:
+                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    return
+                data2 = data2.append({
+                    'Name': name, 
+                    'Warning' : warning_count
+                }, ignore_index=True)
+            
+
+            def main():
+                if option == "경고자 삭제✂":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='pass4')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                    # 데이터 삭제 기능
+                    # if st.button('데이터 삭제'):
+                        # 사용자로부터 삭제할 행 번호 입력받기
+                        st.write(data2[['Name','Warning']])
+                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data2.shape[0]-1)
+                        st.write("Enter를 입력하면 삭제됩니다.")
+                        if st.button('데이터 삭제'):
+                            # 해당 행이 존재할 경우, 행을 삭제
+                            if row_index >= 0 and row_index < data2.shape[0]:
+                                delete_data2(row_index)
+                                save_data2(data2)  # 데이터를 파일에 저장
+                                st.success('입력하신 행이 삭제되었습니다.')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+                elif option == "경고자 추가➕":
+                    name = st.text_input("경고자 이름을 입력해주세요")
+                    warning_count = data2.loc[data1['Name']==name, 'Warning'].values[0] if name in data2['Name'].values else 0
+                    if st.button('경고자 이름 추가'):
+                        add_data2(name, warning_count)
+                        save_data2(data2)
+                        st.success(f"경고자 {name}이(가) 추가되었습니다.")
+                elif option == '경고횟수 추가/차감':
+                    name = st.text_input("경고자 이름을 입력해주세요")
+                    filtered_data = data2.loc[data2['Name'] == name, 'Warning']
+                    if not filtered_data.empty:
+                        warning_count = filtered_data.iloc[0]
+                        if st.button("경고횟수 추가"):
+                            warning_count += 1
+                            data2.loc[data2['Name'] == name, 'Warning'] = warning_count
+                            save_data2(data2)
+                            st.success("경고 횟수가 증가되었습니다.")
+                        if st.button("경고횟수 차감"):
+                            warning_count -= 1
+                            data2.loc[data1['Name'] == name, 'Warning'] = warning_count
+                            save_data2(data2)
+                            st.success('경고 횟수가 차감되었습니다.')
+                    else:
+                        st.warning("입력한 이름에 해당하는 데이터가 없습니다.")
+
+
+                elif option == "경고자 조회🔎":
+                    if st.button('경고 횟수 확인'):
+                        warning_one = data2[data2['Warning'] == 1]
+                        warning_two = data2[data2['Warning'] == 2]
+                        warning_one_list = warning_one['Name'].tolist()
+                        warning_two_list = warning_two['Name'].tolist()
+                        st.write("경고자 전체 명단입니다.")
+                        st.write(data2)
+                        if not warning_one_list:
+                            st.write("경고 1회자는 없습니다.")
+                        else : 
+                            st.write("경고 1회 명단입니다.")
+                            st.write(f"{warning_one_list}")
+                        if not warning_two_list:
+                            st.write("경고 2회자는 없습니다.")
+                        else : 
+                            st.write("경고 2회 명단입니다.")
+                            st.write(f"{warning_two_list}")
+
+                elif option == "데이터 초기화💣":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass3')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        # 데이터 전부 삭제
+                        st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
+                        st.write("⚠️신중하게 누르세요!!⚠️")
+                        if st.button('차트 초기화'):
+                            clear_data2()
+                            st.warning('차트가 초기화 되었습니다')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+            if __name__ == "__main__":
+                main()
+        else:
+            st.warning('비밀번호가 틀렸습니다.')
         
 
 elif choice == "아카이브":
