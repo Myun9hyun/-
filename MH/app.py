@@ -537,7 +537,7 @@ elif choice == "직위관리":
         password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password3')
         if password_input == password:
             st.success('접근을 허용합니다')
-            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+            options = ["데이터 추가➕","경고횟수 추가/차감", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣" ]
             option = st.selectbox("기능 선택", options, key='select1')
         # 파일에서 데이터 불러오기
             def load_data1():
@@ -573,7 +573,10 @@ elif choice == "직위관리":
                     'Name': name, 
                     'Warning' : warning_count
                 }, ignore_index=True)
-            if option == "데이터 삭제✂":
+            
+
+            def main():
+                if option == "데이터 삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
@@ -592,31 +595,34 @@ elif choice == "직위관리":
                                 st.success('입력하신 행이 삭제되었습니다.')
                     else:
                         st.warning('비밀번호가 틀렸습니다.')
-
-            def main():
-                name = st.text_input("경고자 이름을 입력해주세요")
-                warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
-                if st.button('이름 추가'):
-                    add_data1(name, warning_count)
-                    save_data1(data1)
-                    st.success("이름이 추가되었습니다.")
-
-                if st.button("경고횟수 추가"):
-                    warning_count += 1
-                    data1.loc[data1['Name']==name, 'Warning'] = warning_count
-                    save_data1(data1)
-                    st.success("경고 횟수가 증가되었습니다.")
-                if st.button("경고횟수 차감"):
-                    
-                    warning_count -= 1
-                    data1.loc[data1['Name']==name, 'Warning'] = warning_count
-                    save_data1(data1)
-                    st.success('경고 횟수가 차감되었습니다.')
-                if st.button('경고 횟수 확인'):
-                    st.write(data1)
-
-            if __name__ == "__main__":
+                elif option == "데이터 추가➕":
+                    name = st.text_input("경고자 이름을 입력해주세요")
+                    warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
+                    if st.button('이름 추가'):
+                        add_data1(name, warning_count)
+                        save_data1(data1)
+                        st.success("이름이 추가되었습니다.")
+                elif option == '경고횟수 추가/차감':
+                    if st.button("경고횟수 추가"):
+                        warning_count += 1
+                        data1.loc[data1['Name']==name, 'Warning'] = warning_count
+                        save_data1(data1)
+                        st.success("경고 횟수가 증가되었습니다.")
+                    if st.button("경고횟수 차감"):
+                        
+                        warning_count -= 1
+                        data1.loc[data1['Name']==name, 'Warning'] = warning_count
+                        save_data1(data1)
+                        st.success('경고 횟수가 차감되었습니다.')
+                elif option == "데이터 조회🔎"
+                    if st.button('경고 횟수 확인'):
+                        st.write(data1)
+                elif option == "데이터 초기화💣"
+        if __name__ == "__main__":
                 main()
+        else:
+            st.warning('비밀번호가 틀렸습니다.')    
+        
 
 elif choice == "아카이브":
     st.header("길드 아카이브")
