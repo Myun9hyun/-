@@ -537,14 +537,14 @@ elif choice == "직위관리":
         # 파일에서 데이터 불러오기
         def load_data1():
             try:
-                data1 = pd.read_csv(FILE_PATH)
+                data1 = pd.read_csv(FILE_PATH1)
             except FileNotFoundError:
                 data1 = pd.DataFrame(columns=['Name', 'Warning'])
             return data1
 
         # 데이터를 파일에 저장하기
         def save_data1(data1):
-            data1.to_csv(FILE_PATH, index=False)
+            data1.to_csv(FILE_PATH1, index=False)
 
         # 데이터 초기화 함수
         def clear_data1():
