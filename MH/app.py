@@ -531,7 +531,7 @@ elif choice == "직위관리":
         if __name__ == "__main__":
             main()
     with tab3:
-        st.header("경고자 관리")
+        st.header("❗경고자 관리")
         FILE_PATH1 = 'data1.csv'
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
         password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password3')
