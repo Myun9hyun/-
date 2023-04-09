@@ -406,13 +406,7 @@ elif choice == "직위관리":
                         st.write('이번주 먼슬리 참여가능자 목록입니다.')
                         st.write(f"먼슬리 참여가능자 :  {monthly_list}.")
                         st.write(monthly)
-                elif option == "경고자 목록":
-                    warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
-                    warning_main_list = warning_main['Name'].tolist()
-                    if not warning_main:
-                        pass
-                    else:
-                        warning_main['warning_count'] = warning_main['warning_count'] + 1
+
                 elif option == "위클리 코젬 계산📋":
                     if st.button('위클리 코젬 합계 계산'):
                         weekly_main = data[(data['Role'] == '본캐')]
