@@ -295,6 +295,7 @@ elif choice == "길드페이지":
                 flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
                 if st.button("추가하기"):
                     add_data(name, weekly_mission, suro, flag)
+                    save_data(data)
             else:
                 main_name = st.text_input("본캐 이름을 입력하세요.")
                 weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
@@ -302,6 +303,8 @@ elif choice == "길드페이지":
                 flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
                 if st.button("추가하기"):
                     add_sub_data(main_name, name, weekly_mission, suro, flag)
+                    save_data(data)  # 데이터를 파일에 저장
+
         
         def download_xlsx(df, file_name):
             # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
@@ -331,11 +334,11 @@ elif choice == "길드페이지":
                     # suro = st.number_input('수로 점수', min_value=0)
                     # flag = st.number_input('플래그 점수', min_value=0)
                     # add_character_data(name, is_main_character, weekly_mission, suro, flag)
-                    if st.button('추가'):
+                    # if st.button('추가'):
                         # 데이터 추가 함수 호출
                         # add_character_data(name, character_type, weekly_mission, suro, flag)
-                        add_data_widget()
-                        save_data(data)  # 데이터를 파일에 저장
+                    add_data_widget()
+                    # save_data(data)  # 데이터를 파일에 저장
                         # st.success(f'{name}의 데이터가 추가되었습니다!')
 
 
