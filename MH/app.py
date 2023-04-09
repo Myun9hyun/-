@@ -201,13 +201,13 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            Role_value = role
             role = st.radio('본캐/부캐', ('본캐', '부캐'))
             if role == '본캐':
                 i = '본캐'
             else:
                 i = name
             return i
+            Role_value = role
             # role = Role()
             data = data.append({
                 'Name': name, 
