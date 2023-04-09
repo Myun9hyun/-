@@ -276,7 +276,7 @@ elif choice == "길드페이지":
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
-                        'Grade' : role
+                        'Role' : role
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
