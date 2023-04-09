@@ -623,7 +623,7 @@ elif choice == "직위관리":
 
                 elif option == "경고자 조회🔎":
                     if st.button('경고 횟수 확인'):
-                        warning_one = data1['Warning'] == 1
+                        warning_one = [data1['Warning'] == 1]
                         warning_one_list = warning_one['Name'].tolist()
                         st.write("경고자 명단입니다.")
                         st.write(data1)
