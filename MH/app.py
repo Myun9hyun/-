@@ -270,7 +270,7 @@ elif choice == "길드페이지":
                     flag_cozem = Flag_cozem(flag)
                     cozem_total = suro_cozem + flag_cozem
                     data.loc[main_data_index, 'Cozem_Total'] += cozem_total
-                    novel_value = novel_p(weekly_mission, suro, flag)
+                    novel_value = main_data['Novel']
                     role = character_type
                     data = data.append({
                         'Name': name, 
