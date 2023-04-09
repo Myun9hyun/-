@@ -405,10 +405,10 @@ elif choice == "길드페이지":
                     
                     if st.button('노블 사용가능 목록 보기'):
                         # 먼슬리 참여 가능자 명단
-                        monthly = data[data['Novel'] == 'O'] & data[data['Role'] == '본캐']
+                        monthly = data[data['Novel'] == 'O'] and data[data['Role'] == '본캐']
                         main_monthly = data[data['Role'] == '본캐']
 
-                        new_df = data[(data['Novel'] == 'O') & (data['Role'] == '본캐')]
+                        new_df = data[(data['Novel'] == 'O') and (data['Role'] == '본캐')]
 
                         monthly_list = new_df['Name'].tolist()
                         
