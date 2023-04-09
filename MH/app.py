@@ -408,7 +408,7 @@ elif choice == "길드페이지":
                         # monthly = data[data['Novel'] == 'O'] and data[data['Role'] == '본캐']
                         main_monthly = data[data['Role'] == '본캐']
 
-                        new_df = data[data['Novel'] == 'O'] and data[data['Role'] == '본캐']
+                        new_df = data[data['Novel'] == 'O'] & data[data['Role'] == '본캐']
                         
                         monthly_list = new_df['Name'].tolist()
                         
