@@ -532,54 +532,54 @@ elif choice == "직위관리":
             main()
     with tab3:
         st.header("경고자 관리")
-        FILE_PATH = 'data.csv'
+        FILE_PATH1 = 'data1.csv'
 
         # 파일에서 데이터 불러오기
         def load_data():
             try:
-                data = pd.read_csv(FILE_PATH)
+                data1 = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Warning'])
-            return data
+                data1 = pd.DataFrame(columns=['Name', 'Warning'])
+            return data1
 
         # 데이터를 파일에 저장하기
-        def save_data(data):
-            data.to_csv(FILE_PATH, index=False)
+        def save_data(data1):
+            data1.to_csv(FILE_PATH, index=False)
 
         # 데이터 초기화 함수
         def clear_data():
-            global data
-            data = pd.DataFrame(columns=['Name', 'Warning'])
+            global data1
+            data1 = pd.DataFrame(columns=['Name', 'Warning'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
         def delete_data(row_index):
-            global data
-            data = data.drop(index=row_index).reset_index(drop=True)
+            global data1
+            data1 = data1.drop(index=row_index).reset_index(drop=True)
 
         # 불러온 데이터를 전역 변수로 저장
-        data = load_data()
+        data1 = load_data()
         def add_data(name, warning_count):
-            global data
-            if name in data['Name'].values:
+            global data1
+            if name in data1['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 이름이야!')
                 return
-            data = data.append({
+            data1 = data1.append({
                 'Name': name, 
                 'Warning' : warning_count
             }, ignore_index=True)
 
         def main():
             name = st.text_input("경고자 이름을 입력해주세요")
-            warning_count = data.loc[data['Name']==name, 'Warning'].values[0] if name in data['Name'].values else 0
+            warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
             if st.button("경고횟수 추가"):
                 warning_count += 1
-                data.loc[data['Name']==name, 'Warning'] = warning_count
+                data1.loc[data1['Name']==name, 'Warning'] = warning_count
             if st.button("경고횟수 차감"):
                 warning_count -= 1
-                data.loc[data['Name']==name, 'Warning'] = warning_count
+                data1.loc[data1['Name']==name, 'Warning'] = warning_count
             if st.button('경고 횟수 확인'):
-                st.write(data)
+                st.write(data1)
 
         if __name__ == "__main__":
             main()
