@@ -817,7 +817,8 @@ elif choice == "직위관리":
                 main()
     with tab2:
         # 업로드한 파일을 데이터프레임으로 변환하는 함수
-
+        st.header("직위 관리 페이지")
+        
 
         # 업로드된 엑셀 파일을 저장하고, 데이터프레임으로 변환하는 함수
         def upload_excel_file(uploadedfile):
