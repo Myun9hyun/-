@@ -191,7 +191,7 @@ elif choice == "길드페이지":
         data = load_data()
 
 
-        def add_data(name, weekly_mission, suro, flag):
+        def add_data(name, weekly_mission, suro, flag,role):
             global data
             # 중복 검사
             if name in data['Name'].values:
