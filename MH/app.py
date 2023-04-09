@@ -324,7 +324,7 @@ elif choice == "길드페이지":
                     is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수', min_value=0)
                     suro = st.number_input('수로 점수', min_value=0)
-                    flag = st.number_input('플래그 횟수', min_value=0)
+                    flag = st.number_input('플래그 점수', min_value=0)
                     add_character_data(name, is_main_character, weekly_mission, suro, flag)
                     if st.button('추가'):
                         # 데이터 추가 함수 호출
