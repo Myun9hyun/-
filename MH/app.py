@@ -226,7 +226,7 @@ elif choice == "길드페이지":
         def add_character_data(name, character_type, weekly_mission, suro, flag):
             global data
             if character_type == '본캐':
-                add_data(name, weekly_mission, suro, flag)
+                add_data(name,character_type, weekly_mission, suro, flag)
             elif character_type == '부캐':
                 main_name = st.text_input('본캐 이름을 입력하세요')
                 main_data = data.loc[data['Name'] == main_name]
