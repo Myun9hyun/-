@@ -255,25 +255,25 @@ elif choice == "길드페이지":
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
 
-        def add_data_widget():
-            name = st.text_input("이름을 입력하세요.")
-            role = st.radio("역할을 선택하세요.", ("본캐", "부캐"))
+        # def add_data_widget():
+        #     name = st.text_input("이름을 입력하세요.")
+        #     role = st.radio("역할을 선택하세요.", ("본캐", "부캐"))
             
-            if role == "본캐":
-                weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
-                suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
-                flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
-                if st.button("추가하기"):
-                    add_data(name, weekly_mission, suro, flag)
-                    save_data(data)
-            else:
-                main_name = st.text_input("본캐 이름을 입력하세요.")
-                weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
-                suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
-                flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
-                if st.button("추가하기"):
-                    add_data(name, weekly_mission, suro, flag)
-                    save_data(data)  # 데이터를 파일에 저장
+        #     if role == "본캐":
+        #         weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
+        #         suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
+        #         flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
+        #         if st.button("추가하기"):
+        #             add_data(name, weekly_mission, suro, flag)
+        #             save_data(data)
+        #     else:
+        #         main_name = st.text_input("본캐 이름을 입력하세요.")
+        #         weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
+        #         suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
+        #         flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
+        #         if st.button("추가하기"):
+        #             add_data(name, weekly_mission, suro, flag)
+        #             save_data(data)  # 데이터를 파일에 저장
 
         
         def download_xlsx(df, file_name):
@@ -299,7 +299,7 @@ elif choice == "길드페이지":
                 option = st.selectbox("기능 선택", options)
                 if option == "데이터 추가➕":
                     name = st.text_input('이름')
-                    is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
+                    # is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수', min_value=0)
                     suro = st.number_input('수로 점수', min_value=0)
                     flag = st.number_input('플래그 점수', min_value=0)
