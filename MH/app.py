@@ -382,7 +382,16 @@ elif choice == "길드페이지":
                         warning_suro_list = warning_suro['Name'].tolist()
                         warning_flag = warning[warning['Flag'] == 0]
                         warning_flag_list = warning_flag['Name'].tolist()
+                        warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                        warning_main_list = warning_main['Name'].tolist()
 
+
+                        if not warning_main_list:
+                            st.write('이번주 노블 사용제한자는 없습니다.')
+                        else:
+                            st.write('이번주 노블 사용제한 목록입니다(본캐).')
+                            st.write(f"노블 제한자 본캐 :  {warning_main_list}.")
+                            st.write(warning_main)
                         if not warning_list:
                             st.write('이번주 노블 사용제한자는 없습니다.')
                         else:
@@ -406,18 +415,14 @@ elif choice == "길드페이지":
                     if st.button('노블 사용가능 목록 보기'):
                         # 먼슬리 참여 가능자 명단
                         novel_member = data[data['Novel'] == 'O']
-                        # main_monthly = data[data['Role'] == '본캐']
-
                         monthly = data[(data['Novel'] == 'O') & (data['Role'] == '본캐')]
                         novel_list = novel_member['Name'].tolist()
                         monthly_list = monthly['Name'].tolist()
                         
                         st.write('이번주 노블 사용가능 목록입니다.')
-                        # st.write(f"사용가능자 :  {monthly_list}.")
                         st.write(f"사용가능자 :  {novel_list}.")
                         st.write(novel_member)
                         st.write('이번주 먼슬리 참여가능자 목록입니다.')
-                        # st.write(f"사용가능자 :  {monthly_list}.")
                         st.write(f"사용가능자 :  {monthly_list}.")
                         st.write(monthly)
 
