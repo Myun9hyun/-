@@ -573,7 +573,7 @@ elif choice == "직위관리":
                 'Name': name, 
                 'Warning' : warning_count
             }, ignore_index=True)
-            elif option == "데이터 삭제✂":
+            if option == "데이터 삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
                     if password_input == password:
