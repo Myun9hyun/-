@@ -188,28 +188,6 @@ elif choice == "길드페이지":
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
 
-
-        # def add_data(name, weekly_mission, suro, flag):
-        #     global data
-        #     # 중복 검사
-        #     if name in data['Name'].values:
-        #         st.warning(f'{name} (은)는 이미 있는 이름이야!')
-        #         return
-        #     suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-        #     flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-        #     cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-        #     novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-        #     # role = Role()
-        #     data = data.append({
-        #         'Name': name, 
-        #         'Weekly_Mission': weekly_mission, 
-        #         'Suro': suro, 
-        #         'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
-        #         'Flag': flag, 
-        #         'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
-        #         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-        #         'Novel': novel_value  # Novel 값을 추가
-        #     }, ignore_index=True)
         def add_data(name,character_type, weekly_mission, suro, flag):
             global data
             # role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
@@ -818,7 +796,7 @@ elif choice == "직위관리":
     with tab2:
         # 업로드한 파일을 데이터프레임으로 변환하는 함수
         st.header("직위 관리 페이지")
-        
+
 
         # 업로드된 엑셀 파일을 저장하고, 데이터프레임으로 변환하는 함수
         def upload_excel_file(uploadedfile):
