@@ -285,7 +285,23 @@ elif choice == "길드페이지":
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
 
-
+        def add_data_widget():
+            name = st.text_input("이름을 입력하세요.")
+            role = st.radio("역할을 선택하세요.", ("본캐", "부캐"))
+            
+            if role == "본캐":
+                weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
+                suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
+                flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
+                if st.button("추가하기"):
+                    add_data(name, weekly_mission, suro, flag)
+            else:
+                main_name = st.text_input("본캐 이름을 입력하세요.")
+                weekly_mission = st.number_input("주간 미션 수를 입력하세요.", min_value=0, value=0)
+                suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
+                flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
+                if st.button("추가하기"):
+                    add_sub_data(main_name, name, weekly_mission, suro, flag)
         
         def download_xlsx(df, file_name):
             # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
@@ -309,12 +325,12 @@ elif choice == "길드페이지":
                 options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
                 if option == "데이터 추가➕":
-                    # name = st.text_input('이름')
-                    # is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
-                    # weekly_mission = st.number_input('주간 미션 점수', min_value=0)
-                    # suro = st.number_input('수로 점수', min_value=0)
-                    # flag = st.number_input('플래그 점수', min_value=0)
-                    add_character_data()
+                    name = st.text_input('이름')
+                    is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
+                    weekly_mission = st.number_input('주간 미션 점수', min_value=0)
+                    suro = st.number_input('수로 점수', min_value=0)
+                    flag = st.number_input('플래그 점수', min_value=0)
+                    add_character_data(name, is_main_character, weekly_mission, suro, flag)
                     if st.button('추가'):
                         # 데이터 추가 함수 호출
                         # add_character_data(name, character_type, weekly_mission, suro, flag)
