@@ -659,7 +659,7 @@ elif choice == "직위관리":
         password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password5')
         if password_input == password:
             st.success('접근을 허용합니다')
-            options = ["유예자 추가➕","경고횟수 추가/차감", "유예자 조회🔎", "유예자 삭제✂", "데이터 초기화💣" ]
+            options = ["유예자 추가➕", "유예자 조회🔎", "유예자 삭제✂", "데이터 초기화💣" ]
             option = st.selectbox("기능 선택", options, key='select3')
         # 파일에서 데이터 불러오기
             def load_data2():
@@ -729,24 +729,6 @@ elif choice == "직위관리":
                         add_data2(name, why, day)
                         save_data2(data2)
                         st.success(f"유예자 {name}이(가) 추가되었습니다.")
-                elif option == '경고횟수 추가/차감':
-                    name = st.text_input("유예자 이름을 입력해주세요")
-                    filtered_data = data2.loc[data2['Name'] == name, 'Warning']
-                    if not filtered_data.empty:
-                        warning_count = filtered_data.iloc[0]
-                        if st.button("경고횟수 추가"):
-                            warning_count += 1
-                            data2.loc[data2['Name'] == name, 'Warning'] = warning_count
-                            save_data2(data2)
-                            st.success("경고 횟수가 증가되었습니다.")
-                        if st.button("경고횟수 차감"):
-                            warning_count -= 1
-                            data2.loc[data1['Name'] == name, 'Warning'] = warning_count
-                            save_data2(data2)
-                            st.success('경고 횟수가 차감되었습니다.')
-                    else:
-                        st.warning("입력한 이름에 해당하는 데이터가 없습니다.")
-
 
                 elif option == "유예자 조회🔎":
                     if st.button('유예자 확인'):
