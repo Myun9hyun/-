@@ -215,9 +215,9 @@ elif choice == "직위관리":
                 cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
                 
                 warning_count = 0
-                    warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
-                    if name in warning_main['Name'].values:
-                        warning_count = warning_count + 1
+                warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                if name in warning_main['Name'].values:
+                    warning_count = warning_count + 1
                 novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
                 data = data.append({
                     'Name': name, 
