@@ -618,7 +618,7 @@ elif choice == "직위관리":
                     if st.button('경고 횟수 확인'):
                         st.write(data1)
                 elif option == "데이터 초기화💣"
-        if __name__ == "__main__":
+            if __name__ == "__main__":
                 main()
         else:
             st.warning('비밀번호가 틀렸습니다.')    
