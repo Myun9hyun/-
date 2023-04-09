@@ -210,10 +210,10 @@ elif choice == "길드페이지":
         #         'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
         #         'Novel': novel_value  # Novel 값을 추가
         #     }, ignore_index=True)
-        def add_data(name, weekly_mission, suro, flag):
+        def add_data(name,character_type, weekly_mission, suro, flag):
             global data
-            role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
-            if role == "부캐":
+            # role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
+            if character_type == "부캐":
                 main_name = st.text_input("본캐의 이름을 입력하세요.")
                 if main_name not in data['Name'].values:
                     st.warning(f'{main_name} (은)는 존재하지 않는 이름이야!')
