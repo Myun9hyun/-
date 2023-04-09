@@ -252,6 +252,10 @@ elif choice == "직위관리":
                         novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
                     role = character_type
                     warning_count = 0
+                    warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                    
+                    if name in warning_main['Name'].values:
+                        warning_count += 1
                     data = data.append({
                         'Name': name, 
                         'Weekly_Mission': weekly_mission, 
