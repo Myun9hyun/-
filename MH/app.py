@@ -226,7 +226,7 @@ elif choice == "길드페이지":
                     'Flag': flag, 
                     'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag)),
                     'Novel': novel_p(weekly_mission, suro, flag),
-                    'Role': '부캐',
+                    'Role': main_name,
                     'Main_Name': main_name
                 }, ignore_index=True)
             else:
