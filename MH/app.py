@@ -302,7 +302,7 @@ elif choice == "길드페이지":
                 suro = st.number_input("수로 수를 입력하세요.", min_value=0, value=0)
                 flag = st.number_input("깃발 수를 입력하세요.", min_value=0, value=0)
                 if st.button("추가하기"):
-                    add_sub_data(main_name, name, weekly_mission, suro, flag)
+                    add_data(main_name, name, weekly_mission, suro, flag)
                     save_data(data)  # 데이터를 파일에 저장
 
         
