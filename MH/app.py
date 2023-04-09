@@ -191,7 +191,7 @@ elif choice == "길드페이지":
         data = load_data()
 
 
-        def add_data(name, weekly_mission, suro, flag):
+        def add_data(name,character_type, weekly_mission, suro, flag):
             global data
             # 중복 검사
             if name in data['Name'].values:
@@ -201,13 +201,13 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            role = st.radio('본캐/부캐', ('본캐', '부캐'),key='radio1')
+            role = character_type
             if role == '본캐':
                 i = '본캐'
             else:
                 i = name
             return i
-            Role_value = role
+            # i = role
             # role = Role()
             data = data.append({
                 'Name': name, 
@@ -218,7 +218,7 @@ elif choice == "길드페이지":
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                 'Novel': novel_value,  # Novel 값을 추가
-                'Role' : Role_value
+                'Role' : i
             }, ignore_index=True)
 
 
@@ -250,7 +250,7 @@ elif choice == "길드페이지":
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
-                        'Grade' : role
+                        'Role' : role
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
