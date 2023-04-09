@@ -320,47 +320,6 @@ elif choice == "길드페이지":
                 # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
                 
                 if option == "데이터 추가➕":
-                    # 데이터 추가 버튼
-                    # add_button = st.button('데이터 추가')
-                    # 데이터 추가 버튼이 눌렸을 때
-                    # 이름 입력
-                    
-                    # '본캐'인지 '부캐'인지 입력받음
-                    # character_type = st.radio('캐릭터 종류를 선택하세요.', ('본캐', '부캐'))
-
-                    # # '본캐'인 경우
-                    # if character_type == '본캐':
-                    #     name = st.text_input('이름을 입력하세요.')
-                    #     weekly_mission = st.number_input('주간 미션을 입력하세요.', min_value=0 )
-                    #     suro = st.number_input('수로 레벨을 입력하세요.', min_value=0 )
-                    #     flag = st.number_input('국기 레벨을 입력하세요.', min_value=0)
-                    #     # 데이터 추가 함수 호출
-                    #     if st.button('추가'):
-                    #         add_data(name, weekly_mission, suro, flag)
-                    #         save_data(data)  # 데이터를 파일에 저장
-                    #         st.success(f'{name}의 데이터가 추가되었습니다!')
-
-                    # # '부캐'인 경우
-                    # elif character_type == '부캐':
-                    #     main_name = st.text_input('본캐의 이름을 입력하세요.')
-                    #     # 입력한 본캐의 이름으로 데이터 프레임에서 조회하여 없으면 경고 메시지를 보여줌
-                    #     if main_name not in data['Name'].values:
-                    #         st.warning(f'{main_name} (이)가 데이터에 없습니다!')
-                    #     else:
-                    #         # 입력한 본캐의 코젬 총합 값을 조회하여 보여줌
-                    #         main_cozem_total = data.loc[data['Name'] == main_name, 'Cozem_Total'].values[0]
-                    #         st.write(f"{main_name}의 코젬 총합: {main_cozem_total}")
-                    #         name = st.text_input('이름을 입력하세요.')
-
-                    #         weekly_mission = st.number_input('주간 미션을 입력하세요.', value=0, step=1)
-                    #         suro = st.number_input('수로 레벨을 입력하세요.', value=0, step=1)
-                    #         flag = st.number_input('국기 레벨을 입력하세요.', value=0, step=1)
-
-                    #         # 코젬 총합 계산
-                    #         suro_cozem = Suro_cozem(suro)
-                    #         flag_cozem = Flag_cozem(flag)
-                    #         cozem_total = suro_cozem + flag_cozem + main_cozem_total
-                            # if st.button('캐릭터 데이터 추가'):
                     name = st.text_input('이름')
                     is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수', min_value=0)
