@@ -533,7 +533,12 @@ elif choice == "직위관리":
     with tab3:
         st.header("경고자 관리")
         FILE_PATH1 = 'data1.csv'
-
+        st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
+        if password_input == password:
+            st.success('접근을 허용합니다')
+            options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+            option = st.selectbox("기능 선택", options)
         # 파일에서 데이터 불러오기
         def load_data1():
             try:
@@ -568,6 +573,25 @@ elif choice == "직위관리":
                 'Name': name, 
                 'Warning' : warning_count
             }, ignore_index=True)
+            elif option == "데이터 삭제✂":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                    # 데이터 삭제 기능
+                    # if st.button('데이터 삭제'):
+                        # 사용자로부터 삭제할 행 번호 입력받기
+                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
+                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
+                        st.write("Enter를 입력하면 삭제됩니다.")
+                        if st.button('데이터 삭제'):
+                            # 해당 행이 존재할 경우, 행을 삭제
+                            if row_index >= 0 and row_index < data.shape[0]:
+                                delete_data(row_index)
+                                save_data(data)  # 데이터를 파일에 저장
+                                st.success('입력하신 행이 삭제되었습니다.')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
 
         def main():
             name = st.text_input("경고자 이름을 입력해주세요")
@@ -575,16 +599,19 @@ elif choice == "직위관리":
             if st.button('이름 추가'):
                 add_data1(name, warning_count)
                 save_data1(data1)
+                st.success("이름이 추가되었습니다.")
 
             if st.button("경고횟수 추가"):
                 warning_count += 1
                 data1.loc[data1['Name']==name, 'Warning'] = warning_count
                 save_data1(data1)
+                st.success("경고 횟수가 증가되었습니다.")
             if st.button("경고횟수 차감"):
                 
                 warning_count -= 1
                 data1.loc[data1['Name']==name, 'Warning'] = warning_count
                 save_data1(data1)
+                st.success('경고 횟수가 차감되었습니다.')
             if st.button('경고 횟수 확인'):
                 st.write(data1)
 
