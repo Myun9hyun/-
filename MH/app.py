@@ -535,7 +535,7 @@ elif choice == "직위관리":
         FILE_PATH1 = 'data1.csv'
 
         # 파일에서 데이터 불러오기
-        def load_data():
+        def load_data1():
             try:
                 data1 = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
@@ -543,23 +543,23 @@ elif choice == "직위관리":
             return data1
 
         # 데이터를 파일에 저장하기
-        def save_data(data1):
+        def save_data1(data1):
             data1.to_csv(FILE_PATH, index=False)
 
         # 데이터 초기화 함수
-        def clear_data():
+        def clear_data1():
             global data1
             data1 = pd.DataFrame(columns=['Name', 'Warning'])
             # 파일 삭제
-            os.remove(FILE_PATH)
+            os.remove(FILE_PATH1)
         # 데이터 삭제 함수
         def delete_data(row_index):
             global data1
             data1 = data1.drop(index=row_index).reset_index(drop=True)
 
         # 불러온 데이터를 전역 변수로 저장
-        data1 = load_data()
-        def add_data(name, warning_count):
+        data1 = load_data1()
+        def add_data1(name, warning_count):
             global data1
             if name in data1['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 이름이야!')
