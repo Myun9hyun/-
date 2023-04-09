@@ -245,7 +245,7 @@ elif choice == "길드페이지":
                     'Flag': flag, 
                     'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                     'Novel': novel_value,  # Novel 값을 추가
-                    'Role': name
+                    'Role': '본캐'
                 }, ignore_index=True)
 
         # def role(Role):
