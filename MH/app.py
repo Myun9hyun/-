@@ -21,33 +21,33 @@ st.set_page_config(page_title="BanShamDoongDolYoung", page_icon=":rabbit:", layo
 password = 1234
 
 image = Image.open("MH/image/cover_guild.jpg")
-width, height = image.size
-# 이미지에 텍스트 추가
-draw = ImageDraw.Draw(image)
-text_kor = "아기자기"
-text_eng = "Welcome to"
-font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 50)
-font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
-text_width, text_height = draw.textsize(text_kor, font=font_kor)
+# width, height = image.size
+# # 이미지에 텍스트 추가
+# draw = ImageDraw.Draw(image)
+# text_kor = "아기자기"
+# text_eng = "Welcome to"
+# font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 50)
+# font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
+# text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
-stroke_width = 2
-stroke_fill = (0, 0, 0)
+# stroke_width = 2
+# stroke_fill = (0, 0, 0)
 
-x = text_width - 100
-y = height - text_height - 200
-z = height - text_height - 255
+# x = text_width - 100
+# y = height - text_height - 200
+# z = height - text_height - 255
 
-# 테두리가 있는 텍스트 그리기
-draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
-draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
+# # 테두리가 있는 텍스트 그리기
+# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+# draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
 
 
 # # streamlit에 이미지 표시
