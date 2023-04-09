@@ -201,7 +201,13 @@ elif choice == "길드페이지":
             flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-            Role_value = Role(role)
+            Role_value = role
+            role = st.radio('본캐/부캐', ('본캐', '부캐'))
+            if role == '본캐':
+                i = '본캐'
+            else:
+                i = name
+            return i
             # role = Role()
             data = data.append({
                 'Name': name, 
@@ -214,43 +220,7 @@ elif choice == "길드페이지":
                 'Novel': novel_value,  # Novel 값을 추가
                 'Role' : Role_value
             }, ignore_index=True)
-        # def add_data(name, weekly_mission, suro, flag):
-        #     global data
-        #     role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
-        #     if role == "부캐":
-        #         main_name = st.text_input("본캐의 이름을 입력하세요.")
-        #         if main_name not in data['Name'].values:
-        #             st.warning(f'{main_name} (은)는 존재하지 않는 이름이야!')
-        #             return
-        #         main_row = data[data['Name'] == main_name].iloc[0]
-        #         data = data.append({
-        #             'Name': name, 
-        #             'Weekly_Mission': weekly_mission, 
-        #             'Suro': suro, 
-        #             'Flag': flag, 
-        #             'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag)),
-        #             'Novel': novel_p(weekly_mission, suro, flag),
-        #             'Role': '부캐',
-        #             'Main_Name': main_name
-        #         }, ignore_index=True)
-        #     else:
-        #         # 중복 검사
-        #         if name in data['Name'].values:
-        #             st.warning(f'{name} (은)는 이미 있는 이름이야!')
-        #             return
-        #         suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-        #         flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-        #         cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-        #         novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-        #         data = data.append({
-        #             'Name': name, 
-        #             'Weekly_Mission': weekly_mission, 
-        #             'Suro': suro, 
-        #             'Flag': flag, 
-        #             'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-        #             'Novel': novel_value,  # Novel 값을 추가
-        #             'Role': '본캐'
-        #         }, ignore_index=True)
+
 
         # def role(Role):
         def add_character_data(name, character_type, weekly_mission, suro, flag):
