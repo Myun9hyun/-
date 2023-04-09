@@ -253,9 +253,8 @@ elif choice == "직위관리":
                     role = character_type
                     warning_count = 0
                     warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
-                    
                     if name in warning_main['Name'].values:
-                        warning_count += 1
+                        warning_count = warning_count + 1
                     data = data.append({
                         'Name': name, 
                         'Weekly_Mission': weekly_mission, 
