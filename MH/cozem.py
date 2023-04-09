@@ -114,7 +114,7 @@ elif choice == "길드페이지":
       
 elif choice == "직위관리":
     st.header("길드원 직위 관리 페이지")
-    tab1, tab2, tab3 = st.tabs(["💎Cozem", "📋Grade", "❗Warning"])
+    tab1, tab2, tab3 = st.tabs(["💎Cozem", "📋Grade", "Warning❗"])
     with tab1:
         st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
@@ -531,7 +531,7 @@ elif choice == "직위관리":
         if __name__ == "__main__":
             main()
     with tab3:
-        st.header("❗경고자 관리")
+        st.header("❗경고자 관리❗")
         FILE_PATH1 = 'data1.csv'
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
         password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password3')
