@@ -562,14 +562,23 @@ elif choice == "직위관리":
         def add_data(name, warning_count):
             global data
             if name in data['Name'].values:
-                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
-                    return
+                st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                return
             data = data.append({
                 'Name': name, 
                 'Warning' : warning_count
             }, ignore_index=True)
+
         def main():
-            
+            name = st.text_input("경고자 이름을 입력해주세요")
+            warning_count = data.loc[data['Name']==name, 'Warning'].values[0] if name in data['Name'].values else 0
+            if st.button("경고횟수 추가"):
+                warning_count += 1
+                data.loc[data['Name']==name, 'Warning'] = warning_count
+            if st.button("경고횟수 차감"):
+                warning_count -= 1
+                data.loc[data['Name']==name, 'Warning'] = warning_count
+
         if __name__ == "__main__":
             main()
 
