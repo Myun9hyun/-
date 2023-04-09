@@ -402,6 +402,7 @@ elif choice == "직위관리":
                     warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
                     warning_main_list = warning_main['Name'].tolist()
                     if not warning_main:
+                        st.write(hi)
 
 
 
