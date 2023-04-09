@@ -523,7 +523,16 @@ elif choice == "직위관리":
             main()
     with tab3:
         st.header("경고자 관리")
-
+        def load_data():
+            try:
+                data = pd.read_csv(FILE_PATH)
+            except FileNotFoundError:
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+            return data
+        def main():
+            load_data()
+        if __name__ == "__main__":
+            main()
 
 elif choice == "아카이브":
     st.header("길드 아카이브")
