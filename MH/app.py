@@ -532,14 +532,44 @@ elif choice == "직위관리":
             main()
     with tab3:
         st.header("경고자 관리")
+        FILE_PATH = 'data.csv'
+
+        # 파일에서 데이터 불러오기
         def load_data():
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+                data = pd.DataFrame(columns=['Name', 'Warning'])
             return data
+
+        # 데이터를 파일에 저장하기
+        def save_data(data):
+            data.to_csv(FILE_PATH, index=False)
+
+        # 데이터 초기화 함수
+        def clear_data():
+            global data
+            data = pd.DataFrame(columns=['Name', 'Warning'])
+            # 파일 삭제
+            os.remove(FILE_PATH)
+        # 데이터 삭제 함수
+        def delete_data(row_index):
+            global data
+            data = data.drop(index=row_index).reset_index(drop=True)
+
+        # 불러온 데이터를 전역 변수로 저장
+        data = load_data()
+        def add_data(name, warning_count):
+            global data
+            if name in data['Name'].values:
+                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    return
+            data = data.append({
+                'Name': name, 
+                'Warning' : warning_count
+            }, ignore_index=True)
         def main():
-            load_data()
+            
         if __name__ == "__main__":
             main()
 
