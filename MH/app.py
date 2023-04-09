@@ -452,8 +452,8 @@ elif choice == "길드페이지":
                                 d += 1
                             else:
                                 e += 1
-
                         st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_main_total}개 입니다.")
+                        st.write(weekly_main)
                         st.write(f"반디 : {a} 개")
                         st.write(f"샴푸 : {b} 개")
                         st.write(f"둥둥 : {c} 개")
