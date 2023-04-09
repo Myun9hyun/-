@@ -299,7 +299,7 @@ elif choice == "길드페이지":
                 option = st.selectbox("기능 선택", options)
                 if option == "데이터 추가➕":
                     name = st.text_input('이름')
-                    # is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
+                    is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수', min_value=0)
                     suro = st.number_input('수로 점수', min_value=0)
                     flag = st.number_input('플래그 점수', min_value=0)
