@@ -36,7 +36,8 @@ text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
 outline_color = (7, 7, 7)  # 검정색 테두리선
 outline_width = 3
-
+stroke_width = 2
+stroke_fill = (0, 0, 0)
 # x = (width - text_width) // 2
 # y = (height - text_height) // 2
 x = (width - text_width) // 2
