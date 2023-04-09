@@ -749,7 +749,7 @@ elif choice == "직위관리":
 
 
                 elif option == "유예자 조회🔎":
-                    if st.button('경고 횟수 확인'):
+                    if st.button('유예자 확인'):
                         st.write("유예자 명단입니다.")
                         st.write(data2)
 
