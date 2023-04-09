@@ -213,6 +213,7 @@ elif choice == "직위관리":
                 suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
                 flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
                 cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+                warning_count = 0
                 novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
                 data = data.append({
                     'Name': name, 
@@ -225,7 +226,7 @@ elif choice == "직위관리":
                     'Novel': novel_value,  # Novel 값을 추가
                     'Role': '본캐',
                     'Main_Name' : '본캐',
-                    'Warning' : 0
+                    'Warning' : warning_count
                 }, ignore_index=True)
 
         # def role(Role):
@@ -250,6 +251,7 @@ elif choice == "직위관리":
                     else:
                         novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
                     role = character_type
+                    warning_count = 0
                     data = data.append({
                         'Name': name, 
                         'Weekly_Mission': weekly_mission, 
@@ -261,7 +263,7 @@ elif choice == "직위관리":
                         'Novel': novel_value,
                         'Role' : role,
                         'Main_Name' : main_name,
-                        'Warning' : 0
+                        'Warning' : warning_count
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
@@ -402,9 +404,9 @@ elif choice == "직위관리":
                     warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
                     warning_main_list = warning_main['Name'].tolist()
                     if not warning_main:
-                        st.write(hi)
-
-
+                        pass
+                    else:
+                        
 
                 elif option == "위클리 코젬 계산📋":
 
