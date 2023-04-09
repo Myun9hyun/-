@@ -629,10 +629,17 @@ elif choice == "직위관리":
                         warning_two_list = warning_two['Name'].tolist()
                         st.write("경고자 명단입니다.")
                         st.write(data1)
-                        st.write("경고 1회 명단입니다.")
-                        st.write(f"{warning_one_list}")
-                        st.write("경고 2회 명단입니다.")
-                        st.write(f"{warning_two_list}")
+                        if not warning_one:
+                            st.write("경고 1회자는 없습니다.")
+                        else : 
+                            st.write("경고 1회 명단입니다.")
+                            st.write(f"{warning_one_list}")
+                        if not warning_one:
+                            st.write("경고 2회자는 없습니다.")
+                        else : 
+                            st.write("경고 2회 명단입니다.")
+                            st.write(f"{warning_two_list}")
+
                 elif option == "데이터 초기화💣":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass2')
