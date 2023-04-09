@@ -111,9 +111,6 @@ elif choice == "길드페이지":
             st.image("MH/image/elinel.jpg", use_column_width=True)
     with tab2:
         st.header("💎코어젬스톤💎")
-        
-
-
       
 elif choice == "직위관리":
     st.header("길드원 직위 관리 페이지")
@@ -121,10 +118,6 @@ elif choice == "직위관리":
     with tab1:
         st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
-        # st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-        # password_input = st.number_input('비밀번호를 입력해주세요 : ')
-        # if password_input == password:
-        #     st.write('접근을 허용합니다')
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
@@ -293,13 +286,13 @@ elif choice == "직위관리":
                 option = st.selectbox("기능 선택", options)
                 
                 if option == "데이터 추가➕":
-                    name = st.text_input('이름')
+                    name = st.text_input('닉네임을 입력해주세요')
                     is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
-                    weekly_mission = st.number_input('주간 미션 점수', value=0)
-                    suro = st.number_input('수로 점수', value=0)
-                    flag = st.number_input('플래그 점수', value=0)
+                    weekly_mission = st.number_input('주간 미션 점수를 입력해주세요', min_value=0)
+                    suro = st.number_input('수로 점수를 입력해주세요', min_value=0)
+                    flag = st.number_input('플래그 점수를 입력해주세요', min_value=0)
                     add_character_data(name, is_main_character, weekly_mission, suro, flag)
-                    if st.button('추가'):
+                    if st.button('추가하기'):
                         # 데이터 추가 함수 호출
                         # add_character_data(name, character_type, weekly_mission, suro, flag)
                         save_data(data)  # 데이터를 파일에 저장
@@ -397,10 +390,10 @@ elif choice == "직위관리":
                         monthly_list = monthly['Name'].tolist()
                         
                         st.write('이번주 노블 사용가능 목록입니다.')
-                        st.write(f"사용가능자 :  {novel_list}.")
+                        st.write(f"노블 사용가능자 :  {novel_list}.")
                         st.write(novel_member)
                         st.write('이번주 먼슬리 참여가능자 목록입니다.')
-                        st.write(f"참여가능자 :  {monthly_list}.")
+                        st.write(f"먼슬리 참여가능자 :  {monthly_list}.")
                         st.write(monthly)
 
                 elif option == "위클리 코젬 계산📋":
@@ -456,7 +449,6 @@ elif choice == "직위관리":
         # 업로드한 파일을 데이터프레임으로 변환하는 함수
         st.header("직위 관리 페이지")
 
-
         # 업로드된 엑셀 파일을 저장하고, 데이터프레임으로 변환하는 함수
         def upload_excel_file(uploadedfile):
             df = pd.read_excel(uploadedfile, engine="openpyxl")
@@ -471,7 +463,7 @@ elif choice == "직위관리":
         # Streamlit 앱
         def main():
             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-            password_input = st.number_input('비밀번호를 입력해주세요 : ')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0)
             if password_input == password:
                 st.success('접근을 허용합니다')
                 st.write()
