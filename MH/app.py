@@ -614,7 +614,7 @@ elif choice == "직위관리":
                         data1.loc[data1['Name']==name, 'Warning'] = warning_count
                         save_data1(data1)
                         st.success('경고 횟수가 차감되었습니다.')
-                elif option == "데이터 조회🔎"
+                elif option == "데이터 조회🔎":
                     if st.button('경고 횟수 확인'):
                         st.write(data1)
                 elif option == "데이터 초기화💣"
