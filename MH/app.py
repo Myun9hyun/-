@@ -434,6 +434,7 @@ elif choice == "길드페이지":
                         # weekly_total = data['Cozem_Total'].sum()
                         # st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
                         st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_main_total}개 입니다.")
+                        st.write(weekly_main)
 
                     if st.button('위클리 코젬 분배 계산'):
                         weekly_main = data[(data['Role'] == '본캐')]
@@ -453,7 +454,6 @@ elif choice == "길드페이지":
                             else:
                                 e += 1
                         st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_main_total}개 입니다.")
-                        st.write(weekly_main)
                         st.write(f"반디 : {a} 개")
                         st.write(f"샴푸 : {b} 개")
                         st.write(f"둥둥 : {c} 개")
