@@ -202,11 +202,11 @@ elif choice == "길드페이지":
             cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
             novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
             role = character_type
-            if role == '본캐':
-                i = '본캐'
-            else:
-                i = name
-            return i
+            # if role == '본캐':
+            #     i = '본캐'
+            # else:
+            #     i = name
+            # return i
             # i = role
             # role = Role()
             data = data.append({
@@ -218,7 +218,7 @@ elif choice == "길드페이지":
                 'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
                 'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                 'Novel': novel_value,  # Novel 값을 추가
-                'Role' : i
+                'Role' : role
             }, ignore_index=True)
 
 
