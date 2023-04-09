@@ -540,39 +540,39 @@ elif choice == "직위관리":
             options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
             option = st.selectbox("기능 선택", options)
         # 파일에서 데이터 불러오기
-        def load_data1():
-            try:
-                data1 = pd.read_csv(FILE_PATH1)
-            except FileNotFoundError:
+            def load_data1():
+                try:
+                    data1 = pd.read_csv(FILE_PATH1)
+                except FileNotFoundError:
+                    data1 = pd.DataFrame(columns=['Name', 'Warning'])
+                return data1
+
+            # 데이터를 파일에 저장하기
+            def save_data1(data1):
+                data1.to_csv(FILE_PATH1, index=False)
+
+            # 데이터 초기화 함수
+            def clear_data1():
+                global data1
                 data1 = pd.DataFrame(columns=['Name', 'Warning'])
-            return data1
+                # 파일 삭제
+                os.remove(FILE_PATH1)
+            # 데이터 삭제 함수
+            def delete_data(row_index):
+                global data1
+                data1 = data1.drop(index=row_index).reset_index(drop=True)
 
-        # 데이터를 파일에 저장하기
-        def save_data1(data1):
-            data1.to_csv(FILE_PATH1, index=False)
-
-        # 데이터 초기화 함수
-        def clear_data1():
-            global data1
-            data1 = pd.DataFrame(columns=['Name', 'Warning'])
-            # 파일 삭제
-            os.remove(FILE_PATH1)
-        # 데이터 삭제 함수
-        def delete_data(row_index):
-            global data1
-            data1 = data1.drop(index=row_index).reset_index(drop=True)
-
-        # 불러온 데이터를 전역 변수로 저장
-        data1 = load_data1()
-        def add_data1(name, warning_count):
-            global data1
-            if name in data1['Name'].values:
-                st.warning(f'{name} (은)는 이미 있는 이름이야!')
-                return
-            data1 = data1.append({
-                'Name': name, 
-                'Warning' : warning_count
-            }, ignore_index=True)
+            # 불러온 데이터를 전역 변수로 저장
+            data1 = load_data1()
+            def add_data1(name, warning_count):
+                global data1
+                if name in data1['Name'].values:
+                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    return
+                data1 = data1.append({
+                    'Name': name, 
+                    'Warning' : warning_count
+                }, ignore_index=True)
             if option == "데이터 삭제✂":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
                     password_input = st.number_input('비밀번호를 입력해주세요 : ')
