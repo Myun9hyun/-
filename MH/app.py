@@ -593,30 +593,30 @@ elif choice == "직위관리":
                     else:
                         st.warning('비밀번호가 틀렸습니다.')
 
-        def main():
-            name = st.text_input("경고자 이름을 입력해주세요")
-            warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
-            if st.button('이름 추가'):
-                add_data1(name, warning_count)
-                save_data1(data1)
-                st.success("이름이 추가되었습니다.")
+            def main():
+                name = st.text_input("경고자 이름을 입력해주세요")
+                warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
+                if st.button('이름 추가'):
+                    add_data1(name, warning_count)
+                    save_data1(data1)
+                    st.success("이름이 추가되었습니다.")
 
-            if st.button("경고횟수 추가"):
-                warning_count += 1
-                data1.loc[data1['Name']==name, 'Warning'] = warning_count
-                save_data1(data1)
-                st.success("경고 횟수가 증가되었습니다.")
-            if st.button("경고횟수 차감"):
-                
-                warning_count -= 1
-                data1.loc[data1['Name']==name, 'Warning'] = warning_count
-                save_data1(data1)
-                st.success('경고 횟수가 차감되었습니다.')
-            if st.button('경고 횟수 확인'):
-                st.write(data1)
+                if st.button("경고횟수 추가"):
+                    warning_count += 1
+                    data1.loc[data1['Name']==name, 'Warning'] = warning_count
+                    save_data1(data1)
+                    st.success("경고 횟수가 증가되었습니다.")
+                if st.button("경고횟수 차감"):
+                    
+                    warning_count -= 1
+                    data1.loc[data1['Name']==name, 'Warning'] = warning_count
+                    save_data1(data1)
+                    st.success('경고 횟수가 차감되었습니다.')
+                if st.button('경고 횟수 확인'):
+                    st.write(data1)
 
-        if __name__ == "__main__":
-            main()
+            if __name__ == "__main__":
+                main()
 
 elif choice == "아카이브":
     st.header("길드 아카이브")
