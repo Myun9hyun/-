@@ -694,7 +694,7 @@ elif choice == "직위관리":
                 data2 = data2.append({
                     'Name': name, 
                     'Why' : why,
-                    'period' : period
+                    'Period' : period
 
                 }, ignore_index=True)
             
