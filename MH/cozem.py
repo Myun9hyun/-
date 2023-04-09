@@ -21,33 +21,33 @@ st.set_page_config(page_title="BanShamDoongDolYoung", page_icon=":rabbit:", layo
 password = 1234
 
 image = Image.open("MH/image/cover_guild.jpg")
-width, height = image.size
-# 이미지에 텍스트 추가
-draw = ImageDraw.Draw(image)
-text_kor = "아기자기"
-text_eng = "Welcome to"
-font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 50)
-font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
-text_width, text_height = draw.textsize(text_kor, font=font_kor)
+# width, height = image.size
+# # 이미지에 텍스트 추가
+# draw = ImageDraw.Draw(image)
+# text_kor = "아기자기"
+# text_eng = "Welcome to"
+# font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 50)
+# font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
+# text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
-stroke_width = 2
-stroke_fill = (0, 0, 0)
+# stroke_width = 2
+# stroke_fill = (0, 0, 0)
 
-x = text_width - 100
-y = height - text_height - 200
-z = height - text_height - 255
+# x = text_width - 100
+# y = height - text_height - 200
+# z = height - text_height - 255
 
-# 테두리가 있는 텍스트 그리기
-draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
-draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
+# # 테두리가 있는 텍스트 그리기
+# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+# draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
 
 
 # # streamlit에 이미지 표시
@@ -98,7 +98,6 @@ elif choice == "길드페이지":
             '''
             ---
             ### 길드 간부진 💪
-
             | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 |
             | :---: | :---: | :---: | :---: |
             | 길마👑 | 뱌닢 | 나이트로드 | [![Colab](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |
@@ -112,11 +111,13 @@ elif choice == "길드페이지":
             st.image("MH/image/elinel.jpg", use_column_width=True)
     with tab2:
         st.header("💎코어젬스톤💎")
+      
+elif choice == "직위관리":
+    st.header("길드원 직위 관리 페이지")
+    tab1, tab2, tab3 = st.tabs(["💎Cozem", "📋Grade", "❗Warning"])
+    with tab1:
+        st.header("💎코어젬스톤💎")
         st.image("MH/image/cozem_guild.jpg", use_column_width=True)
-        # st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-        # password_input = st.number_input('비밀번호를 입력해주세요 : ')
-        # if password_input == password:
-        #     st.write('접근을 허용합니다')
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
@@ -162,7 +163,7 @@ elif choice == "길드페이지":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name', 'Warning'])
             return data
 
         # 데이터를 파일에 저장하기
@@ -172,7 +173,7 @@ elif choice == "길드페이지":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name', 'Warning'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
@@ -182,29 +183,97 @@ elif choice == "길드페이지":
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
 
-        def add_data(name, weekly_mission, suro, flag):
+        def add_data(name,character_type, weekly_mission, suro, flag):
             global data
-            # 중복 검사
-            if name in data['Name'].values:
-                st.warning(f'{name} (은)는 이미 있는 이름이야!')
-                return
-            suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
-            flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-            cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
-            novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+            # role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
+            if character_type == "부캐":
+                main_name = st.text_input("본캐의 이름을 입력하세요.")
+                if main_name not in data['Name'].values:
+                    st.warning(f'{main_name} (은)는 존재하지 않는 이름이야!')
+                    return
+                main_row = data[data['Name'] == main_name].iloc[0]
+                data = data.append({
+                    'Name': name, 
+                    'Weekly_Mission': weekly_mission, 
+                    'Suro': suro,
+                    'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+                    'Flag': flag, 
+                    'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
+                    'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag)),
+                    'Novel': novel_p(weekly_mission, suro, flag),
+                    'Role': role,
+                    'Main_Name': main_name,
+                    'Warning' : 0
+                }, ignore_index=True)
+            else:
+                # 중복 검사
+                if name in data['Name'].values:
+                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    return
+                suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
+                flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+                cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+                warning_count = 0
+                warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+                if novel_value == 'X':
+                    warning_count = warning_count + 1
+                data = data.append({
+                    'Name': name, 
+                    'Weekly_Mission': weekly_mission, 
+                    'Suro': suro,
+                    'Suro_Cozem': suro_cozem,
+                    'Flag': flag, 
+                    'Flag_Cozem': flag_cozem,
+                    'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
+                    'Novel': novel_value,  # Novel 값을 추가
+                    'Role': '본캐',
+                    'Main_Name' : '본캐',
+                    'Warning' : warning_count
+                }, ignore_index=True)
 
-            data = data.append({
-                'Name': name, 
-                'Weekly_Mission': weekly_mission, 
-                'Suro': suro, 
-                'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
-                'Flag': flag, 
-                'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
-                'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
-                'Novel': novel_value  # Novel 값을 추가
-            }, ignore_index=True)
+        # def role(Role):
+        def add_character_data(name, character_type, weekly_mission, suro, flag):
+            global data
+            if character_type == '본캐':
+                add_data(name,character_type, weekly_mission, suro, flag)
+            elif character_type == '부캐':
+                main_name = st.text_input('본캐 이름을 입력하세요')
+                main_data = data.loc[data['Name'] == main_name]
+                if len(main_data) == 0:
+                    st.warning(f"{main_name} (은)는 등록되어있지 않아!.")
+                    return
+                else:
+                    main_data_index = main_data.index[0]
+                    suro_cozem = Suro_cozem(suro)
+                    flag_cozem = Flag_cozem(flag)
+                    cozem_total = suro_cozem + flag_cozem
+                    data.loc[main_data_index, 'Cozem_Total'] += cozem_total
+                    if main_data['Suro'].values[0] >= 4000:
+                        novel_value = main_data['Novel'].values[0]
+                    else:
+                        novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+                    role = character_type
+                    warning_count = 0
+                    warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                    if name in warning_main['Name'].values:
+                        warning_count = warning_count + 1
+                    data = data.append({
+                        'Name': name, 
+                        'Weekly_Mission': weekly_mission, 
+                        'Suro': suro, 
+                        'Suro_Cozem': suro_cozem,
+                        'Flag': flag, 
+                        'Flag_Cozem': flag_cozem,
+                        'Cozem_Total': cozem_total,
+                        'Novel': novel_value,
+                        'Role' : role,
+                        'Main_Name' : main_name,
+                        'Warning' : warning_count
+                    }, ignore_index=True)
+            else:
+                st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
 
-        
         def download_xlsx(df, file_name):
             # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
             if not file_name.endswith(".xlsx"):
@@ -227,32 +296,25 @@ elif choice == "길드페이지":
                 options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
                 
-
-                # # 사용자로부터 이름과 점수를 입력받는 UI 구성
-                # name = st.text_input('이름을 입력하세요')
-                # weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-                # suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-                # flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
-                
                 if option == "데이터 추가➕":
-                    # 사용자로부터 이름과 점수를 입력받는 UI 구성
-                    name = st.text_input('이름을 입력하세요')
-                    weekly_mission = st.number_input('주간미션 점수를 입력하세요', min_value=0, max_value=5)
-                    suro = st.number_input('수로 점수를 입력하세요', min_value=0, max_value=100000)
-                    flag = st.number_input('플래그 점수를 입력하세요', min_value=0, max_value=1000)
-                
-                    # 이름과 점수가 입력되면 데이터프레임에 추가
-                    if st.button('데이터 추가'):
-                        add_data(name, weekly_mission ,suro, flag)  # 수정된 add_data 함수를 호출
+                    name = st.text_input('닉네임을 입력해주세요')
+                    is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
+                    weekly_mission = st.number_input('주간 미션 점수를 입력해주세요', min_value=0)
+                    suro = st.number_input('수로 점수를 입력해주세요', min_value=0)
+                    flag = st.number_input('플래그 점수를 입력해주세요', min_value=0)
+                    add_character_data(name, is_main_character, weekly_mission, suro, flag)
+                    if st.button('추가하기'):
+                        # 데이터 추가 함수 호출
+                        # add_character_data(name, character_type, weekly_mission, suro, flag)
                         save_data(data)  # 데이터를 파일에 저장
-                        st.success('데이터가 추가되었습니다.')
+                        st.success(f'{name}의 데이터가 추가되었습니다!')
 
                 elif option == "데이터 조회🔎":
                     # 저장된 데이터
                     st.write("버튼을 누르면 입력하신 데이터를 확인할 수 있습니다.")
                     if st.button('차트 열기'):
                         if not data.empty:
-                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
                         else:
                             st.write('입력되어있는 데이터가 없습니다.')
                 
@@ -264,7 +326,7 @@ elif choice == "길드페이지":
                     # 데이터 삭제 기능
                     # if st.button('데이터 삭제'):
                         # 사용자로부터 삭제할 행 번호 입력받기
-                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel']])
+                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
                         row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
                         st.write("Enter를 입력하면 삭제됩니다.")
                         if st.button('데이터 삭제'):
@@ -278,7 +340,7 @@ elif choice == "길드페이지":
 
                 elif option == "데이터 초기화💣":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass1')
                     if password_input == password:
                         st.success('접근을 허용합니다')
                         # 데이터 전부 삭제
@@ -300,7 +362,16 @@ elif choice == "길드페이지":
                         warning_suro_list = warning_suro['Name'].tolist()
                         warning_flag = warning[warning['Flag'] == 0]
                         warning_flag_list = warning_flag['Name'].tolist()
+                        warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                        warning_main_list = warning_main['Name'].tolist()
 
+
+                        if not warning_main_list:
+                            st.write('이번주 노블 사용제한자는 없습니다.')
+                        else:
+                            st.write('이번주 경고자 목록입니다(본캐).')
+                            st.write(f"경고자 :  {warning_main_list}.")
+                            st.write(warning_main)
                         if not warning_list:
                             st.write('이번주 노블 사용제한자는 없습니다.')
                         else:
@@ -323,22 +394,32 @@ elif choice == "길드페이지":
                     
                     if st.button('노블 사용가능 목록 보기'):
                         # 먼슬리 참여 가능자 명단
-                        monthly = data[data['Novel'] == 'O']
+                        novel_member = data[data['Novel'] == 'O']
+                        monthly = data[(data['Novel'] == 'O') & (data['Role'] == '본캐')]
+                        novel_list = novel_member['Name'].tolist()
                         monthly_list = monthly['Name'].tolist()
-                        st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
-                        st.write(f"사용가능자 :  {monthly_list}.")
-                        st.write(data[data['Novel'] == 'O'])
+                        
+                        st.write('이번주 노블 사용가능 목록입니다.')
+                        st.write(f"노블 사용가능자 :  {novel_list}.")
+                        st.write(novel_member)
+                        st.write('이번주 먼슬리 참여가능자 목록입니다.')
+                        st.write(f"먼슬리 참여가능자 :  {monthly_list}.")
+                        st.write(monthly)
 
                 elif option == "위클리 코젬 계산📋":
-
                     if st.button('위클리 코젬 합계 계산'):
-                        weekly_total = data['Cozem_Total'].sum()
-                        st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
+                        weekly_main = data[(data['Role'] == '본캐')]
+                        weekly_main_total = weekly_main['Cozem_Total'].sum()
+                        # weekly_total = data['Cozem_Total'].sum()
+                        # st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_total}개 입니다.")
+                        st.write(f"이번주 위클리 이벤트 코젬의 합은{weekly_main_total}개 입니다.")
+                        st.write(weekly_main)
 
                     if st.button('위클리 코젬 분배 계산'):
-                        weekly_total = data['Cozem_Total'].sum()
-                        quotient = weekly_total // 5
-                        remainder = weekly_total % 5
+                        weekly_main = data[(data['Role'] == '본캐')]
+                        weekly_main_total = weekly_main['Cozem_Total'].sum()
+                        quotient = weekly_main_total // 5
+                        remainder = weekly_main_total % 5
                         a = b = c = d = e = quotient
                         for i in range(remainder):
                             if i == 0:
@@ -351,8 +432,7 @@ elif choice == "길드페이지":
                                 d += 1
                             else:
                                 e += 1
-
-                        st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_total}개 입니다.")
+                        st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_main_total}개 입니다.")
                         st.write(f"반디 : {a} 개")
                         st.write(f"샴푸 : {b} 개")
                         st.write(f"둥둥 : {c} 개")
@@ -360,7 +440,7 @@ elif choice == "길드페이지":
                         st.write(f"영래 : {e} 개")
                 elif option == "데이터 다운로드💾":
                     st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-                    password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0, key='password2')
                     if password_input == password:
                         st.success('접근을 허용합니다')
                         # 다운로드 버튼 클릭
@@ -374,87 +454,210 @@ elif choice == "길드페이지":
 
         if __name__ == '__main__':
                 main()
-
-
-      
-elif choice == "직위관리":
-    st.header("길드원 직위 관리 페이지")
+    with tab2:
         # 업로드한 파일을 데이터프레임으로 변환하는 함수
+        st.header("직위 관리 페이지")
 
+        # 업로드된 엑셀 파일을 저장하고, 데이터프레임으로 변환하는 함수
+        def upload_excel_file(uploadedfile):
+            df = pd.read_excel(uploadedfile, engine="openpyxl")
+            return df
 
-    # 업로드된 엑셀 파일을 저장하고, 데이터프레임으로 변환하는 함수
-    def upload_excel_file(uploadedfile):
-        df = pd.read_excel(uploadedfile, engine="openpyxl")
-        return df
+        # 엑셀 파일을 저장하는 함수
+        def save_uploaded_file(uploadedfile):
+            with open(uploadedfile.name, 'wb') as f:
+                f.write(uploadedfile.getbuffer())
+            return st.success("저장되었습니다: {}".format(uploadedfile.name))
 
-    # 엑셀 파일을 저장하는 함수
-    def save_uploaded_file(uploadedfile):
-        with open(uploadedfile.name, 'wb') as f:
-            f.write(uploadedfile.getbuffer())
-        return st.success("저장되었습니다: {}".format(uploadedfile.name))
+        # Streamlit 앱
+        def main():
+            st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+            password_input = st.number_input('비밀번호를 입력해주세요 : ', min_value=0, key='password1')
+            if password_input == password:
+                st.success('접근을 허용합니다')
+                st.write()
+                '''
+                ### ❗파일 업로드 하면 에러 없어짐❗
+                '''
+                st.write("지난주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
+                uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
 
-    # Streamlit 앱
-    def main():
+                if uploaded_file1 is not None:
+                    # 업로드한 파일을 저장하고, 데이터프레임으로 변환
+                    save_uploaded_file(uploaded_file1)
+                    df1 = upload_excel_file(uploaded_file1)
+
+                    # 데이터프레임 출력
+                    st.write("지난주 길드컨텐츠 참여자")
+                    st.write(df1)
+
+                st.write("이번주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
+                uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload2")
+
+                if uploaded_file2 is not None:
+                    # 업로드한 파일을 저장하고, 데이터프레임으로 변환
+                    save_uploaded_file(uploaded_file2)
+                    df2 = upload_excel_file(uploaded_file2)
+
+                    # 데이터프레임 출력
+                    st.write("이번주 길드컨텐츠 참여자")
+                    st.write(df2)
+
+                df1_O = df1[df1['Novel'] == 'O']
+                df1_X = df1[df1['Novel'] == 'X']
+                
+                df2_O = df2[df2['Novel'] == 'O']
+                df2_X = df2[df2['Novel'] == 'X']
+
+                name1O_index = df1_O['Name'].tolist()
+                name1X_index = df1_X['Name'].tolist()
+                name2O_index = df2_O['Name'].tolist()
+                name2X_index = df2_X['Name'].tolist()
+
+                novel_down = name1O_index and name2X_index
+                novel_up = name1X_index and name2O_index
+                if st.button("직위 상승/하락자 목록"):
+                    if not novel_up:
+                        st.write("이번주 직위 상승자는 없습니다.")
+                    else : 
+                        st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
+                    if not novel_down:
+                        st.write("이번주 직위 하락자는 없습니다.")
+                    else:
+                        st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
+            else:
+                st.warning('비밀번호가 틀렸습니다.')
+    
+        if __name__ == "__main__":
+            main()
+    with tab3:
+        st.header("❗경고자 관리")
+        FILE_PATH1 = 'data1.csv'
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-        password_input = st.number_input('비밀번호를 입력해주세요 : ')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password3')
         if password_input == password:
             st.success('접근을 허용합니다')
-            st.write()
-            '''
-            ### ❗파일 업로드 하면 에러 없어짐❗
-            '''
-            st.write("지난주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
-            uploaded_file1 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload1")
+            options = ["경고자 추가➕","경고횟수 추가/차감", "경고자 조회🔎", "경고자 삭제✂", "데이터 초기화💣" ]
+            option = st.selectbox("기능 선택", options, key='select1')
+        # 파일에서 데이터 불러오기
+            def load_data1():
+                try:
+                    data1 = pd.read_csv(FILE_PATH1)
+                except FileNotFoundError:
+                    data1 = pd.DataFrame(columns=['Name', 'Warning'])
+                return data1
 
-            if uploaded_file1 is not None:
-                # 업로드한 파일을 저장하고, 데이터프레임으로 변환
-                save_uploaded_file(uploaded_file1)
-                df1 = upload_excel_file(uploaded_file1)
+            # 데이터를 파일에 저장하기
+            def save_data1(data1):
+                data1.to_csv(FILE_PATH1, index=False)
 
-                # 데이터프레임 출력
-                st.write("지난주 길드컨텐츠 참여자")
-                st.write(df1)
+            # 데이터 초기화 함수
+            def clear_data1():
+                global data1
+                data1 = pd.DataFrame(columns=['Name', 'Warning'])
+                # 파일 삭제
+                os.remove(FILE_PATH1)
+            # 데이터 삭제 함수
+            def delete_data(row_index):
+                global data1
+                data1 = data1.drop(index=row_index).reset_index(drop=True)
 
-            st.write("이번주 길드컨텐츠 참여목록 엑셀을 업로드 해주세요")
-            uploaded_file2 = st.file_uploader("Excel 파일 업로드", type=["xlsx"], key="upload2")
-
-            if uploaded_file2 is not None:
-                # 업로드한 파일을 저장하고, 데이터프레임으로 변환
-                save_uploaded_file(uploaded_file2)
-                df2 = upload_excel_file(uploaded_file2)
-
-                # 데이터프레임 출력
-                st.write("이번주 길드컨텐츠 참여자")
-                st.write(df2)
-
-            df1_O = df1[df1['Novel'] == 'O']
-            df1_X = df1[df1['Novel'] == 'X']
+            # 불러온 데이터를 전역 변수로 저장
+            data1 = load_data1()
+            def add_data1(name, warning_count):
+                global data1
+                if name in data1['Name'].values:
+                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    return
+                data1 = data1.append({
+                    'Name': name, 
+                    'Warning' : warning_count
+                }, ignore_index=True)
             
-            df2_O = df2[df2['Novel'] == 'O']
-            df2_X = df2[df2['Novel'] == 'X']
 
-            name1O_index = df1_O['Name'].tolist()
-            name1X_index = df1_X['Name'].tolist()
-            name2O_index = df2_O['Name'].tolist()
-            name2X_index = df2_X['Name'].tolist()
+            def main():
+                if option == "경고자 삭제✂":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='pass3')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                    # 데이터 삭제 기능
+                    # if st.button('데이터 삭제'):
+                        # 사용자로부터 삭제할 행 번호 입력받기
+                        st.write(data1[['Name','Warning']])
+                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data1.shape[0]-1)
+                        st.write("Enter를 입력하면 삭제됩니다.")
+                        if st.button('데이터 삭제'):
+                            # 해당 행이 존재할 경우, 행을 삭제
+                            if row_index >= 0 and row_index < data1.shape[0]:
+                                delete_data(row_index)
+                                save_data1(data1)  # 데이터를 파일에 저장
+                                st.success('입력하신 행이 삭제되었습니다.')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+                elif option == "경고자 추가➕":
+                    name = st.text_input("경고자 이름을 입력해주세요")
+                    warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
+                    if st.button('경고자 이름 추가'):
+                        add_data1(name, warning_count)
+                        save_data1(data1)
+                        st.success(f"경고자 {name}이(가) 추가되었습니다.")
+                elif option == '경고횟수 추가/차감':
+                    name = st.text_input("경고자 이름을 입력해주세요")
+                    filtered_data = data1.loc[data1['Name'] == name, 'Warning']
+                    if not filtered_data.empty:
+                        warning_count = filtered_data.iloc[0]
+                        if st.button("경고횟수 추가"):
+                            warning_count += 1
+                            data1.loc[data1['Name'] == name, 'Warning'] = warning_count
+                            save_data1(data1)
+                            st.success("경고 횟수가 증가되었습니다.")
+                        if st.button("경고횟수 차감"):
+                            warning_count -= 1
+                            data1.loc[data1['Name'] == name, 'Warning'] = warning_count
+                            save_data1(data1)
+                            st.success('경고 횟수가 차감되었습니다.')
+                    else:
+                        st.warning("입력한 이름에 해당하는 데이터가 없습니다.")
 
-            novel_down = name1O_index and name2X_index
-            novel_up = name1X_index and name2O_index
-            if st.button("직위 상승/하락자 목록"):
-                if not novel_up:
-                    st.write("이번주 직위 상승자는 없습니다.")
-                else : 
-                    st.write(f"이번주 직위 상승자는 다음과 같습니다 :  {novel_up} ")
-                if not novel_down:
-                    st.write("이번주 직위 하락자는 없습니다.")
-                else:
-                    st.write(f"이번주 직위 하락자는 다음과 같습니다 :  {novel_down} ")
+
+                elif option == "경고자 조회🔎":
+                    if st.button('경고 횟수 확인'):
+                        warning_one = data1[data1['Warning'] == 1]
+                        warning_two = data1[data1['Warning'] == 2]
+                        warning_one_list = warning_one['Name'].tolist()
+                        warning_two_list = warning_two['Name'].tolist()
+                        st.write("경고자 전체 명단입니다.")
+                        st.write(data1)
+                        if not warning_one_list:
+                            st.write("경고 1회자는 없습니다.")
+                        else : 
+                            st.write("경고 1회 명단입니다.")
+                            st.write(f"{warning_one_list}")
+                        if not warning_two_list:
+                            st.write("경고 2회자는 없습니다.")
+                        else : 
+                            st.write("경고 2회 명단입니다.")
+                            st.write(f"{warning_two_list}")
+
+                elif option == "데이터 초기화💣":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass2')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        # 데이터 전부 삭제
+                        st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
+                        st.write("⚠️신중하게 누르세요!!⚠️")
+                        if st.button('차트 초기화'):
+                            clear_data1()
+                            st.warning('차트가 초기화 되었습니다')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+            if __name__ == "__main__":
+                main()
         else:
-            st.warning('비밀번호가 틀렸습니다.')
-  
-    if __name__ == "__main__":
-        main()
-
+            st.warning('비밀번호가 틀렸습니다.')    
+        
 
 elif choice == "아카이브":
     st.header("길드 아카이브")
@@ -520,14 +723,11 @@ else:
         st.write()
         '''
         ##### 랜덤박스🎁 내 물품은 다음과 같습니다
-
         | 구분 |  구성품 | 확률 | 
         |:---: | :---: | :---: | 
         | 꽝💣 | 코젬, 경뿌, 반파별4개, 소경축비, 수에큐3개 | 7.4% |
         | 대박🎊 | 명큡, 앱솔상자, 강환불, 미코젬, 주흔 한묶음 | 6% |
         | 일반💰 | 반빨별, 재획비, 경축비, 고보킬, 고대비, 명훈, 장큐, 거코젬 | 3% | 
-
-
         '''
         # 값과 그에 해당하는 확률을 리스트로 지정합니다.
         values = ['코젬', '경뿌', '반파별4개', '수에큐3개', '소경축비', '명큡', '앱상', '강환불', '미코젬', '주흔_한묶음', '반빨별', '재획비', '경축비', '고보킬', '고대비', '명훈', '장큐', '거코젬']
@@ -561,7 +761,6 @@ else:
         | 구분 | 이름  | 링크 | 
         | :---: | :---: | :---: | 
         | GoogleDocs | 📑아기자기명단 | [![Colab](https://img.shields.io/badge/GoogleDocs-아기자기명단-green)](https://onedrive.live.com/edit.aspx?resid=221CE48C87202DCA!2450&ithint=file%2cxlsx&authkey=!ADKQOeLCxzQp_5o) | 
-
         '''
     with tab3:
         FILE_PATH1 = 'data1.csv'
@@ -1033,5 +1232,3 @@ else:
         
         if __name__ == '__main__':
             main()
-
-                
