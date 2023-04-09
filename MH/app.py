@@ -413,7 +413,7 @@ elif choice == "길드페이지":
                         
                         st.write('이번주 노블 사용가능 목록입니다.(먼슬리 참여 가능자)')
                         # st.write(f"사용가능자 :  {monthly_list}.")
-                        st.write(f"사용가능자 :  {result}.")
+                        st.write(f"사용가능자 :  {monthly_list}.")
                         st.write(data[data['Novel'] == 'O'])
 
                 elif option == "위클리 코젬 계산📋":
