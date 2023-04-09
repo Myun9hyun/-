@@ -603,18 +603,23 @@ elif choice == "직위관리":
                         save_data1(data1)
                         st.success("이름이 추가되었습니다.")
                 elif option == '경고횟수 추가/차감':
-                    name = st.text_input("경고자 이름을 입력해주세요")
-                    warning_count = data1.loc[data1['Name']==name, 'Warning'].iloc[0]
+                name = st.text_input("경고자 이름을 입력해주세요")
+                filtered_data = data1.loc[data1['Name'] == name, 'Warning']
+                if not filtered_data.empty:
+                    warning_count = filtered_data.iloc[0]
                     if st.button("경고횟수 추가"):
                         warning_count += 1
-                        data1.loc[data1['Name']==name, 'Warning'] = warning_count
+                        data1.loc[data1['Name'] == name, 'Warning'] = warning_count
                         save_data1(data1)
                         st.success("경고 횟수가 증가되었습니다.")
                     if st.button("경고횟수 차감"):
                         warning_count -= 1
-                        data1.loc[data1['Name']==name, 'Warning'] = warning_count
+                        data1.loc[data1['Name'] == name, 'Warning'] = warning_count
                         save_data1(data1)
                         st.success('경고 횟수가 차감되었습니다.')
+                else:
+                    st.warning("입력한 이름에 해당하는 데이터가 없습니다.")
+
 
                 elif option == "데이터 조회🔎":
                     if st.button('경고 횟수 확인'):
