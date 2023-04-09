@@ -406,10 +406,8 @@ elif choice == "직위관리":
                     if not warning_main:
                         pass
                     else:
-                        
-
+                        warning_count += 1
                 elif option == "위클리 코젬 계산📋":
-
                     if st.button('위클리 코젬 합계 계산'):
                         weekly_main = data[(data['Role'] == '본캐')]
                         weekly_main_total = weekly_main['Cozem_Total'].sum()
