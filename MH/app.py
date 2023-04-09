@@ -293,7 +293,7 @@ elif choice == "직위관리":
             password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input == password:
                 st.success('접근을 허용합니다')
-                options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "경고자 목록", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+                options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
                 
                 if option == "데이터 추가➕":
