@@ -168,7 +168,7 @@ elif choice == "길드페이지":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             return data
 
         # 데이터를 파일에 저장하기
@@ -178,7 +178,7 @@ elif choice == "길드페이지":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
@@ -245,7 +245,8 @@ elif choice == "길드페이지":
                     'Flag': flag, 
                     'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                     'Novel': novel_value,  # Novel 값을 추가
-                    'Role': '본캐'
+                    'Role': '본캐',
+                    'Main_Name' : '본캐'
                 }, ignore_index=True)
 
         # def role(Role):
@@ -276,7 +277,8 @@ elif choice == "길드페이지":
                         'Flag_Cozem': flag_cozem,
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
-                        'Role' : role
+                        'Role' : role,
+                        'Main_Name' : main_name
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 캐릭터 타입으로 적절하지 않습니다.")
@@ -373,7 +375,7 @@ elif choice == "길드페이지":
                     st.write("버튼을 누르면 입력하신 데이터를 확인할 수 있습니다.")
                     if st.button('차트 열기'):
                         if not data.empty:
-                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role']])
+                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
                         else:
                             st.write('입력되어있는 데이터가 없습니다.')
                 
@@ -385,7 +387,7 @@ elif choice == "길드페이지":
                     # 데이터 삭제 기능
                     # if st.button('데이터 삭제'):
                         # 사용자로부터 삭제할 행 번호 입력받기
-                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role']])
+                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
                         row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
                         st.write("Enter를 입력하면 삭제됩니다.")
                         if st.button('데이터 삭제'):
