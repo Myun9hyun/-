@@ -163,7 +163,7 @@ elif choice == "직위관리":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name', 'Warning'])
             return data
 
         # 데이터를 파일에 저장하기
@@ -173,7 +173,7 @@ elif choice == "직위관리":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name', 'Warning'])
             # 파일 삭제
             os.remove(FILE_PATH)
         # 데이터 삭제 함수
@@ -202,7 +202,8 @@ elif choice == "직위관리":
                     'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag)),
                     'Novel': novel_p(weekly_mission, suro, flag),
                     'Role': role,
-                    'Main_Name': main_name
+                    'Main_Name': main_name,
+                    'Warning' : 0
                 }, ignore_index=True)
             else:
                 # 중복 검사
@@ -223,7 +224,8 @@ elif choice == "직위관리":
                     'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                     'Novel': novel_value,  # Novel 값을 추가
                     'Role': '본캐',
-                    'Main_Name' : '본캐'
+                    'Main_Name' : '본캐',
+                    'Warning' : 0
                 }, ignore_index=True)
 
         # def role(Role):
@@ -258,7 +260,8 @@ elif choice == "직위관리":
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
                         'Role' : role,
-                        'Main_Name' : main_name
+                        'Main_Name' : main_name,
+                        'Warning' : 0
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
@@ -282,7 +285,7 @@ elif choice == "직위관리":
             password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input == password:
                 st.success('접근을 허용합니다')
-                options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+                options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "경고자 목록", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
                 
                 if option == "데이터 추가➕":
@@ -304,7 +307,7 @@ elif choice == "직위관리":
                     st.write("버튼을 누르면 입력하신 데이터를 확인할 수 있습니다.")
                     if st.button('차트 열기'):
                         if not data.empty:
-                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
+                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name', 'Warning']])
                         else:
                             st.write('입력되어있는 데이터가 없습니다.')
                 
@@ -316,7 +319,7 @@ elif choice == "직위관리":
                     # 데이터 삭제 기능
                     # if st.button('데이터 삭제'):
                         # 사용자로부터 삭제할 행 번호 입력받기
-                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
+                        st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name','Warning']])
                         row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data.shape[0]-1)
                         st.write("Enter를 입력하면 삭제됩니다.")
                         if st.button('데이터 삭제'):
@@ -395,6 +398,12 @@ elif choice == "직위관리":
                         st.write('이번주 먼슬리 참여가능자 목록입니다.')
                         st.write(f"먼슬리 참여가능자 :  {monthly_list}.")
                         st.write(monthly)
+                elif option == "경고자 목록":
+                    warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+                    warning_main_list = warning_main['Name'].tolist()
+                    if not warning_main:
+
+
 
                 elif option == "위클리 코젬 계산📋":
 
