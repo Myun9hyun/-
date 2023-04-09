@@ -228,7 +228,7 @@ elif choice == "길드페이지":
             if character_type == '본캐':
                 add_data(name,character_type, weekly_mission, suro, flag)
             elif character_type == '부캐':
-                main_name = st.text_input('본캐 이름을 입력하세요',key='main_name')
+                main_name = st.text_input('본캐 이름을 입력하세요',key='main_name222')
                 main_data = data.loc[data['Name'] == main_name]
                 if len(main_data) == 0:
                     st.warning(f"{main_name} (은)는 데이터에 존재하지 않습니다.")
