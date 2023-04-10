@@ -335,7 +335,7 @@ elif choice == "직위관리":
                         if st.button('이름추가'):
                             # if st.button('추가'):
                             add_name(name)
-                            save_data(data)  # 데이터를 파일에 저장
+                            save_data5(data5)  # 데이터를 파일에 저장
                             st.success('이름이 추가되었어!')
                     else:
                         st.warning('비밀번호가 틀렸습니다')
