@@ -18,9 +18,21 @@ FILE_PATH3 = 'data3.csv'
 FILE_PATH4 = 'data4.csv'
 FILE_PATH5 = 'data5.csv'
 # "with" notation
-with st.sidebar:
-    option = ["페이지1", "페이지2", "페이지3"]
-    
+import streamlit as st
+
+# sidebar에서 입력 받을 값을 받습니다.
+option = st.sidebar.selectbox(
+    '사이드바에서 선택하세요.',
+     ('사이드바 아이템 1', '사이드바 아이템 2', '사이드바 아이템 3'))
+
+# 메인 화면에서 선택한 값에 따라 다른 내용을 보여줍니다.
+if option == '사이드바 아이템 1':
+    st.write('사이드바 아이템 1을 선택했습니다.')
+elif option == '사이드바 아이템 2':
+    st.write('사이드바 아이템 2를 선택했습니다.')
+else:
+    st.write('사이드바 아이템 3을 선택했습니다.')
+
 # 파일에서 데이터 불러오기
 def load_data(): #낮 품목
     try:
