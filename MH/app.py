@@ -202,7 +202,7 @@ elif choice == "직위관리":
         def add_name(names): # 낮 품목 저장
             global data5 
             if names in data5['Name'].values:
-                        # st.warning(f'{names} (은)는 이미 있는 이름ㅇㅇ이야!')
+                st.warning(f'{names} (은)는 이미 있는 이름ㅇㅇ이야!')
                 return
             data5 = data5.append({'Name': names}, ignore_index=True)
 
