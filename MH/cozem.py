@@ -158,6 +158,7 @@ elif choice == "직위관리":
 
         # 데이터를 저장할 파일 경로 지정
         FILE_PATH = 'data.csv'
+        FILE_PATH5 = 'data5.csv'
 
         # 파일에서 데이터 불러오기
         def load_data():
@@ -170,6 +171,8 @@ elif choice == "직위관리":
         # 데이터를 파일에 저장하기
         def save_data(data):
             data.to_csv(FILE_PATH, index=False)
+        def save_data5(data5):
+            data5.to_csv(FILE_PATH5, index=False)
 
         # 데이터 초기화 함수
         def clear_data():
