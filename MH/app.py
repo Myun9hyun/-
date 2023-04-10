@@ -290,8 +290,7 @@ elif choice == "직위관리":
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
                         'Role' : role,
-                        'Main_Name' : main_name,
-                        'Warning' : warning_count
+                        'Main_Name' : main_name
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
