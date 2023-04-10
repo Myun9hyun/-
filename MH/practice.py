@@ -17,8 +17,9 @@ FILE_PATH2 = 'data2.csv'
 FILE_PATH3 = 'data3.csv'
 FILE_PATH4 = 'data4.csv'
 FILE_PATH5 = 'data5.csv'
+# "with" notation
 with st.sidebar:
-    choice = option_menu("페이지1", "페이지2", "페이지3")
+    st.[element_name]
 # 파일에서 데이터 불러오기
 def load_data(): #낮 품목
     try:
