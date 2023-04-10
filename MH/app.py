@@ -200,7 +200,7 @@ elif choice == "직위관리":
         data = load_data()
         data5 = load_data5
         def add_name(name): # 낮 품목 저장
-            global data5
+            global data5 
             if name in data5['Name'].values:
                         st.warning(f'{name} (은)는 이미 있는 이름이야!')
                         return
