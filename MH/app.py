@@ -177,6 +177,7 @@ elif choice == "직위관리":
         # 데이터를 파일에 저장하기
         def save_data(data):
             data.to_csv(FILE_PATH, index=False)
+            
         def save_data5(data5):
             data5.to_csv(FILE_PATH5, index=False)
 
