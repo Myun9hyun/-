@@ -336,10 +336,13 @@ elif choice == "직위관리":
                 
             # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
                     if st.button('이름추가'):
+                        if names in data5['Name'].values:
+                            return
+                        else:
                         # if st.button('추가'):
-                        add_name(name)
-                        save_data5(data5)  # 데이터를 파일에 저장
-                        st.success('이름이 추가되었어!')
+                            add_name(name)
+                            save_data5(data5)  # 데이터를 파일에 저장
+                            st.success('이름이 추가되었어!')
                     
 
                 elif option == "데이터 조회🔎":
