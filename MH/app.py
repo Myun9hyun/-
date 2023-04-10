@@ -199,13 +199,13 @@ elif choice == "직위관리":
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
         data5 = load_data5
-        def add_name(name): # 낮 품목 저장
+        def add_name(names): # 낮 품목 저장
             global data5 
-            if name in data5['Name'].values:
-                        st.warning(f'{name} (은)는 이미 있는 이름이야!')
+            if names in data5['Name'].values:
+                        st.warning(f'{names} (은)는 이미 있는 이름이야!')
                         return
-            data5 = data5.append({'Name': name}, ignore_index=True)
-            
+            data5 = data5.append({'Name': names}, ignore_index=True)
+
         def add_data(name,character_type, weekly_mission, suro, flag):
             global data, data5
             # role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
