@@ -326,7 +326,7 @@ elif choice == "직위관리":
                     flag = st.number_input('플래그 점수를 입력해주세요', min_value=0)
                     add_character_data(select_name, is_main_character, weekly_mission, suro, flag)
                     if st.button('추가하기'):
-                        if select_name in data5['Name'].values:
+                        if select_name in data['Name'].values:
                             st.warning(f"{select_name}은(는) 이미 있는 이름이야!")
                             return
                         else:
