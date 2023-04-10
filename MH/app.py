@@ -21,7 +21,7 @@ import datetime
 st.set_page_config(page_title="BanShamDoongDolYoung", page_icon=":rabbit:", layout="wide")
 password = 1234
 
-image = Image.open("MH/image/cover_guild.jpg")
+# image = Image.open("MH/image/cover_guild.jpg")
 # width, height = image.size
 # # 이미지에 텍스트 추가
 # draw = ImageDraw.Draw(image)
@@ -118,7 +118,7 @@ elif choice == "직위관리":
     tab1, tab2, tab3, tab4 = st.tabs(["💎Cozem", "📋Grade", "❌Warning", "⏸Pause"])
     with tab1:
         st.header("💎코어젬스톤💎")
-        st.image("MH/image/cozem_guild.jpg", use_column_width=True)
+        # st.image("MH/image/cozem_guild.jpg", use_column_width=True)
         def Flag_cozem(flag):
             if flag >= 0 and flag < 500:
                 i = 0
