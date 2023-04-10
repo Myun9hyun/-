@@ -315,7 +315,7 @@ elif choice == "직위관리":
                 option = st.selectbox("기능 선택", options)
                 
                 if option == "데이터 추가➕":
-                    select_name = st.selectbox('이름을 골라줘(❁´◡`❁)', options=data['Name'].tolist())
+                    select_name = st.selectbox('이름을 골라줘(❁´◡`❁)', options=data5['Name'].tolist())
                     is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수를 입력해주세요', min_value=0)
                     suro = st.number_input('수로 점수를 입력해주세요', min_value=0)
