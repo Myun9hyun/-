@@ -136,7 +136,7 @@ if choice == "페이지1":
         | 강성욱 |  |  |  |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
         ---
         
-        '''
+        '''  
     with tab1:
         tab1.subheader("탭1")
         tab1.write()
