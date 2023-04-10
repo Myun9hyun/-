@@ -205,6 +205,7 @@ elif choice == "직위관리":
                         st.warning(f'{name} (은)는 이미 있는 이름이야!')
                         return
             data5 = data5.append({'Name': name}, ignore_index=True)
+            
         def add_data(name,character_type, weekly_mission, suro, flag):
             global data, data5
             # role = st.radio("본캐/부캐 선택", ("본캐", "부캐"))
