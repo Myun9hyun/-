@@ -198,7 +198,7 @@ elif choice == "직위관리":
             data5 = data5.drop(index=row_index).reset_index(drop=True)
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
-        data5 = load_data5
+        data5 = load_data5()
         def add_name(names): # 낮 품목 저장
             global data5 
             if names in data5['Name'].values:
