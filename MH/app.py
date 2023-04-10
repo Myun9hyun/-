@@ -202,7 +202,7 @@ elif choice == "직위관리":
         def add_name(names): # 낮 품목 저장
             global data5 
             if names in data5['Name'].values:
-                st.warning(f'{names} (은)는 이미 있는 이름ㅇㅇ이야!')
+                # st.warning(f'{names} (은)는 이미 있는 이름ㅇㅇ이야!')
                 return
             data5 = data5.append({'Name': names}, ignore_index=True)
 
@@ -230,7 +230,7 @@ elif choice == "직위관리":
             else:
                 # 중복 검사
                 if name in data['Name'].values:
-                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    # st.warning(f'{name} (은)는 이미 있는 이름이야!')
                     return
                 suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
                 flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
