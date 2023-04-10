@@ -52,7 +52,7 @@ password = 1234
 
 
 # # streamlit에 이미지 표시
-st.image(image, use_column_width=True)
+# st.image(image, use_column_width=True)
 
 with st.sidebar:
     choice = option_menu("Menu", ["메인페이지", "길드페이지", "직위관리", "아카이브", "이것저것"],
