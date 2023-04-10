@@ -29,7 +29,7 @@ width, height = image.size
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
 text_kor = "독산 개발진스"
-text_eng = "Deep learning"
+text_eng = "Deep Learning"
 font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf", 50)
 font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
 text_width, text_height = draw.textsize(text_kor, font=font_kor)
