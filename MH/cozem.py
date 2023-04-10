@@ -167,25 +167,44 @@ elif choice == "직위관리":
             except FileNotFoundError:
                 data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             return data
+        def load_data5():
+            try:
+                data5 = pd.read_csv(FILE_PATH5)
+            except FileNotFoundError:
+                data5 = pd.DataFrame(columns=['Name'])
+            return data5
 
         # 데이터를 파일에 저장하기
         def save_data(data):
             data.to_csv(FILE_PATH, index=False)
+
         def save_data5(data5):
             data5.to_csv(FILE_PATH5, index=False)
 
         # 데이터 초기화 함수
         def clear_data():
-            global data
+            global data, data5
             data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+            data5 = pd.DataFrame(columns=['Name'])
             # 파일 삭제
             os.remove(FILE_PATH)
+            os.remove(FILE_PATH5)
         # 데이터 삭제 함수
         def delete_data(row_index):
             global data
             data = data.drop(index=row_index).reset_index(drop=True)
+        def delete_data5(row_index):
+            global data5
+            data5 = data5.drop(index=row_index).reset_index(drop=True)
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
+        data5 = load_data5()
+        def add_name(names): # 낮 품목 저장
+            global data5 
+            if names in data5['Name'].values:
+                # st.warning(f'{names} (은)는 이미 있는 이름ㅇㅇ이야!')
+                return
+            data5 = data5.append({'Name': names}, ignore_index=True)
 
         def add_data(name,character_type, weekly_mission, suro, flag):
             global data
@@ -211,7 +230,7 @@ elif choice == "직위관리":
             else:
                 # 중복 검사
                 if name in data['Name'].values:
-                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    # st.warning(f'{name} (은)는 이미 있는 이름이야!')
                     return
                 suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
                 flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
@@ -232,7 +251,8 @@ elif choice == "직위관리":
 
         # def role(Role):
         def add_character_data(name, character_type, weekly_mission, suro, flag):
-            global data
+            global data, data5
+            add_name(name)  # 입력된 이름을 데이터에 추가
             if character_type == '본캐':
                 add_data(name,character_type, weekly_mission, suro, flag)
             elif character_type == '부캐':
@@ -251,6 +271,10 @@ elif choice == "직위관리":
                         novel_value = main_data['Novel'].values[0]
                     else:
                         novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+                    if weekly_mission >= 2:
+                        novel_value = main_data['Novel'].values[0]
+                    else:
+                        novel_value = novel_p(weekly_mission, suro, flag)
                     role = character_type
                     warning_count = 0
                     warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
@@ -266,8 +290,7 @@ elif choice == "직위관리":
                         'Cozem_Total': cozem_total,
                         'Novel': novel_value,
                         'Role' : role,
-                        'Main_Name' : main_name,
-                        'Warning' : warning_count
+                        'Main_Name' : main_name
                     }, ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
@@ -291,21 +314,34 @@ elif choice == "직위관리":
             password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
             if password_input == password:
                 st.success('접근을 허용합니다')
-                options = ["데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
+                options = ["이름추가","데이터 추가➕", "데이터 조회🔎", "데이터 삭제✂", "데이터 초기화💣", "노블 사용⭕제한❌", "위클리 코젬 계산📋", "데이터 다운로드💾"]
                 option = st.selectbox("기능 선택", options)
                 
                 if option == "데이터 추가➕":
-                    name = st.text_input('닉네임을 입력해주세요')
+                    select_name = st.selectbox('이름을 골라줘(❁´◡`❁)', options=data5['Name'].tolist())
                     is_main_character = st.radio('본캐/부캐', ('본캐', '부캐'))
                     weekly_mission = st.number_input('주간 미션 점수를 입력해주세요', min_value=0)
                     suro = st.number_input('수로 점수를 입력해주세요', min_value=0)
                     flag = st.number_input('플래그 점수를 입력해주세요', min_value=0)
-                    add_character_data(name, is_main_character, weekly_mission, suro, flag)
+                    add_character_data(select_name, is_main_character, weekly_mission, suro, flag)
                     if st.button('추가하기'):
-                        # 데이터 추가 함수 호출
-                        # add_character_data(name, character_type, weekly_mission, suro, flag)
                         save_data(data)  # 데이터를 파일에 저장
-                        st.success(f'{name}의 데이터가 추가되었습니다!')
+                        st.success(f'{select_name}의 데이터가 추가되었습니다!')
+                elif option == "이름추가":
+                    
+                    name = st.text_input('이름을 입력해줘')
+                
+            # 이름, 점수, 포인트가 입력되면 데이터프레임에 추가
+                    if st.button('이름추가'):
+                        if name in data5['Name'].values:
+                            st.warning(f"{name}은(는) 이미 있는 이름이야!")
+                            return
+                        else:
+                        # if st.button('추가'):
+                            add_name(name)
+                            save_data5(data5)  # 데이터를 파일에 저장
+                            st.success('이름이 추가되었어!')
+                    
 
                 elif option == "데이터 조회🔎":
                     # 저장된 데이터
