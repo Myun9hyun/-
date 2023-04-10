@@ -34,8 +34,8 @@ font_kor = ImageFont.truetype("MH/font/arial-cufonfonts/NanumSquareNeo-eHv.ttf",
 font_eng = ImageFont.truetype("MH/font/arial-cufonfonts/ARIAL.TTF", 50)
 text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
-outline_color = (7, 7, 7)  # 검정색 테두리선
-outline_width = 3
+# outline_color = (7, 7, 7)  # 검정색 테두리선
+# outline_width = 3
 stroke_width = 2
 stroke_fill = (0, 0, 0)
 # x = (width - text_width) // 2
@@ -46,9 +46,18 @@ z = height - text_height - 100
 
 # 이미지에 텍스트 추가
 draw = ImageDraw.Draw(image)
-draw.text((x, y), text_kor, font=font_kor, fill=(0, 0, 0),outline=outline_color, width=outline_width)
-draw.text((x, z), text_eng, font=font_eng, fill=(0, 0, 0), outline=outline_color, width=outline_width)
-
+# draw.text((x, y), text_kor, font=font_kor, fill=(0, 0, 0),outline=outline_color, width=outline_width)
+# draw.text((x, z), text_eng, font=font_eng, fill=(0, 0, 0), outline=outline_color, width=outline_width)
+draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
 # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
 
