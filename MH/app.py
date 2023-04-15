@@ -578,7 +578,7 @@ elif choice == "직위관리":
                 try:
                     data1 = pd.read_csv(FILE_PATH1)
                 except FileNotFoundError:
-                    data1 = pd.DataFrame(columns=['Name', 'Warning'])
+                    data1 = pd.DataFrame(columns=['Name', 'Warning', 'Reason'])
                 return data1
 
             # 데이터를 파일에 저장하기
@@ -588,7 +588,7 @@ elif choice == "직위관리":
             # 데이터 초기화 함수
             def clear_data1():
                 global data1
-                data1 = pd.DataFrame(columns=['Name', 'Warning'])
+                data1 = pd.DataFrame(columns=['Name', 'Warning', 'Reason'])
                 # 파일 삭제
                 os.remove(FILE_PATH1)
             # 데이터 삭제 함수
@@ -598,14 +598,15 @@ elif choice == "직위관리":
 
             # 불러온 데이터를 전역 변수로 저장
             data1 = load_data1()
-            def add_data1(name, warning_count):
+            def add_data1(name, warning_count, reason):
                 global data1
                 if name in data1['Name'].values:
                     st.warning(f'{name} (은)는 이미 있는 이름이야!')
                     return
                 data1 = data1.append({
                     'Name': name, 
-                    'Warning' : warning_count
+                    'Warning' : warning_count,
+                    'Reason', reason
                 }, ignore_index=True)
             
 
@@ -631,9 +632,10 @@ elif choice == "직위관리":
                         st.warning('비밀번호가 틀렸습니다.')
                 elif option == "경고자 추가➕":
                     name = st.text_input("경고자 이름을 입력해주세요")
+                    reason = st.text_input("경고 사유를 입력해주세요")
                     warning_count = data1.loc[data1['Name']==name, 'Warning'].values[0] if name in data1['Name'].values else 0
                     if st.button('경고자 이름 추가'):
-                        add_data1(name, warning_count)
+                        add_data1(name, warning_count, reason)
                         save_data1(data1)
                         st.success(f"경고자 {name}이(가) 추가되었습니다.")
                 elif option == '경고횟수 추가/차감':
