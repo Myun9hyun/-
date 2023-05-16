@@ -166,7 +166,7 @@ if quiz6_password == password6:
 
 
 
-st.header("간부진들에게 하고싶은 말을 남겨주세요")
+st.write("간부진들에게 하고싶은 말을 남겨주세요")
 FILE_PATH10 = 'data10.csv'
 options = ["의견 남기기➕", "내용 조회🔎", "내용 삭제✂", "초기화💣" ]
 option = st.selectbox("기능 선택", options, key='select3')
