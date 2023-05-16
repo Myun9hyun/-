@@ -14,6 +14,8 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 import datetime
 
+password = 970808
+
 password1 = "창설이벤트"
 answer1 = "아기자기"
 password2 = "아깅이"
