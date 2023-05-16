@@ -48,7 +48,7 @@ if quiz2_password == password2:
     if st.button("힌트 보기", key = "check_hint_button2"):
         st.write("만든 사람의 직업은 캐논마스터야!")
 elif quiz2_password != "" and quiz2_password != password2:
-    st.error("비밀번호가 틀렸어!")d
+    st.error("비밀번호가 틀렸어!")
 quiz3_password = st.text_input("3번 문제 오픈을 위한 비밀번호를 입력해주세요!", key = "quiz3_password3")
 if quiz3_password == password3:
     quiz3 = st.text_input("이번 메이플 팬페스트 금손 부스에 참석한 간부는 누구일까요?")
