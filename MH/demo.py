@@ -218,7 +218,7 @@ def main():
                     delete_data10(row_index)
                     save_data10(data10)  # 데이터를 파일에 저장
                     st.success('입력하신 행이 삭제되었습니다.')
-        else:
+        elif password_input != "" and password_input != password:
             st.warning('비밀번호가 틀렸습니다.')
     elif option == "의견 남기기➕":
         name = st.text_input("의견 남기시는 분의 이름을 입력해주세요")
@@ -239,7 +239,7 @@ def main():
             if st.button('내용 확인'):
                 st.write("내용입니다.")
                 st.write(data10)
-        else:
+        elif password_input != "" and password_input != password:
             st.warning('비밀번호가 틀렸습니다.')
 
     elif option == "초기화💣":
@@ -253,7 +253,7 @@ def main():
             if st.button('초기화'):
                 clear_data10()
                 st.warning('초기화 되었습니다')
-        else:
+        elif password_input != "" and password_input != password:
             st.warning('비밀번호가 틀렸습니다.')
 if __name__ == "__main__":
     main()
