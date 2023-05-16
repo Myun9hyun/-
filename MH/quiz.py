@@ -54,7 +54,7 @@ if quiz3_password == password3:
     quiz3 = st.text_input("이번 메이플 팬페스트 금손 부스에 참석한 간부는 누구일까요?")
     if st.button("정답 확인"):
         if quiz3 == answer3:
-            st.ballons()
+            st.balloons()
             st.success("정답입니다!")
             st.write("[릎샴]은 이번 팬페스트에 '볼빵빵하우스'라는 부스 담당자로 참석했어!")
             st.write("[릎샴]은 길드에서 포스터, 길드규정문 등을 만드는 디자인 역할을 하고 있어!")
