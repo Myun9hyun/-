@@ -21,7 +21,7 @@ password3 = "반디"
 answer3 = "릎샴"
 password4 = "금손"
 answer4 = "둥둥향"
-password5 = "금손"
+password5 = "둥둥"
 answer5 = "1"
 
 with st.sidebar:
