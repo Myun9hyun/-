@@ -14,7 +14,7 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 import datetime
 
-password = 970808
+password = "970808"
 
 password1 = "창설이벤트"
 answer1 = "아기자기"
@@ -206,7 +206,7 @@ def add_data10(name, comment, day):
 def main():
     if option == "내용 삭제✂":
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='pass1')
+        password_input = st.text_input('비밀번호를 입력해주세요 : ', key='pass1')
         if password_input == password:
             st.success('접근을 허용합니다')
             st.write(data10[['Name','Comment', 'Day']])
@@ -233,7 +233,7 @@ def main():
 
     elif option == "내용 조회🔎":
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass2')
+        password_input = st.text_input('비밀번호를 입력해주세요 : ',key='pass2')
         if password_input == password:
             st.success('접근을 허용합니다')
             if st.button('내용 확인'):
@@ -244,7 +244,7 @@ def main():
 
     elif option == "초기화💣":
         st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
-        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass3')
+        password_input = st.text_input('비밀번호를 입력해주세요 : ',key='pass3')
         if password_input == password:
             st.success('접근을 허용합니다')
             # 데이터 전부 삭제
