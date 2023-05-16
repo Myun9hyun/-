@@ -22,7 +22,7 @@ if quiz1_password == password1:
     quiz1 = st.text_input("우리 길드의 이름은 뭘까?")
     if st.button("정답 확인", key="check_answer_button1"):
         if quiz1 == answer1:
-            st.balloon(
+            st.balloons(
             st.success("정답입니다!")
             st.success("2번 문제 오픈을 위한 비밀번호는 5678입니다")
             )
