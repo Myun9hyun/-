@@ -37,6 +37,7 @@ if quiz2_password == password2:
     quiz2 = st.text_input("이 페이지 누가 만들었을까요?")
     if st.button("정답 확인", key="check_answer_button2"):
         if quiz2 == answer2:
+            st.balloons()
             st.success("정답입니다!")
         else :
             st.error("다시 한번 생각해봐!")
