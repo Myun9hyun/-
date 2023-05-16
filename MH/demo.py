@@ -17,10 +17,12 @@ password1 = "창설이벤트"
 answer1 = "아기자기"
 password2 = "아깅이"
 answer2 = "뱌닢"
-password3 = "초초"
+password3 = "반디"
 answer3 = "릎샴"
-password4 = ""
+password4 = "둥둥"
 answer4 = "둥둥향"
+password5 = "금손"
+answer5 = "1"
 
 with st.sidebar:
     choice = option_menu("Menu", ["메인페이지", "퀴즈", "아깅이소리함", "아카이브", "이것저것"],
@@ -65,8 +67,11 @@ if quiz2_password == password2:
             st.success("정답입니다!")
             # st.image("메지지 이미지 넣기")
             st.write("[뱌닢]은 우리 길드의 길드마스터야!")
+            st.write("[뱌닢]은 길드를 위해 누구보다 열심히 일해😊")
             st.write("[뱌닢]은 매번 위클리 이벤트로 분배된 코젬을 나누는 역할을 하고있어!")
             st.write("[뱌닢]은 길드 노블 공지, 길드 컨텐츠 미이행자 공지, 길드 이벤트 공지등의 역할도 하고 있어!")
+            st.write("[뱌닢]은 길드 개편을 위해 많은 노력을 했어!")
+            st.write("3번 문제 오픈을 위한 비밀번호는 '반디' 야!")
         else :
             st.warning("다시 한 번 생각해봐!")
     if st.button("힌트 보기"):
@@ -80,19 +85,20 @@ elif quiz2_password != "" and quiz2_password != password2:
 quiz3_password = st.text_input("3번 문제 오픈을 위한 비밀번호를 입력해주세요!", key = "quiz3_password3")
 if quiz3_password == password3:
     quiz3 = st.text_input("이번 메이플 팬페스트 금손 부스에 참석한 간부는 누구일까?")
-    if st.button("정답 확인"):
+    if st.button("정답 확인", key= "check_answer_button3"):
         if quiz3 == answer3:
             st.balloons()
             st.success("정답입니다!")
             # st.image("메지지 이미지 넣기")
             st.write("[릎샴]은 이번 팬페스트에 '볼빵빵하우스'라는 부스 담당자로 참석했어!")
             st.write("[릎샴]은 길드에서 포스터, 길드규정문 등을 만드는 디자인 역할을 하고 있어!")
-            st.write("4번 문제 오픈을 위한 비밀번호는 ()야!")
+            st.write("[릎샴]은 이번 창설이벤트 경품으로 제공되는 물품도 만들었어!")
+            st.write("4번 문제 오픈을 위한 비밀번호는 '금손' 이야!")
         else : 
             st.warning("다시 한 번 생각해봐!")
-    if st.button("힌트 보기"):
+    if st.button("힌트 보기", key = "check_hint_button3"):
         st.write("캡틴 김수호와 직업이 같은 사람을 생각해봐!")
-        st.write("이 사람은 ")
+        st.write("이 사람은 '이달의 아깅이' 이벤트에서 키링 이미지 제작도 해주고 있어!")
 elif quiz3_password != "" and quiz3_password != password3:
     st.error("비밀번호가 틀렸어!")
 
@@ -108,7 +114,8 @@ if quiz4_password == password4:
             # st.image("메지지 프로필 넣기")
             st.write("[둥둥향]은 하찮은 컴퓨터 실력으로 페이지 만드는 역할을 맡고 있어!")
             st.write("[둥둥향]은 공지방에서 이벤트 정리글을 공유하는 역할을 하고 있어!")
-            st.write("5번 문제 오픈을 위한 비밀번호는 '초초'야!")
+            st.write("[둥둥향]은 공지글의 멘트를 작성하는 역할을 하고 있어!")
+            st.write("5번 문제 오픈을 위한 비밀번호는 '둥둥'이야!")
         else :
             st.error("다시 한번 생각해봐!")
     if st.button("힌트 보기", key = "check_hint_button4"):
@@ -119,4 +126,27 @@ elif quiz4_password != "" and quiz4_password != password4:
 
 # ----------------------------------------------------------------------------------------------------------
 # 5번
+quiz5_password = st.text_input("5번 문제 오픈을 위한 비밀번호를 입력해주세요!", key = "quiz5_password")
+if quiz5_password == password5:
+    quiz5 = st.text_input("문제를 읽고, 아래의 보기에서 정답을 '숫자'로 입력해줘!")
+    st.write("나는 공지방에서 썬데이 메이플 공지를 하고 있습니다!")
+    st.write("나의 직업은 '영웅' 직업군입니다")
+    st.write("나는 누구 일까요?")
+    st.write("---")
+    st.write("1. 돌체라페")
+    st.write("2. 카페라떼")
+    st.write("3. 콤퓨타")
+    st.write("4. 턴테이블")
+    st.write("5. 퀸메아")
+    if st.button("정답 확인", key = "check_answer_button5"):
+        st.balloons()
+        st.success("정답입니다!")
+        st.write("[돌체라페]는 간부진 막내로서 다른 간부들을 위해 열심히 도와주고 있어!")
+        st.write("[돌체라페]는 매주 금요일 10시 썬데이메이플 내용을 공지방에 공유해주고 있어")
+        st.write("[돌체라페]는 매주 일요일 길드 컨텐츠 이행여부를 확인하고, 직위 상승/하락을 확인하고 있어")
+        st.write("[돌체라페]는 간부진들 중 막내야!")
+        st.write("6번 문제 오픈을 위한 비밀번호는 '커피'야!")
+    if st.button("힌트 보기", key = "check_hint_button5"):
+        st.write("나는 연유가 들어간 커피야!")
+
 
