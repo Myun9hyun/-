@@ -47,6 +47,7 @@ if quiz2_password == password2:
             st.error("다시 한번 생각해봐!")
     if st.button("힌트 보기", key = "check_hint_button2"):
         st.write("만든 사람의 직업은 캐논마스터야!")
+elif quiz2_password != "" and quiz2_password != password2:
 quiz3_password = st.text_input("3번 문제 오픈을 위한 비밀번호를 입력해주세요!", key = "quiz3_password3")
 if quiz3_password == password3:
     quiz3 = st.text_input("이번 메이플 팬페스트 금손 부스에 참석한 간부는 누구일까요?")
@@ -60,5 +61,5 @@ if quiz3_password == password3:
             st.warning("다시 생각해봐!")
     if st.button("힌트 보기"):
         st.write("캡틴 김수호와 직업이 같은 사람을 생각해봐!")
-else :
+elif quiz3_password != "" and quiz3_password != password3:
     st.error("비밀번호가 틀렸어!")
