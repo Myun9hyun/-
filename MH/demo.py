@@ -139,14 +139,18 @@ if quiz5_password == password5:
     st.write("4. 턴테이블")
     st.write("5. 퀸메아")
     if st.button("정답 확인", key = "check_answer_button5"):
-        st.balloons()
-        st.success("정답입니다!")
-        st.write("[돌체라페]는 간부진 막내로서 다른 간부들을 위해 열심히 도와주고 있어!")
-        st.write("[돌체라페]는 매주 금요일 10시 썬데이메이플 내용을 공지방에 공유해주고 있어")
-        st.write("[돌체라페]는 매주 일요일 길드 컨텐츠 이행여부를 확인하고, 직위 상승/하락을 확인하고 있어")
-        st.write("[돌체라페]는 간부진들 중 막내야!")
-        st.write("6번 문제 오픈을 위한 비밀번호는 '커피'야!")
+        if quiz5 == answer5:
+            st.balloons()
+            st.success("정답입니다!")
+            st.write("[돌체라페]는 간부진 막내로서 다른 간부들을 위해 열심히 도와주고 있어!")
+            st.write("[돌체라페]는 매주 금요일 10시 썬데이메이플 내용을 공지방에 공유해주고 있어")
+            st.write("[돌체라페]는 매주 일요일 길드 컨텐츠 이행여부를 확인하고, 직위 상승/하락을 확인하고 있어")
+            st.write("[돌체라페]는 간부진들 중 막내야!")
+            st.write("6번 문제 오픈을 위한 비밀번호는 '커피'야!")
+        else  :
+            st.warning("다시 한 번 생각해봐!")
     if st.button("힌트 보기", key = "check_hint_button5"):
         st.write("나는 연유가 들어간 커피야!")
-
+elif quiz5_password != "" and quiz5_password != password5:
+    st.error("비밀번호가 틀렸어!")
 
