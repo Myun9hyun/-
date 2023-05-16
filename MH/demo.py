@@ -13,12 +13,14 @@ import xgboost as xgb
 import seaborn as sns
 from streamlit_option_menu import option_menu
 
-
+password1 = "1234"
 answer1 = "안녕"
 
-st.write("만나서 반가울때 하는 인사는?")
-quiz = st.text_input("만나서 반가울때 하는 인사는?")
-if quiz == answer1:
-    st.success("정답입니다!")
-    st.success("2번 문제 오픈을 위한 비밀번호는 1234입니다")
+quiz1_password = st.number_input("1번 문제 오픈을 위한 비밀번호를 입력해주세요!", min_value=0, key="quiz1_password")
+if quiz1_password == password1:
+    st.write("만나서 반가울때 하는 인사는?")
+    quiz1 = st.text_input("만나서 반가울때 하는 인사는?")
+    if quiz1 == answer1:
+        st.success("정답입니다!")
+        st.success("2번 문제 오픈을 위한 비밀번호는 1234입니다")
     
