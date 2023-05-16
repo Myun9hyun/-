@@ -25,6 +25,8 @@ if quiz1_password == password1:
         st.success("2번 문제 오픈을 위한 비밀번호는 5678입니다")
     else:
         st.warning("다시 한번 생각해봐!")
+else : 
+    st.warning("비밀번호가 틀렸어!")
 quiz2_password = st.text_input("2번 문제 오픈을 위한 비밀번호를 입력해주세요!", key = "quiz2_password")
 if quiz2_password == password2:
     quiz2 = st.text_input("이 페이지 누가 만들었을까요?")
@@ -32,3 +34,5 @@ if quiz2_password == password2:
         st.success("정답입니다!")
     else :
         st.error("다시 한번 생각해봐!")
+else :
+    st.error("비밀번호가 틀렸어!")
