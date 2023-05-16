@@ -19,4 +19,4 @@ answer1 = "안녕"
 st.write("만나서 반가울때 하는 인사는?")
 quiz = st.text_input("만나서 반가울때 하는 인사는?")
 if quiz == answer1:
-    st.success("정답입니다!")
+    st.success("정답입니다! 2번 문제 오픈을 위한 비밀번호는 1234입니다")
