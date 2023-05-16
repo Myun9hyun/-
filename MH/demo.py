@@ -61,6 +61,6 @@ if quiz3_password == password3:
         else : 
             st.warning("다시 생각해봐!")
     if st.button("힌트 보기"):
-        st.write("캡틴 김수호를 생각해봐!")
+        st.write("캡틴 김수호와 직업이 같은 사람을 생각해봐!")
 else :
     st.error("비밀번호가 틀렸어!")
