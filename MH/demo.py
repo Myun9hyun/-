@@ -14,12 +14,12 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 
 password1 = "1234"
-answer1 = "안녕"
+answer1 = "아기자기"
 password2 = "5678"
 answer2 = "둥둥"
 quiz1_password = st.text_input("1번 문제 오픈을 위한 비밀번호를 입력해주세요!",  key="quiz1_password")
 if quiz1_password == password1:
-    quiz1 = st.text_input("만나서 반가울때 하는 인사는?")
+    quiz1 = st.text_input("우리 길드의 이름은 뭘까?")
     if quiz1 == answer1:
         st.success("정답입니다!")
         st.success("2번 문제 오픈을 위한 비밀번호는 5678입니다")
