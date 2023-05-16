@@ -16,7 +16,7 @@ from streamlit_option_menu import option_menu
 password1 = "1234"
 answer1 = "아기자기"
 password2 = "5678"
-answer2 = "둥둥"
+answer2 = "둥둥향"
 quiz1_password = st.text_input("1번 문제 오픈을 위한 비밀번호를 입력해주세요!",  key="quiz1_password")
 if quiz1_password == password1:
     quiz1 = st.text_input("우리 길드의 이름은 뭘까?")
