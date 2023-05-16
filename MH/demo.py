@@ -19,6 +19,19 @@ password2 = "5678"
 answer2 = "둥둥향"
 password3 = "초초"
 answer3 = "릎샴"
+
+with st.sidebar:
+    choice = option_menu("Menu", ["메인페이지", "길드페이지", "직위관리", "아카이브", "이것저것"],
+                         icons=['house', 'bi bi-emoji-smile', 'bi bi-robot', 'bi bi-palette'],
+                         menu_icon="app-indicator", default_index=0,
+                         styles={
+        "container": {"padding": "4!important", "background-color": "#fafafa"},
+        "icon": {"color": "black", "font-size": "25px"}, 
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#fafafa"},
+        "nav-link-selected": {"background-color": "#02ab21"},
+    }
+    )
+    
 quiz1_password = st.text_input("1번 문제 오픈을 위한 비밀번호를 입력해주세요!",  key="quiz1_password")
 if quiz1_password == password1:
     quiz1 = st.text_input("우리 길드의 이름은 뭘까?")
