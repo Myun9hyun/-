@@ -28,13 +28,11 @@ if quiz1_password == password1:
             st.success("정답입니다!")
             st.write("우리 길드와 함께해줘서 고마워 ╰(*°▽°*)╯")
             st.write("2번 문제 오픈을 위한 비밀번호는 5678입니다")
-            
-            
         else:
             st.warning("다시 한번 생각해봐!")
     if st.button("힌트 보기", key="check_hint_button1"):
             st.write("이건 힌트 줄수가 없어! 잘 생각해봐")
-else : 
+elif quiz1_password != "" and quiz1_password != password1:
     st.warning("비밀번호가 틀렸어!")
 quiz2_password = st.text_input("2번 문제 오픈을 위한 비밀번호를 입력해주세요!", key = "quiz2_password")
 if quiz2_password == password2:
