@@ -13,3 +13,5 @@ streamlit
 tabulate
 PyPDF2==1.26.0
 PyMuPDF
+beautifulsoup4==4.10.0
+joblib
