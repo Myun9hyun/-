@@ -11,4 +11,5 @@ numpy
 openpyxl
 streamlit
 tabulate
-
+PyPDF2==1.26.0
+PyMuPDF
