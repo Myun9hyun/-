@@ -445,8 +445,10 @@ def main():
                         st.warning('비밀번호가 틀렸습니다.')
                 
     with tab1:
-        st.title("포스터 아래의 안내사항을 꼭 읽어줘!")
-        
+        st.write()
+        '''
+        ##### 포스터 아래의 안내사항을 꼭 읽어줘!
+        '''
 
 
         st.write()
