@@ -112,7 +112,9 @@ def add_data(name, price, mount): # 낮 품목 저장
     if name in data['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 품목이야!')
                 return
-    data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    # data = data.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    data = pd.concat([data, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+
 
 def add_data4(name, price, mount): # 밤 품목 저장
     global data4
