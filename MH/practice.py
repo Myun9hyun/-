@@ -476,8 +476,8 @@ def main():
 
             if password_input_poster == day:
                 st.success('다락방의 낮을 공개할게!')
-                img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/day_new.jpg'
-                img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/day_secret_new.jpg'
+                img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_day.jpg'
+                img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_day_s.jpg'
                 st.image(img_url1)
                 st.image(img_url2)
             else: 
@@ -487,8 +487,8 @@ def main():
             password_input_night = st.number_input('비밀번호를 입력해주세요 : ', min_value=0, key='password_input_night')
             if password_input_night == night:
                 st.success('다락방의 밤을 공개할게!')  
-                img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/night_new.jpg'
-                img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/night_secret_new.jpg'
+                img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_night.jpg'
+                img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_night_s.jpg'
                 st.image(img_url1)
                 st.image(img_url2)
             else: 
