@@ -448,7 +448,8 @@ def main():
         
 
         st.write()
-        img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_info.jpg'
+        img_urlinfo='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_info.jpg'
+        st.image(img_urlinfo)
 
         '''
         ##### 여기 있는 안내사항을 먼저 읽고 참여해줘!
