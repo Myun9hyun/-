@@ -131,7 +131,7 @@ def add_data2(name, point): # 포인트 배분
                 st.warning(f'{name} (은)는 이미 있는 이름이야!')
                 return
     # data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
-    data2 = pd.concat([data2, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+    data2 = pd.concat([data2, pd.DataFrame({'Name': [name], 'Point': [point]})], ignore_index=True)
 
 
 def add_data3(name, price, mount):
