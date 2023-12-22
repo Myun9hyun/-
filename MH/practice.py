@@ -498,7 +498,7 @@ def main():
 
             if password_input_poster == day:
                 st.success('다락방의 낮을 공개할게!')
-                img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_day.jpg'
+                img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_day_n.jpg'
                 img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_day_s.jpg'
                 st.image(img_url1)
                 st.image(img_url2)
