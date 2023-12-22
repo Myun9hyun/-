@@ -445,6 +445,9 @@ def main():
                         st.warning('비밀번호가 틀렸습니다.')
                 
     with tab1:
+        img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_info.jpg'
+        
+
         st.write()
         '''
         ##### 여기 있는 안내사항을 먼저 읽고 참여해줘!
