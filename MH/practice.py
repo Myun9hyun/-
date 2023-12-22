@@ -121,22 +121,30 @@ def add_data4(name, price, mount): # 밤 품목 저장
     if name in data4['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 품목이야!')
                 return
-    data4 = data4.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    # data4 = data4.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    data4 = pd.concat([data4, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+   
 
 def add_data2(name, point): # 포인트 배분 
     global data2
     if name in data2['Name'].values:
                 st.warning(f'{name} (은)는 이미 있는 이름이야!')
                 return
-    data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
+    # data2 = data2.append({'Name': name, 'Point': point}, ignore_index=True)
+    data2 = pd.concat([data2, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+
 
 def add_data3(name, price, mount):
     global data3
-    data3 = data3.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    # data3 = data3.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    data3 = pd.concat([data3, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+
 
 def add_data5(name, price, mount):
     global data5
-    data5 = data5.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    # data5 = data5.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+    data5 = pd.concat([data5, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+
 
 def purchase_item(name, product_name, mount): # 낮 구매하기
     global data, data2
@@ -216,10 +224,13 @@ def purchase_item2(name, product_name, mount): # 밤 구매하기
 def save_purchase_history(name, product_name, mount): # 낮 구매내역 저장
     global data3
     data3 = data3.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+    # data3 = pd.concat([data3, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+
 def save_purchase_history2(name, product_name, mount): # 밤 구매내역 저장
     global data5
     data5 = data5.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
-    
+    # data5 = pd.concat([data5, pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})], ignore_index=True)
+
 def delete_data(row_index):
             global data
             data = data.drop(index=row_index).reset_index(drop=True)
