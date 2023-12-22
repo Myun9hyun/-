@@ -445,10 +445,11 @@ def main():
                         st.warning('비밀번호가 틀렸습니다.')
                 
     with tab1:
-        img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_info.jpg'
         
 
         st.write()
+        img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_info.jpg'
+
         '''
         ##### 여기 있는 안내사항을 먼저 읽고 참여해줘!
         ##### 아기자기의 다락방은 아깅이들을 위해 만들었어!
