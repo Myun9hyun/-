@@ -250,8 +250,8 @@ def delete_data5(row_index):
 # Streamlit 앱 생성
 def main():
     password = 970808
-    day_password = 951017
-    day = 951017
+    day_password = 970808
+    day = 970808
     night_password = 940206
     night = 940206
     st.title('💜아기자기 다락방💙')
@@ -511,8 +511,8 @@ def main():
                 st.success('다락방의 밤을 공개할게!')  
                 img_url1='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_night_secret.jpg'
                 img_url2='https://github.com/Myun9hyun/trash/raw/main/MH/room/attic_night_normal.jpg'
-                st.image(img_url1)
                 st.image(img_url2)
+                st.image(img_url1)
             else: 
                 st.warning('비밀번호가 틀린것 같아')
    
